@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building Blocks — Lumen AI — User Guide</title>
+<meta name="description" content="The 70&#43; tools you can use as nodes in your workflows — organized by what they do.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="/img/lumen-logo.png" type="image/png">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<meta property="og:title" content="Building Blocks">
+<meta property="og:description" content="A visual guide for clinicians using Lumen AI">
+<meta property="og:image" content="/img/lumen-logo.png">
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/img/lumen-logo.png" alt="Lumen AI">
+      <span class="logo-label">Lumen<span class="logo-sub">User Guide</span></span>
+    </a>
+
+    <nav class="header-nav">
+      
+        <a href="/getting-started/">Getting Started</a>
+      
+        <a href="/chat/">The Chat</a>
+      
+        <a href="/agents/">Agents</a>
+      
+        <a href="/workflows/">Workflows</a>
+      
+        <a href="/tools/">Chat Tools</a>
+      
+    </nav>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <div class="scroll-progress"></div>
+
+  <div class="site-wrapper ">
+    
+      <aside class="sidebar">
+  <nav>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a class="sidebar-link" href="/getting-started/">Pick a Scenario</a>
+      <a class="sidebar-link" href="/getting-started/first-chat/">Your First Chat</a>
+      <a class="sidebar-link" href="/getting-started/check-interaction/">Check a Drug Interaction</a>
+      <a class="sidebar-link" href="/getting-started/find-a-code/">Find a Billing Code</a>
+      <a class="sidebar-link" href="/getting-started/differential/">Build a Differential</a>
+      <a class="sidebar-link" href="/getting-started/draft-a-note/">Draft a Note</a>
+      <a class="sidebar-link" href="/getting-started/run-a-calculator/">Run a Calculator</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">The Chat</div>
+      <a class="sidebar-link" href="/chat/">Overview</a>
+      <a class="sidebar-link" href="/chat/sending-messages/">Typing &amp; Sending</a>
+      <a class="sidebar-link" href="/chat/responses/">Reading Answers</a>
+      <a class="sidebar-link" href="/chat/thinking/">How Lumen Thinks</a>
+      <a class="sidebar-link" href="/chat/artifacts/">Reports &amp; Files</a>
+      <a class="sidebar-link" href="/chat/sources/">Where It Gets Its Info</a>
+      <a class="sidebar-link" href="/chat/attachments/">Uploading Your Files</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Agents</div>
+      <a class="sidebar-link" href="/agents/">Agents vs Chat</a>
+      <a class="sidebar-link" href="/agents/clinical-scribe/">Clinical Scribe</a>
+      <a class="sidebar-link" href="/agents/diagnostic-support/">Diagnostic Support</a>
+      <a class="sidebar-link" href="/agents/research-advisor/">Research Advisor</a>
+      <a class="sidebar-link" href="/agents/insurance/">Insurance &amp; Appeals</a>
+      <a class="sidebar-link" href="/agents/document-analyzer/">Document Analyzer</a>
+      <a class="sidebar-link" href="/agents/health-explainer/">Health Explainer</a>
+      <a class="sidebar-link" href="/agents/symptom-checker/">Symptom Checker</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Workflows</div>
+      <a class="sidebar-link" href="/workflows/">Why Build a Workflow</a>
+      <a class="sidebar-link" href="/workflows/editor/">The Visual Editor</a>
+      <a class="sidebar-link" href="/workflows/building-blocks/">Building Blocks</a>
+      <a class="sidebar-link" href="/workflows/running/">Running &amp; Results</a>
+      <a class="sidebar-link" href="/workflows/publish/">Turn It Into an Agent</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Chat Tools</div>
+      <a class="sidebar-link" href="/tools/">Overview</a>
+      <a class="sidebar-link" href="/tools/search-sources/">Finding Information</a>
+      <a class="sidebar-link" href="/tools/literature-research/">Research &amp; Evidence</a>
+      <a class="sidebar-link" href="/tools/medications/">Medication Questions</a>
+      <a class="sidebar-link" href="/tools/coding-labs/">Codes, Labs &amp; Calculators</a>
+      <a class="sidebar-link" href="/tools/protocols-decisions/">Protocols &amp; Decision Support</a>
+      <a class="sidebar-link" href="/tools/patient-records/">Patient Records &amp; Notes</a>
+      <a class="sidebar-link" href="/tools/document-generation/">Creating Documents</a>
+      <a class="sidebar-link" href="/tools/privacy/">Privacy &amp; Safety</a>
+    </div>
+  </nav>
+</aside>
+
+    
+
+    <main class="main-content">
+      
+<div class="content-body">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    
+      <a href="/workflows/">Workflows</a>
+      <span class="sep">/</span>
+    
+    <span>Building Blocks</span>
+  </nav>
+
+  <div class="page-header">
+    <h1>Building Blocks</h1>
+    
+  </div>
+
+  <div class="page-content">
+    <p>Every node in a workflow is a tool that does one thing. Here are all the tools available, grouped by the kind of work they do.</p>
+<h2 id="where-data-comes-in">Where Data Comes In</h2>
+<p>These nodes start your workflow — they&rsquo;re how you get information into the pipeline.</p>
+<div class="tool-grid">
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #5865F21a; color: #5865F2;">
+    &#128221;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Text Input</div>
+    <div class="tool-desc">Type or paste text. This is the most common starting point — paste a clinical note, a question, or any text you want to process.</div>
+    
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #5865F21a; color: #5865F2;">
+    &#128196;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Document Upload</div>
+    <div class="tool-desc">Upload a PDF, Word doc, or text file. The workflow reads and extracts the text automatically.</div>
+    
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #5865F21a; color: #5865F2;">
+    &#127908;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Voice Input</div>
+    <div class="tool-desc">Use a dictation transcript as input. Pairs well with Lumen&#39;s dictation feature.</div>
+    
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #8C66D91a; color: #8C66D9;">
+    &#127760;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Web Scrape</div>
+    <div class="tool-desc">Fetch and parse content from a URL. Useful for pulling in guidelines or reference material from the web.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #8C66D91a; color: #8C66D9;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+</div>
+<h2 id="text-analysis">Text Analysis</h2>
+<p>These nodes read text and extract useful structure from it.</p>
+<div class="tool-grid">
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #0EA5E91a; color: #0EA5E9;">
+    &#128203;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Summarize</div>
+    <div class="tool-desc">Condense long text into a shorter summary. You control the length.</div>
+    
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #8C66D91a; color: #8C66D9;">
+    &#128196;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Extract Entities</div>
+    <div class="tool-desc">Find medications, diagnoses, procedures, and lab values in unstructured text.</div>
+    
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #8C66D91a; color: #8C66D9;">
+    &#127991;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Classify</div>
+    <div class="tool-desc">Sort text into categories you define. Example: classify a note as &#39;urgent&#39;, &#39;routine&#39;, or &#39;follow-up&#39;.</div>
+    
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #8C66D91a; color: #8C66D9;">
+    &#128200;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Sentiment</div>
+    <div class="tool-desc">Detect whether text is positive, negative, or neutral — with a confidence score.</div>
+    
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #0EA5E91a; color: #0EA5E9;">
+    &#127760;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Translate</div>
+    <div class="tool-desc">Translate text between languages. Useful for multilingual patient communication.</div>
+    
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #8C66D91a; color: #8C66D9;">
+    &#128273;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Keywords</div>
+    <div class="tool-desc">Extract the most important terms from a piece of text.</div>
+    
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #0EA5E91a; color: #0EA5E9;">
+    &#10067;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Q&amp;A</div>
+    <div class="tool-desc">Answer a specific question based on the text that comes in. Example: &#39;What medications is this patient on?&#39;</div>
+    
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #0EA5E91a; color: #0EA5E9;">
+    &#9999;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Generate Text</div>
+    <div class="tool-desc">Write new text based on a prompt. Example: &#39;Write a patient-friendly explanation of these lab results.&#39;</div>
+    
+    
+  </div>
+</div>
+
+</div>
+<h2 id="knowledge--research">Knowledge &amp; Research</h2>
+<p>These nodes search databases and bring in external evidence.</p>
+<div class="tool-grid">
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #0EA5E91a; color: #0EA5E9;">
+    &#128218;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Search Clinical Knowledge</div>
+    <div class="tool-desc">Search Lumen&#39;s clinical database for relevant guidelines and evidence.</div>
+    
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #8C66D91a; color: #8C66D9;">
+    &#128193;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Search Your Documents</div>
+    <div class="tool-desc">Search your personally uploaded files for relevant passages.</div>
+    
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #0EA5E91a; color: #0EA5E9;">
+    &#128218;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">PubMed Search</div>
+    <div class="tool-desc">Search PubMed for peer-reviewed articles. Set the query and max results.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #0EA5E91a; color: #0EA5E9;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #34C7591a; color: #34C759;">
+    &#128138;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">FDA Drug Labels</div>
+    <div class="tool-desc">Look up FDA-approved prescribing information — indications, warnings, dosing.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #34C7591a; color: #34C759;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #8C66D91a; color: #8C66D9;">
+    &#129514;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Clinical Trials</div>
+    <div class="tool-desc">Search ClinicalTrials.gov for active and completed studies.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #8C66D91a; color: #8C66D9;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+</div>
+<h2 id="medications">Medications</h2>
+<div class="tool-grid">
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #34C7591a; color: #34C759;">
+    &#128138;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Identify a Drug (RxNorm)</div>
+    <div class="tool-desc">Normalize drug names — brand to generic, get drug class and RxCUI.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #34C7591a; color: #34C759;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #FF95001a; color: #FF9500;">
+    &#9888;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Check Drug Interactions</div>
+    <div class="tool-desc">Check for interactions between drugs. Returns severity and management.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #FF95001a; color: #FF9500;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #0EA5E91a; color: #0EA5E9;">
+    &#128167;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">IV Drip Calculator</div>
+    <div class="tool-desc">Calculate infusion rates from weight-based dosing.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #0EA5E91a; color: #0EA5E9;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #8C66D91a; color: #8C66D9;">
+    &#129656;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Renal Dose Check</div>
+    <div class="tool-desc">Compute CrCl and look up renal dose adjustments.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #8C66D91a; color: #8C66D9;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+</div>
+<h2 id="coding--labs">Coding &amp; Labs</h2>
+<div class="tool-grid">
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #FF95001a; color: #FF9500;">
+    &#127973;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">ICD-10 Lookup</div>
+    <div class="tool-desc">Find diagnosis codes from a clinical description.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #FF95001a; color: #FF9500;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #FF95001a; color: #FF9500;">
+    &#129534;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">CPT Lookup</div>
+    <div class="tool-desc">Find procedure codes.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #FF95001a; color: #FF9500;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #8C66D91a; color: #8C66D9;">
+    &#128203;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">HCPCS Lookup</div>
+    <div class="tool-desc">Find Level II codes for DME, supplies, and drugs.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #8C66D91a; color: #8C66D9;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #3DBF801a; color: #3DBF80;">
+    &#129514;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Lab Reference Ranges</div>
+    <div class="tool-desc">Get normal ranges for any lab test.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #3DBF801a; color: #3DBF80;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #5865F21a; color: #5865F2;">
+    &#129518;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Clinical Calculator</div>
+    <div class="tool-desc">Run validated scoring tools — eGFR, CHA₂DS₂-VASc, MELD, Wells, and more.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #5865F21a; color: #5865F2;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #34C7591a; color: #34C759;">
+    &#9989;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">CMS Coverage</div>
+    <div class="tool-desc">Check Medicare coverage determinations (NCDs and LCDs).</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #34C7591a; color: #34C759;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+</div>
+<h2 id="protocols--decisions">Protocols &amp; Decisions</h2>
+<div class="tool-grid">
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #3DBF801a; color: #3DBF80;">
+    &#9745;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Clinical Checklist</div>
+    <div class="tool-desc">Load evidence-based protocol checklists (sepsis, DKA, central line, etc.).</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #3DBF801a; color: #3DBF80;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #FF95001a; color: #FF9500;">
+    &#127973;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Triage Assessment</div>
+    <div class="tool-desc">Score patient acuity using ESI, Manchester, CTAS, or START.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #FF95001a; color: #FF9500;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #0EA5E91a; color: #0EA5E9;">
+    &#129504;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Differential Diagnosis</div>
+    <div class="tool-desc">Generate a ranked differential with workup recommendations.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #0EA5E91a; color: #0EA5E9;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #34C7591a; color: #34C759;">
+    &#129440;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Antimicrobial Selector</div>
+    <div class="tool-desc">Select appropriate antibiotics with dosing and allergy alternatives.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #34C7591a; color: #34C759;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #8C66D91a; color: #8C66D9;">
+    &#128214;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Clinical Guidelines</div>
+    <div class="tool-desc">Search USPSTF and current practice guidelines.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #8C66D91a; color: #8C66D9;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+</div>
+<h2 id="where-results-go-out">Where Results Go Out</h2>
+<p>These nodes deliver the final output of your workflow.</p>
+<div class="tool-grid">
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #34C7591a; color: #34C759;">
+    &#128172;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Send to Chat</div>
+    <div class="tool-desc">Output appears in the chat — the most common output node.</div>
+    
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #E53E3E1a; color: #E53E3E;">
+    &#128196;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Export as PDF</div>
+    <div class="tool-desc">Generate a downloadable PDF document.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #E53E3E1a; color: #E53E3E;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #D69E2E1a; color: #D69E2E;">
+    &#128202;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Export as Slides</div>
+    <div class="tool-desc">Generate a PowerPoint presentation.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #D69E2E1a; color: #D69E2E;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #2173461a; color: #217346;">
+    &#128203;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Create Spreadsheet</div>
+    <div class="tool-desc">Generate an Excel workbook.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #2173461a; color: #217346;">Pro</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #FF95001a; color: #FF9500;">
+    &#128231;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Send Email</div>
+    <div class="tool-desc">Email the output to a specified address.</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #FF95001a; color: #FF9500;">Max</span>
+    </div>
+    
+  </div>
+</div>
+
+</div>
+
+
+<div class="callout callout-info">
+  <span class="callout-icon">&#128161;</span>
+  <div><strong>Pro and Max badges</strong> indicate which subscription tier is needed for that tool. Free-tier users can still build workflows with basic text analysis and output nodes.</div>
+</div>
+
+
+  </div>
+
+  
+  
+  
+    
+    
+    
+    
+    
+
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+      
+    
+      
+        
+          
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+
+    <nav class="page-nav">
+      
+        <a href="/workflows/editor/">
+          <div class="nav-label">&larr; Previous</div>
+          <div class="nav-title">The Visual Editor</div>
+        </a>
+      
+      
+        <a href="/workflows/running/" class="next">
+          <div class="nav-label">Next &rarr;</div>
+          <div class="nav-title">Running &amp; Results</div>
+        </a>
+      
+    </nav>
+  
+</div>
+
+    </main>
+  </div>
+
+  
+    <footer class="site-footer">
+  <p>&copy; 2026 IntraCav Health &middot; Lumen AI User Guide</p>
+</footer>
+
+  
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

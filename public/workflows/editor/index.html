@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Visual Editor — Lumen AI — User Guide</title>
+<meta name="description" content="How to drag, connect, and configure tools on the workflow canvas.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="/img/lumen-logo.png" type="image/png">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<meta property="og:title" content="The Visual Editor">
+<meta property="og:description" content="A visual guide for clinicians using Lumen AI">
+<meta property="og:image" content="/img/lumen-logo.png">
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/img/lumen-logo.png" alt="Lumen AI">
+      <span class="logo-label">Lumen<span class="logo-sub">User Guide</span></span>
+    </a>
+
+    <nav class="header-nav">
+      
+        <a href="/getting-started/">Getting Started</a>
+      
+        <a href="/chat/">The Chat</a>
+      
+        <a href="/agents/">Agents</a>
+      
+        <a href="/workflows/">Workflows</a>
+      
+        <a href="/tools/">Chat Tools</a>
+      
+    </nav>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <div class="scroll-progress"></div>
+
+  <div class="site-wrapper ">
+    
+      <aside class="sidebar">
+  <nav>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a class="sidebar-link" href="/getting-started/">Pick a Scenario</a>
+      <a class="sidebar-link" href="/getting-started/first-chat/">Your First Chat</a>
+      <a class="sidebar-link" href="/getting-started/check-interaction/">Check a Drug Interaction</a>
+      <a class="sidebar-link" href="/getting-started/find-a-code/">Find a Billing Code</a>
+      <a class="sidebar-link" href="/getting-started/differential/">Build a Differential</a>
+      <a class="sidebar-link" href="/getting-started/draft-a-note/">Draft a Note</a>
+      <a class="sidebar-link" href="/getting-started/run-a-calculator/">Run a Calculator</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">The Chat</div>
+      <a class="sidebar-link" href="/chat/">Overview</a>
+      <a class="sidebar-link" href="/chat/sending-messages/">Typing &amp; Sending</a>
+      <a class="sidebar-link" href="/chat/responses/">Reading Answers</a>
+      <a class="sidebar-link" href="/chat/thinking/">How Lumen Thinks</a>
+      <a class="sidebar-link" href="/chat/artifacts/">Reports &amp; Files</a>
+      <a class="sidebar-link" href="/chat/sources/">Where It Gets Its Info</a>
+      <a class="sidebar-link" href="/chat/attachments/">Uploading Your Files</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Agents</div>
+      <a class="sidebar-link" href="/agents/">Agents vs Chat</a>
+      <a class="sidebar-link" href="/agents/clinical-scribe/">Clinical Scribe</a>
+      <a class="sidebar-link" href="/agents/diagnostic-support/">Diagnostic Support</a>
+      <a class="sidebar-link" href="/agents/research-advisor/">Research Advisor</a>
+      <a class="sidebar-link" href="/agents/insurance/">Insurance &amp; Appeals</a>
+      <a class="sidebar-link" href="/agents/document-analyzer/">Document Analyzer</a>
+      <a class="sidebar-link" href="/agents/health-explainer/">Health Explainer</a>
+      <a class="sidebar-link" href="/agents/symptom-checker/">Symptom Checker</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Workflows</div>
+      <a class="sidebar-link" href="/workflows/">Why Build a Workflow</a>
+      <a class="sidebar-link" href="/workflows/editor/">The Visual Editor</a>
+      <a class="sidebar-link" href="/workflows/building-blocks/">Building Blocks</a>
+      <a class="sidebar-link" href="/workflows/running/">Running &amp; Results</a>
+      <a class="sidebar-link" href="/workflows/publish/">Turn It Into an Agent</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Chat Tools</div>
+      <a class="sidebar-link" href="/tools/">Overview</a>
+      <a class="sidebar-link" href="/tools/search-sources/">Finding Information</a>
+      <a class="sidebar-link" href="/tools/literature-research/">Research &amp; Evidence</a>
+      <a class="sidebar-link" href="/tools/medications/">Medication Questions</a>
+      <a class="sidebar-link" href="/tools/coding-labs/">Codes, Labs &amp; Calculators</a>
+      <a class="sidebar-link" href="/tools/protocols-decisions/">Protocols &amp; Decision Support</a>
+      <a class="sidebar-link" href="/tools/patient-records/">Patient Records &amp; Notes</a>
+      <a class="sidebar-link" href="/tools/document-generation/">Creating Documents</a>
+      <a class="sidebar-link" href="/tools/privacy/">Privacy &amp; Safety</a>
+    </div>
+  </nav>
+</aside>
+
+    
+
+    <main class="main-content">
+      
+<div class="content-body">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    
+      <a href="/workflows/">Workflows</a>
+      <span class="sep">/</span>
+    
+    <span>The Visual Editor</span>
+  </nav>
+
+  <div class="page-header">
+    <h1>The Visual Editor</h1>
+    
+  </div>
+
+  <div class="page-content">
+    <p>The workflow editor is a visual canvas where you build automations by placing tools and connecting them. Think of it like drawing a flowchart — except each box actually <em>does something</em>.</p>
+<h2 id="the-canvas">The Canvas</h2>
+<p>When you create a new workflow, you get a large open canvas. You can:</p>
+<ul>
+<li><strong>Drag to pan</strong> — Move around the canvas</li>
+<li><strong>Add nodes</strong> — Click the palette on the right to browse tools, or right-click the canvas</li>
+<li><strong>Connect nodes</strong> — Drag from an output port (right side of a node) to an input port (left side of another)</li>
+<li><strong>Click a node</strong> — Configure its settings (e.g., what text to input, how many results to return)</li>
+<li><strong>Delete connections</strong> — Click on a connecting line to remove it</li>
+</ul>
+<h2 id="adding-a-node">Adding a Node</h2>
+<div class="steps-container">
+<div class="step">
+  <div class="step-indicator">1</div>
+  <div class="step-content">
+    <h4>Open the tool palette</h4>
+    <div>Click the <strong>palette icon</strong> on the right side of the editor. You&rsquo;ll see all available tools organized by category — Inputs, Text Analysis, Medications, Coding, Protocols, and more.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-indicator">2</div>
+  <div class="step-content">
+    <h4>Pick a tool</h4>
+    <div>Click the tool you want. It appears on the canvas as a node — a small card with the tool&rsquo;s name and icon.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-indicator">3</div>
+  <div class="step-content">
+    <h4>Position it</h4>
+    <div>Drag the node to where you want it on the canvas. Nodes further to the right generally run later in the workflow.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-indicator">4</div>
+  <div class="step-content">
+    <h4>Configure it</h4>
+    <div><p>Click the node to open its settings. Each tool has different options:</p>
+<ul>
+<li><strong>Text Input</strong> — Type or paste the text to process</li>
+<li><strong>PubMed Search</strong> — Set the search query and max number of articles</li>
+<li><strong>ICD-10 Lookup</strong> — Enter the clinical description to code</li>
+<li><strong>Summarize</strong> — Set the desired summary length</li>
+</ul></div>
+  </div>
+</div>
+
+</div>
+<h2 id="connecting-nodes">Connecting Nodes</h2>
+<p>Every node has a small dot on its right side (output) and left side (input). To connect them:</p>
+<ol>
+<li>Hover over the <strong>output dot</strong> on the right side of a node — it highlights</li>
+<li><strong>Click and drag</strong> from that dot to the <strong>input dot</strong> on the left side of the next node</li>
+<li>A line appears connecting them — this means data will flow from the first node to the second</li>
+</ol>
+<div class="node-graph">
+  <div class="node-graph-label">Example: connect two nodes</div>
+  <div class="node-chain">
+    <div class="wf-node">
+      <div class="wf-node-header">
+        <div class="wf-node-icon" style="background: rgba(88,101,242,0.15); color: var(--primary);">&#128196;</div>
+        <span class="wf-node-name">Text Input</span>
+      </div>
+      <div class="wf-node-body">"55yo male, chest pain..."</div>
+    </div>
+    <div class="wf-connector"></div>
+    <div class="wf-node">
+      <div class="wf-node-header">
+        <div class="wf-node-icon" style="background: rgba(140,102,217,0.15); color: var(--purple);">&#128196;</div>
+        <span class="wf-node-name">Extract Entities</span>
+      </div>
+      <div class="wf-node-body">Finds meds, diagnoses, labs</div>
+    </div>
+  </div>
+</div>
+<p>The first node&rsquo;s output becomes the second node&rsquo;s input — automatically. You don&rsquo;t need to copy/paste anything between them.</p>
+<h2 id="tips">Tips</h2>
+<div class="tip-card">
+  <div class="tip-label">&#128161; Tip</div>
+  <div class="tip-title">Start simple</div>
+  <div class="tip-body">Begin with 3–4 nodes. Get it working, then add more. A workflow with Text Input → Summarize → Send to Chat is a great first test.</div>
+</div>
+
+<ul>
+<li><strong>You can branch.</strong> One node&rsquo;s output can connect to multiple downstream nodes</li>
+<li><strong>Order matters.</strong> Nodes run left to right based on how they&rsquo;re connected</li>
+<li><strong>Undo mistakes.</strong> Click any connecting line to delete it. Drag a node off the canvas to remove it</li>
+<li><strong>Auto-save.</strong> Your workflow saves automatically when you run it</li>
+</ul>
+
+
+<div class="callout callout-info">
+  <span class="callout-icon">&#128161;</span>
+  <div><strong>Don&rsquo;t worry about getting it perfect.</strong> You can always rearrange, reconnect, and re-run. The editor is designed for experimentation.</div>
+</div>
+
+
+  </div>
+
+  
+  
+  
+    
+    
+    
+    
+    
+
+    
+      
+      
+        
+      
+    
+      
+        
+          
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+
+    <nav class="page-nav">
+      
+        <div></div>
+      
+      
+        <a href="/workflows/building-blocks/" class="next">
+          <div class="nav-label">Next &rarr;</div>
+          <div class="nav-title">Building Blocks</div>
+        </a>
+      
+    </nav>
+  
+</div>
+
+    </main>
+  </div>
+
+  
+    <footer class="site-footer">
+  <p>&copy; 2026 IntraCav Health &middot; Lumen AI User Guide</p>
+</footer>
+
+  
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

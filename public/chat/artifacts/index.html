@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reports &amp; Files — Lumen AI — User Guide</title>
+<meta name="description" content="Lumen can create documents, reports, and interactive tools right in the chat. Here&#39;s how they work.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="/img/lumen-logo.png" type="image/png">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<meta property="og:title" content="Reports &amp; Files">
+<meta property="og:description" content="A visual guide for clinicians using Lumen AI">
+<meta property="og:image" content="/img/lumen-logo.png">
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/img/lumen-logo.png" alt="Lumen AI">
+      <span class="logo-label">Lumen<span class="logo-sub">User Guide</span></span>
+    </a>
+
+    <nav class="header-nav">
+      
+        <a href="/getting-started/">Getting Started</a>
+      
+        <a href="/chat/">The Chat</a>
+      
+        <a href="/agents/">Agents</a>
+      
+        <a href="/workflows/">Workflows</a>
+      
+        <a href="/tools/">Chat Tools</a>
+      
+    </nav>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <div class="scroll-progress"></div>
+
+  <div class="site-wrapper ">
+    
+      <aside class="sidebar">
+  <nav>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a class="sidebar-link" href="/getting-started/">Pick a Scenario</a>
+      <a class="sidebar-link" href="/getting-started/first-chat/">Your First Chat</a>
+      <a class="sidebar-link" href="/getting-started/check-interaction/">Check a Drug Interaction</a>
+      <a class="sidebar-link" href="/getting-started/find-a-code/">Find a Billing Code</a>
+      <a class="sidebar-link" href="/getting-started/differential/">Build a Differential</a>
+      <a class="sidebar-link" href="/getting-started/draft-a-note/">Draft a Note</a>
+      <a class="sidebar-link" href="/getting-started/run-a-calculator/">Run a Calculator</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">The Chat</div>
+      <a class="sidebar-link" href="/chat/">Overview</a>
+      <a class="sidebar-link" href="/chat/sending-messages/">Typing &amp; Sending</a>
+      <a class="sidebar-link" href="/chat/responses/">Reading Answers</a>
+      <a class="sidebar-link" href="/chat/thinking/">How Lumen Thinks</a>
+      <a class="sidebar-link" href="/chat/artifacts/">Reports &amp; Files</a>
+      <a class="sidebar-link" href="/chat/sources/">Where It Gets Its Info</a>
+      <a class="sidebar-link" href="/chat/attachments/">Uploading Your Files</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Agents</div>
+      <a class="sidebar-link" href="/agents/">Agents vs Chat</a>
+      <a class="sidebar-link" href="/agents/clinical-scribe/">Clinical Scribe</a>
+      <a class="sidebar-link" href="/agents/diagnostic-support/">Diagnostic Support</a>
+      <a class="sidebar-link" href="/agents/research-advisor/">Research Advisor</a>
+      <a class="sidebar-link" href="/agents/insurance/">Insurance &amp; Appeals</a>
+      <a class="sidebar-link" href="/agents/document-analyzer/">Document Analyzer</a>
+      <a class="sidebar-link" href="/agents/health-explainer/">Health Explainer</a>
+      <a class="sidebar-link" href="/agents/symptom-checker/">Symptom Checker</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Workflows</div>
+      <a class="sidebar-link" href="/workflows/">Why Build a Workflow</a>
+      <a class="sidebar-link" href="/workflows/editor/">The Visual Editor</a>
+      <a class="sidebar-link" href="/workflows/building-blocks/">Building Blocks</a>
+      <a class="sidebar-link" href="/workflows/running/">Running &amp; Results</a>
+      <a class="sidebar-link" href="/workflows/publish/">Turn It Into an Agent</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Chat Tools</div>
+      <a class="sidebar-link" href="/tools/">Overview</a>
+      <a class="sidebar-link" href="/tools/search-sources/">Finding Information</a>
+      <a class="sidebar-link" href="/tools/literature-research/">Research &amp; Evidence</a>
+      <a class="sidebar-link" href="/tools/medications/">Medication Questions</a>
+      <a class="sidebar-link" href="/tools/coding-labs/">Codes, Labs &amp; Calculators</a>
+      <a class="sidebar-link" href="/tools/protocols-decisions/">Protocols &amp; Decision Support</a>
+      <a class="sidebar-link" href="/tools/patient-records/">Patient Records &amp; Notes</a>
+      <a class="sidebar-link" href="/tools/document-generation/">Creating Documents</a>
+      <a class="sidebar-link" href="/tools/privacy/">Privacy &amp; Safety</a>
+    </div>
+  </nav>
+</aside>
+
+    
+
+    <main class="main-content">
+      
+<div class="content-body">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    
+      <a href="/chat/">The Chat</a>
+      <span class="sep">/</span>
+    
+    <span>Reports &amp; Files</span>
+  </nav>
+
+  <div class="page-header">
+    <h1>Reports &amp; Files</h1>
+    
+  </div>
+
+  <div class="page-content">
+    <p>Sometimes a text answer isn&rsquo;t enough. When you ask about drug interactions, Lumen doesn&rsquo;t just tell you — it creates a <strong>detailed report</strong> you can tap to open. Ask for a presentation, and it builds one you can download. These attached files and reports are called <strong>artifacts</strong>, and they show up as tappable cards in the chat.</p>
+<h2 id="what-are-artifacts">What Are Artifacts?</h2>
+<p>An artifact is a structured, interactive piece of content that Lumen creates during a conversation. They appear as clickable cards within the chat.</p>
+<div class="chat-mockup" style="margin: 2rem 0;">
+  <div class="chat-mockup-header">
+    <div class="chat-mockup-avatar">&#10022;</div>
+    <div class="chat-mockup-title">Chat</div>
+  </div>
+  <div class="chat-mockup-body">
+    <div class="chat-msg assistant">
+      <div class="msg-avatar"><span>&#10022;</span></div>
+      <div class="msg-content">
+        <p style="margin: 0; font-size: 0.875rem; color: var(--text-on-dark);">Here's the drug interaction report you requested:</p>
+        <div class="mock-artifact" style="margin-top: 0.75rem;">
+          <div class="mock-artifact-icon" style="background: rgba(255,149,0,0.15); color: #FF9500;">&#9888;</div>
+          <div class="mock-artifact-info">
+            <div class="mock-artifact-title">Warfarin × Amiodarone Interactions</div>
+            <div class="mock-artifact-type">Drug Interaction Report</div>
+          </div>
+          <div class="mock-artifact-chevron">&rsaquo;</div>
+        </div>
+        <div class="mock-artifact" style="margin-top: 0.5rem;">
+          <div class="mock-artifact-icon" style="background: rgba(229,62,62,0.15); color: #E53E3E;">&#128196;</div>
+          <div class="mock-artifact-info">
+            <div class="mock-artifact-title">Patient Safety Summary</div>
+            <div class="mock-artifact-type">PDF Document</div>
+          </div>
+          <div class="mock-artifact-chevron">&rsaquo;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h2 id="viewing-artifacts">Viewing Artifacts</h2>
+<p>When you click an artifact card, it opens in a <strong>side panel</strong> on the right side of the screen (or a bottom sheet on mobile). The side panel shows the full content while keeping the chat visible.</p>
+<div class="app-frame" style="margin: 2rem 0;">
+  <div class="app-frame-bar">
+    <div class="app-frame-dot red"></div>
+    <div class="app-frame-dot yellow"></div>
+    <div class="app-frame-dot green"></div>
+  </div>
+  <div class="app-frame-content" style="display: flex; gap: 0; padding: 0;">
+    <div style="flex: 1; padding: 1rem; border-right: 1px solid rgba(255,255,255,0.08); background: var(--bg-dark);">
+      <div style="font-size: 0.75rem; color: var(--text-muted-dark); text-align: center;">Chat area</div>
+    </div>
+    <div style="width: 260px; padding: 1rem; background: var(--bg-darker);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+        <div style="font-size: 0.8rem; font-weight: 600; color: var(--text-on-dark);">&#9888; Drug Interactions</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted-dark); cursor: pointer;">&#10005;</div>
+      </div>
+      <div style="font-size: 0.75rem; color: var(--text-muted-dark); line-height: 1.6;">
+        <div style="padding: 0.5rem; background: rgba(255,149,0,0.1); border-radius: 6px; margin-bottom: 0.5rem; border-left: 3px solid #FF9500;">
+          <strong style="color: #FF9500;">Moderate Risk</strong><br>
+          Amiodarone inhibits CYP2C9, increasing warfarin levels. Monitor INR closely.
+        </div>
+        <div style="padding: 0.5rem; background: rgba(255,255,255,0.05); border-radius: 6px;">
+          <strong style="color: var(--text-on-dark);">Recommendation</strong><br>
+          Reduce warfarin dose by 30&ndash;50% when initiating amiodarone.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h2 id="types-of-artifacts">Types of Artifacts</h2>
+<p>Lumen can generate over <strong>30 types</strong> of artifacts. Here are the most common:</p>
+<h3 id="clinical-tools">Clinical Tools</h3>
+<div class="tool-grid" style="margin: 1rem 0;">
+  <div class="tool-card">
+    <div class="tool-icon" style="background: rgba(255,149,0,0.1); color: #FF9500;">&#9888;</div>
+    <div class="tool-info">
+      <div class="tool-name">Drug Interaction Reports</div>
+      <div class="tool-desc">Severity ratings, mechanisms, and management recommendations for drug combinations.</div>
+    </div>
+  </div>
+  <div class="tool-card">
+    <div class="tool-icon" style="background: rgba(61,191,128,0.1); color: #3DBF80;">&#9745;</div>
+    <div class="tool-info">
+      <div class="tool-name">Clinical Checklists</div>
+      <div class="tool-desc">Interactive checklists for sepsis bundles, surgical safety, DKA management, and more. Track your progress by checking items.</div>
+    </div>
+  </div>
+  <div class="tool-card">
+    <div class="tool-icon" style="background: rgba(14,165,233,0.1); color: #0EA5E9;">&#128202;</div>
+    <div class="tool-info">
+      <div class="tool-name">Lab Reference Ranges</div>
+      <div class="tool-desc">Normal intervals with units, color-coded thresholds, and clinical significance notes.</div>
+    </div>
+  </div>
+</div>
+<h3 id="documents">Documents</h3>
+<div class="tool-grid" style="margin: 1rem 0;">
+  <div class="tool-card">
+    <div class="tool-icon" style="background: rgba(229,62,62,0.1); color: #E53E3E;">&#128196;</div>
+    <div class="tool-info">
+      <div class="tool-name">PDF Documents</div>
+      <div class="tool-desc">Formatted reports, patient summaries, and reference documents. Downloadable directly.</div>
+    </div>
+  </div>
+  <div class="tool-card">
+    <div class="tool-icon" style="background: rgba(214,158,46,0.1); color: #D69E2E;">&#128202;</div>
+    <div class="tool-info">
+      <div class="tool-name">Presentations (PPTX)</div>
+      <div class="tool-desc">Slide decks for grand rounds, patient education, and team presentations.</div>
+    </div>
+  </div>
+  <div class="tool-card">
+    <div class="tool-icon" style="background: rgba(33,115,70,0.1); color: #217346;">&#128203;</div>
+    <div class="tool-info">
+      <div class="tool-name">Spreadsheets (Excel)</div>
+      <div class="tool-desc">Data tables, tracking sheets, and structured clinical data exports.</div>
+    </div>
+  </div>
+</div>
+<h3 id="clinical-decision-support">Clinical Decision Support</h3>
+<div class="tool-grid" style="margin: 1rem 0;">
+  <div class="tool-card">
+    <div class="tool-icon" style="background: rgba(14,165,233,0.1); color: #0EA5E9;">&#129504;</div>
+    <div class="tool-info">
+      <div class="tool-name">Differential Diagnosis</div>
+      <div class="tool-desc">Ranked list of possible diagnoses with distinguishing features and recommended workup.</div>
+    </div>
+  </div>
+  <div class="tool-card">
+    <div class="tool-icon" style="background: rgba(237,137,54,0.1); color: #ED8936;">&#127973;</div>
+    <div class="tool-info">
+      <div class="tool-name">Triage Assessments</div>
+      <div class="tool-desc">ESI, MTS, and CTAS triage scoring with acuity levels and rationale.</div>
+    </div>
+  </div>
+</div>
+<h2 id="artifact-actions">Artifact Actions</h2>
+<p>At the bottom of every artifact panel, you&rsquo;ll find action buttons:</p>
+<ul>
+<li><strong>Copy</strong> — Copy the content to your clipboard</li>
+<li><strong>Download</strong> — Download as a file (PDF, PPTX, Excel, etc.)</li>
+<li><strong>Pin to Space</strong> — Save the artifact to a shared workspace</li>
+</ul>
+
+
+<div class="callout callout-success">
+  <span class="callout-icon">&#9989;</span>
+  <div><strong>Interactive artifacts update in real time.</strong> Checklists save your progress, and calculators update as you change inputs.</div>
+</div>
+
+
+  </div>
+
+  
+  
+  
+    
+    
+    
+    
+    
+
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+      
+    
+      
+        
+          
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+
+    <nav class="page-nav">
+      
+        <a href="/chat/thinking/">
+          <div class="nav-label">&larr; Previous</div>
+          <div class="nav-title">How Lumen Thinks</div>
+        </a>
+      
+      
+        <a href="/chat/sources/" class="next">
+          <div class="nav-label">Next &rarr;</div>
+          <div class="nav-title">Where It Gets Its Info</div>
+        </a>
+      
+    </nav>
+  
+</div>
+
+    </main>
+  </div>
+
+  
+    <footer class="site-footer">
+  <p>&copy; 2026 IntraCav Health &middot; Lumen AI User Guide</p>
+</footer>
+
+  
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

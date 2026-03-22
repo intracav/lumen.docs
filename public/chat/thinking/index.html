@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Lumen Thinks — Lumen AI — User Guide</title>
+<meta name="description" content="Lumen shows its reasoning so you can verify the logic behind every answer.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="/img/lumen-logo.png" type="image/png">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<meta property="og:title" content="How Lumen Thinks">
+<meta property="og:description" content="A visual guide for clinicians using Lumen AI">
+<meta property="og:image" content="/img/lumen-logo.png">
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/img/lumen-logo.png" alt="Lumen AI">
+      <span class="logo-label">Lumen<span class="logo-sub">User Guide</span></span>
+    </a>
+
+    <nav class="header-nav">
+      
+        <a href="/getting-started/">Getting Started</a>
+      
+        <a href="/chat/">The Chat</a>
+      
+        <a href="/agents/">Agents</a>
+      
+        <a href="/workflows/">Workflows</a>
+      
+        <a href="/tools/">Chat Tools</a>
+      
+    </nav>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <div class="scroll-progress"></div>
+
+  <div class="site-wrapper ">
+    
+      <aside class="sidebar">
+  <nav>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a class="sidebar-link" href="/getting-started/">Pick a Scenario</a>
+      <a class="sidebar-link" href="/getting-started/first-chat/">Your First Chat</a>
+      <a class="sidebar-link" href="/getting-started/check-interaction/">Check a Drug Interaction</a>
+      <a class="sidebar-link" href="/getting-started/find-a-code/">Find a Billing Code</a>
+      <a class="sidebar-link" href="/getting-started/differential/">Build a Differential</a>
+      <a class="sidebar-link" href="/getting-started/draft-a-note/">Draft a Note</a>
+      <a class="sidebar-link" href="/getting-started/run-a-calculator/">Run a Calculator</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">The Chat</div>
+      <a class="sidebar-link" href="/chat/">Overview</a>
+      <a class="sidebar-link" href="/chat/sending-messages/">Typing &amp; Sending</a>
+      <a class="sidebar-link" href="/chat/responses/">Reading Answers</a>
+      <a class="sidebar-link" href="/chat/thinking/">How Lumen Thinks</a>
+      <a class="sidebar-link" href="/chat/artifacts/">Reports &amp; Files</a>
+      <a class="sidebar-link" href="/chat/sources/">Where It Gets Its Info</a>
+      <a class="sidebar-link" href="/chat/attachments/">Uploading Your Files</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Agents</div>
+      <a class="sidebar-link" href="/agents/">Agents vs Chat</a>
+      <a class="sidebar-link" href="/agents/clinical-scribe/">Clinical Scribe</a>
+      <a class="sidebar-link" href="/agents/diagnostic-support/">Diagnostic Support</a>
+      <a class="sidebar-link" href="/agents/research-advisor/">Research Advisor</a>
+      <a class="sidebar-link" href="/agents/insurance/">Insurance &amp; Appeals</a>
+      <a class="sidebar-link" href="/agents/document-analyzer/">Document Analyzer</a>
+      <a class="sidebar-link" href="/agents/health-explainer/">Health Explainer</a>
+      <a class="sidebar-link" href="/agents/symptom-checker/">Symptom Checker</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Workflows</div>
+      <a class="sidebar-link" href="/workflows/">Why Build a Workflow</a>
+      <a class="sidebar-link" href="/workflows/editor/">The Visual Editor</a>
+      <a class="sidebar-link" href="/workflows/building-blocks/">Building Blocks</a>
+      <a class="sidebar-link" href="/workflows/running/">Running &amp; Results</a>
+      <a class="sidebar-link" href="/workflows/publish/">Turn It Into an Agent</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Chat Tools</div>
+      <a class="sidebar-link" href="/tools/">Overview</a>
+      <a class="sidebar-link" href="/tools/search-sources/">Finding Information</a>
+      <a class="sidebar-link" href="/tools/literature-research/">Research &amp; Evidence</a>
+      <a class="sidebar-link" href="/tools/medications/">Medication Questions</a>
+      <a class="sidebar-link" href="/tools/coding-labs/">Codes, Labs &amp; Calculators</a>
+      <a class="sidebar-link" href="/tools/protocols-decisions/">Protocols &amp; Decision Support</a>
+      <a class="sidebar-link" href="/tools/patient-records/">Patient Records &amp; Notes</a>
+      <a class="sidebar-link" href="/tools/document-generation/">Creating Documents</a>
+      <a class="sidebar-link" href="/tools/privacy/">Privacy &amp; Safety</a>
+    </div>
+  </nav>
+</aside>
+
+    
+
+    <main class="main-content">
+      
+<div class="content-body">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    
+      <a href="/chat/">The Chat</a>
+      <span class="sep">/</span>
+    
+    <span>How Lumen Thinks</span>
+  </nav>
+
+  <div class="page-header">
+    <h1>How Lumen Thinks</h1>
+    
+  </div>
+
+  <div class="page-content">
+    <p>You wouldn&rsquo;t trust a colleague who just said <em>&ldquo;trust me&rdquo;</em> without explaining their reasoning. Neither should you trust an AI that way. That&rsquo;s why Lumen shows you <strong>how</strong> it arrived at its answer — you can expand the thinking block and see the logic step by step.</p>
+<h2 id="what-is-the-thinking-block">What Is the Thinking Block?</h2>
+<p>When Lumen processes a complex question, it first &ldquo;thinks&rdquo; through the problem before responding. This appears as a collapsible block at the top of the response.</p>
+<div class="app-frame" style="margin: 2rem 0;">
+  <div class="app-frame-bar">
+    <div class="app-frame-dot red"></div>
+    <div class="app-frame-dot yellow"></div>
+    <div class="app-frame-dot green"></div>
+  </div>
+  <div class="app-frame-content" style="background: var(--bg-dark);">
+    <div class="mock-thinking" style="cursor: pointer; margin: 0;">
+      <span class="pulse-dot"></span>
+      <span style="flex: 1;">Thought for 4s</span>
+      <span style="font-size: 0.7rem;">&#9660;</span>
+    </div>
+    <div style="padding: 0.75rem; background: rgba(255,255,255,0.03); border-radius: 0 0 var(--radius-sm) var(--radius-sm); margin-top: 2px; font-size: 0.8rem; color: var(--text-muted-dark); line-height: 1.6;">
+      The user is asking about anticoagulation for a patient with atrial fibrillation and a history of GI bleeding. I need to weigh the stroke risk (CHA₂DS₂-VASc) against the bleeding risk (HAS-BLED). Let me calculate both scores and then look up current guidelines for this specific scenario...
+    </div>
+  </div>
+</div>
+<h2 id="how-it-works">How It Works</h2>
+<div class="steps-container">
+<div class="step">
+  <div class="step-indicator">1</div>
+  <div class="step-content">
+    <h4>Lumen starts thinking</h4>
+    <div>As soon as you send a message, the thinking block appears with an animated indicator and a running timer: <strong>&ldquo;Thinking&hellip; 1s&rdquo;</strong>, <strong>&ldquo;Thinking&hellip; 2s&rdquo;</strong>, etc.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-indicator">2</div>
+  <div class="step-content">
+    <h4>The block auto-expands while active</h4>
+    <div>During streaming, the thinking block stays open so you can watch Lumen&rsquo;s reasoning in real time. You&rsquo;ll see it work through the problem step by step.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-indicator">3</div>
+  <div class="step-content">
+    <h4>It collapses when done</h4>
+    <div>Once the response is complete, the thinking block automatically collapses to save space. The header changes to <strong>&ldquo;Thought for Xs&rdquo;</strong> showing the total time.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-indicator">4</div>
+  <div class="step-content">
+    <h4>Click to expand anytime</h4>
+    <div>You can always click the thinking block header to expand it and review the reasoning. Click again to collapse.</div>
+  </div>
+</div>
+
+</div>
+<h2 id="why-this-matters-for-clinicians">Why This Matters for Clinicians</h2>
+
+
+<div class="callout callout-info">
+  <span class="callout-icon">&#128161;</span>
+  <div><strong>The thinking block is your audit trail.</strong> It shows exactly what the AI considered, what trade-offs it weighed, and why it reached its conclusion. This is critical for clinical decision support — you should always be able to verify the reasoning.</div>
+</div>
+
+<p>The thinking process typically includes:</p>
+<ul>
+<li><strong>Problem decomposition</strong> — how Lumen breaks down your question</li>
+<li><strong>Evidence consideration</strong> — what guidelines or data it&rsquo;s drawing from</li>
+<li><strong>Risk-benefit analysis</strong> — trade-offs it&rsquo;s weighing</li>
+<li><strong>Tool selection</strong> — which specialized tools it decides to invoke</li>
+<li><strong>Synthesis</strong> — how it combines information into a coherent answer</li>
+</ul>
+<h2 id="not-every-response-has-thinking">Not Every Response Has Thinking</h2>
+<p>Simple, factual questions (like &ldquo;What is the generic name for Lipitor?&rdquo;) may be answered directly without a visible thinking block. The thinking process is most apparent for:</p>
+<ul>
+<li>Complex clinical scenarios with multiple variables</li>
+<li>Questions requiring risk-benefit analysis</li>
+<li>Multi-step diagnostic or treatment planning</li>
+<li>Cases where multiple tools need to be coordinated</li>
+</ul>
+
+  </div>
+
+  
+  
+  
+    
+    
+    
+    
+    
+
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+      
+    
+      
+        
+          
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+
+    <nav class="page-nav">
+      
+        <a href="/chat/responses/">
+          <div class="nav-label">&larr; Previous</div>
+          <div class="nav-title">Reading Answers</div>
+        </a>
+      
+      
+        <a href="/chat/artifacts/" class="next">
+          <div class="nav-label">Next &rarr;</div>
+          <div class="nav-title">Reports &amp; Files</div>
+        </a>
+      
+    </nav>
+  
+</div>
+
+    </main>
+  </div>
+
+  
+    <footer class="site-footer">
+  <p>&copy; 2026 IntraCav Health &middot; Lumen AI User Guide</p>
+</footer>
+
+  
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

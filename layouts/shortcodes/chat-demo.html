@@ -1,0 +1,9 @@
+<div class="chat-mockup chat-demo-animated">
+  <div class="chat-mockup-header">
+    <div class="chat-mockup-avatar">&#10022;</div>
+    <div class="chat-mockup-title">{{ .Get "title" | default "New Chat" }}</div>
+  </div>
+  <div class="chat-mockup-body">
+    {{ .Inner | safeHTML }}
+  </div>
+</div>

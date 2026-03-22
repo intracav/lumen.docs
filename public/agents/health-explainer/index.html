@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Health Explainer — Lumen AI — User Guide</title>
+<meta name="description" content="Translate complex medical information into language your patients can understand.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="/img/lumen-logo.png" type="image/png">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<meta property="og:title" content="Health Explainer">
+<meta property="og:description" content="A visual guide for clinicians using Lumen AI">
+<meta property="og:image" content="/img/lumen-logo.png">
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/img/lumen-logo.png" alt="Lumen AI">
+      <span class="logo-label">Lumen<span class="logo-sub">User Guide</span></span>
+    </a>
+
+    <nav class="header-nav">
+      
+        <a href="/getting-started/">Getting Started</a>
+      
+        <a href="/chat/">The Chat</a>
+      
+        <a href="/agents/">Agents</a>
+      
+        <a href="/workflows/">Workflows</a>
+      
+        <a href="/tools/">Chat Tools</a>
+      
+    </nav>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <div class="scroll-progress"></div>
+
+  <div class="site-wrapper ">
+    
+      <aside class="sidebar">
+  <nav>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a class="sidebar-link" href="/getting-started/">Pick a Scenario</a>
+      <a class="sidebar-link" href="/getting-started/first-chat/">Your First Chat</a>
+      <a class="sidebar-link" href="/getting-started/check-interaction/">Check a Drug Interaction</a>
+      <a class="sidebar-link" href="/getting-started/find-a-code/">Find a Billing Code</a>
+      <a class="sidebar-link" href="/getting-started/differential/">Build a Differential</a>
+      <a class="sidebar-link" href="/getting-started/draft-a-note/">Draft a Note</a>
+      <a class="sidebar-link" href="/getting-started/run-a-calculator/">Run a Calculator</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">The Chat</div>
+      <a class="sidebar-link" href="/chat/">Overview</a>
+      <a class="sidebar-link" href="/chat/sending-messages/">Typing &amp; Sending</a>
+      <a class="sidebar-link" href="/chat/responses/">Reading Answers</a>
+      <a class="sidebar-link" href="/chat/thinking/">How Lumen Thinks</a>
+      <a class="sidebar-link" href="/chat/artifacts/">Reports &amp; Files</a>
+      <a class="sidebar-link" href="/chat/sources/">Where It Gets Its Info</a>
+      <a class="sidebar-link" href="/chat/attachments/">Uploading Your Files</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Agents</div>
+      <a class="sidebar-link" href="/agents/">Agents vs Chat</a>
+      <a class="sidebar-link" href="/agents/clinical-scribe/">Clinical Scribe</a>
+      <a class="sidebar-link" href="/agents/diagnostic-support/">Diagnostic Support</a>
+      <a class="sidebar-link" href="/agents/research-advisor/">Research Advisor</a>
+      <a class="sidebar-link" href="/agents/insurance/">Insurance &amp; Appeals</a>
+      <a class="sidebar-link" href="/agents/document-analyzer/">Document Analyzer</a>
+      <a class="sidebar-link" href="/agents/health-explainer/">Health Explainer</a>
+      <a class="sidebar-link" href="/agents/symptom-checker/">Symptom Checker</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Workflows</div>
+      <a class="sidebar-link" href="/workflows/">Why Build a Workflow</a>
+      <a class="sidebar-link" href="/workflows/editor/">The Visual Editor</a>
+      <a class="sidebar-link" href="/workflows/building-blocks/">Building Blocks</a>
+      <a class="sidebar-link" href="/workflows/running/">Running &amp; Results</a>
+      <a class="sidebar-link" href="/workflows/publish/">Turn It Into an Agent</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Chat Tools</div>
+      <a class="sidebar-link" href="/tools/">Overview</a>
+      <a class="sidebar-link" href="/tools/search-sources/">Finding Information</a>
+      <a class="sidebar-link" href="/tools/literature-research/">Research &amp; Evidence</a>
+      <a class="sidebar-link" href="/tools/medications/">Medication Questions</a>
+      <a class="sidebar-link" href="/tools/coding-labs/">Codes, Labs &amp; Calculators</a>
+      <a class="sidebar-link" href="/tools/protocols-decisions/">Protocols &amp; Decision Support</a>
+      <a class="sidebar-link" href="/tools/patient-records/">Patient Records &amp; Notes</a>
+      <a class="sidebar-link" href="/tools/document-generation/">Creating Documents</a>
+      <a class="sidebar-link" href="/tools/privacy/">Privacy &amp; Safety</a>
+    </div>
+  </nav>
+</aside>
+
+    
+
+    <main class="main-content">
+      
+<div class="content-body">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    
+      <a href="/agents/">Agents</a>
+      <span class="sep">/</span>
+    
+    <span>Health Explainer</span>
+  </nav>
+
+  <div class="page-header">
+    <h1>Health Explainer</h1>
+    
+  </div>
+
+  <div class="page-content">
+    <p>Your patient just got a diagnosis, a lab result, or a medication change. They look confused. The Health Explainer takes complex medical content and translates it into clear, plain language at an 8th grade reading level — something they can actually read at home.</p>
+<h2 id="paste-the-medical-content">Paste the Medical Content</h2>
+<blockquote>
+<p><em>&ldquo;Newly diagnosed atrial fibrillation with RVR, CHA2DS2-VASc 4, started on apixaban 5mg BID and metoprolol succinate 50mg daily. Echo: mild LA dilation, EF 55%. Cardioversion not planned.&rdquo;</em></p>
+</blockquote>
+<h2 id="what-each-step-produces">What Each Step Produces</h2>
+<div class="step-timeline">
+<div class="step-item">
+  <div class="step-item-dot">1</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Extract Medical Terms</span></div>
+    <div class="step-item-desc">Identifies every term that would need to be explained to a patient.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(140,102,217,0.1); color: var(--purple);">&#128196;</div>
+        <span class="step-artifact-label">Terms to Explain</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-label">Conditions:</span><span class="mini-value">atrial fibrillation, RVR, LA dilation</span></div>
+        <div class="mini-row"><span class="mini-label">Scores:</span><span class="mini-value">CHA₂DS₂-VASc (stroke risk), EF (heart pump strength)</span></div>
+        <div class="mini-row"><span class="mini-label">Medications:</span><span class="mini-value">apixaban (blood thinner), metoprolol (heart rate control)</span></div>
+        <div class="mini-row"><span class="mini-label">Procedures:</span><span class="mini-value">cardioversion, echocardiogram</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">2</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Summarize Content</span></div>
+    <div class="step-item-desc">Creates a clinical summary that will serve as the basis for the patient explanation.</div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">3</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Find Patient Resources</span></div>
+    <div class="step-item-desc">Searches for patient-appropriate educational material from the knowledge base.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(14,165,233,0.1); color: var(--cyan);">&#128218;</div>
+        <span class="step-artifact-label">Patient Resources</span><span class="step-artifact-type">2 sources</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-value">AHA Patient Guide: Living with AFib &middot; ACC Patient Guide: Blood Thinners</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">4</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Medication Information</span><span class="step-item-tool">RxNorm</span></div>
+    <div class="step-item-desc">Looks up each medication to prepare patient-friendly explanations.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(52,199,89,0.1); color: var(--green);">&#128138;</div>
+        <span class="step-artifact-label">Medication Details</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-label">Apixaban (Eliquis)</span><span class="mini-value" style="margin-left: auto;">Blood thinner — prevents clots</span></div>
+        <div class="mini-row"><span class="mini-label">Metoprolol (Toprol XL)</span><span class="mini-value" style="margin-left: auto;">Slows heart rate</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">5</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Lab & Test Context</span><span class="step-item-tool">Lab Ranges</span></div>
+    <div class="step-item-desc">Contextualizes any measurements or test results for the patient.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(61,191,128,0.1); color: var(--teal);">&#129514;</div>
+        <span class="step-artifact-label">Test Explanation</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-label">EF 55%</span><span class="mini-value" style="margin-left: auto; color: var(--green);">Normal (55-70%)</span></div>
+        <div class="mini-row"><span class="mini-value">Your heart is pumping well — this is good news.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">&#10003;</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Patient-Friendly Explanation</span></div>
+    <div class="step-item-desc">Translates everything into plain language at an 8th grade reading level.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(140,102,217,0.1); color: var(--purple);">&#128149;</div>
+        <span class="step-artifact-label">Patient Handout</span><span class="step-artifact-type">Plain Language</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row" style="flex-direction: column; align-items: flex-start; gap: 0.25rem;">
+          <span class="mini-label">What's happening with your heart:</span>
+          <span class="mini-value">Your heart has an irregular rhythm called atrial fibrillation (A-fib). This means the upper part of your heart quivers instead of beating normally. The good news: a test called an echocardiogram shows your heart is still pumping well.</span>
+        </div>
+        <div class="mini-row" style="flex-direction: column; align-items: flex-start; gap: 0.25rem;">
+          <span class="mini-label">Your new medications:</span>
+          <span class="mini-value"><strong>Eliquis</strong> (apixaban) — a blood thinner. A-fib can cause blood clots that lead to strokes. This medicine helps prevent that. <strong>Toprol XL</strong> (metoprolol) — slows your heart rate back to a normal speed.</span>
+        </div>
+        <div class="mini-row" style="flex-direction: column; align-items: flex-start; gap: 0.25rem;">
+          <span class="mini-label" style="color: var(--red);">When to call 911:</span>
+          <span class="mini-value">Sudden weakness on one side, trouble speaking, severe dizziness, or bleeding that won't stop.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="callout callout-info">
+  <span class="callout-icon">&#128161;</span>
+  <div><strong>Attach discharge paperwork or lab results</strong> in the Sources panel. The Health Explainer reads and translates the whole document — not just summarizes, but genuinely explains in simple terms.</div>
+</div>
+
+
+  </div>
+
+  
+  
+  
+    
+    
+    
+    
+    
+
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+      
+    
+      
+        
+          
+        
+      
+      
+        
+      
+    
+
+    <nav class="page-nav">
+      
+        <a href="/agents/document-analyzer/">
+          <div class="nav-label">&larr; Previous</div>
+          <div class="nav-title">Document Analyzer</div>
+        </a>
+      
+      
+        <a href="/agents/symptom-checker/" class="next">
+          <div class="nav-label">Next &rarr;</div>
+          <div class="nav-title">Symptom Checker</div>
+        </a>
+      
+    </nav>
+  
+</div>
+
+    </main>
+  </div>
+
+  
+    <footer class="site-footer">
+  <p>&copy; 2026 IntraCav Health &middot; Lumen AI User Guide</p>
+</footer>
+
+  
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

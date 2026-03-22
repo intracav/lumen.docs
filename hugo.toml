@@ -1,0 +1,38 @@
+baseURL = 'https://docs.lumenai.health/'
+languageCode = 'en-us'
+title = 'Lumen AI — User Guide'
+
+[params]
+  description = 'A visual guide for clinicians using Lumen AI'
+  tagline = 'Your AI clinical assistant, explained simply.'
+  primaryColor = '#5865F2'
+  darkBg = '#313338'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = 'github'
+
+[menu]
+  [[menu.main]]
+    name = 'Getting Started'
+    url = '/getting-started/'
+    weight = 1
+  [[menu.main]]
+    name = 'The Chat'
+    url = '/chat/'
+    weight = 2
+  [[menu.main]]
+    name = 'Agents'
+    url = '/agents/'
+    weight = 3
+  [[menu.main]]
+    name = 'Workflows'
+    url = '/workflows/'
+    weight = 4
+  [[menu.main]]
+    name = 'Chat Tools'
+    url = '/tools/'
+    weight = 5

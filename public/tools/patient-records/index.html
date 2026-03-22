@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patient Records &amp; Notes — Lumen AI — User Guide</title>
+<meta name="description" content="Pull patient data from your EHR, check appointment availability, and draft clinical notes — all from within the chat.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="/img/lumen-logo.png" type="image/png">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<meta property="og:title" content="Patient Records &amp; Notes">
+<meta property="og:description" content="A visual guide for clinicians using Lumen AI">
+<meta property="og:image" content="/img/lumen-logo.png">
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/img/lumen-logo.png" alt="Lumen AI">
+      <span class="logo-label">Lumen<span class="logo-sub">User Guide</span></span>
+    </a>
+
+    <nav class="header-nav">
+      
+        <a href="/getting-started/">Getting Started</a>
+      
+        <a href="/chat/">The Chat</a>
+      
+        <a href="/agents/">Agents</a>
+      
+        <a href="/workflows/">Workflows</a>
+      
+        <a href="/tools/">Chat Tools</a>
+      
+    </nav>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <div class="scroll-progress"></div>
+
+  <div class="site-wrapper ">
+    
+      <aside class="sidebar">
+  <nav>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a class="sidebar-link" href="/getting-started/">Pick a Scenario</a>
+      <a class="sidebar-link" href="/getting-started/first-chat/">Your First Chat</a>
+      <a class="sidebar-link" href="/getting-started/check-interaction/">Check a Drug Interaction</a>
+      <a class="sidebar-link" href="/getting-started/find-a-code/">Find a Billing Code</a>
+      <a class="sidebar-link" href="/getting-started/differential/">Build a Differential</a>
+      <a class="sidebar-link" href="/getting-started/draft-a-note/">Draft a Note</a>
+      <a class="sidebar-link" href="/getting-started/run-a-calculator/">Run a Calculator</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">The Chat</div>
+      <a class="sidebar-link" href="/chat/">Overview</a>
+      <a class="sidebar-link" href="/chat/sending-messages/">Typing &amp; Sending</a>
+      <a class="sidebar-link" href="/chat/responses/">Reading Answers</a>
+      <a class="sidebar-link" href="/chat/thinking/">How Lumen Thinks</a>
+      <a class="sidebar-link" href="/chat/artifacts/">Reports &amp; Files</a>
+      <a class="sidebar-link" href="/chat/sources/">Where It Gets Its Info</a>
+      <a class="sidebar-link" href="/chat/attachments/">Uploading Your Files</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Agents</div>
+      <a class="sidebar-link" href="/agents/">Agents vs Chat</a>
+      <a class="sidebar-link" href="/agents/clinical-scribe/">Clinical Scribe</a>
+      <a class="sidebar-link" href="/agents/diagnostic-support/">Diagnostic Support</a>
+      <a class="sidebar-link" href="/agents/research-advisor/">Research Advisor</a>
+      <a class="sidebar-link" href="/agents/insurance/">Insurance &amp; Appeals</a>
+      <a class="sidebar-link" href="/agents/document-analyzer/">Document Analyzer</a>
+      <a class="sidebar-link" href="/agents/health-explainer/">Health Explainer</a>
+      <a class="sidebar-link" href="/agents/symptom-checker/">Symptom Checker</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Workflows</div>
+      <a class="sidebar-link" href="/workflows/">Why Build a Workflow</a>
+      <a class="sidebar-link" href="/workflows/editor/">The Visual Editor</a>
+      <a class="sidebar-link" href="/workflows/building-blocks/">Building Blocks</a>
+      <a class="sidebar-link" href="/workflows/running/">Running &amp; Results</a>
+      <a class="sidebar-link" href="/workflows/publish/">Turn It Into an Agent</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Chat Tools</div>
+      <a class="sidebar-link" href="/tools/">Overview</a>
+      <a class="sidebar-link" href="/tools/search-sources/">Finding Information</a>
+      <a class="sidebar-link" href="/tools/literature-research/">Research &amp; Evidence</a>
+      <a class="sidebar-link" href="/tools/medications/">Medication Questions</a>
+      <a class="sidebar-link" href="/tools/coding-labs/">Codes, Labs &amp; Calculators</a>
+      <a class="sidebar-link" href="/tools/protocols-decisions/">Protocols &amp; Decision Support</a>
+      <a class="sidebar-link" href="/tools/patient-records/">Patient Records &amp; Notes</a>
+      <a class="sidebar-link" href="/tools/document-generation/">Creating Documents</a>
+      <a class="sidebar-link" href="/tools/privacy/">Privacy &amp; Safety</a>
+    </div>
+  </nav>
+</aside>
+
+    
+
+    <main class="main-content">
+      
+<div class="content-body">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    
+      <a href="/tools/">What Lumen Can Do</a>
+      <span class="sep">/</span>
+    
+    <span>Patient Records &amp; Notes</span>
+  </nav>
+
+  <div class="page-header">
+    <h1>Patient Records &amp; Notes</h1>
+    
+  </div>
+
+  <div class="page-content">
+    <p>If your practice has EHR integration set up, Lumen can pull a patient&rsquo;s current medications, recent labs, and diagnoses right into the conversation. It can also draft clinical notes and check scheduling availability.</p>
+
+
+<div class="callout callout-warning">
+  <span class="callout-icon">&#9888;&#65039;</span>
+  <div><strong>EHR integration requires setup.</strong> These tools are only available after configuring your FHIR connection in Settings &gt; EHR Integration. See your administrator for access.</div>
+</div>
+
+<h2 id="available-tools">Available Tools</h2>
+<div class="tool-grid">
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #3DBF801a; color: #3DBF80;">
+    &#128100;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">FHIR Patient Data</div>
+    <div class="tool-desc">Queries your EHR via FHIR R4. Pulls current medications, recent labs, active diagnoses, allergies, and encounter history for a specific patient.</div>
+    
+    <div class="tool-example">&#34;Pull the current medication list for patient ID 12345&#34;</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #3DBF801a; color: #3DBF80;">EHR</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #8C66D91a; color: #8C66D9;">
+    &#128197;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Scheduling</div>
+    <div class="tool-desc">Queries the booking system for available appointment slots. Filter by provider, specialty, date range, and location.</div>
+    
+    <div class="tool-example">&#34;Show available cardiology slots next week&#34;</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #8C66D91a; color: #8C66D9;">EHR</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #0EA5E91a; color: #0EA5E9;">
+    &#128221;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Clinical Notes</div>
+    <div class="tool-desc">Auto-generates clinical documentation — SOAP notes, H&amp;P notes, discharge summaries, and referral letters. Structured according to standard clinical formats.</div>
+    
+    <div class="tool-example">&#34;Generate a SOAP note for today&#39;s visit — 45yo with uncontrolled HTN&#34;</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #0EA5E91a; color: #0EA5E9;">Documentation</span>
+    </div>
+    
+  </div>
+</div>
+
+</div>
+<h2 id="clinical-note-generation">Clinical Note Generation</h2>
+<p>Lumen can draft several types of clinical documentation:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Note Type</th>
+          <th>Best For</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>SOAP Note</strong></td>
+          <td>Routine outpatient visits</td>
+      </tr>
+      <tr>
+          <td><strong>H&amp;P</strong></td>
+          <td>Admission history and physical</td>
+      </tr>
+      <tr>
+          <td><strong>Discharge Summary</strong></td>
+          <td>Hospital discharge documentation</td>
+      </tr>
+      <tr>
+          <td><strong>Referral Letter</strong></td>
+          <td>Specialist referral correspondence</td>
+      </tr>
+      <tr>
+          <td><strong>Progress Note</strong></td>
+          <td>Inpatient daily progress</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="example">Example</h3>
+<div class="chat-mockup" style="margin: 2rem 0;">
+  <div class="chat-mockup-header">
+    <div class="chat-mockup-avatar">&#10022;</div>
+    <div class="chat-mockup-title">Chat</div>
+  </div>
+  <div class="chat-mockup-body">
+    <div class="chat-msg user">Write a discharge summary for a 68yo male admitted for CHF exacerbation, treated with IV diuresis, improved, discharge on oral lasix 40mg</div>
+    <div class="chat-msg assistant">
+      <div class="msg-avatar"><span>&#10022;</span></div>
+      <div class="msg-content">
+        <div class="mock-tool">
+          <div class="mock-tool-header">
+            <span class="mock-tool-status done"></span>
+            Generated clinical note
+          </div>
+          <div class="mock-tool-detail">type: discharge summary</div>
+        </div>
+        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--text-on-dark);">
+          Here's your discharge summary. Review and edit as needed:
+        </p>
+        <div class="mock-artifact chat-extra">
+          <div class="mock-artifact-icon" style="background: rgba(14,165,233,0.15); color: #0EA5E9;">&#128221;</div>
+          <div class="mock-artifact-info">
+            <div class="mock-artifact-title">Discharge Summary</div>
+            <div class="mock-artifact-type">Clinical Note</div>
+          </div>
+          <div class="mock-artifact-chevron">&rsaquo;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="tip-card">
+  <div class="tip-label">&#128161; Tip</div>
+  <div class="tip-title">Include the key details</div>
+  <div class="tip-body">The more clinical context you provide in your message (diagnosis, treatments, outcomes, follow-up plans), the more complete and accurate the generated note will be.</div>
+</div>
+
+
+
+<div class="callout callout-important">
+  <span class="callout-icon">&#10071;</span>
+  <div><strong>Always review generated clinical documentation</strong> before finalizing. Lumen drafts notes as a starting point — verify accuracy, add details, and sign per your institution&rsquo;s policy.</div>
+</div>
+
+
+  </div>
+
+  
+  
+  
+    
+    
+    
+    
+    
+
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+      
+    
+      
+        
+          
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+
+    <nav class="page-nav">
+      
+        <a href="/tools/protocols-decisions/">
+          <div class="nav-label">&larr; Previous</div>
+          <div class="nav-title">Protocols &amp; Decision Support</div>
+        </a>
+      
+      
+        <a href="/tools/document-generation/" class="next">
+          <div class="nav-label">Next &rarr;</div>
+          <div class="nav-title">Creating Documents</div>
+        </a>
+      
+    </nav>
+  
+</div>
+
+    </main>
+  </div>
+
+  
+    <footer class="site-footer">
+  <p>&copy; 2026 IntraCav Health &middot; Lumen AI User Guide</p>
+</footer>
+
+  
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

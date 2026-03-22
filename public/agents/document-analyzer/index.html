@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Document Analyzer — Lumen AI — User Guide</title>
+<meta name="description" content="Upload any clinical document and get a structured analysis with key findings, codes, and supporting literature.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="/img/lumen-logo.png" type="image/png">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<meta property="og:title" content="Document Analyzer">
+<meta property="og:description" content="A visual guide for clinicians using Lumen AI">
+<meta property="og:image" content="/img/lumen-logo.png">
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/img/lumen-logo.png" alt="Lumen AI">
+      <span class="logo-label">Lumen<span class="logo-sub">User Guide</span></span>
+    </a>
+
+    <nav class="header-nav">
+      
+        <a href="/getting-started/">Getting Started</a>
+      
+        <a href="/chat/">The Chat</a>
+      
+        <a href="/agents/">Agents</a>
+      
+        <a href="/workflows/">Workflows</a>
+      
+        <a href="/tools/">Chat Tools</a>
+      
+    </nav>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <div class="scroll-progress"></div>
+
+  <div class="site-wrapper ">
+    
+      <aside class="sidebar">
+  <nav>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a class="sidebar-link" href="/getting-started/">Pick a Scenario</a>
+      <a class="sidebar-link" href="/getting-started/first-chat/">Your First Chat</a>
+      <a class="sidebar-link" href="/getting-started/check-interaction/">Check a Drug Interaction</a>
+      <a class="sidebar-link" href="/getting-started/find-a-code/">Find a Billing Code</a>
+      <a class="sidebar-link" href="/getting-started/differential/">Build a Differential</a>
+      <a class="sidebar-link" href="/getting-started/draft-a-note/">Draft a Note</a>
+      <a class="sidebar-link" href="/getting-started/run-a-calculator/">Run a Calculator</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">The Chat</div>
+      <a class="sidebar-link" href="/chat/">Overview</a>
+      <a class="sidebar-link" href="/chat/sending-messages/">Typing &amp; Sending</a>
+      <a class="sidebar-link" href="/chat/responses/">Reading Answers</a>
+      <a class="sidebar-link" href="/chat/thinking/">How Lumen Thinks</a>
+      <a class="sidebar-link" href="/chat/artifacts/">Reports &amp; Files</a>
+      <a class="sidebar-link" href="/chat/sources/">Where It Gets Its Info</a>
+      <a class="sidebar-link" href="/chat/attachments/">Uploading Your Files</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Agents</div>
+      <a class="sidebar-link" href="/agents/">Agents vs Chat</a>
+      <a class="sidebar-link" href="/agents/clinical-scribe/">Clinical Scribe</a>
+      <a class="sidebar-link" href="/agents/diagnostic-support/">Diagnostic Support</a>
+      <a class="sidebar-link" href="/agents/research-advisor/">Research Advisor</a>
+      <a class="sidebar-link" href="/agents/insurance/">Insurance &amp; Appeals</a>
+      <a class="sidebar-link" href="/agents/document-analyzer/">Document Analyzer</a>
+      <a class="sidebar-link" href="/agents/health-explainer/">Health Explainer</a>
+      <a class="sidebar-link" href="/agents/symptom-checker/">Symptom Checker</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Workflows</div>
+      <a class="sidebar-link" href="/workflows/">Why Build a Workflow</a>
+      <a class="sidebar-link" href="/workflows/editor/">The Visual Editor</a>
+      <a class="sidebar-link" href="/workflows/building-blocks/">Building Blocks</a>
+      <a class="sidebar-link" href="/workflows/running/">Running &amp; Results</a>
+      <a class="sidebar-link" href="/workflows/publish/">Turn It Into an Agent</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Chat Tools</div>
+      <a class="sidebar-link" href="/tools/">Overview</a>
+      <a class="sidebar-link" href="/tools/search-sources/">Finding Information</a>
+      <a class="sidebar-link" href="/tools/literature-research/">Research &amp; Evidence</a>
+      <a class="sidebar-link" href="/tools/medications/">Medication Questions</a>
+      <a class="sidebar-link" href="/tools/coding-labs/">Codes, Labs &amp; Calculators</a>
+      <a class="sidebar-link" href="/tools/protocols-decisions/">Protocols &amp; Decision Support</a>
+      <a class="sidebar-link" href="/tools/patient-records/">Patient Records &amp; Notes</a>
+      <a class="sidebar-link" href="/tools/document-generation/">Creating Documents</a>
+      <a class="sidebar-link" href="/tools/privacy/">Privacy &amp; Safety</a>
+    </div>
+  </nav>
+</aside>
+
+    
+
+    <main class="main-content">
+      
+<div class="content-body">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    
+      <a href="/agents/">Agents</a>
+      <span class="sep">/</span>
+    
+    <span>Document Analyzer</span>
+  </nav>
+
+  <div class="page-header">
+    <h1>Document Analyzer</h1>
+    
+  </div>
+
+  <div class="page-content">
+    <p>You received a consult report, a research paper, or a lengthy clinical document. You need the key findings organized, mapped to codes, and backed with evidence. Upload the document and let the agent do the rest.</p>
+<h2 id="upload-and-ask">Upload and Ask</h2>
+<p>Attach a PDF or paste the text in the Sources panel, then type:</p>
+<blockquote>
+<p><em>&ldquo;Analyze this cardiology consult and summarize the key findings and recommendations&rdquo;</em></p>
+</blockquote>
+<h2 id="the-7-step-analysis">The 7-Step Analysis</h2>
+<div class="step-timeline">
+<div class="step-item">
+  <div class="step-item-dot">1</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Summarize Document</span></div>
+    <div class="step-item-desc">Creates a comprehensive executive summary of the entire document.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(88,101,242,0.1); color: var(--primary);">&#128196;</div>
+        <span class="step-artifact-label">Executive Summary</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-value">68yo male referred for evaluation of new systolic murmur. Echo reveals moderate-severe aortic stenosis (AVA 0.9 cm², mean gradient 38 mmHg). LVEF preserved at 58%. Coronary angiography recommended prior to valve intervention...</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">2</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Extract Entities</span></div>
+    <div class="step-item-desc">Identifies all clinical entities — conditions, medications, procedures, lab values, measurements.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(140,102,217,0.1); color: var(--purple);">&#128196;</div>
+        <span class="step-artifact-label">Clinical Entities</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-label">Conditions:</span><span class="mini-value">aortic stenosis (moderate-severe), exertional dyspnea</span></div>
+        <div class="mini-row"><span class="mini-label">Measurements:</span><span class="mini-value">AVA 0.9 cm², mean gradient 38 mmHg, LVEF 58%</span></div>
+        <div class="mini-row"><span class="mini-label">Medications:</span><span class="mini-value">lisinopril, atorvastatin, aspirin</span></div>
+        <div class="mini-row"><span class="mini-label">Procedures:</span><span class="mini-value">echocardiogram, coronary angiography (recommended)</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">3</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Extract Keywords</span></div>
+    <div class="step-item-desc">Pulls the primary clinical topics for literature searching.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(88,101,242,0.1); color: var(--primary);">&#128196;</div>
+        <span class="step-artifact-label">Key Topics</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-value">aortic stenosis, TAVR, surgical AVR, valve area, gradient, exercise tolerance</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">4</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Knowledge Base Search</span></div>
+    <div class="step-item-desc">Searches for relevant clinical guidelines and context.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(14,165,233,0.1); color: var(--cyan);">&#128218;</div>
+        <span class="step-artifact-label">Guidelines</span><span class="step-artifact-type">3 sources</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-value">ACC/AHA Valvular Heart Disease Guidelines 2023 &middot; AS Intervention Criteria &middot; TAVR vs SAVR Decision Framework</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">5</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">PubMed Literature</span><span class="step-item-tool">PubMed</span></div>
+    <div class="step-item-desc">Finds supporting or contradicting evidence from peer-reviewed studies.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(14,165,233,0.1); color: var(--cyan);">&#128218;</div>
+        <span class="step-artifact-label">PubMed Results</span><span class="step-artifact-type">8 articles</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row" style="flex-direction: column; align-items: flex-start;"><span class="mini-label">PARTNER 3 (2019)</span><span class="mini-value">TAVR vs SAVR in low-risk patients. NEJM.</span></div>
+        <div class="mini-row" style="flex-direction: column; align-items: flex-start;"><span class="mini-label">Carabello BA (2023)</span><span class="mini-value">Timing of intervention in AS. Circulation.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">6</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Diagnostic Codes</span><span class="step-item-tool">ICD-10</span></div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(255,149,0,0.1); color: var(--orange);">&#127973;</div>
+        <span class="step-artifact-label">ICD-10 Codes</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-code">I35.0</span><span class="mini-value">Nonrheumatic aortic (valve) stenosis</span></div>
+        <div class="mini-row"><span class="mini-code">R06.00</span><span class="mini-value">Dyspnea, unspecified</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">&#10003;</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Structured Analysis Report</span></div>
+    <div class="step-item-desc">Combines everything into an organized report: summary, key findings, ICD-10 codes, supporting evidence, and clinical recommendations.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(52,199,89,0.1); color: var(--green);">&#128203;</div>
+        <span class="step-artifact-label">Analysis Report</span><span class="step-artifact-type">Final Report</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-value">Summary &middot; 6 key findings &middot; 2 ICD-10 codes &middot; 8 supporting articles &middot; 3 guideline citations &middot; Recommended next steps: coronary angio, valve clinic referral, STS risk score</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="tip-card">
+  <div class="tip-label">&#128161; Tip</div>
+  <div class="tip-title">Compare multiple documents</div>
+  <div class="tip-body">Upload several documents — reports over time, or competing guidelines — and ask the agent to compare them.</div>
+</div>
+
+
+  </div>
+
+  
+  
+  
+    
+    
+    
+    
+    
+
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+      
+    
+      
+        
+          
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+
+    <nav class="page-nav">
+      
+        <a href="/agents/insurance/">
+          <div class="nav-label">&larr; Previous</div>
+          <div class="nav-title">Insurance &amp; Appeals</div>
+        </a>
+      
+      
+        <a href="/agents/health-explainer/" class="next">
+          <div class="nav-label">Next &rarr;</div>
+          <div class="nav-title">Health Explainer</div>
+        </a>
+      
+    </nav>
+  
+</div>
+
+    </main>
+  </div>
+
+  
+    <footer class="site-footer">
+  <p>&copy; 2026 IntraCav Health &middot; Lumen AI User Guide</p>
+</footer>
+
+  
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

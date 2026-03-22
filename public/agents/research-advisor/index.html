@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research Advisor — Lumen AI — User Guide</title>
+<meta name="description" content="Get a structured literature review without spending your evening on PubMed.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="/img/lumen-logo.png" type="image/png">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<meta property="og:title" content="Research Advisor">
+<meta property="og:description" content="A visual guide for clinicians using Lumen AI">
+<meta property="og:image" content="/img/lumen-logo.png">
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/img/lumen-logo.png" alt="Lumen AI">
+      <span class="logo-label">Lumen<span class="logo-sub">User Guide</span></span>
+    </a>
+
+    <nav class="header-nav">
+      
+        <a href="/getting-started/">Getting Started</a>
+      
+        <a href="/chat/">The Chat</a>
+      
+        <a href="/agents/">Agents</a>
+      
+        <a href="/workflows/">Workflows</a>
+      
+        <a href="/tools/">Chat Tools</a>
+      
+    </nav>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <div class="scroll-progress"></div>
+
+  <div class="site-wrapper ">
+    
+      <aside class="sidebar">
+  <nav>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a class="sidebar-link" href="/getting-started/">Pick a Scenario</a>
+      <a class="sidebar-link" href="/getting-started/first-chat/">Your First Chat</a>
+      <a class="sidebar-link" href="/getting-started/check-interaction/">Check a Drug Interaction</a>
+      <a class="sidebar-link" href="/getting-started/find-a-code/">Find a Billing Code</a>
+      <a class="sidebar-link" href="/getting-started/differential/">Build a Differential</a>
+      <a class="sidebar-link" href="/getting-started/draft-a-note/">Draft a Note</a>
+      <a class="sidebar-link" href="/getting-started/run-a-calculator/">Run a Calculator</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">The Chat</div>
+      <a class="sidebar-link" href="/chat/">Overview</a>
+      <a class="sidebar-link" href="/chat/sending-messages/">Typing &amp; Sending</a>
+      <a class="sidebar-link" href="/chat/responses/">Reading Answers</a>
+      <a class="sidebar-link" href="/chat/thinking/">How Lumen Thinks</a>
+      <a class="sidebar-link" href="/chat/artifacts/">Reports &amp; Files</a>
+      <a class="sidebar-link" href="/chat/sources/">Where It Gets Its Info</a>
+      <a class="sidebar-link" href="/chat/attachments/">Uploading Your Files</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Agents</div>
+      <a class="sidebar-link" href="/agents/">Agents vs Chat</a>
+      <a class="sidebar-link" href="/agents/clinical-scribe/">Clinical Scribe</a>
+      <a class="sidebar-link" href="/agents/diagnostic-support/">Diagnostic Support</a>
+      <a class="sidebar-link" href="/agents/research-advisor/">Research Advisor</a>
+      <a class="sidebar-link" href="/agents/insurance/">Insurance &amp; Appeals</a>
+      <a class="sidebar-link" href="/agents/document-analyzer/">Document Analyzer</a>
+      <a class="sidebar-link" href="/agents/health-explainer/">Health Explainer</a>
+      <a class="sidebar-link" href="/agents/symptom-checker/">Symptom Checker</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Workflows</div>
+      <a class="sidebar-link" href="/workflows/">Why Build a Workflow</a>
+      <a class="sidebar-link" href="/workflows/editor/">The Visual Editor</a>
+      <a class="sidebar-link" href="/workflows/building-blocks/">Building Blocks</a>
+      <a class="sidebar-link" href="/workflows/running/">Running &amp; Results</a>
+      <a class="sidebar-link" href="/workflows/publish/">Turn It Into an Agent</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Chat Tools</div>
+      <a class="sidebar-link" href="/tools/">Overview</a>
+      <a class="sidebar-link" href="/tools/search-sources/">Finding Information</a>
+      <a class="sidebar-link" href="/tools/literature-research/">Research &amp; Evidence</a>
+      <a class="sidebar-link" href="/tools/medications/">Medication Questions</a>
+      <a class="sidebar-link" href="/tools/coding-labs/">Codes, Labs &amp; Calculators</a>
+      <a class="sidebar-link" href="/tools/protocols-decisions/">Protocols &amp; Decision Support</a>
+      <a class="sidebar-link" href="/tools/patient-records/">Patient Records &amp; Notes</a>
+      <a class="sidebar-link" href="/tools/document-generation/">Creating Documents</a>
+      <a class="sidebar-link" href="/tools/privacy/">Privacy &amp; Safety</a>
+    </div>
+  </nav>
+</aside>
+
+    
+
+    <main class="main-content">
+      
+<div class="content-body">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    
+      <a href="/agents/">Agents</a>
+      <span class="sep">/</span>
+    
+    <span>Research Advisor</span>
+  </nav>
+
+  <div class="page-header">
+    <h1>Research Advisor</h1>
+    
+  </div>
+
+  <div class="page-content">
+    <p>You have a clinical question that requires a real evidence review — not just a quick answer, but what the studies show, what the FDA says, and whether any trials are running. The Research Advisor handles the whole thing.</p>
+<h2 id="give-it-your-question">Give It Your Question</h2>
+<blockquote>
+<p><em>&ldquo;What is the current evidence for SGLT2 inhibitors in heart failure with preserved ejection fraction?&rdquo;</em></p>
+</blockquote>
+<h2 id="the-7-step-review">The 7-Step Review</h2>
+<div class="step-timeline">
+<div class="step-item">
+  <div class="step-item-dot">1</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Extract Research Terms</span></div>
+    <div class="step-item-desc">Identifies the key concepts and builds optimized search queries.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(88,101,242,0.1); color: var(--primary);">&#128196;</div>
+        <span class="step-artifact-label">Search Strategy</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-label">Terms:</span> <span class="mini-value">SGLT2 inhibitors, HFpEF, dapagliflozin, empagliflozin, heart failure preserved ejection fraction</span></div>
+        <div class="mini-row"><span class="mini-label">Filters:</span> <span class="mini-value">RCTs, systematic reviews, meta-analyses, 2020–2026</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">2</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Knowledge Base Search</span></div>
+    <div class="step-item-desc">Searches Lumen's indexed clinical content for baseline context.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(14,165,233,0.1); color: var(--cyan);">&#128218;</div>
+        <span class="step-artifact-label">Clinical Context</span><span class="step-artifact-type">4 sources</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-value">ACC/AHA HF Guidelines &middot; ESC HFpEF Position Paper &middot; SGLT2i Class Review &middot; HFpEF Diagnostic Criteria</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">3</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">PubMed Literature</span><span class="step-item-tool">PubMed</span></div>
+    <div class="step-item-desc">Searches PubMed for peer-reviewed studies, fetches abstracts, ranks by relevance.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(14,165,233,0.1); color: var(--cyan);">&#128218;</div>
+        <span class="step-artifact-label">PubMed Results</span><span class="step-artifact-type">12 articles</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row" style="flex-direction: column; align-items: flex-start;"><span class="mini-label">Solomon SD et al. DELIVER (2022)</span><span class="mini-value">Dapagliflozin in HFpEF. NEJM. HR 0.82 (0.73–0.92) for worsening HF or CV death.</span></div>
+        <div class="mini-row" style="flex-direction: column; align-items: flex-start;"><span class="mini-label">Anker SD et al. EMPEROR-Preserved (2021)</span><span class="mini-value">Empagliflozin in HFpEF. NEJM. HR 0.79 (0.69–0.90) for CV death or HF hospitalization.</span></div>
+        <div class="mini-row" style="flex-direction: column; align-items: flex-start;"><span class="mini-label">Vaduganathan M et al. (2022)</span><span class="mini-value">SGLT2i across the HF spectrum: meta-analysis. Lancet.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">4</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">FDA Drug Data</span><span class="step-item-tool">OpenFDA</span></div>
+    <div class="step-item-desc">Checks FDA prescribing information, approved indications, and safety data.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(52,199,89,0.1); color: var(--green);">&#128138;</div>
+        <span class="step-artifact-label">FDA Label Data</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-label">Dapagliflozin (Farxiga)</span><span class="mini-value" style="margin-left: auto; color: var(--green);">&#10003; FDA-approved for HF (all EFs)</span></div>
+        <div class="mini-row"><span class="mini-label">Empagliflozin (Jardiance)</span><span class="mini-value" style="margin-left: auto; color: var(--green);">&#10003; FDA-approved for HF (all EFs)</span></div>
+        <div class="mini-row"><span class="mini-label">Key warnings:</span><span class="mini-value" style="margin-left: auto;">DKA risk, genital infections, volume depletion</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">5</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Clinical Trials</span><span class="step-item-tool">ClinicalTrials.gov</span></div>
+    <div class="step-item-desc">Searches for active and recently completed trials relevant to the question.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(140,102,217,0.1); color: var(--purple);">&#129514;</div>
+        <span class="step-artifact-label">Active Trials</span><span class="step-artifact-type">3 trials</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-code">NCT05396573</span><span class="mini-value">SGLT2i + GLP-1 RA combination in HFpEF (Phase 3, recruiting)</span></div>
+        <div class="mini-row"><span class="mini-code">NCT06012839</span><span class="mini-value">Dapagliflozin in HFpEF with obesity (Phase 4, active)</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">6</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Drug Normalization</span><span class="step-item-tool">RxNorm</span></div>
+    <div class="step-item-desc">Resolves drug names to canonical identifiers for accuracy.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(52,199,89,0.1); color: var(--green);">&#128138;</div>
+        <span class="step-artifact-label">Drug Profile</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-label">Class:</span><span class="mini-value">SGLT2 inhibitor (sodium-glucose co-transporter 2)</span></div>
+        <div class="mini-row"><span class="mini-label">Mechanism:</span><span class="mini-value">Blocks glucose reabsorption in proximal tubule → glycosuria, osmotic diuresis, cardioprotection</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">&#10003;</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Evidence Synthesis</span></div>
+    <div class="step-item-desc">Combines all evidence into a structured review with conclusions and identified gaps.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(52,199,89,0.1); color: var(--green);">&#128203;</div>
+        <span class="step-artifact-label">Literature Review</span><span class="step-artifact-type">Final Report</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-value"><strong>Conclusion:</strong> Strong evidence (2 large RCTs, meta-analyses) supports SGLT2i use in HFpEF. Both dapagliflozin and empagliflozin FDA-approved. NNT ~21 for HF hospitalization prevention. Active trials exploring combination therapy and subpopulations.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="tip-card">
+  <div class="tip-label">&#128161; Tip</div>
+  <div class="tip-title">Attach a paper for context</div>
+  <div class="tip-body">Upload a research paper in the Sources panel. The agent will use it as context — finding related studies, newer data, or contradicting evidence.</div>
+</div>
+
+
+  </div>
+
+  
+  
+  
+    
+    
+    
+    
+    
+
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+      
+    
+      
+        
+          
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+
+    <nav class="page-nav">
+      
+        <a href="/agents/diagnostic-support/">
+          <div class="nav-label">&larr; Previous</div>
+          <div class="nav-title">Diagnostic Support</div>
+        </a>
+      
+      
+        <a href="/agents/insurance/" class="next">
+          <div class="nav-label">Next &rarr;</div>
+          <div class="nav-title">Insurance &amp; Appeals</div>
+        </a>
+      
+    </nav>
+  
+</div>
+
+    </main>
+  </div>
+
+  
+    <footer class="site-footer">
+  <p>&copy; 2026 IntraCav Health &middot; Lumen AI User Guide</p>
+</footer>
+
+  
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

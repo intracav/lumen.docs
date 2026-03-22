@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uploading Your Files — Lumen AI — User Guide</title>
+<meta name="description" content="Give Lumen a PDF, Word doc, or spreadsheet and ask questions about it.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="/img/lumen-logo.png" type="image/png">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<meta property="og:title" content="Uploading Your Files">
+<meta property="og:description" content="A visual guide for clinicians using Lumen AI">
+<meta property="og:image" content="/img/lumen-logo.png">
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/img/lumen-logo.png" alt="Lumen AI">
+      <span class="logo-label">Lumen<span class="logo-sub">User Guide</span></span>
+    </a>
+
+    <nav class="header-nav">
+      
+        <a href="/getting-started/">Getting Started</a>
+      
+        <a href="/chat/">The Chat</a>
+      
+        <a href="/agents/">Agents</a>
+      
+        <a href="/workflows/">Workflows</a>
+      
+        <a href="/tools/">Chat Tools</a>
+      
+    </nav>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <div class="scroll-progress"></div>
+
+  <div class="site-wrapper ">
+    
+      <aside class="sidebar">
+  <nav>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a class="sidebar-link" href="/getting-started/">Pick a Scenario</a>
+      <a class="sidebar-link" href="/getting-started/first-chat/">Your First Chat</a>
+      <a class="sidebar-link" href="/getting-started/check-interaction/">Check a Drug Interaction</a>
+      <a class="sidebar-link" href="/getting-started/find-a-code/">Find a Billing Code</a>
+      <a class="sidebar-link" href="/getting-started/differential/">Build a Differential</a>
+      <a class="sidebar-link" href="/getting-started/draft-a-note/">Draft a Note</a>
+      <a class="sidebar-link" href="/getting-started/run-a-calculator/">Run a Calculator</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">The Chat</div>
+      <a class="sidebar-link" href="/chat/">Overview</a>
+      <a class="sidebar-link" href="/chat/sending-messages/">Typing &amp; Sending</a>
+      <a class="sidebar-link" href="/chat/responses/">Reading Answers</a>
+      <a class="sidebar-link" href="/chat/thinking/">How Lumen Thinks</a>
+      <a class="sidebar-link" href="/chat/artifacts/">Reports &amp; Files</a>
+      <a class="sidebar-link" href="/chat/sources/">Where It Gets Its Info</a>
+      <a class="sidebar-link" href="/chat/attachments/">Uploading Your Files</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Agents</div>
+      <a class="sidebar-link" href="/agents/">Agents vs Chat</a>
+      <a class="sidebar-link" href="/agents/clinical-scribe/">Clinical Scribe</a>
+      <a class="sidebar-link" href="/agents/diagnostic-support/">Diagnostic Support</a>
+      <a class="sidebar-link" href="/agents/research-advisor/">Research Advisor</a>
+      <a class="sidebar-link" href="/agents/insurance/">Insurance &amp; Appeals</a>
+      <a class="sidebar-link" href="/agents/document-analyzer/">Document Analyzer</a>
+      <a class="sidebar-link" href="/agents/health-explainer/">Health Explainer</a>
+      <a class="sidebar-link" href="/agents/symptom-checker/">Symptom Checker</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Workflows</div>
+      <a class="sidebar-link" href="/workflows/">Why Build a Workflow</a>
+      <a class="sidebar-link" href="/workflows/editor/">The Visual Editor</a>
+      <a class="sidebar-link" href="/workflows/building-blocks/">Building Blocks</a>
+      <a class="sidebar-link" href="/workflows/running/">Running &amp; Results</a>
+      <a class="sidebar-link" href="/workflows/publish/">Turn It Into an Agent</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Chat Tools</div>
+      <a class="sidebar-link" href="/tools/">Overview</a>
+      <a class="sidebar-link" href="/tools/search-sources/">Finding Information</a>
+      <a class="sidebar-link" href="/tools/literature-research/">Research &amp; Evidence</a>
+      <a class="sidebar-link" href="/tools/medications/">Medication Questions</a>
+      <a class="sidebar-link" href="/tools/coding-labs/">Codes, Labs &amp; Calculators</a>
+      <a class="sidebar-link" href="/tools/protocols-decisions/">Protocols &amp; Decision Support</a>
+      <a class="sidebar-link" href="/tools/patient-records/">Patient Records &amp; Notes</a>
+      <a class="sidebar-link" href="/tools/document-generation/">Creating Documents</a>
+      <a class="sidebar-link" href="/tools/privacy/">Privacy &amp; Safety</a>
+    </div>
+  </nav>
+</aside>
+
+    
+
+    <main class="main-content">
+      
+<div class="content-body">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    
+      <a href="/chat/">The Chat</a>
+      <span class="sep">/</span>
+    
+    <span>Uploading Your Files</span>
+  </nav>
+
+  <div class="page-header">
+    <h1>Uploading Your Files</h1>
+    
+  </div>
+
+  <div class="page-content">
+    <p>Have a research paper you want summarized? A lab report you want interpreted? A protocol you want compared to current guidelines? Just attach the file to your chat and ask away. Lumen reads the document and uses it to answer your question.</p>
+<h2 id="how-to-attach-files">How to Attach Files</h2>
+<div class="steps-container">
+<div class="step">
+  <div class="step-indicator">1</div>
+  <div class="step-content">
+    <h4>Click the paperclip icon</h4>
+    <div>In the input bar, click the <strong>paperclip icon</strong> on the left side. This opens the document tray.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-indicator">2</div>
+  <div class="step-content">
+    <h4>Choose or upload a file</h4>
+    <div><p>You can either:</p>
+<ul>
+<li><strong>Select from existing documents</strong> already in your Lumen library</li>
+<li><strong>Upload a new file</strong> by dragging it into the tray or clicking the upload area</li>
+</ul></div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-indicator">3</div>
+  <div class="step-content">
+    <h4>Watch the upload progress</h4>
+    <div><p>When you upload a new file, you&rsquo;ll see four progress stages:</p>
+<ol>
+<li><strong>Uploading</strong> — Transferring the file</li>
+<li><strong>Extracting</strong> — Reading the text content</li>
+<li><strong>Embedding</strong> — Creating searchable indexes</li>
+<li><strong>Done</strong> — Ready to use</li>
+</ol></div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-indicator">4</div>
+  <div class="step-content">
+    <h4>Ask your question</h4>
+    <div>Once attached, the file appears as a chip above the text field. Now type your question about the document and send.</div>
+  </div>
+</div>
+
+</div>
+<h2 id="supported-file-types">Supported File Types</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Format</th>
+          <th>Max Size</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>PDF</strong></td>
+          <td>5 MB</td>
+          <td>Research papers, guidelines, reports</td>
+      </tr>
+      <tr>
+          <td><strong>DOCX</strong></td>
+          <td>5 MB</td>
+          <td>Word documents, clinical notes</td>
+      </tr>
+      <tr>
+          <td><strong>TXT</strong></td>
+          <td>5 MB</td>
+          <td>Plain text files</td>
+      </tr>
+      <tr>
+          <td><strong>CSV</strong></td>
+          <td>5 MB</td>
+          <td>Data tables, lab results</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="example-use-cases">Example Use Cases</h2>
+<div class="tool-grid" style="margin: 1rem 0;">
+  <div class="tool-card">
+    <div class="tool-icon" style="background: rgba(88,101,242,0.1); color: var(--primary);">&#128196;</div>
+    <div class="tool-info">
+      <div class="tool-name">Summarize a research paper</div>
+      <div class="tool-example">"Summarize the key findings and limitations of this study"</div>
+    </div>
+  </div>
+  <div class="tool-card">
+    <div class="tool-icon" style="background: rgba(14,165,233,0.1); color: var(--cyan);">&#128203;</div>
+    <div class="tool-info">
+      <div class="tool-name">Analyze lab results</div>
+      <div class="tool-example">"Review this patient's lab panel and flag any abnormal values"</div>
+    </div>
+  </div>
+  <div class="tool-card">
+    <div class="tool-icon" style="background: rgba(140,102,217,0.1); color: var(--purple);">&#128221;</div>
+    <div class="tool-info">
+      <div class="tool-name">Compare guidelines</div>
+      <div class="tool-example">"Compare the treatment recommendations in this document with current ACC guidelines"</div>
+    </div>
+  </div>
+</div>
+<div class="tip-card">
+  <div class="tip-label">&#128161; Tip</div>
+  <div class="tip-title">Multiple attachments</div>
+  <div class="tip-body">You can attach multiple documents to a single message. Lumen will consider all of them when generating its response. Document chips appear in a row above the text field.</div>
+</div>
+
+
+
+<div class="callout callout-warning">
+  <span class="callout-icon">&#9888;&#65039;</span>
+  <div><strong>Privacy reminder:</strong> Documents you upload are stored securely in your personal library. They are only accessible to you and are not shared with other users.</div>
+</div>
+
+
+  </div>
+
+  
+  
+  
+    
+    
+    
+    
+    
+
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+      
+    
+
+    <nav class="page-nav">
+      
+        <a href="/chat/sources/">
+          <div class="nav-label">&larr; Previous</div>
+          <div class="nav-title">Where It Gets Its Info</div>
+        </a>
+      
+      
+    </nav>
+  
+</div>
+
+    </main>
+  </div>
+
+  
+    <footer class="site-footer">
+  <p>&copy; 2026 IntraCav Health &middot; Lumen AI User Guide</p>
+</footer>
+
+  
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

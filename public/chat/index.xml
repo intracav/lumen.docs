@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Chat on Lumen AI — User Guide</title>
+    <link>https://docs.lumenai.health/chat/</link>
+    <description>Recent content in The Chat on Lumen AI — User Guide</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="https://docs.lumenai.health/chat/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Typing &amp; Sending</title>
+      <link>https://docs.lumenai.health/chat/sending-messages/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.lumenai.health/chat/sending-messages/</guid>
+      <description>&lt;p&gt;The bottom of the screen is where you type. It looks and works like any messaging app — but it has a few extra buttons that let you control where Lumen looks for answers.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-input-bar&#34;&gt;The Input Bar&lt;/h2&gt;&#xA;&lt;p&gt;At the bottom of every chat is the input bar. Here&amp;rsquo;s what each element does:&lt;/p&gt;&#xA;&lt;div class=&#34;app-frame&#34; style=&#34;margin: 2rem 0;&#34;&gt;&#xA;  &lt;div class=&#34;app-frame-bar&#34;&gt;&#xA;    &lt;div class=&#34;app-frame-dot red&#34;&gt;&lt;/div&gt;&#xA;    &lt;div class=&#34;app-frame-dot yellow&#34;&gt;&lt;/div&gt;&#xA;    &lt;div class=&#34;app-frame-dot green&#34;&gt;&lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;app-frame-content&#34; style=&#34;padding: 0;&#34;&gt;&#xA;    &lt;div class=&#34;chat-toggles&#34; style=&#34;padding: 0.75rem 1.25rem; background: var(--bg-darker);&#34;&gt;&#xA;      &lt;div class=&#34;mock-toggle active&#34; style=&#34;background: rgba(59,130,246,0.2); color: #3B82F6;&#34;&gt;&#xA;        &lt;span class=&#34;toggle-dot&#34; style=&#34;background: #3B82F6;&#34;&gt;&lt;/span&gt; Clinical Database&#xA;      &lt;/div&gt;&#xA;      &lt;div class=&#34;mock-toggle&#34;&gt;&#xA;        &lt;span class=&#34;toggle-dot&#34; style=&#34;background: #6633CC;&#34;&gt;&lt;/span&gt; My Docs&#xA;      &lt;/div&gt;&#xA;      &lt;div class=&#34;mock-toggle&#34;&gt;&#xA;        &lt;span class=&#34;toggle-dot&#34; style=&#34;background: #299966;&#34;&gt;&lt;/span&gt; Web&#xA;      &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;    &lt;div class=&#34;chat-mockup-input&#34; style=&#34;border-top: 1px solid rgba(255,255,255,0.06);&#34;&gt;&#xA;      &lt;div class=&#34;input-field&#34;&gt;Message Lumen&amp;hellip;&lt;/div&gt;&#xA;      &lt;div class=&#34;send-btn&#34;&gt;&amp;#8593;&lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;h2 id=&#34;knowledge-source-toggles&#34;&gt;Knowledge Source Toggles&lt;/h2&gt;&#xA;&lt;p&gt;Below the text field are three toggles that control &lt;strong&gt;where&lt;/strong&gt; Lumen searches for information:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Reading Answers</title>
+      <link>https://docs.lumenai.health/chat/responses/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.lumenai.health/chat/responses/</guid>
+      <description>&lt;p&gt;Lumen&amp;rsquo;s answers look like regular text, but they often include extra pieces — like a list of sources, a progress indicator showing what it searched, or a tappable card with a detailed report. Here&amp;rsquo;s what each part means.&lt;/p&gt;&#xA;&lt;h2 id=&#34;anatomy-of-a-response&#34;&gt;Anatomy of a Response&lt;/h2&gt;&#xA;&lt;p&gt;Every assistant response follows a consistent structure. Here&amp;rsquo;s what you&amp;rsquo;ll see, from top to bottom:&lt;/p&gt;&#xA;&lt;div class=&#34;chat-mockup chat-demo-animated&#34; style=&#34;margin: 2rem 0;&#34;&gt;&#xA;  &lt;div class=&#34;chat-mockup-header&#34;&gt;&#xA;    &lt;div class=&#34;chat-mockup-avatar&#34;&gt;&amp;#10022;&lt;/div&gt;&#xA;    &lt;div class=&#34;chat-mockup-title&#34;&gt;Chat&lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;chat-mockup-body&#34;&gt;&#xA;    &lt;div class=&#34;chat-msg user&#34;&gt;What is the CHA₂DS₂-VASc score for a 72-year-old woman with hypertension and diabetes?&lt;/div&gt;&#xA;    &lt;div class=&#34;chat-msg assistant&#34;&gt;&#xA;      &lt;div class=&#34;msg-avatar&#34;&gt;&lt;span&gt;&amp;#10022;&lt;/span&gt;&lt;/div&gt;&#xA;      &lt;div class=&#34;msg-content&#34;&gt;&#xA;        &lt;div class=&#34;mock-thinking&#34;&gt;&#xA;          &lt;span class=&#34;pulse-dot&#34;&gt;&lt;/span&gt;&#xA;          Thought for 3s&#xA;        &lt;/div&gt;&#xA;        &lt;div class=&#34;mock-tool&#34;&gt;&#xA;          &lt;div class=&#34;mock-tool-header&#34;&gt;&#xA;            &lt;span class=&#34;mock-tool-status done&#34;&gt;&lt;/span&gt;&#xA;            Ran medical calculator&#xA;          &lt;/div&gt;&#xA;          &lt;div class=&#34;mock-tool-detail&#34;&gt;CHA₂DS₂-VASc &amp;middot; age=72, sex=female&lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;p style=&#34;margin:0; font-size: 0.875rem; line-height: 1.6;&#34;&gt;&#xA;          The &lt;strong&gt;CHA₂DS₂-VASc score is 5&lt;/strong&gt; for this patient, which indicates a &lt;strong&gt;high stroke risk&lt;/strong&gt;. Anticoagulation is recommended.&#xA;        &lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How Lumen Thinks</title>
+      <link>https://docs.lumenai.health/chat/thinking/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.lumenai.health/chat/thinking/</guid>
+      <description>&lt;p&gt;You wouldn&amp;rsquo;t trust a colleague who just said &lt;em&gt;&amp;ldquo;trust me&amp;rdquo;&lt;/em&gt; without explaining their reasoning. Neither should you trust an AI that way. That&amp;rsquo;s why Lumen shows you &lt;strong&gt;how&lt;/strong&gt; it arrived at its answer — you can expand the thinking block and see the logic step by step.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-the-thinking-block&#34;&gt;What Is the Thinking Block?&lt;/h2&gt;&#xA;&lt;p&gt;When Lumen processes a complex question, it first &amp;ldquo;thinks&amp;rdquo; through the problem before responding. This appears as a collapsible block at the top of the response.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Reports &amp; Files</title>
+      <link>https://docs.lumenai.health/chat/artifacts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.lumenai.health/chat/artifacts/</guid>
+      <description>&lt;p&gt;Sometimes a text answer isn&amp;rsquo;t enough. When you ask about drug interactions, Lumen doesn&amp;rsquo;t just tell you — it creates a &lt;strong&gt;detailed report&lt;/strong&gt; you can tap to open. Ask for a presentation, and it builds one you can download. These attached files and reports are called &lt;strong&gt;artifacts&lt;/strong&gt;, and they show up as tappable cards in the chat.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-are-artifacts&#34;&gt;What Are Artifacts?&lt;/h2&gt;&#xA;&lt;p&gt;An artifact is a structured, interactive piece of content that Lumen creates during a conversation. They appear as clickable cards within the chat.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Where It Gets Its Info</title>
+      <link>https://docs.lumenai.health/chat/sources/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.lumenai.health/chat/sources/</guid>
+      <description>&lt;p&gt;Lumen always shows its work. After every answer, you&amp;rsquo;ll see a &lt;strong&gt;&amp;ldquo;Sources&amp;rdquo;&lt;/strong&gt; link that tells you exactly which guidelines, studies, or databases the answer came from — and how closely each one matched your question. Think of it as the bibliography at the end of a paper.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-sources-chip&#34;&gt;The Sources Chip&lt;/h2&gt;&#xA;&lt;p&gt;After a response that draws on evidence, you&amp;rsquo;ll see a sources chip:&lt;/p&gt;&#xA;&lt;div style=&#34;margin: 1.5rem 0; padding: 1.5rem; background: var(--bg-dark); border-radius: var(--radius-md);&#34;&gt;&#xA;  &lt;div class=&#34;mock-sources&#34; style=&#34;display: inline-flex;&#34;&gt;&amp;#128218; Sources (4)&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;Click this chip to expand the list of sources inline, or click &lt;strong&gt;&amp;ldquo;View in panel&amp;rdquo;&lt;/strong&gt; to open them in the side panel for a detailed view.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Uploading Your Files</title>
+      <link>https://docs.lumenai.health/chat/attachments/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.lumenai.health/chat/attachments/</guid>
+      <description>&lt;p&gt;Have a research paper you want summarized? A lab report you want interpreted? A protocol you want compared to current guidelines? Just attach the file to your chat and ask away. Lumen reads the document and uses it to answer your question.&lt;/p&gt;&#xA;&lt;h2 id=&#34;how-to-attach-files&#34;&gt;How to Attach Files&lt;/h2&gt;&#xA;&lt;div class=&#34;steps-container&#34;&gt;&#xA;&lt;div class=&#34;step&#34;&gt;&#xA;  &lt;div class=&#34;step-indicator&#34;&gt;1&lt;/div&gt;&#xA;  &lt;div class=&#34;step-content&#34;&gt;&#xA;    &lt;h4&gt;Click the paperclip icon&lt;/h4&gt;&#xA;    &lt;div&gt;In the input bar, click the &lt;strong&gt;paperclip icon&lt;/strong&gt; on the left side. This opens the document tray.&lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;div class=&#34;step&#34;&gt;&#xA;  &lt;div class=&#34;step-indicator&#34;&gt;2&lt;/div&gt;&#xA;  &lt;div class=&#34;step-content&#34;&gt;&#xA;    &lt;h4&gt;Choose or upload a file&lt;/h4&gt;&#xA;    &lt;div&gt;&lt;p&gt;You can either:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

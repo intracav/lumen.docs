@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workflows — Lumen AI — User Guide</title>
+<meta name="description" content="A visual guide for clinicians using Lumen AI">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="/img/lumen-logo.png" type="image/png">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<meta property="og:title" content="Workflows">
+<meta property="og:description" content="A visual guide for clinicians using Lumen AI">
+<meta property="og:image" content="/img/lumen-logo.png">
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/img/lumen-logo.png" alt="Lumen AI">
+      <span class="logo-label">Lumen<span class="logo-sub">User Guide</span></span>
+    </a>
+
+    <nav class="header-nav">
+      
+        <a href="/getting-started/">Getting Started</a>
+      
+        <a href="/chat/">The Chat</a>
+      
+        <a href="/agents/">Agents</a>
+      
+        <a href="/workflows/">Workflows</a>
+      
+        <a href="/tools/">Chat Tools</a>
+      
+    </nav>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <div class="scroll-progress"></div>
+
+  <div class="site-wrapper ">
+    
+      <aside class="sidebar">
+  <nav>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a class="sidebar-link" href="/getting-started/">Pick a Scenario</a>
+      <a class="sidebar-link" href="/getting-started/first-chat/">Your First Chat</a>
+      <a class="sidebar-link" href="/getting-started/check-interaction/">Check a Drug Interaction</a>
+      <a class="sidebar-link" href="/getting-started/find-a-code/">Find a Billing Code</a>
+      <a class="sidebar-link" href="/getting-started/differential/">Build a Differential</a>
+      <a class="sidebar-link" href="/getting-started/draft-a-note/">Draft a Note</a>
+      <a class="sidebar-link" href="/getting-started/run-a-calculator/">Run a Calculator</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">The Chat</div>
+      <a class="sidebar-link" href="/chat/">Overview</a>
+      <a class="sidebar-link" href="/chat/sending-messages/">Typing &amp; Sending</a>
+      <a class="sidebar-link" href="/chat/responses/">Reading Answers</a>
+      <a class="sidebar-link" href="/chat/thinking/">How Lumen Thinks</a>
+      <a class="sidebar-link" href="/chat/artifacts/">Reports &amp; Files</a>
+      <a class="sidebar-link" href="/chat/sources/">Where It Gets Its Info</a>
+      <a class="sidebar-link" href="/chat/attachments/">Uploading Your Files</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Agents</div>
+      <a class="sidebar-link" href="/agents/">Agents vs Chat</a>
+      <a class="sidebar-link" href="/agents/clinical-scribe/">Clinical Scribe</a>
+      <a class="sidebar-link" href="/agents/diagnostic-support/">Diagnostic Support</a>
+      <a class="sidebar-link" href="/agents/research-advisor/">Research Advisor</a>
+      <a class="sidebar-link" href="/agents/insurance/">Insurance &amp; Appeals</a>
+      <a class="sidebar-link" href="/agents/document-analyzer/">Document Analyzer</a>
+      <a class="sidebar-link" href="/agents/health-explainer/">Health Explainer</a>
+      <a class="sidebar-link" href="/agents/symptom-checker/">Symptom Checker</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Workflows</div>
+      <a class="sidebar-link" href="/workflows/">Why Build a Workflow</a>
+      <a class="sidebar-link" href="/workflows/editor/">The Visual Editor</a>
+      <a class="sidebar-link" href="/workflows/building-blocks/">Building Blocks</a>
+      <a class="sidebar-link" href="/workflows/running/">Running &amp; Results</a>
+      <a class="sidebar-link" href="/workflows/publish/">Turn It Into an Agent</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Chat Tools</div>
+      <a class="sidebar-link" href="/tools/">Overview</a>
+      <a class="sidebar-link" href="/tools/search-sources/">Finding Information</a>
+      <a class="sidebar-link" href="/tools/literature-research/">Research &amp; Evidence</a>
+      <a class="sidebar-link" href="/tools/medications/">Medication Questions</a>
+      <a class="sidebar-link" href="/tools/coding-labs/">Codes, Labs &amp; Calculators</a>
+      <a class="sidebar-link" href="/tools/protocols-decisions/">Protocols &amp; Decision Support</a>
+      <a class="sidebar-link" href="/tools/patient-records/">Patient Records &amp; Notes</a>
+      <a class="sidebar-link" href="/tools/document-generation/">Creating Documents</a>
+      <a class="sidebar-link" href="/tools/privacy/">Privacy &amp; Safety</a>
+    </div>
+  </nav>
+</aside>
+
+    
+
+    <main class="main-content">
+      
+<div class="content-body">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    <span>Workflows</span>
+  </nav>
+
+  <div class="page-header">
+    <h1>Workflows</h1>
+    <p class="lead">The built-in agents are powerful — but what if you could build your own? Workflows let you connect Lumen&#39;s tools into custom automations, no coding required.</p>
+  </div>
+
+  <h2 id="why-would-i-build-a-workflow">Why Would I Build a Workflow?</h2>
+<p>The 8 built-in agents handle common clinical tasks. But every practice is different. Maybe you need a workflow that:</p>
+<ul>
+<li>Pulls a patient&rsquo;s med list, checks every interaction, then drafts a reconciliation note</li>
+<li>Takes a research paper, summarizes it, extracts the key stats, and builds a quiz for your residents</li>
+<li>Reads a consult report, looks up all the codes, checks CMS coverage, and drafts a prior auth</li>
+<li>Translates a discharge summary into Spanish and generates a patient-friendly handout</li>
+</ul>
+<p><strong>Workflows let you build exactly the automation you need</strong> by connecting Lumen&rsquo;s tools together visually — like building a recipe from ingredients.</p>
+<h2 id="the-big-picture">The Big Picture</h2>
+<div class="journey-flow">
+  <div class="journey-box">
+    <div class="journey-box-icon">&#128196;</div>
+    <div class="journey-box-label">Build a Workflow</div>
+    <div class="journey-box-sub">Connect tools visually</div>
+  </div>
+  <div class="journey-arrow">&rarr;</div>
+  <div class="journey-box">
+    <div class="journey-box-icon">&#9654;</div>
+    <div class="journey-box-label">Test & Refine</div>
+    <div class="journey-box-sub">Run it, see results</div>
+  </div>
+  <div class="journey-arrow">&rarr;</div>
+  <div class="journey-box">
+    <div class="journey-box-icon">&#129302;</div>
+    <div class="journey-box-label">Export as Agent</div>
+    <div class="journey-box-sub">Reusable, one-click</div>
+  </div>
+  <div class="journey-arrow">&rarr;</div>
+  <div class="journey-box">
+    <div class="journey-box-icon">&#127760;</div>
+    <div class="journey-box-label">Share or Sell</div>
+    <div class="journey-box-sub">Publish to community</div>
+  </div>
+</div>
+<ol>
+<li><strong>Build</strong> — Drag tools onto a canvas and connect them in the order you want</li>
+<li><strong>Test</strong> — Run the workflow and see what each step produces</li>
+<li><strong>Export</strong> — Save it as a reusable agent you can run with one click</li>
+<li><strong>Share</strong> — Optionally publish it for other clinicians (free or paid)</li>
+</ol>
+<h2 id="what-does-it-look-like">What Does It Look Like?</h2>
+<p>Here&rsquo;s a simple workflow that turns a dictation transcript into a coded clinical note:</p>
+<div class="node-graph">
+  <div class="node-graph-label">Workflow Editor</div>
+  <div class="node-chain">
+    <div class="wf-node">
+      <div class="wf-node-header">
+        <div class="wf-node-icon" style="background: rgba(88,101,242,0.15); color: var(--primary);">&#127908;</div>
+        <span class="wf-node-name">Voice Input</span>
+      </div>
+      <div class="wf-node-body">Dictation transcript</div>
+    </div>
+    <div class="wf-connector"></div>
+    <div class="wf-node">
+      <div class="wf-node-header">
+        <div class="wf-node-icon" style="background: rgba(140,102,217,0.15); color: var(--purple);">&#128196;</div>
+        <span class="wf-node-name">Extract Entities</span>
+      </div>
+      <div class="wf-node-body">Meds, diagnoses, labs</div>
+    </div>
+    <div class="wf-connector"></div>
+    <div class="wf-node">
+      <div class="wf-node-header">
+        <div class="wf-node-icon" style="background: rgba(255,149,0,0.15); color: var(--orange);">&#127973;</div>
+        <span class="wf-node-name">ICD-10 Lookup</span>
+      </div>
+      <div class="wf-node-body">Map to diagnosis codes</div>
+    </div>
+    <div class="wf-connector"></div>
+    <div class="wf-node">
+      <div class="wf-node-header">
+        <div class="wf-node-icon" style="background: rgba(14,165,233,0.15); color: var(--cyan);">&#128221;</div>
+        <span class="wf-node-name">Write Note</span>
+      </div>
+      <div class="wf-node-body">Draft SOAP note</div>
+    </div>
+    <div class="wf-connector"></div>
+    <div class="wf-node">
+      <div class="wf-node-header">
+        <div class="wf-node-icon" style="background: rgba(52,199,89,0.15); color: var(--green);">&#128172;</div>
+        <span class="wf-node-name">Send to Chat</span>
+      </div>
+      <div class="wf-node-body">Output result</div>
+    </div>
+  </div>
+</div>
+<p>Each box is a <strong>tool</strong> (called a &ldquo;node&rdquo;). The arrows show the <strong>order</strong> data flows through. You build this by dragging and connecting — no code, no formulas.</p>
+<h2 id="start-from-a-template">Start from a Template</h2>
+<p>Don&rsquo;t want to build from scratch? Lumen includes 6 ready-made templates you can customize:</p>
+<div class="template-grid">
+  <div class="template-card" style="border-top-color: #0EA5E9;">
+    <h4>Clinical Note Extractor</h4>
+    <p>Turns dictation into structured notes with entities and a summary.</p>
+    <div class="template-chain">
+      <span class="template-node" style="background: rgba(88,101,242,0.1); color: var(--primary);">Voice Input</span>
+      <span class="template-arrow">&rarr;</span>
+      <span class="template-node" style="background: rgba(140,102,217,0.1); color: var(--purple);">Entities</span>
+      <span class="template-arrow">&rarr;</span>
+      <span class="template-node" style="background: rgba(14,165,233,0.1); color: var(--cyan);">Summarize</span>
+      <span class="template-arrow">&rarr;</span>
+      <span class="template-node" style="background: rgba(52,199,89,0.1); color: var(--green);">Chat</span>
+    </div>
+  </div>
+  <div class="template-card" style="border-top-color: #34C759;">
+    <h4>Discharge Summary</h4>
+    <p>Uploads a document and produces a concise discharge summary.</p>
+    <div class="template-chain">
+      <span class="template-node" style="background: rgba(88,101,242,0.1); color: var(--primary);">Document</span>
+      <span class="template-arrow">&rarr;</span>
+      <span class="template-node" style="background: rgba(14,165,233,0.1); color: var(--cyan);">Summarize</span>
+      <span class="template-arrow">&rarr;</span>
+      <span class="template-node" style="background: rgba(52,199,89,0.1); color: var(--green);">Chat</span>
+    </div>
+  </div>
+  <div class="template-card" style="border-top-color: #5865F2;">
+    <h4>Prior Authorization</h4>
+    <p>Answers clinical criteria questions and generates an auth letter.</p>
+    <div class="template-chain">
+      <span class="template-node" style="background: rgba(88,101,242,0.1); color: var(--primary);">Text Input</span>
+      <span class="template-arrow">&rarr;</span>
+      <span class="template-node" style="background: rgba(140,102,217,0.1); color: var(--purple);">Q&A</span>
+      <span class="template-arrow">&rarr;</span>
+      <span class="template-node" style="background: rgba(14,165,233,0.1); color: var(--cyan);">Generate</span>
+      <span class="template-arrow">&rarr;</span>
+      <span class="template-node" style="background: rgba(52,199,89,0.1); color: var(--green);">Chat</span>
+    </div>
+  </div>
+  <div class="template-card" style="border-top-color: #FF9500;">
+    <h4>Diagnosis Code Assist</h4>
+    <p>Extracts clinical terms and suggests matching ICD-10 codes.</p>
+    <div class="template-chain">
+      <span class="template-node" style="background: rgba(88,101,242,0.1); color: var(--primary);">Text Input</span>
+      <span class="template-arrow">&rarr;</span>
+      <span class="template-node" style="background: rgba(140,102,217,0.1); color: var(--purple);">Entities</span>
+      <span class="template-arrow">&rarr;</span>
+      <span class="template-node" style="background: rgba(14,165,233,0.1); color: var(--cyan);">Classify</span>
+      <span class="template-arrow">&rarr;</span>
+      <span class="template-node" style="background: rgba(52,199,89,0.1); color: var(--green);">Chat</span>
+    </div>
+  </div>
+  <div class="template-card" style="border-top-color: #8C66D9;">
+    <h4>Multilingual Notes</h4>
+    <p>Translates clinical text and extracts key terms.</p>
+    <div class="template-chain">
+      <span class="template-node" style="background: rgba(88,101,242,0.1); color: var(--primary);">Text Input</span>
+      <span class="template-arrow">&rarr;</span>
+      <span class="template-node" style="background: rgba(140,102,217,0.1); color: var(--purple);">Translate</span>
+      <span class="template-arrow">&rarr;</span>
+      <span class="template-node" style="background: rgba(14,165,233,0.1); color: var(--cyan);">Keywords</span>
+      <span class="template-arrow">&rarr;</span>
+      <span class="template-node" style="background: rgba(52,199,89,0.1); color: var(--green);">Chat</span>
+    </div>
+  </div>
+  <div class="template-card" style="border-top-color: #E53E3E;">
+    <h4>Patient Sentiment Monitor</h4>
+    <p>Analyzes patient communication tone and classifies by risk.</p>
+    <div class="template-chain">
+      <span class="template-node" style="background: rgba(88,101,242,0.1); color: var(--primary);">Text Input</span>
+      <span class="template-arrow">&rarr;</span>
+      <span class="template-node" style="background: rgba(140,102,217,0.1); color: var(--purple);">Sentiment</span>
+      <span class="template-arrow">&rarr;</span>
+      <span class="template-node" style="background: rgba(14,165,233,0.1); color: var(--cyan);">Classify</span>
+      <span class="template-arrow">&rarr;</span>
+      <span class="template-node" style="background: rgba(52,199,89,0.1); color: var(--green);">Chat</span>
+    </div>
+  </div>
+</div>
+<h2 id="explore-the-guides">Explore the Guides</h2>
+<div class="card-grid stagger-children" style="margin-top: 1.5rem;">
+  <a href="/workflows/editor/" class="guide-card">
+    <span class="card-number">Guide 1</span>
+    <h3>The Visual Editor</h3>
+    <p>How to drag, connect, and configure nodes on the workflow canvas.</p>
+    <span class="card-arrow">Read guide <span>&rarr;</span></span>
+  </a>
+  <a href="/workflows/building-blocks/" class="guide-card">
+    <span class="card-number">Guide 2</span>
+    <h3>Building Blocks</h3>
+    <p>The 70+ tools you can use as nodes — organized by what they do.</p>
+    <span class="card-arrow">Read guide <span>&rarr;</span></span>
+  </a>
+  <a href="/workflows/running/" class="guide-card">
+    <span class="card-number">Guide 3</span>
+    <h3>Running & Results</h3>
+    <p>How to test your workflow and read the step-by-step results.</p>
+    <span class="card-arrow">Read guide <span>&rarr;</span></span>
+  </a>
+  <a href="/workflows/publish/" class="guide-card">
+    <span class="card-number">Guide 4</span>
+    <h3>Turn It Into an Agent</h3>
+    <p>Export your workflow as a reusable agent and optionally share it with other clinicians.</p>
+    <span class="card-arrow">Read guide <span>&rarr;</span></span>
+  </a>
+</div>
+
+
+  
+  <div class="card-grid stagger-children">
+    
+    <a href="/workflows/editor/" class="guide-card">
+      <span class="card-number">1</span>
+      <h3>The Visual Editor</h3>
+      <p>How to drag, connect, and configure tools on the workflow canvas.</p>
+      <span class="card-arrow">Read guide <span>&rarr;</span></span>
+    </a>
+    
+    <a href="/workflows/building-blocks/" class="guide-card">
+      <span class="card-number">2</span>
+      <h3>Building Blocks</h3>
+      <p>The 70&#43; tools you can use as nodes in your workflows — organized by what they do.</p>
+      <span class="card-arrow">Read guide <span>&rarr;</span></span>
+    </a>
+    
+    <a href="/workflows/running/" class="guide-card">
+      <span class="card-number">3</span>
+      <h3>Running &amp; Results</h3>
+      <p>How to test your workflow and see what each step produces.</p>
+      <span class="card-arrow">Read guide <span>&rarr;</span></span>
+    </a>
+    
+    <a href="/workflows/publish/" class="guide-card">
+      <span class="card-number">4</span>
+      <h3>Turn It Into an Agent</h3>
+      <p>Export your workflow as a reusable agent, and optionally publish it for other clinicians.</p>
+      <span class="card-arrow">Read guide <span>&rarr;</span></span>
+    </a>
+    
+  </div>
+  
+</div>
+
+    </main>
+  </div>
+
+  
+    <footer class="site-footer">
+  <p>&copy; 2026 IntraCav Health &middot; Lumen AI User Guide</p>
+</footer>
+
+  
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

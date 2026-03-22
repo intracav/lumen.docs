@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insurance &amp; Appeals — Lumen AI — User Guide</title>
+<meta name="description" content="Two agents that handle prior authorizations, fight claim denials, and draft legally-grounded appeals.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="/img/lumen-logo.png" type="image/png">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<meta property="og:title" content="Insurance &amp; Appeals">
+<meta property="og:description" content="A visual guide for clinicians using Lumen AI">
+<meta property="og:image" content="/img/lumen-logo.png">
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/img/lumen-logo.png" alt="Lumen AI">
+      <span class="logo-label">Lumen<span class="logo-sub">User Guide</span></span>
+    </a>
+
+    <nav class="header-nav">
+      
+        <a href="/getting-started/">Getting Started</a>
+      
+        <a href="/chat/">The Chat</a>
+      
+        <a href="/agents/">Agents</a>
+      
+        <a href="/workflows/">Workflows</a>
+      
+        <a href="/tools/">Chat Tools</a>
+      
+    </nav>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <div class="scroll-progress"></div>
+
+  <div class="site-wrapper ">
+    
+      <aside class="sidebar">
+  <nav>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a class="sidebar-link" href="/getting-started/">Pick a Scenario</a>
+      <a class="sidebar-link" href="/getting-started/first-chat/">Your First Chat</a>
+      <a class="sidebar-link" href="/getting-started/check-interaction/">Check a Drug Interaction</a>
+      <a class="sidebar-link" href="/getting-started/find-a-code/">Find a Billing Code</a>
+      <a class="sidebar-link" href="/getting-started/differential/">Build a Differential</a>
+      <a class="sidebar-link" href="/getting-started/draft-a-note/">Draft a Note</a>
+      <a class="sidebar-link" href="/getting-started/run-a-calculator/">Run a Calculator</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">The Chat</div>
+      <a class="sidebar-link" href="/chat/">Overview</a>
+      <a class="sidebar-link" href="/chat/sending-messages/">Typing &amp; Sending</a>
+      <a class="sidebar-link" href="/chat/responses/">Reading Answers</a>
+      <a class="sidebar-link" href="/chat/thinking/">How Lumen Thinks</a>
+      <a class="sidebar-link" href="/chat/artifacts/">Reports &amp; Files</a>
+      <a class="sidebar-link" href="/chat/sources/">Where It Gets Its Info</a>
+      <a class="sidebar-link" href="/chat/attachments/">Uploading Your Files</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Agents</div>
+      <a class="sidebar-link" href="/agents/">Agents vs Chat</a>
+      <a class="sidebar-link" href="/agents/clinical-scribe/">Clinical Scribe</a>
+      <a class="sidebar-link" href="/agents/diagnostic-support/">Diagnostic Support</a>
+      <a class="sidebar-link" href="/agents/research-advisor/">Research Advisor</a>
+      <a class="sidebar-link" href="/agents/insurance/">Insurance &amp; Appeals</a>
+      <a class="sidebar-link" href="/agents/document-analyzer/">Document Analyzer</a>
+      <a class="sidebar-link" href="/agents/health-explainer/">Health Explainer</a>
+      <a class="sidebar-link" href="/agents/symptom-checker/">Symptom Checker</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Workflows</div>
+      <a class="sidebar-link" href="/workflows/">Why Build a Workflow</a>
+      <a class="sidebar-link" href="/workflows/editor/">The Visual Editor</a>
+      <a class="sidebar-link" href="/workflows/building-blocks/">Building Blocks</a>
+      <a class="sidebar-link" href="/workflows/running/">Running &amp; Results</a>
+      <a class="sidebar-link" href="/workflows/publish/">Turn It Into an Agent</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Chat Tools</div>
+      <a class="sidebar-link" href="/tools/">Overview</a>
+      <a class="sidebar-link" href="/tools/search-sources/">Finding Information</a>
+      <a class="sidebar-link" href="/tools/literature-research/">Research &amp; Evidence</a>
+      <a class="sidebar-link" href="/tools/medications/">Medication Questions</a>
+      <a class="sidebar-link" href="/tools/coding-labs/">Codes, Labs &amp; Calculators</a>
+      <a class="sidebar-link" href="/tools/protocols-decisions/">Protocols &amp; Decision Support</a>
+      <a class="sidebar-link" href="/tools/patient-records/">Patient Records &amp; Notes</a>
+      <a class="sidebar-link" href="/tools/document-generation/">Creating Documents</a>
+      <a class="sidebar-link" href="/tools/privacy/">Privacy &amp; Safety</a>
+    </div>
+  </nav>
+</aside>
+
+    
+
+    <main class="main-content">
+      
+<div class="content-body">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    
+      <a href="/agents/">Agents</a>
+      <span class="sep">/</span>
+    
+    <span>Insurance &amp; Appeals</span>
+  </nav>
+
+  <div class="page-header">
+    <h1>Insurance &amp; Appeals</h1>
+    
+  </div>
+
+  <div class="page-content">
+    <p>Prior auths and claim denials consume hours of your week. Lumen has two agents that do the heavy lifting — one for clinicians handling the paperwork, and one that aggressively fights denials on behalf of patients.</p>
+<hr>
+<h2 id="insurance-manager">Insurance Manager</h2>
+<p><strong>For clinicians and billing staff.</strong> Describe the procedure and diagnosis, and the agent handles the rest.</p>
+<blockquote>
+<p><em>&ldquo;Prior auth for MRI lumbar spine. 55yo with 6 weeks of radiculopathy, failed conservative management with PT and NSAIDs. Payer: UnitedHealthcare.&rdquo;</em></p>
+</blockquote>
+<div class="step-timeline">
+<div class="step-item">
+  <div class="step-item-dot">1</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Extract Clinical & Billing Data</span></div>
+    <div class="step-item-desc">Parses the request into structured fields — diagnoses, procedures, payer, dates, prior treatments.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(88,101,242,0.1); color: var(--primary);">&#128196;</div>
+        <span class="step-artifact-label">Extracted Data</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-label">Procedure:</span><span class="mini-value">MRI lumbar spine without contrast</span></div>
+        <div class="mini-row"><span class="mini-label">Indication:</span><span class="mini-value">Radiculopathy, 6 weeks, failed PT + NSAIDs</span></div>
+        <div class="mini-row"><span class="mini-label">Payer:</span><span class="mini-value">UnitedHealthcare</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">2</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Coverage Policies</span></div>
+    <div class="step-item-desc">Searches for relevant payer and CMS coverage policies.</div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">3</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Diagnosis Codes</span><span class="step-item-tool">ICD-10</span></div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(255,149,0,0.1); color: var(--orange);">&#127973;</div>
+        <span class="step-artifact-label">ICD-10 Codes</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-code">M54.17</span><span class="mini-value">Radiculopathy, lumbosacral region</span></div>
+        <div class="mini-row"><span class="mini-code">M51.16</span><span class="mini-value">Intervertebral disc disorder with radiculopathy, lumbar</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">4</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Procedure Codes</span><span class="step-item-tool">CPT</span></div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(255,149,0,0.1); color: var(--orange);">&#129534;</div>
+        <span class="step-artifact-label">CPT Codes</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-code">72148</span><span class="mini-value">MRI lumbar spine without contrast</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">5</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">HCPCS Codes</span><span class="step-item-tool">HCPCS</span></div>
+    <div class="step-item-desc">Checks for applicable HCPCS Level II codes (DME, supplies, drugs).</div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">6</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">CMS Coverage Determination</span><span class="step-item-tool">CMS</span></div>
+    <div class="step-item-desc">Searches National and Local Coverage Determinations — the strongest justification for medical necessity.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(52,199,89,0.1); color: var(--green);">&#9989;</div>
+        <span class="step-artifact-label">Coverage Determination</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-label">LCD L33619:</span><span class="mini-value">MRI of the spine is covered when radiculopathy persists &ge;4 weeks despite conservative treatment</span></div>
+        <div class="mini-row"><span style="color: var(--green);">&#10003;</span><span class="mini-value">Patient meets all LCD criteria (6 weeks, failed PT + NSAIDs)</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">7</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Medical Necessity Evidence</span><span class="step-item-tool">PubMed</span></div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(14,165,233,0.1); color: var(--cyan);">&#128218;</div>
+        <span class="step-artifact-label">Supporting Evidence</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-value">ACP Guidelines: MRI recommended for persistent radiculopathy &ge;6 weeks with motor deficit or failed conservative Rx</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">8</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Provider Verification</span><span class="step-item-tool">NPI</span></div>
+    <div class="step-item-desc">Looks up the ordering provider's NPI and practice details.</div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">9</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Documentation Checklist</span><span class="step-item-tool">Checklist</span></div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(61,191,128,0.1); color: var(--teal);">&#9745;</div>
+        <span class="step-artifact-label">Prior Auth Checklist</span><span class="step-artifact-type">Interactive</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span style="color: var(--green);">&#10003;</span><span>Verified ICD-10 + CPT codes</span></div>
+        <div class="mini-row"><span style="color: var(--green);">&#10003;</span><span>CMS LCD criteria met</span></div>
+        <div class="mini-row"><span style="color: var(--green);">&#10003;</span><span>Conservative Rx documented</span></div>
+        <div class="mini-row"><span style="color: var(--green);">&#10003;</span><span>Clinical evidence attached</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="step-item">
+  <div class="step-item-dot">&#10003;</div>
+  <div class="step-item-body">
+    <div class="step-item-header"><span class="step-item-name">Generate Prior Authorization</span></div>
+    <div class="step-item-desc">Drafts the complete prior authorization request — ready to submit to the payer.</div>
+    <div class="step-artifact-preview">
+      <div class="step-artifact-bar">
+        <div class="step-artifact-icon" style="background: rgba(88,101,242,0.1); color: var(--primary);">&#128221;</div>
+        <span class="step-artifact-label">Prior Authorization Request</span><span class="step-artifact-type">Document</span>
+      </div>
+      <div class="step-artifact-content">
+        <div class="mini-row"><span class="mini-value">Complete prior auth letter with verified codes (M54.17, 72148), LCD L33619 criteria, clinical evidence, provider NPI, and patient history documenting failed conservative management.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<hr>
+<h2 id="patient-advocate">Patient Advocate</h2>
+<p><strong>For fighting claim denials.</strong> Takes an aggressive, legally-grounded approach.</p>
+<p>Paste a denial letter and the agent identifies the insurer&rsquo;s tactics, cites federal statutes (ACA, ERISA, No Surprises Act), and builds a case backed by CMS policy and clinical evidence.</p>
+<blockquote>
+<p><em>&ldquo;My patient&rsquo;s CGM was denied by Aetna as &rsquo;not medically necessary.&rsquo; T1DM, A1c 8.9, 2 ER visits for severe hypoglycemia this year.&rdquo;</em></p>
+</blockquote>
+<p><strong>What this agent produces at each step:</strong></p>
+<ol>
+<li><strong>Analyze Denial</strong> — Extracts denial reason codes, identifies bad-faith tactics, finds appeal deadlines</li>
+<li><strong>Patient Rights</strong> — Looks up appeal procedures, external review rights (ACA §2719, ERISA)</li>
+<li><strong>Verify Diagnosis Coding</strong> — Checks if insurer miscoded the condition</li>
+<li><strong>Verify Procedure Coding</strong> — Confirms the correct HCPCS/CPT for CGM</li>
+<li><strong>CMS Coverage Policy</strong> — Finds NCD/LCD supporting coverage (strongest argument)</li>
+<li><strong>Clinical Evidence</strong> — PubMed studies proving medical necessity</li>
+<li><strong>Appeal Rights Checklist</strong> — Your patient&rsquo;s full rights and deadlines</li>
+<li><strong>Appeal Letter</strong> — Aggressive, legally-grounded letter citing federal statutes, CMS policy, and clinical evidence</li>
+</ol>
+
+
+<div class="callout callout-info">
+  <span class="callout-icon">&#128161;</span>
+  <div><strong>The Patient Advocate only sends emails when you explicitly include a recipient address</strong> in your prompt. Otherwise it drafts the letter for you to review.</div>
+</div>
+
+
+  </div>
+
+  
+  
+  
+    
+    
+    
+    
+    
+
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+      
+    
+      
+        
+          
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+
+    <nav class="page-nav">
+      
+        <a href="/agents/research-advisor/">
+          <div class="nav-label">&larr; Previous</div>
+          <div class="nav-title">Research Advisor</div>
+        </a>
+      
+      
+        <a href="/agents/document-analyzer/" class="next">
+          <div class="nav-label">Next &rarr;</div>
+          <div class="nav-title">Document Analyzer</div>
+        </a>
+      
+    </nav>
+  
+</div>
+
+    </main>
+  </div>
+
+  
+    <footer class="site-footer">
+  <p>&copy; 2026 IntraCav Health &middot; Lumen AI User Guide</p>
+</footer>
+
+  
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

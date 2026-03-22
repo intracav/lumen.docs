@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy &amp; Safety — Lumen AI — User Guide</title>
+<meta name="description" content="Remove patient identifiers from text before sharing, and send emails with built-in safety guardrails.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="/img/lumen-logo.png" type="image/png">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<meta property="og:title" content="Privacy &amp; Safety">
+<meta property="og:description" content="A visual guide for clinicians using Lumen AI">
+<meta property="og:image" content="/img/lumen-logo.png">
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/img/lumen-logo.png" alt="Lumen AI">
+      <span class="logo-label">Lumen<span class="logo-sub">User Guide</span></span>
+    </a>
+
+    <nav class="header-nav">
+      
+        <a href="/getting-started/">Getting Started</a>
+      
+        <a href="/chat/">The Chat</a>
+      
+        <a href="/agents/">Agents</a>
+      
+        <a href="/workflows/">Workflows</a>
+      
+        <a href="/tools/">Chat Tools</a>
+      
+    </nav>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <div class="scroll-progress"></div>
+
+  <div class="site-wrapper ">
+    
+      <aside class="sidebar">
+  <nav>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a class="sidebar-link" href="/getting-started/">Pick a Scenario</a>
+      <a class="sidebar-link" href="/getting-started/first-chat/">Your First Chat</a>
+      <a class="sidebar-link" href="/getting-started/check-interaction/">Check a Drug Interaction</a>
+      <a class="sidebar-link" href="/getting-started/find-a-code/">Find a Billing Code</a>
+      <a class="sidebar-link" href="/getting-started/differential/">Build a Differential</a>
+      <a class="sidebar-link" href="/getting-started/draft-a-note/">Draft a Note</a>
+      <a class="sidebar-link" href="/getting-started/run-a-calculator/">Run a Calculator</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">The Chat</div>
+      <a class="sidebar-link" href="/chat/">Overview</a>
+      <a class="sidebar-link" href="/chat/sending-messages/">Typing &amp; Sending</a>
+      <a class="sidebar-link" href="/chat/responses/">Reading Answers</a>
+      <a class="sidebar-link" href="/chat/thinking/">How Lumen Thinks</a>
+      <a class="sidebar-link" href="/chat/artifacts/">Reports &amp; Files</a>
+      <a class="sidebar-link" href="/chat/sources/">Where It Gets Its Info</a>
+      <a class="sidebar-link" href="/chat/attachments/">Uploading Your Files</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Agents</div>
+      <a class="sidebar-link" href="/agents/">Agents vs Chat</a>
+      <a class="sidebar-link" href="/agents/clinical-scribe/">Clinical Scribe</a>
+      <a class="sidebar-link" href="/agents/diagnostic-support/">Diagnostic Support</a>
+      <a class="sidebar-link" href="/agents/research-advisor/">Research Advisor</a>
+      <a class="sidebar-link" href="/agents/insurance/">Insurance &amp; Appeals</a>
+      <a class="sidebar-link" href="/agents/document-analyzer/">Document Analyzer</a>
+      <a class="sidebar-link" href="/agents/health-explainer/">Health Explainer</a>
+      <a class="sidebar-link" href="/agents/symptom-checker/">Symptom Checker</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Workflows</div>
+      <a class="sidebar-link" href="/workflows/">Why Build a Workflow</a>
+      <a class="sidebar-link" href="/workflows/editor/">The Visual Editor</a>
+      <a class="sidebar-link" href="/workflows/building-blocks/">Building Blocks</a>
+      <a class="sidebar-link" href="/workflows/running/">Running &amp; Results</a>
+      <a class="sidebar-link" href="/workflows/publish/">Turn It Into an Agent</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Chat Tools</div>
+      <a class="sidebar-link" href="/tools/">Overview</a>
+      <a class="sidebar-link" href="/tools/search-sources/">Finding Information</a>
+      <a class="sidebar-link" href="/tools/literature-research/">Research &amp; Evidence</a>
+      <a class="sidebar-link" href="/tools/medications/">Medication Questions</a>
+      <a class="sidebar-link" href="/tools/coding-labs/">Codes, Labs &amp; Calculators</a>
+      <a class="sidebar-link" href="/tools/protocols-decisions/">Protocols &amp; Decision Support</a>
+      <a class="sidebar-link" href="/tools/patient-records/">Patient Records &amp; Notes</a>
+      <a class="sidebar-link" href="/tools/document-generation/">Creating Documents</a>
+      <a class="sidebar-link" href="/tools/privacy/">Privacy &amp; Safety</a>
+    </div>
+  </nav>
+</aside>
+
+    
+
+    <main class="main-content">
+      
+<div class="content-body">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    
+      <a href="/tools/">What Lumen Can Do</a>
+      <span class="sep">/</span>
+    
+    <span>Privacy &amp; Safety</span>
+  </nav>
+
+  <div class="page-header">
+    <h1>Privacy &amp; Safety</h1>
+    
+  </div>
+
+  <div class="page-content">
+    <p>Need to share a clinical note with a colleague but want to strip the patient&rsquo;s name and MRN first? Lumen can de-identify text automatically. It also has a safe email tool for sending prior auth letters and other correspondence.</p>
+<h2 id="available-tools">Available Tools</h2>
+<div class="tool-grid">
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #5865F21a; color: #5865F2;">
+    &#128274;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">De-identify PHI</div>
+    <div class="tool-desc">Automatically removes protected health information from text — names, dates, MRNs, addresses, and other identifiers. Replaces them with consistent pseudonyms so the text remains readable.</div>
+    
+    <div class="tool-example">&#34;De-identify this clinical note before I share it with the research team&#34;</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #5865F21a; color: #5865F2;">Privacy</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #8C66D91a; color: #8C66D9;">
+    &#128275;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Re-identify PHI</div>
+    <div class="tool-desc">Restores original PHI from de-identified text using the session mapping. Only works within the same session where de-identification occurred.</div>
+    
+    <div class="tool-example">&#34;Re-identify the note from earlier&#34;</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #8C66D91a; color: #8C66D9;">Privacy</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #FF95001a; color: #FF9500;">
+    &#128231;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Send Email</div>
+    <div class="tool-desc">Sends emails on your behalf — useful for prior authorization letters, appeal correspondence, and patient communications. Only fires when you explicitly include a recipient email.</div>
+    
+    <div class="tool-example">&#34;Send this prior authorization letter to auth@insurance.com&#34;</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #FF95001a; color: #FF9500;">Communication</span>
+    </div>
+    
+  </div>
+</div>
+
+</div>
+<h2 id="de-identification-example">De-identification Example</h2>
+<div class="chat-mockup" style="margin: 2rem 0;">
+  <div class="chat-mockup-header">
+    <div class="chat-mockup-avatar">&#10022;</div>
+    <div class="chat-mockup-title">Chat</div>
+  </div>
+  <div class="chat-mockup-body">
+    <div class="chat-msg user">De-identify this note: "John Smith, DOB 03/15/1958, MRN 12345678, presented to the ED on 01/20/2026 with chest pain."</div>
+    <div class="chat-msg assistant">
+      <div class="msg-avatar"><span>&#10022;</span></div>
+      <div class="msg-content">
+        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--text-on-dark);">
+          Here's the de-identified version:<br><br>
+          <span style="background: rgba(88,101,242,0.15); padding: 0.15rem 0.4rem; border-radius: 4px; color: var(--primary-light);">[Patient A]</span>, DOB <span style="background: rgba(88,101,242,0.15); padding: 0.15rem 0.4rem; border-radius: 4px; color: var(--primary-light);">[Date-1]</span>, MRN <span style="background: rgba(88,101,242,0.15); padding: 0.15rem 0.4rem; border-radius: 4px; color: var(--primary-light);">[ID-1]</span>, presented to the ED on <span style="background: rgba(88,101,242,0.15); padding: 0.15rem 0.4rem; border-radius: 4px; color: var(--primary-light);">[Date-2]</span> with chest pain.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<h2 id="email-safety">Email Safety</h2>
+<p>The email tool has an important safety feature:</p>
+
+
+<div class="callout callout-important">
+  <span class="callout-icon">&#10071;</span>
+  <div><strong>Emails are only sent when you explicitly include a recipient address.</strong> Lumen will never send an email unless you provide the email address in your message. This prevents accidental sends.</div>
+</div>
+
+<h2 id="best-practices">Best Practices</h2>
+<ul>
+<li><strong>Always review de-identified text</strong> before sharing — verify all PHI has been properly removed</li>
+<li><strong>Use consistent sessions</strong> for de-identify/re-identify — the mapping is session-specific</li>
+<li><strong>Review email content</strong> before confirming — preview the draft before it sends</li>
+<li><strong>Check your institution&rsquo;s policies</strong> on AI-assisted PHI handling</li>
+</ul>
+
+
+<div class="callout callout-info">
+  <span class="callout-icon">&#128161;</span>
+  <div><strong>Lumen stores no PHI.</strong> Chat conversations are encrypted at rest and in transit. De-identification mappings exist only for the duration of your session.</div>
+</div>
+
+
+  </div>
+
+  
+  
+  
+    
+    
+    
+    
+    
+
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+      
+    
+
+    <nav class="page-nav">
+      
+        <a href="/tools/document-generation/">
+          <div class="nav-label">&larr; Previous</div>
+          <div class="nav-title">Creating Documents</div>
+        </a>
+      
+      
+    </nav>
+  
+</div>
+
+    </main>
+  </div>
+
+  
+    <footer class="site-footer">
+  <p>&copy; 2026 IntraCav Health &middot; Lumen AI User Guide</p>
+</footer>
+
+  
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

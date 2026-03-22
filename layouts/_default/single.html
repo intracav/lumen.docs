@@ -1,0 +1,64 @@
+{{ define "main" }}
+<div class="content-body">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    {{ with .Parent }}
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <span class="sep">/</span>
+    {{ end }}
+    <span>{{ .Title }}</span>
+  </nav>
+
+  <div class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
+  </div>
+
+  <div class="page-content">
+    {{ .Content }}
+  </div>
+
+  {{/* Next/Prev navigation */}}
+  {{ $parent := .Parent }}
+  {{ if $parent }}
+    {{ $pages := $parent.Pages }}
+    {{ $current := . }}
+    {{ $prev := false }}
+    {{ $next := false }}
+    {{ $found := false }}
+
+    {{ range $pages }}
+      {{ if $found }}
+        {{ if not $next }}
+          {{ $next = . }}
+        {{ end }}
+      {{ end }}
+      {{ if eq .RelPermalink $current.RelPermalink }}
+        {{ $found = true }}
+      {{ else }}
+        {{ if not $found }}
+          {{ $prev = . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
+    <nav class="page-nav">
+      {{ with $prev }}
+        <a href="{{ .RelPermalink }}">
+          <div class="nav-label">&larr; Previous</div>
+          <div class="nav-title">{{ .Title }}</div>
+        </a>
+      {{ else }}
+        <div></div>
+      {{ end }}
+      {{ with $next }}
+        <a href="{{ .RelPermalink }}" class="next">
+          <div class="nav-label">Next &rarr;</div>
+          <div class="nav-title">{{ .Title }}</div>
+        </a>
+      {{ end }}
+    </nav>
+  {{ end }}
+</div>
+{{ end }}

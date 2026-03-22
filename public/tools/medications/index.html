@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Medication Questions — Lumen AI — User Guide</title>
+<meta name="description" content="Check drug interactions, calculate IV rates, adjust for renal function, or look up adverse events — just by asking.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="/img/lumen-logo.png" type="image/png">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<meta property="og:title" content="Medication Questions">
+<meta property="og:description" content="A visual guide for clinicians using Lumen AI">
+<meta property="og:image" content="/img/lumen-logo.png">
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/img/lumen-logo.png" alt="Lumen AI">
+      <span class="logo-label">Lumen<span class="logo-sub">User Guide</span></span>
+    </a>
+
+    <nav class="header-nav">
+      
+        <a href="/getting-started/">Getting Started</a>
+      
+        <a href="/chat/">The Chat</a>
+      
+        <a href="/agents/">Agents</a>
+      
+        <a href="/workflows/">Workflows</a>
+      
+        <a href="/tools/">Chat Tools</a>
+      
+    </nav>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <div class="scroll-progress"></div>
+
+  <div class="site-wrapper ">
+    
+      <aside class="sidebar">
+  <nav>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a class="sidebar-link" href="/getting-started/">Pick a Scenario</a>
+      <a class="sidebar-link" href="/getting-started/first-chat/">Your First Chat</a>
+      <a class="sidebar-link" href="/getting-started/check-interaction/">Check a Drug Interaction</a>
+      <a class="sidebar-link" href="/getting-started/find-a-code/">Find a Billing Code</a>
+      <a class="sidebar-link" href="/getting-started/differential/">Build a Differential</a>
+      <a class="sidebar-link" href="/getting-started/draft-a-note/">Draft a Note</a>
+      <a class="sidebar-link" href="/getting-started/run-a-calculator/">Run a Calculator</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">The Chat</div>
+      <a class="sidebar-link" href="/chat/">Overview</a>
+      <a class="sidebar-link" href="/chat/sending-messages/">Typing &amp; Sending</a>
+      <a class="sidebar-link" href="/chat/responses/">Reading Answers</a>
+      <a class="sidebar-link" href="/chat/thinking/">How Lumen Thinks</a>
+      <a class="sidebar-link" href="/chat/artifacts/">Reports &amp; Files</a>
+      <a class="sidebar-link" href="/chat/sources/">Where It Gets Its Info</a>
+      <a class="sidebar-link" href="/chat/attachments/">Uploading Your Files</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Agents</div>
+      <a class="sidebar-link" href="/agents/">Agents vs Chat</a>
+      <a class="sidebar-link" href="/agents/clinical-scribe/">Clinical Scribe</a>
+      <a class="sidebar-link" href="/agents/diagnostic-support/">Diagnostic Support</a>
+      <a class="sidebar-link" href="/agents/research-advisor/">Research Advisor</a>
+      <a class="sidebar-link" href="/agents/insurance/">Insurance &amp; Appeals</a>
+      <a class="sidebar-link" href="/agents/document-analyzer/">Document Analyzer</a>
+      <a class="sidebar-link" href="/agents/health-explainer/">Health Explainer</a>
+      <a class="sidebar-link" href="/agents/symptom-checker/">Symptom Checker</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Workflows</div>
+      <a class="sidebar-link" href="/workflows/">Why Build a Workflow</a>
+      <a class="sidebar-link" href="/workflows/editor/">The Visual Editor</a>
+      <a class="sidebar-link" href="/workflows/building-blocks/">Building Blocks</a>
+      <a class="sidebar-link" href="/workflows/running/">Running &amp; Results</a>
+      <a class="sidebar-link" href="/workflows/publish/">Turn It Into an Agent</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Chat Tools</div>
+      <a class="sidebar-link" href="/tools/">Overview</a>
+      <a class="sidebar-link" href="/tools/search-sources/">Finding Information</a>
+      <a class="sidebar-link" href="/tools/literature-research/">Research &amp; Evidence</a>
+      <a class="sidebar-link" href="/tools/medications/">Medication Questions</a>
+      <a class="sidebar-link" href="/tools/coding-labs/">Codes, Labs &amp; Calculators</a>
+      <a class="sidebar-link" href="/tools/protocols-decisions/">Protocols &amp; Decision Support</a>
+      <a class="sidebar-link" href="/tools/patient-records/">Patient Records &amp; Notes</a>
+      <a class="sidebar-link" href="/tools/document-generation/">Creating Documents</a>
+      <a class="sidebar-link" href="/tools/privacy/">Privacy &amp; Safety</a>
+    </div>
+  </nav>
+</aside>
+
+    
+
+    <main class="main-content">
+      
+<div class="content-body">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    
+      <a href="/tools/">What Lumen Can Do</a>
+      <span class="sep">/</span>
+    
+    <span>Medication Questions</span>
+  </nav>
+
+  <div class="page-header">
+    <h1>Medication Questions</h1>
+    
+  </div>
+
+  <div class="page-content">
+    <p>These are the questions that come up a dozen times a shift. <em>&ldquo;Can I give these two together?&rdquo;</em> <em>&ldquo;What&rsquo;s the drip rate?&rdquo;</em> <em>&ldquo;Does this need a dose adjustment for their kidneys?&rdquo;</em> Just type the question and Lumen handles the rest.</p>
+<h2 id="available-tools">Available Tools</h2>
+<div class="tool-grid">
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #34C7591a; color: #34C759;">
+    &#128138;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Drug Name Lookup (RxNorm)</div>
+    <div class="tool-desc">Resolves drug names via NLM RxNorm. Works with brand names, generics, abbreviations, and even misspellings. Returns the normalized name, RxCUI, ingredients, and drug class.</div>
+    
+    <div class="tool-example">&#34;Look up the generic name for Jardiance&#34;</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #34C7591a; color: #34C759;">Lookup</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #FF95001a; color: #FF9500;">
+    &#9888;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Drug Interactions</div>
+    <div class="tool-desc">Checks drug-drug interactions using the FDA interaction database. Returns severity level, mechanism of interaction, and clinical management recommendations.</div>
+    
+    <div class="tool-example">&#34;Check interactions between warfarin, amiodarone, and metoprolol&#34;</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #FF95001a; color: #FF9500;">Safety</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #0EA5E91a; color: #0EA5E9;">
+    &#128167;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">IV Drip Calculator</div>
+    <div class="tool-desc">Calculates IV infusion rates from weight-based dosing. Computes mL/hr with titration guidance. Supports common drips like vasopressors, insulin, and heparin.</div>
+    
+    <div class="tool-example">&#34;Calculate norepinephrine drip at 0.1 mcg/kg/min for an 80kg patient&#34;</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #0EA5E91a; color: #0EA5E9;">Calculator</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #8C66D91a; color: #8C66D9;">
+    &#129656;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Renal Dose Adjustment</div>
+    <div class="tool-desc">Computes creatinine clearance (Cockcroft-Gault), determines CKD stage, and looks up FDA-recommended dose adjustments for renal impairment.</div>
+    
+    <div class="tool-example">&#34;Renal dose check for vancomycin in a 70-year-old male, 85kg, SCr 2.1&#34;</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #8C66D91a; color: #8C66D9;">Calculator</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #E53E3E1a; color: #E53E3E;">
+    &#128200;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">FDA Adverse Events</div>
+    <div class="tool-desc">Searches the FDA FAERS (adverse event reporting) database. Aggregates reaction reports by drug, showing frequencies, outcomes, and severity distributions.</div>
+    
+    <div class="tool-example">&#34;What are the most reported adverse events for methotrexate?&#34;</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #E53E3E1a; color: #E53E3E;">Safety</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #E53E3E1a; color: #E53E3E;">
+    &#128680;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">FDA Drug Recalls</div>
+    <div class="tool-desc">Checks the FDA enforcement and recall database. Shows recall classifications, affected lots, and current status.</div>
+    
+    <div class="tool-example">&#34;Are there any recent recalls for metformin products?&#34;</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #E53E3E1a; color: #E53E3E;">Safety</span>
+    </div>
+    
+  </div>
+</div>
+
+</div>
+<h2 id="drug-interaction-example">Drug Interaction Example</h2>
+<p>Here&rsquo;s what a drug interaction check looks like in action:</p>
+<div class="chat-mockup chat-demo-animated" style="margin: 2rem 0;">
+  <div class="chat-mockup-header">
+    <div class="chat-mockup-avatar">&#10022;</div>
+    <div class="chat-mockup-title">Chat</div>
+  </div>
+  <div class="chat-mockup-body">
+    <div class="chat-msg user">Are there any interactions between simvastatin and clarithromycin?</div>
+    <div class="chat-msg assistant">
+      <div class="msg-avatar"><span>&#10022;</span></div>
+      <div class="msg-content">
+        <div class="mock-tool">
+          <div class="mock-tool-header">
+            <span class="mock-tool-status done"></span>
+            Checked drug interactions
+          </div>
+          <div class="mock-tool-detail">simvastatin &times; clarithromycin</div>
+        </div>
+        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--text-on-dark);">
+          <strong style="color: #FF3B30;">&#9888; Major Interaction Detected</strong><br><br>
+          Clarithromycin is a <strong>potent CYP3A4 inhibitor</strong> that significantly increases simvastatin levels, raising the risk of <strong>rhabdomyolysis</strong>.
+        </p>
+        <div class="mock-artifact chat-extra">
+          <div class="mock-artifact-icon" style="background: rgba(255,149,0,0.15); color: #FF9500;">&#9888;</div>
+          <div class="mock-artifact-info">
+            <div class="mock-artifact-title">Interaction Report: Simvastatin &times; Clarithromycin</div>
+            <div class="mock-artifact-type">Drug Interaction Report</div>
+          </div>
+          <div class="mock-artifact-chevron">&rsaquo;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h2 id="renal-dosing-workflow">Renal Dosing Workflow</h2>
+<p>The renal dose tool needs specific patient parameters. Lumen will ask for anything you don&rsquo;t provide upfront:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Parameter</th>
+          <th>What It Is</th>
+          <th>Example</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Drug</strong></td>
+          <td>The medication to adjust</td>
+          <td>Vancomycin</td>
+      </tr>
+      <tr>
+          <td><strong>Age</strong></td>
+          <td>Patient age in years</td>
+          <td>70</td>
+      </tr>
+      <tr>
+          <td><strong>Sex</strong></td>
+          <td>Biological sex (for CrCl)</td>
+          <td>Male</td>
+      </tr>
+      <tr>
+          <td><strong>Weight</strong></td>
+          <td>Body weight in kg</td>
+          <td>85</td>
+      </tr>
+      <tr>
+          <td><strong>SCr</strong></td>
+          <td>Serum creatinine in mg/dL</td>
+          <td>2.1</td>
+      </tr>
+  </tbody>
+</table>
+<div class="tip-card">
+  <div class="tip-label">&#128161; Tip</div>
+  <div class="tip-title">Provide all parameters upfront</div>
+  <div class="tip-body">The more information you include in your initial message, the faster you&rsquo;ll get results. For example: <em>&ldquo;Renal dose check for gabapentin: 65yo female, 60kg, SCr 1.8&rdquo;</em></div>
+</div>
+
+
+
+<div class="callout callout-important">
+  <span class="callout-icon">&#10071;</span>
+  <div><strong>For clinical use, always verify</strong> drug interaction and dosing information with your institution&rsquo;s pharmacy resources. Lumen is a decision support tool, not a replacement for clinical judgment.</div>
+</div>
+
+
+  </div>
+
+  
+  
+  
+    
+    
+    
+    
+    
+
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+      
+    
+      
+        
+          
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+
+    <nav class="page-nav">
+      
+        <a href="/tools/literature-research/">
+          <div class="nav-label">&larr; Previous</div>
+          <div class="nav-title">Research &amp; Evidence</div>
+        </a>
+      
+      
+        <a href="/tools/coding-labs/" class="next">
+          <div class="nav-label">Next &rarr;</div>
+          <div class="nav-title">Codes, Labs &amp; Calculators</div>
+        </a>
+      
+    </nav>
+  
+</div>
+
+    </main>
+  </div>
+
+  
+    <footer class="site-footer">
+  <p>&copy; 2026 IntraCav Health &middot; Lumen AI User Guide</p>
+</footer>
+
+  
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Running &amp; Results — Lumen AI — User Guide</title>
+<meta name="description" content="How to test your workflow and see what each step produces.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="/img/lumen-logo.png" type="image/png">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<meta property="og:title" content="Running &amp; Results">
+<meta property="og:description" content="A visual guide for clinicians using Lumen AI">
+<meta property="og:image" content="/img/lumen-logo.png">
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/img/lumen-logo.png" alt="Lumen AI">
+      <span class="logo-label">Lumen<span class="logo-sub">User Guide</span></span>
+    </a>
+
+    <nav class="header-nav">
+      
+        <a href="/getting-started/">Getting Started</a>
+      
+        <a href="/chat/">The Chat</a>
+      
+        <a href="/agents/">Agents</a>
+      
+        <a href="/workflows/">Workflows</a>
+      
+        <a href="/tools/">Chat Tools</a>
+      
+    </nav>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <div class="scroll-progress"></div>
+
+  <div class="site-wrapper ">
+    
+      <aside class="sidebar">
+  <nav>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a class="sidebar-link" href="/getting-started/">Pick a Scenario</a>
+      <a class="sidebar-link" href="/getting-started/first-chat/">Your First Chat</a>
+      <a class="sidebar-link" href="/getting-started/check-interaction/">Check a Drug Interaction</a>
+      <a class="sidebar-link" href="/getting-started/find-a-code/">Find a Billing Code</a>
+      <a class="sidebar-link" href="/getting-started/differential/">Build a Differential</a>
+      <a class="sidebar-link" href="/getting-started/draft-a-note/">Draft a Note</a>
+      <a class="sidebar-link" href="/getting-started/run-a-calculator/">Run a Calculator</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">The Chat</div>
+      <a class="sidebar-link" href="/chat/">Overview</a>
+      <a class="sidebar-link" href="/chat/sending-messages/">Typing &amp; Sending</a>
+      <a class="sidebar-link" href="/chat/responses/">Reading Answers</a>
+      <a class="sidebar-link" href="/chat/thinking/">How Lumen Thinks</a>
+      <a class="sidebar-link" href="/chat/artifacts/">Reports &amp; Files</a>
+      <a class="sidebar-link" href="/chat/sources/">Where It Gets Its Info</a>
+      <a class="sidebar-link" href="/chat/attachments/">Uploading Your Files</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Agents</div>
+      <a class="sidebar-link" href="/agents/">Agents vs Chat</a>
+      <a class="sidebar-link" href="/agents/clinical-scribe/">Clinical Scribe</a>
+      <a class="sidebar-link" href="/agents/diagnostic-support/">Diagnostic Support</a>
+      <a class="sidebar-link" href="/agents/research-advisor/">Research Advisor</a>
+      <a class="sidebar-link" href="/agents/insurance/">Insurance &amp; Appeals</a>
+      <a class="sidebar-link" href="/agents/document-analyzer/">Document Analyzer</a>
+      <a class="sidebar-link" href="/agents/health-explainer/">Health Explainer</a>
+      <a class="sidebar-link" href="/agents/symptom-checker/">Symptom Checker</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Workflows</div>
+      <a class="sidebar-link" href="/workflows/">Why Build a Workflow</a>
+      <a class="sidebar-link" href="/workflows/editor/">The Visual Editor</a>
+      <a class="sidebar-link" href="/workflows/building-blocks/">Building Blocks</a>
+      <a class="sidebar-link" href="/workflows/running/">Running &amp; Results</a>
+      <a class="sidebar-link" href="/workflows/publish/">Turn It Into an Agent</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Chat Tools</div>
+      <a class="sidebar-link" href="/tools/">Overview</a>
+      <a class="sidebar-link" href="/tools/search-sources/">Finding Information</a>
+      <a class="sidebar-link" href="/tools/literature-research/">Research &amp; Evidence</a>
+      <a class="sidebar-link" href="/tools/medications/">Medication Questions</a>
+      <a class="sidebar-link" href="/tools/coding-labs/">Codes, Labs &amp; Calculators</a>
+      <a class="sidebar-link" href="/tools/protocols-decisions/">Protocols &amp; Decision Support</a>
+      <a class="sidebar-link" href="/tools/patient-records/">Patient Records &amp; Notes</a>
+      <a class="sidebar-link" href="/tools/document-generation/">Creating Documents</a>
+      <a class="sidebar-link" href="/tools/privacy/">Privacy &amp; Safety</a>
+    </div>
+  </nav>
+</aside>
+
+    
+
+    <main class="main-content">
+      
+<div class="content-body">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    
+      <a href="/workflows/">Workflows</a>
+      <span class="sep">/</span>
+    
+    <span>Running &amp; Results</span>
+  </nav>
+
+  <div class="page-header">
+    <h1>Running &amp; Results</h1>
+    
+  </div>
+
+  <div class="page-content">
+    <p>Once you&rsquo;ve connected your nodes, running a workflow is one click. Here&rsquo;s what happens and how to read the results.</p>
+<h2 id="running-your-workflow">Running Your Workflow</h2>
+<div class="steps-container">
+<div class="step">
+  <div class="step-indicator">1</div>
+  <div class="step-content">
+    <h4>Click Run</h4>
+    <div>Tap the <strong>Run</strong> button in the toolbar at the top of the editor. Your workflow saves automatically before executing.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-indicator">2</div>
+  <div class="step-content">
+    <h4>Watch it execute</h4>
+    <div>Each node lights up as it runs — you&rsquo;ll see a progress indicator move through the chain from left to right. A <strong>run log</strong> panel opens at the bottom showing each step&rsquo;s status in real time.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-indicator">3</div>
+  <div class="step-content">
+    <h4>Review per-node results</h4>
+    <div>As each node finishes, its output appears in the results panel. You can see exactly what every step produced — the entities it extracted, the codes it found, the text it generated.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-indicator">4</div>
+  <div class="step-content">
+    <h4>Check the final output</h4>
+    <div>The last node in your chain delivers the final result. If it&rsquo;s a &ldquo;Send to Chat&rdquo; node, the output appears in your chat. If it&rsquo;s a PDF or slides export, the file is ready to download.</div>
+  </div>
+</div>
+
+</div>
+<h2 id="the-run-log">The Run Log</h2>
+<p>The run log shows each node&rsquo;s execution with:</p>
+<ul>
+<li><strong>Status</strong> — Running, Completed, or Failed</li>
+<li><strong>Output preview</strong> — A snippet of what the node produced</li>
+<li><strong>Elapsed time</strong> — How long the step took (in milliseconds)</li>
+<li><strong>Error details</strong> — If a step fails, you&rsquo;ll see what went wrong</li>
+</ul>
+<h2 id="seeing-step-by-step-results">Seeing Step-by-Step Results</h2>
+<p>This is one of the most useful parts of workflows. Unlike a chat (which just gives you the final answer), a workflow lets you <strong>inspect every intermediate step</strong>:</p>
+<ul>
+<li>Did the entity extraction catch all the medications? Check its output.</li>
+<li>Did the ICD-10 lookup return the right codes? Look at the results.</li>
+<li>Is the generated text what you expected? Review it before it goes to the next node.</li>
+</ul>
+<p>This makes it easy to figure out where to improve things — if the final output isn&rsquo;t quite right, you can see exactly which step needs adjustment.</p>
+<h2 id="history">History</h2>
+<p>Every time you run a workflow, the results are saved. You can:</p>
+<ul>
+<li><strong>View past runs</strong> in the History panel on the right side</li>
+<li><strong>Compare results</strong> from different runs</li>
+<li><strong>Re-run</strong> the same workflow with different inputs</li>
+</ul>
+<div class="tip-card">
+  <div class="tip-label">&#128161; Tip</div>
+  <div class="tip-title">Iterate quickly</div>
+  <div class="tip-body">Run your workflow, check the results, adjust a node&rsquo;s settings, and run again. Each run takes seconds, so you can experiment freely.</div>
+</div>
+
+<h2 id="what-if-a-step-fails">What If a Step Fails?</h2>
+<p>If a node fails, the run log shows the error. Common causes:</p>
+<ul>
+<li><strong>Missing input</strong> — A node didn&rsquo;t receive data from the previous step (check your connections)</li>
+<li><strong>Invalid configuration</strong> — A setting is missing or incorrect (click the node to fix it)</li>
+<li><strong>Tool error</strong> — The underlying tool couldn&rsquo;t process the data (try a different query or input)</li>
+</ul>
+<p>The workflow stops at the failed step. Fix the issue and run again — you don&rsquo;t need to rebuild anything.</p>
+
+
+<div class="callout callout-info">
+  <span class="callout-icon">&#128161;</span>
+  <div><strong>Workflows auto-save.</strong> Your nodes, connections, and configurations are preserved even if you close the editor. Pick up where you left off anytime.</div>
+</div>
+
+
+  </div>
+
+  
+  
+  
+    
+    
+    
+    
+    
+
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+      
+    
+      
+        
+          
+        
+      
+      
+        
+      
+    
+
+    <nav class="page-nav">
+      
+        <a href="/workflows/building-blocks/">
+          <div class="nav-label">&larr; Previous</div>
+          <div class="nav-title">Building Blocks</div>
+        </a>
+      
+      
+        <a href="/workflows/publish/" class="next">
+          <div class="nav-label">Next &rarr;</div>
+          <div class="nav-title">Turn It Into an Agent</div>
+        </a>
+      
+    </nav>
+  
+</div>
+
+    </main>
+  </div>
+
+  
+    <footer class="site-footer">
+  <p>&copy; 2026 IntraCav Health &middot; Lumen AI User Guide</p>
+</footer>
+
+  
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codes, Labs &amp; Calculators — Lumen AI — User Guide</title>
+<meta name="description" content="Find the right ICD-10 or CPT code, check lab normals, verify Medicare coverage, or run a clinical calculator — just by describing what you need.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="/img/lumen-logo.png" type="image/png">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<meta property="og:title" content="Codes, Labs &amp; Calculators">
+<meta property="og:description" content="A visual guide for clinicians using Lumen AI">
+<meta property="og:image" content="/img/lumen-logo.png">
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/img/lumen-logo.png" alt="Lumen AI">
+      <span class="logo-label">Lumen<span class="logo-sub">User Guide</span></span>
+    </a>
+
+    <nav class="header-nav">
+      
+        <a href="/getting-started/">Getting Started</a>
+      
+        <a href="/chat/">The Chat</a>
+      
+        <a href="/agents/">Agents</a>
+      
+        <a href="/workflows/">Workflows</a>
+      
+        <a href="/tools/">Chat Tools</a>
+      
+    </nav>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <div class="scroll-progress"></div>
+
+  <div class="site-wrapper ">
+    
+      <aside class="sidebar">
+  <nav>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a class="sidebar-link" href="/getting-started/">Pick a Scenario</a>
+      <a class="sidebar-link" href="/getting-started/first-chat/">Your First Chat</a>
+      <a class="sidebar-link" href="/getting-started/check-interaction/">Check a Drug Interaction</a>
+      <a class="sidebar-link" href="/getting-started/find-a-code/">Find a Billing Code</a>
+      <a class="sidebar-link" href="/getting-started/differential/">Build a Differential</a>
+      <a class="sidebar-link" href="/getting-started/draft-a-note/">Draft a Note</a>
+      <a class="sidebar-link" href="/getting-started/run-a-calculator/">Run a Calculator</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">The Chat</div>
+      <a class="sidebar-link" href="/chat/">Overview</a>
+      <a class="sidebar-link" href="/chat/sending-messages/">Typing &amp; Sending</a>
+      <a class="sidebar-link" href="/chat/responses/">Reading Answers</a>
+      <a class="sidebar-link" href="/chat/thinking/">How Lumen Thinks</a>
+      <a class="sidebar-link" href="/chat/artifacts/">Reports &amp; Files</a>
+      <a class="sidebar-link" href="/chat/sources/">Where It Gets Its Info</a>
+      <a class="sidebar-link" href="/chat/attachments/">Uploading Your Files</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Agents</div>
+      <a class="sidebar-link" href="/agents/">Agents vs Chat</a>
+      <a class="sidebar-link" href="/agents/clinical-scribe/">Clinical Scribe</a>
+      <a class="sidebar-link" href="/agents/diagnostic-support/">Diagnostic Support</a>
+      <a class="sidebar-link" href="/agents/research-advisor/">Research Advisor</a>
+      <a class="sidebar-link" href="/agents/insurance/">Insurance &amp; Appeals</a>
+      <a class="sidebar-link" href="/agents/document-analyzer/">Document Analyzer</a>
+      <a class="sidebar-link" href="/agents/health-explainer/">Health Explainer</a>
+      <a class="sidebar-link" href="/agents/symptom-checker/">Symptom Checker</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Workflows</div>
+      <a class="sidebar-link" href="/workflows/">Why Build a Workflow</a>
+      <a class="sidebar-link" href="/workflows/editor/">The Visual Editor</a>
+      <a class="sidebar-link" href="/workflows/building-blocks/">Building Blocks</a>
+      <a class="sidebar-link" href="/workflows/running/">Running &amp; Results</a>
+      <a class="sidebar-link" href="/workflows/publish/">Turn It Into an Agent</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Chat Tools</div>
+      <a class="sidebar-link" href="/tools/">Overview</a>
+      <a class="sidebar-link" href="/tools/search-sources/">Finding Information</a>
+      <a class="sidebar-link" href="/tools/literature-research/">Research &amp; Evidence</a>
+      <a class="sidebar-link" href="/tools/medications/">Medication Questions</a>
+      <a class="sidebar-link" href="/tools/coding-labs/">Codes, Labs &amp; Calculators</a>
+      <a class="sidebar-link" href="/tools/protocols-decisions/">Protocols &amp; Decision Support</a>
+      <a class="sidebar-link" href="/tools/patient-records/">Patient Records &amp; Notes</a>
+      <a class="sidebar-link" href="/tools/document-generation/">Creating Documents</a>
+      <a class="sidebar-link" href="/tools/privacy/">Privacy &amp; Safety</a>
+    </div>
+  </nav>
+</aside>
+
+    
+
+    <main class="main-content">
+      
+<div class="content-body">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    
+      <a href="/tools/">What Lumen Can Do</a>
+      <span class="sep">/</span>
+    
+    <span>Codes, Labs &amp; Calculators</span>
+  </nav>
+
+  <div class="page-header">
+    <h1>Codes, Labs &amp; Calculators</h1>
+    
+  </div>
+
+  <div class="page-content">
+    <p>Nobody went to medical school to memorize billing codes. Describe the diagnosis or procedure in your own words and Lumen finds the right code. It also checks lab reference ranges, verifies Medicare coverage, and runs clinical calculators like CHA₂DS₂-VASc and MELD.</p>
+<h2 id="available-tools">Available Tools</h2>
+<div class="tool-grid">
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #0EA5E91a; color: #0EA5E9;">
+    &#127973;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">ICD-10 Lookup</div>
+    <div class="tool-desc">Search ICD-10-CM diagnostic codes. Matches clinical descriptions to specific codes with laterality, severity, and sequencing guidance.</div>
+    
+    <div class="tool-example">&#34;ICD-10 code for acute anterolateral STEMI, initial encounter&#34;</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #0EA5E91a; color: #0EA5E9;">Coding</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #FF95001a; color: #FF9500;">
+    &#129534;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">CPT Lookup</div>
+    <div class="tool-desc">Find CPT procedure codes. Resolves procedure descriptions to billing codes with intensity levels and component breakdowns.</div>
+    
+    <div class="tool-example">&#34;CPT code for laparoscopic cholecystectomy&#34;</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #FF95001a; color: #FF9500;">Coding</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #8C66D91a; color: #8C66D9;">
+    &#128203;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">HCPCS Lookup</div>
+    <div class="tool-desc">Search HCPCS Level II codes for DME, supplies, and non-physician services. Covers J-codes for drugs, E-codes for equipment, and more.</div>
+    
+    <div class="tool-example">&#34;HCPCS code for a standard wheelchair&#34;</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #8C66D91a; color: #8C66D9;">Coding</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #34C7591a; color: #34C759;">
+    &#9989;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">CMS Coverage Lookup</div>
+    <div class="tool-desc">Check Medicare coverage determinations — both National (NCDs) and Local (LCDs). Returns coverage criteria and required documentation.</div>
+    
+    <div class="tool-example">&#34;Does Medicare cover continuous glucose monitoring for type 2 diabetes?&#34;</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #34C7591a; color: #34C759;">Insurance</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #3DBF801a; color: #3DBF80;">
+    &#129514;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Lab Reference Ranges</div>
+    <div class="tool-desc">LOINC-mapped laboratory reference ranges. Returns normal intervals adjusted for units, age, and sex, with clinical significance notes for abnormal values.</div>
+    
+    <div class="tool-example">&#34;What is the normal reference range for TSH?&#34;</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #3DBF801a; color: #3DBF80;">Labs</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #5865F21a; color: #5865F2;">
+    &#129518;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Medical Calculator</div>
+    <div class="tool-desc">Validated clinical scoring tools — eGFR, CHA₂DS₂-VASc, MELD, CURB-65, Wells criteria, APACHE II, and more. Returns scores with interpretation.</div>
+    
+    <div class="tool-example">&#34;Calculate MELD-Na score: bilirubin 3.2, INR 1.8, creatinine 1.5, sodium 131&#34;</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #5865F21a; color: #5865F2;">Calculator</span>
+    </div>
+    
+  </div>
+</div>
+
+</div>
+<h2 id="icd-10-code-search-in-action">ICD-10 Code Search in Action</h2>
+<div class="chat-mockup" style="margin: 2rem 0;">
+  <div class="chat-mockup-header">
+    <div class="chat-mockup-avatar">&#10022;</div>
+    <div class="chat-mockup-title">Chat</div>
+  </div>
+  <div class="chat-mockup-body">
+    <div class="chat-msg user">ICD-10 code for type 2 diabetes with diabetic chronic kidney disease stage 3</div>
+    <div class="chat-msg assistant">
+      <div class="msg-avatar"><span>&#10022;</span></div>
+      <div class="msg-content">
+        <div class="mock-tool">
+          <div class="mock-tool-header">
+            <span class="mock-tool-status done"></span>
+            Looked up ICD-10 codes
+          </div>
+          <div class="mock-tool-detail">query: "type 2 diabetes diabetic chronic kidney disease stage 3"</div>
+        </div>
+        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--text-on-dark);">
+          For T2DM with diabetic CKD stage 3, you'll need two codes:<br><br>
+          <strong>E11.22</strong> — Type 2 diabetes mellitus with diabetic chronic kidney disease<br>
+          <strong>N18.3</strong> — Chronic kidney disease, stage 3 (unspecified)
+        </p>
+        <div class="mock-artifact chat-extra">
+          <div class="mock-artifact-icon" style="background: rgba(14,165,233,0.15); color: #0EA5E9;">&#127973;</div>
+          <div class="mock-artifact-info">
+            <div class="mock-artifact-title">ICD-10 Results</div>
+            <div class="mock-artifact-type">Diagnostic Codes</div>
+          </div>
+          <div class="mock-artifact-chevron">&rsaquo;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h2 id="common-medical-calculators">Common Medical Calculators</h2>
+<p>Lumen supports dozens of validated scoring tools. Here are the most frequently used:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Calculator</th>
+          <th>Used For</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>CHA₂DS₂-VASc</strong></td>
+          <td>Stroke risk in atrial fibrillation</td>
+      </tr>
+      <tr>
+          <td><strong>HAS-BLED</strong></td>
+          <td>Bleeding risk on anticoagulation</td>
+      </tr>
+      <tr>
+          <td><strong>MELD / MELD-Na</strong></td>
+          <td>Liver disease severity</td>
+      </tr>
+      <tr>
+          <td><strong>eGFR (CKD-EPI)</strong></td>
+          <td>Kidney function estimation</td>
+      </tr>
+      <tr>
+          <td><strong>CURB-65</strong></td>
+          <td>Pneumonia severity</td>
+      </tr>
+      <tr>
+          <td><strong>Wells Criteria</strong></td>
+          <td>DVT/PE probability</td>
+      </tr>
+      <tr>
+          <td><strong>APACHE II</strong></td>
+          <td>ICU mortality prediction</td>
+      </tr>
+      <tr>
+          <td><strong>Glasgow Coma Scale</strong></td>
+          <td>Neurological assessment</td>
+      </tr>
+      <tr>
+          <td><strong>SOFA Score</strong></td>
+          <td>Organ dysfunction in sepsis</td>
+      </tr>
+      <tr>
+          <td><strong>BMI</strong></td>
+          <td>Body mass index</td>
+      </tr>
+  </tbody>
+</table>
+<div class="tip-card">
+  <div class="tip-label">&#128161; Tip</div>
+  <div class="tip-title">Just ask naturally</div>
+  <div class="tip-body">You don&rsquo;t need to know the calculator name. Just describe what you need: <em>&ldquo;What&rsquo;s the stroke risk for my AFib patient?&rdquo;</em> and Lumen will select CHA₂DS₂-VASc automatically.</div>
+</div>
+
+
+  </div>
+
+  
+  
+  
+    
+    
+    
+    
+    
+
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+      
+    
+      
+        
+          
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+
+    <nav class="page-nav">
+      
+        <a href="/tools/medications/">
+          <div class="nav-label">&larr; Previous</div>
+          <div class="nav-title">Medication Questions</div>
+        </a>
+      
+      
+        <a href="/tools/protocols-decisions/" class="next">
+          <div class="nav-label">Next &rarr;</div>
+          <div class="nav-title">Protocols &amp; Decision Support</div>
+        </a>
+      
+    </nav>
+  
+</div>
+
+    </main>
+  </div>
+
+  
+    <footer class="site-footer">
+  <p>&copy; 2026 IntraCav Health &middot; Lumen AI User Guide</p>
+</footer>
+
+  
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

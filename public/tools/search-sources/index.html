@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finding Information — Lumen AI — User Guide</title>
+<meta name="description" content="Choose where Lumen looks for answers — clinical databases, your own documents, or the web.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="/img/lumen-logo.png" type="image/png">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<meta property="og:title" content="Finding Information">
+<meta property="og:description" content="A visual guide for clinicians using Lumen AI">
+<meta property="og:image" content="/img/lumen-logo.png">
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/img/lumen-logo.png" alt="Lumen AI">
+      <span class="logo-label">Lumen<span class="logo-sub">User Guide</span></span>
+    </a>
+
+    <nav class="header-nav">
+      
+        <a href="/getting-started/">Getting Started</a>
+      
+        <a href="/chat/">The Chat</a>
+      
+        <a href="/agents/">Agents</a>
+      
+        <a href="/workflows/">Workflows</a>
+      
+        <a href="/tools/">Chat Tools</a>
+      
+    </nav>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <div class="scroll-progress"></div>
+
+  <div class="site-wrapper ">
+    
+      <aside class="sidebar">
+  <nav>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a class="sidebar-link" href="/getting-started/">Pick a Scenario</a>
+      <a class="sidebar-link" href="/getting-started/first-chat/">Your First Chat</a>
+      <a class="sidebar-link" href="/getting-started/check-interaction/">Check a Drug Interaction</a>
+      <a class="sidebar-link" href="/getting-started/find-a-code/">Find a Billing Code</a>
+      <a class="sidebar-link" href="/getting-started/differential/">Build a Differential</a>
+      <a class="sidebar-link" href="/getting-started/draft-a-note/">Draft a Note</a>
+      <a class="sidebar-link" href="/getting-started/run-a-calculator/">Run a Calculator</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">The Chat</div>
+      <a class="sidebar-link" href="/chat/">Overview</a>
+      <a class="sidebar-link" href="/chat/sending-messages/">Typing &amp; Sending</a>
+      <a class="sidebar-link" href="/chat/responses/">Reading Answers</a>
+      <a class="sidebar-link" href="/chat/thinking/">How Lumen Thinks</a>
+      <a class="sidebar-link" href="/chat/artifacts/">Reports &amp; Files</a>
+      <a class="sidebar-link" href="/chat/sources/">Where It Gets Its Info</a>
+      <a class="sidebar-link" href="/chat/attachments/">Uploading Your Files</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Agents</div>
+      <a class="sidebar-link" href="/agents/">Agents vs Chat</a>
+      <a class="sidebar-link" href="/agents/clinical-scribe/">Clinical Scribe</a>
+      <a class="sidebar-link" href="/agents/diagnostic-support/">Diagnostic Support</a>
+      <a class="sidebar-link" href="/agents/research-advisor/">Research Advisor</a>
+      <a class="sidebar-link" href="/agents/insurance/">Insurance &amp; Appeals</a>
+      <a class="sidebar-link" href="/agents/document-analyzer/">Document Analyzer</a>
+      <a class="sidebar-link" href="/agents/health-explainer/">Health Explainer</a>
+      <a class="sidebar-link" href="/agents/symptom-checker/">Symptom Checker</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Workflows</div>
+      <a class="sidebar-link" href="/workflows/">Why Build a Workflow</a>
+      <a class="sidebar-link" href="/workflows/editor/">The Visual Editor</a>
+      <a class="sidebar-link" href="/workflows/building-blocks/">Building Blocks</a>
+      <a class="sidebar-link" href="/workflows/running/">Running &amp; Results</a>
+      <a class="sidebar-link" href="/workflows/publish/">Turn It Into an Agent</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Chat Tools</div>
+      <a class="sidebar-link" href="/tools/">Overview</a>
+      <a class="sidebar-link" href="/tools/search-sources/">Finding Information</a>
+      <a class="sidebar-link" href="/tools/literature-research/">Research &amp; Evidence</a>
+      <a class="sidebar-link" href="/tools/medications/">Medication Questions</a>
+      <a class="sidebar-link" href="/tools/coding-labs/">Codes, Labs &amp; Calculators</a>
+      <a class="sidebar-link" href="/tools/protocols-decisions/">Protocols &amp; Decision Support</a>
+      <a class="sidebar-link" href="/tools/patient-records/">Patient Records &amp; Notes</a>
+      <a class="sidebar-link" href="/tools/document-generation/">Creating Documents</a>
+      <a class="sidebar-link" href="/tools/privacy/">Privacy &amp; Safety</a>
+    </div>
+  </nav>
+</aside>
+
+    
+
+    <main class="main-content">
+      
+<div class="content-body">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    
+      <a href="/tools/">What Lumen Can Do</a>
+      <span class="sep">/</span>
+    
+    <span>Finding Information</span>
+  </nav>
+
+  <div class="page-header">
+    <h1>Finding Information</h1>
+    
+  </div>
+
+  <div class="page-content">
+    <p>When you ask Lumen a question, it searches for the best available evidence before answering. You can choose <strong>where</strong> it looks using three simple buttons at the bottom of the chat.</p>
+<h2 id="the-three-knowledge-sources">The Three Knowledge Sources</h2>
+<div class="tool-grid">
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #3B82F61a; color: #3B82F6;">
+    &#9889;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Clinical Database</div>
+    <div class="tool-desc">Lumen&#39;s built-in clinical knowledge base. Contains peer-reviewed guidelines, drug databases, lab reference ranges, and clinical protocols. This is your primary source of truth.</div>
+    
+    <div class="tool-example">&#34;What are the current USPSTF screening recommendations for lung cancer?&#34;</div>
+    
+    
+    <div class="tool-badges">
+      <span class="tool-badge" style="background: #3B82F61a; color: #3B82F6;">On by Default</span>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #6633CC1a; color: #6633CC;">
+    &#128193;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">My Documents</div>
+    <div class="tool-desc">Your personally uploaded files — PDFs, notes, research papers, and reference materials. Toggle this on when you want Lumen to search your own library.</div>
+    
+    <div class="tool-example">&#34;Based on the uploaded protocol, what are the inclusion criteria for this trial?&#34;</div>
+    
+    
+  </div>
+</div>
+
+
+<div class="tool-card">
+  <div class="tool-icon" style="background: #2999661a; color: #299966;">
+    &#127760;
+  </div>
+  <div class="tool-info">
+    <div class="tool-name">Web Search</div>
+    <div class="tool-desc">Live internet search for the most current information. Useful for breaking research, conference proceedings, or topics not yet in the clinical database.</div>
+    
+    <div class="tool-example">&#34;What were the key findings from the latest ASCO 2026 presentations on NSCLC?&#34;</div>
+    
+    
+  </div>
+</div>
+
+</div>
+<h2 id="how-search-works">How Search Works</h2>
+<p>When you send a message with search enabled, here&rsquo;s what happens:</p>
+<div class="steps-container">
+<div class="step">
+  <div class="step-indicator">1</div>
+  <div class="step-content">
+    <h4>Your question is analyzed</h4>
+    <div>Lumen identifies the key clinical concepts in your question and formulates search queries.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-indicator">2</div>
+  <div class="step-content">
+    <h4>Sources are searched</h4>
+    <div>A <strong>&ldquo;Searching knowledge base&hellip;&rdquo;</strong> indicator appears while Lumen queries the enabled sources. This typically takes 1–3 seconds.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-indicator">3</div>
+  <div class="step-content">
+    <h4>Results are ranked</h4>
+    <div>Each result gets a <strong>similarity score</strong> showing how relevant it is to your question. Only high-quality matches are used.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-indicator">4</div>
+  <div class="step-content">
+    <h4>Evidence is synthesized</h4>
+    <div>Lumen reads the top results and synthesizes them into a coherent answer, citing each source.</div>
+  </div>
+</div>
+
+</div>
+<h2 id="combining-sources">Combining Sources</h2>
+<p>You can enable <strong>all three sources simultaneously</strong>. Lumen will search across all of them and merge the results, giving you the broadest coverage possible.</p>
+<p>This is especially powerful when you want to:</p>
+<ul>
+<li>Compare your internal protocols against published guidelines</li>
+<li>Supplement database knowledge with the latest web-based research</li>
+<li>Find information that spans multiple domains</li>
+</ul>
+
+
+<div class="callout callout-info">
+  <span class="callout-icon">&#128161;</span>
+  <div><strong>The sources chip</strong> at the bottom of each response shows exactly which documents were used. Click it to verify the evidence chain.</div>
+</div>
+
+<h2 id="attach-documents">Attach Documents</h2>
+<p>Beyond the knowledge toggles, you can also <strong>attach specific documents</strong> to a message using the paperclip icon. Attached documents are always included regardless of toggle state.</p>
+<p>See <a href="/chat/attachments/">Uploading Documents</a> for details.</p>
+
+  </div>
+
+  
+  
+  
+    
+    
+    
+    
+    
+
+    
+      
+      
+        
+      
+    
+      
+        
+          
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+
+    <nav class="page-nav">
+      
+        <div></div>
+      
+      
+        <a href="/tools/literature-research/" class="next">
+          <div class="nav-label">Next &rarr;</div>
+          <div class="nav-title">Research &amp; Evidence</div>
+        </a>
+      
+    </nav>
+  
+</div>
+
+    </main>
+  </div>
+
+  
+    <footer class="site-footer">
+  <p>&copy; 2026 IntraCav Health &middot; Lumen AI User Guide</p>
+</footer>
+
+  
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

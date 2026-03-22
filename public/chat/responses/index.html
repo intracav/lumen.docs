@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading Answers — Lumen AI — User Guide</title>
+<meta name="description" content="What each part of Lumen&#39;s answer means and how to interact with it.">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="/img/lumen-logo.png" type="image/png">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<meta property="og:title" content="Reading Answers">
+<meta property="og:description" content="A visual guide for clinicians using Lumen AI">
+<meta property="og:image" content="/img/lumen-logo.png">
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/img/lumen-logo.png" alt="Lumen AI">
+      <span class="logo-label">Lumen<span class="logo-sub">User Guide</span></span>
+    </a>
+
+    <nav class="header-nav">
+      
+        <a href="/getting-started/">Getting Started</a>
+      
+        <a href="/chat/">The Chat</a>
+      
+        <a href="/agents/">Agents</a>
+      
+        <a href="/workflows/">Workflows</a>
+      
+        <a href="/tools/">Chat Tools</a>
+      
+    </nav>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <div class="scroll-progress"></div>
+
+  <div class="site-wrapper ">
+    
+      <aside class="sidebar">
+  <nav>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a class="sidebar-link" href="/getting-started/">Pick a Scenario</a>
+      <a class="sidebar-link" href="/getting-started/first-chat/">Your First Chat</a>
+      <a class="sidebar-link" href="/getting-started/check-interaction/">Check a Drug Interaction</a>
+      <a class="sidebar-link" href="/getting-started/find-a-code/">Find a Billing Code</a>
+      <a class="sidebar-link" href="/getting-started/differential/">Build a Differential</a>
+      <a class="sidebar-link" href="/getting-started/draft-a-note/">Draft a Note</a>
+      <a class="sidebar-link" href="/getting-started/run-a-calculator/">Run a Calculator</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">The Chat</div>
+      <a class="sidebar-link" href="/chat/">Overview</a>
+      <a class="sidebar-link" href="/chat/sending-messages/">Typing &amp; Sending</a>
+      <a class="sidebar-link" href="/chat/responses/">Reading Answers</a>
+      <a class="sidebar-link" href="/chat/thinking/">How Lumen Thinks</a>
+      <a class="sidebar-link" href="/chat/artifacts/">Reports &amp; Files</a>
+      <a class="sidebar-link" href="/chat/sources/">Where It Gets Its Info</a>
+      <a class="sidebar-link" href="/chat/attachments/">Uploading Your Files</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Agents</div>
+      <a class="sidebar-link" href="/agents/">Agents vs Chat</a>
+      <a class="sidebar-link" href="/agents/clinical-scribe/">Clinical Scribe</a>
+      <a class="sidebar-link" href="/agents/diagnostic-support/">Diagnostic Support</a>
+      <a class="sidebar-link" href="/agents/research-advisor/">Research Advisor</a>
+      <a class="sidebar-link" href="/agents/insurance/">Insurance &amp; Appeals</a>
+      <a class="sidebar-link" href="/agents/document-analyzer/">Document Analyzer</a>
+      <a class="sidebar-link" href="/agents/health-explainer/">Health Explainer</a>
+      <a class="sidebar-link" href="/agents/symptom-checker/">Symptom Checker</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Workflows</div>
+      <a class="sidebar-link" href="/workflows/">Why Build a Workflow</a>
+      <a class="sidebar-link" href="/workflows/editor/">The Visual Editor</a>
+      <a class="sidebar-link" href="/workflows/building-blocks/">Building Blocks</a>
+      <a class="sidebar-link" href="/workflows/running/">Running &amp; Results</a>
+      <a class="sidebar-link" href="/workflows/publish/">Turn It Into an Agent</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Chat Tools</div>
+      <a class="sidebar-link" href="/tools/">Overview</a>
+      <a class="sidebar-link" href="/tools/search-sources/">Finding Information</a>
+      <a class="sidebar-link" href="/tools/literature-research/">Research &amp; Evidence</a>
+      <a class="sidebar-link" href="/tools/medications/">Medication Questions</a>
+      <a class="sidebar-link" href="/tools/coding-labs/">Codes, Labs &amp; Calculators</a>
+      <a class="sidebar-link" href="/tools/protocols-decisions/">Protocols &amp; Decision Support</a>
+      <a class="sidebar-link" href="/tools/patient-records/">Patient Records &amp; Notes</a>
+      <a class="sidebar-link" href="/tools/document-generation/">Creating Documents</a>
+      <a class="sidebar-link" href="/tools/privacy/">Privacy &amp; Safety</a>
+    </div>
+  </nav>
+</aside>
+
+    
+
+    <main class="main-content">
+      
+<div class="content-body">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    
+      <a href="/chat/">The Chat</a>
+      <span class="sep">/</span>
+    
+    <span>Reading Answers</span>
+  </nav>
+
+  <div class="page-header">
+    <h1>Reading Answers</h1>
+    
+  </div>
+
+  <div class="page-content">
+    <p>Lumen&rsquo;s answers look like regular text, but they often include extra pieces — like a list of sources, a progress indicator showing what it searched, or a tappable card with a detailed report. Here&rsquo;s what each part means.</p>
+<h2 id="anatomy-of-a-response">Anatomy of a Response</h2>
+<p>Every assistant response follows a consistent structure. Here&rsquo;s what you&rsquo;ll see, from top to bottom:</p>
+<div class="chat-mockup chat-demo-animated" style="margin: 2rem 0;">
+  <div class="chat-mockup-header">
+    <div class="chat-mockup-avatar">&#10022;</div>
+    <div class="chat-mockup-title">Chat</div>
+  </div>
+  <div class="chat-mockup-body">
+    <div class="chat-msg user">What is the CHA₂DS₂-VASc score for a 72-year-old woman with hypertension and diabetes?</div>
+    <div class="chat-msg assistant">
+      <div class="msg-avatar"><span>&#10022;</span></div>
+      <div class="msg-content">
+        <div class="mock-thinking">
+          <span class="pulse-dot"></span>
+          Thought for 3s
+        </div>
+        <div class="mock-tool">
+          <div class="mock-tool-header">
+            <span class="mock-tool-status done"></span>
+            Ran medical calculator
+          </div>
+          <div class="mock-tool-detail">CHA₂DS₂-VASc &middot; age=72, sex=female</div>
+        </div>
+        <p style="margin:0; font-size: 0.875rem; line-height: 1.6;">
+          The <strong>CHA₂DS₂-VASc score is 5</strong> for this patient, which indicates a <strong>high stroke risk</strong>. Anticoagulation is recommended.
+        </p>
+        <div style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted-dark); line-height: 1.5;">
+          <strong>Score breakdown:</strong><br>
+          &bull; Age 65&ndash;74: +1<br>
+          &bull; Age &ge;75: +1 (additional)<br>
+          &bull; Female sex: +1<br>
+          &bull; Hypertension: +1<br>
+          &bull; Diabetes: +1
+        </div>
+        <div class="mock-sources chat-extra">&#128218; Sources (2)</div>
+      </div>
+    </div>
+  </div>
+</div>
+<h2 id="response-sections-explained">Response Sections Explained</h2>
+<h3 id="1-the-avatar">1. The Avatar</h3>
+<div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: var(--bg-card); border-radius: var(--radius-md); box-shadow: var(--shadow-card); margin: 1rem 0;">
+  <div style="width: 28px; height: 28px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; flex-shrink: 0;">&#10022;</div>
+  <div style="font-size: 0.9rem; color: var(--text-secondary);">
+    The blue circle with the <strong>&#10022;</strong> symbol identifies messages from Lumen. Your messages appear on the right in blue bubbles.
+  </div>
+</div>
+<h3 id="2-thinking-block">2. Thinking Block</h3>
+<p>Shows that Lumen is reasoning through your question. The timer shows how long it took. You can expand this to see the AI&rsquo;s thought process.</p>
+<h3 id="3-tool-calls">3. Tool Calls</h3>
+<p>When Lumen uses a specialized tool (like a drug lookup or calculator), you&rsquo;ll see a progress block. These show the tool name and what data was processed.</p>
+<h3 id="4-main-response-text">4. Main Response Text</h3>
+<p>The answer itself — formatted with <strong>bold text</strong>, bullet points, headings, and other markdown styling for easy reading.</p>
+<h3 id="5-sources-chip">5. Sources Chip</h3>
+<p>If Lumen cited evidence, you&rsquo;ll see a <strong>Sources</strong> chip at the bottom. Click it to expand the list and see each reference with its relevance score.</p>
+<h3 id="6-artifact-cards">6. Artifact Cards</h3>
+<p>When Lumen generates a file, checklist, or interactive tool result, it appears as a clickable card. Tapping opens it in a side panel.</p>
+<h2 id="streaming--real-time-responses">Streaming — Real-Time Responses</h2>
+<p>Lumen streams its response as it&rsquo;s generated. You&rsquo;ll see:</p>
+<ul>
+<li><strong>Three animated dots</strong> before the first word appears</li>
+<li><strong>Text typing out</strong> word by word with a blinking cursor</li>
+<li><strong>Tool calls appearing</strong> as they execute</li>
+</ul>
+<p>This gives you immediate feedback that Lumen is working, and you can start reading while the response is still being generated.</p>
+<div class="tip-card">
+  <div class="tip-label">&#128161; Tip</div>
+  <div class="tip-title">You can stop a response</div>
+  <div class="tip-body">While Lumen is streaming, the Send button turns into a <strong>Stop</strong> button (a square icon). Tap it to cancel the current response at any time.</div>
+</div>
+
+<h2 id="copying-responses">Copying Responses</h2>
+<p>Hover over any assistant message and a <strong>Copy</strong> button appears. Click it to copy the response text to your clipboard. A brief &ldquo;Copied&rdquo; confirmation appears.</p>
+
+
+<div class="callout callout-success">
+  <span class="callout-icon">&#9989;</span>
+  <div><strong>Responses are saved automatically</strong> as part of your chat history. You can return to any conversation later from the sidebar.</div>
+</div>
+
+
+  </div>
+
+  
+  
+  
+    
+    
+    
+    
+    
+
+    
+      
+      
+        
+          
+        
+      
+    
+      
+      
+        
+      
+    
+      
+        
+          
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+      
+        
+      
+      
+        
+      
+    
+
+    <nav class="page-nav">
+      
+        <a href="/chat/sending-messages/">
+          <div class="nav-label">&larr; Previous</div>
+          <div class="nav-title">Typing &amp; Sending</div>
+        </a>
+      
+      
+        <a href="/chat/thinking/" class="next">
+          <div class="nav-label">Next &rarr;</div>
+          <div class="nav-title">How Lumen Thinks</div>
+        </a>
+      
+    </nav>
+  
+</div>
+
+    </main>
+  </div>
+
+  
+    <footer class="site-footer">
+  <p>&copy; 2026 IntraCav Health &middot; Lumen AI User Guide</p>
+</footer>
+
+  
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agents — Lumen AI — User Guide</title>
+<meta name="description" content="A visual guide for clinicians using Lumen AI">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="icon" href="/img/lumen-logo.png" type="image/png">
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<meta property="og:title" content="Agents">
+<meta property="og:description" content="A visual guide for clinicians using Lumen AI">
+<meta property="og:image" content="/img/lumen-logo.png">
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="/img/lumen-logo.png" alt="Lumen AI">
+      <span class="logo-label">Lumen<span class="logo-sub">User Guide</span></span>
+    </a>
+
+    <nav class="header-nav">
+      
+        <a href="/getting-started/">Getting Started</a>
+      
+        <a href="/chat/">The Chat</a>
+      
+        <a href="/agents/">Agents</a>
+      
+        <a href="/workflows/">Workflows</a>
+      
+        <a href="/tools/">Chat Tools</a>
+      
+    </nav>
+
+    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <div class="scroll-progress"></div>
+
+  <div class="site-wrapper ">
+    
+      <aside class="sidebar">
+  <nav>
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Getting Started</div>
+      <a class="sidebar-link" href="/getting-started/">Pick a Scenario</a>
+      <a class="sidebar-link" href="/getting-started/first-chat/">Your First Chat</a>
+      <a class="sidebar-link" href="/getting-started/check-interaction/">Check a Drug Interaction</a>
+      <a class="sidebar-link" href="/getting-started/find-a-code/">Find a Billing Code</a>
+      <a class="sidebar-link" href="/getting-started/differential/">Build a Differential</a>
+      <a class="sidebar-link" href="/getting-started/draft-a-note/">Draft a Note</a>
+      <a class="sidebar-link" href="/getting-started/run-a-calculator/">Run a Calculator</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">The Chat</div>
+      <a class="sidebar-link" href="/chat/">Overview</a>
+      <a class="sidebar-link" href="/chat/sending-messages/">Typing &amp; Sending</a>
+      <a class="sidebar-link" href="/chat/responses/">Reading Answers</a>
+      <a class="sidebar-link" href="/chat/thinking/">How Lumen Thinks</a>
+      <a class="sidebar-link" href="/chat/artifacts/">Reports &amp; Files</a>
+      <a class="sidebar-link" href="/chat/sources/">Where It Gets Its Info</a>
+      <a class="sidebar-link" href="/chat/attachments/">Uploading Your Files</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Agents</div>
+      <a class="sidebar-link" href="/agents/">Agents vs Chat</a>
+      <a class="sidebar-link" href="/agents/clinical-scribe/">Clinical Scribe</a>
+      <a class="sidebar-link" href="/agents/diagnostic-support/">Diagnostic Support</a>
+      <a class="sidebar-link" href="/agents/research-advisor/">Research Advisor</a>
+      <a class="sidebar-link" href="/agents/insurance/">Insurance &amp; Appeals</a>
+      <a class="sidebar-link" href="/agents/document-analyzer/">Document Analyzer</a>
+      <a class="sidebar-link" href="/agents/health-explainer/">Health Explainer</a>
+      <a class="sidebar-link" href="/agents/symptom-checker/">Symptom Checker</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Workflows</div>
+      <a class="sidebar-link" href="/workflows/">Why Build a Workflow</a>
+      <a class="sidebar-link" href="/workflows/editor/">The Visual Editor</a>
+      <a class="sidebar-link" href="/workflows/building-blocks/">Building Blocks</a>
+      <a class="sidebar-link" href="/workflows/running/">Running &amp; Results</a>
+      <a class="sidebar-link" href="/workflows/publish/">Turn It Into an Agent</a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-heading">Chat Tools</div>
+      <a class="sidebar-link" href="/tools/">Overview</a>
+      <a class="sidebar-link" href="/tools/search-sources/">Finding Information</a>
+      <a class="sidebar-link" href="/tools/literature-research/">Research &amp; Evidence</a>
+      <a class="sidebar-link" href="/tools/medications/">Medication Questions</a>
+      <a class="sidebar-link" href="/tools/coding-labs/">Codes, Labs &amp; Calculators</a>
+      <a class="sidebar-link" href="/tools/protocols-decisions/">Protocols &amp; Decision Support</a>
+      <a class="sidebar-link" href="/tools/patient-records/">Patient Records &amp; Notes</a>
+      <a class="sidebar-link" href="/tools/document-generation/">Creating Documents</a>
+      <a class="sidebar-link" href="/tools/privacy/">Privacy &amp; Safety</a>
+    </div>
+  </nav>
+</aside>
+
+    
+
+    <main class="main-content">
+      
+<div class="content-body">
+  <nav class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    <span>Agents</span>
+  </nav>
+
+  <div class="page-header">
+    <h1>Agents</h1>
+    <p class="lead">Chat gives you quick answers. Agents do the whole job — multiple steps, multiple tools, one polished result.</p>
+  </div>
+
+  <h2 id="whats-the-difference">What&rsquo;s the Difference?</h2>
+<p>The <strong>Chat</strong> is perfect for quick questions — <em>&ldquo;Any interactions between these two drugs?&rdquo;</em> Ask, get an answer, move on.</p>
+<p>But some clinical tasks aren&rsquo;t one question. They&rsquo;re a whole workflow: pull the patient&rsquo;s meds, check codes, search the literature, <em>then</em> draft the document. Doing that in chat would take five back-and-forth messages.</p>
+<p><strong>Agents do all of those steps in one go.</strong> You give them a prompt, optionally attach some documents, and the agent runs an entire pipeline — researching, looking up codes, checking databases, and delivering a polished result at the end.</p>
+<div class="compare-grid">
+  <div class="compare-card" style="border-top-color: #0EA5E9;">
+    <h3>&#128172; Chat</h3>
+    <div class="compare-subtitle">Like texting a colleague for a quick answer</div>
+    <ul class="compare-list">
+      <li><span class="compare-check" style="color: var(--cyan);">&#10003;</span> One question, one answer</li>
+      <li><span class="compare-check" style="color: var(--cyan);">&#10003;</span> You guide the conversation</li>
+      <li><span class="compare-check" style="color: var(--cyan);">&#10003;</span> Great for quick lookups</li>
+      <li><span class="compare-check" style="color: var(--cyan);">&#10003;</span> Uses 1&ndash;2 tools per question</li>
+      <li><span class="compare-check" style="color: var(--cyan);">&#10003;</span> Conversational &mdash; ask follow-ups</li>
+    </ul>
+  </div>
+  <div class="compare-card" style="border-top-color: #8C66D9;">
+    <h3>&#129302; Agent</h3>
+    <div class="compare-subtitle">Like handing a complete task to a specialist</div>
+    <ul class="compare-list">
+      <li><span class="compare-check" style="color: var(--purple);">&#10003;</span> One prompt, multi-step result</li>
+      <li><span class="compare-check" style="color: var(--purple);">&#10003;</span> The agent decides the workflow</li>
+      <li><span class="compare-check" style="color: var(--purple);">&#10003;</span> Great for complex tasks</li>
+      <li><span class="compare-check" style="color: var(--purple);">&#10003;</span> Runs 5&ndash;10 tools automatically</li>
+      <li><span class="compare-check" style="color: var(--purple);">&#10003;</span> Structured &mdash; step-by-step pipeline</li>
+    </ul>
+  </div>
+</div>
+<h2 id="see-an-agent-work">See an Agent Work</h2>
+<p>Here&rsquo;s what happens when you tell the <strong>Clinical Scribe</strong> agent to turn your notes into documentation. It runs 7 steps automatically:</p>
+<div class="pipeline-mockup">
+  <div class="pipeline-header">
+    <div class="pipeline-header-icon" style="background: rgba(14,165,233,0.15); color: #0EA5E9;">&#128221;</div>
+    <div class="pipeline-header-title">Clinical Scribe</div>
+    <div class="pipeline-header-badge">7 steps</div>
+  </div>
+  <div class="pipeline-steps">
+    <div class="pipeline-step">
+      <div class="pipeline-dot done">&#10003;</div>
+      <div class="pipeline-connector done"></div>
+    </div>
+    <div class="pipeline-step">
+      <div class="pipeline-dot done">&#10003;</div>
+      <div class="pipeline-connector done"></div>
+    </div>
+    <div class="pipeline-step">
+      <div class="pipeline-dot done">&#10003;</div>
+      <div class="pipeline-connector done"></div>
+    </div>
+    <div class="pipeline-step">
+      <div class="pipeline-dot done">&#10003;</div>
+      <div class="pipeline-connector done"></div>
+    </div>
+    <div class="pipeline-step">
+      <div class="pipeline-dot active">5</div>
+      <div class="pipeline-connector pending"></div>
+    </div>
+    <div class="pipeline-step">
+      <div class="pipeline-dot pending">6</div>
+      <div class="pipeline-connector pending"></div>
+    </div>
+    <div class="pipeline-step">
+      <div class="pipeline-dot pending">7</div>
+    </div>
+  </div>
+  <div class="pipeline-labels">
+    <div class="pipeline-label">Entities</div>
+    <div class="pipeline-label">Research</div>
+    <div class="pipeline-label">RxNorm</div>
+    <div class="pipeline-label">ICD-10</div>
+    <div class="pipeline-label">CPT</div>
+    <div class="pipeline-label">Draft</div>
+    <div class="pipeline-label">Review</div>
+  </div>
+  <div class="pipeline-body">
+    <div class="pipeline-active-step">
+      <span class="pipeline-active-dot"></span>
+      Looking up CPT codes&hellip;
+    </div>
+    <div class="pipeline-output">
+      Identified procedures: 99214 (Office visit, established patient, moderate complexity), 93000 (ECG with interpretation)&hellip;
+    </div>
+  </div>
+</div>
+<p>You type one prompt. The agent extracts clinical entities, searches guidelines, looks up every medication, diagnosis code, and procedure code, drafts the full note, and reviews it for accuracy. The result is a complete, coded clinical document.</p>
+<h2 id="the-8-agents">The 8 Agents</h2>
+<p>Each agent is built for a specific kind of clinical work. Pick the one that matches your task and it handles the rest.</p>
+<div class="agent-grid stagger-children">
+<a href="/agents/clinical-scribe/" class="agent-card" style="border-left-color: #0EA5E9;">
+  <div class="agent-card-header">
+    <div class="agent-card-icon" style="background: rgba(14,165,233,0.12); color: #0EA5E9;">&#128221;</div>
+    <div>
+      <div class="agent-card-title">Clinical Scribe</div>
+      <div class="agent-card-subtitle">Notes &rarr; structured documentation</div>
+    </div>
+  </div>
+  <p>Paste your rough notes or dictation. The agent extracts entities, looks up codes, and produces a complete clinical document with ICD-10, CPT, and RxNorm data embedded.</p>
+  <div class="agent-card-steps">
+    <span class="agent-step-chip">Entities</span>
+    <span class="agent-step-chip">Research</span>
+    <span class="agent-step-chip">RxNorm</span>
+    <span class="agent-step-chip">ICD-10</span>
+    <span class="agent-step-chip">CPT</span>
+    <span class="agent-step-chip">Draft</span>
+    <span class="agent-step-chip">Review</span>
+  </div>
+  <span class="scenario-arrow">Learn more <span>&rarr;</span></span>
+</a>
+<a href="/agents/diagnostic-support/" class="agent-card" style="border-left-color: #FF9500;">
+  <div class="agent-card-header">
+    <div class="agent-card-icon" style="background: rgba(255,149,0,0.12); color: #FF9500;">&#127973;</div>
+    <div>
+      <div class="agent-card-title">Diagnostic Support</div>
+      <div class="agent-card-subtitle">Full clinical workup</div>
+    </div>
+  </div>
+  <p>Describe a presentation. The agent runs a 10-step workup: triage scoring, differential, code lookup, lab interpretation, medication check, and protocol selection.</p>
+  <div class="agent-card-steps">
+    <span class="agent-step-chip">Entities</span>
+    <span class="agent-step-chip">Triage</span>
+    <span class="agent-step-chip">PubMed</span>
+    <span class="agent-step-chip">ICD-10</span>
+    <span class="agent-step-chip">Labs</span>
+    <span class="agent-step-chip">RxNorm</span>
+    <span class="agent-step-chip">Protocols</span>
+    <span class="agent-step-chip">Assessment</span>
+  </div>
+  <span class="scenario-arrow">Learn more <span>&rarr;</span></span>
+</a>
+<a href="/agents/research-advisor/" class="agent-card" style="border-left-color: #0EA5E9;">
+  <div class="agent-card-header">
+    <div class="agent-card-icon" style="background: rgba(14,165,233,0.12); color: #0EA5E9;">&#128300;</div>
+    <div>
+      <div class="agent-card-title">Research Advisor</div>
+      <div class="agent-card-subtitle">Evidence synthesis</div>
+    </div>
+  </div>
+  <p>Ask a clinical question. The agent searches PubMed, checks FDA data, finds active trials, and delivers a structured literature review with citations.</p>
+  <div class="agent-card-steps">
+    <span class="agent-step-chip">Keywords</span>
+    <span class="agent-step-chip">Knowledge Base</span>
+    <span class="agent-step-chip">PubMed</span>
+    <span class="agent-step-chip">FDA</span>
+    <span class="agent-step-chip">Trials</span>
+    <span class="agent-step-chip">RxNorm</span>
+    <span class="agent-step-chip">Synthesis</span>
+  </div>
+  <span class="scenario-arrow">Learn more <span>&rarr;</span></span>
+</a>
+<a href="/agents/insurance/" class="agent-card" style="border-left-color: #5865F2;">
+  <div class="agent-card-header">
+    <div class="agent-card-icon" style="background: rgba(88,101,242,0.12); color: #5865F2;">&#127970;</div>
+    <div>
+      <div class="agent-card-title">Insurance Manager</div>
+      <div class="agent-card-subtitle">Prior auth &amp; billing</div>
+    </div>
+  </div>
+  <p>Describe the procedure and diagnosis. The agent verifies codes, checks CMS coverage, gathers medical necessity evidence, and drafts the complete prior auth or appeal.</p>
+  <div class="agent-card-steps">
+    <span class="agent-step-chip">Extract</span>
+    <span class="agent-step-chip">ICD-10</span>
+    <span class="agent-step-chip">CPT</span>
+    <span class="agent-step-chip">HCPCS</span>
+    <span class="agent-step-chip">CMS</span>
+    <span class="agent-step-chip">PubMed</span>
+    <span class="agent-step-chip">NPI</span>
+    <span class="agent-step-chip">Draft</span>
+  </div>
+  <span class="scenario-arrow">Learn more <span>&rarr;</span></span>
+</a>
+<a href="/agents/document-analyzer/" class="agent-card" style="border-left-color: #34C759;">
+  <div class="agent-card-header">
+    <div class="agent-card-icon" style="background: rgba(52,199,89,0.12); color: #34C759;">&#128196;</div>
+    <div>
+      <div class="agent-card-title">Document Analyzer</div>
+      <div class="agent-card-subtitle">Extract &amp; analyze</div>
+    </div>
+  </div>
+  <p>Upload a paper, report, or clinical document. The agent summarizes it, extracts key findings, maps to diagnostic codes, searches for supporting literature, and produces a structured analysis.</p>
+  <div class="agent-card-steps">
+    <span class="agent-step-chip">Summarize</span>
+    <span class="agent-step-chip">Entities</span>
+    <span class="agent-step-chip">Keywords</span>
+    <span class="agent-step-chip">Research</span>
+    <span class="agent-step-chip">PubMed</span>
+    <span class="agent-step-chip">ICD-10</span>
+    <span class="agent-step-chip">Report</span>
+  </div>
+  <span class="scenario-arrow">Learn more <span>&rarr;</span></span>
+</a>
+<a href="/agents/health-explainer/" class="agent-card" style="border-left-color: #8C66D9;">
+  <div class="agent-card-header">
+    <div class="agent-card-icon" style="background: rgba(140,102,217,0.12); color: #8C66D9;">&#128149;</div>
+    <div>
+      <div class="agent-card-title">Health Explainer</div>
+      <div class="agent-card-subtitle">Patient-friendly language</div>
+    </div>
+  </div>
+  <p>Paste a complex clinical explanation or lab results. The agent translates it into plain language your patients can understand — at an 8th grade reading level.</p>
+  <div class="agent-card-steps">
+    <span class="agent-step-chip">Extract Terms</span>
+    <span class="agent-step-chip">Summarize</span>
+    <span class="agent-step-chip">Research</span>
+    <span class="agent-step-chip">Medications</span>
+    <span class="agent-step-chip">Labs</span>
+    <span class="agent-step-chip">Explain</span>
+  </div>
+  <span class="scenario-arrow">Learn more <span>&rarr;</span></span>
+</a>
+<a href="/agents/symptom-checker/" class="agent-card" style="border-left-color: #FF9500;">
+  <div class="agent-card-header">
+    <div class="agent-card-icon" style="background: rgba(255,149,0,0.12); color: #FF9500;">&#129657;</div>
+    <div>
+      <div class="agent-card-title">Symptom Checker</div>
+      <div class="agent-card-subtitle">Triage &amp; assessment</div>
+    </div>
+  </div>
+  <p>Describe the patient's symptoms. The agent runs an ESI triage assessment, maps to codes, checks labs, and delivers a structured triage recommendation.</p>
+  <div class="agent-card-steps">
+    <span class="agent-step-chip">Symptoms</span>
+    <span class="agent-step-chip">ESI Triage</span>
+    <span class="agent-step-chip">Guidelines</span>
+    <span class="agent-step-chip">ICD-10</span>
+    <span class="agent-step-chip">Labs</span>
+    <span class="agent-step-chip">Protocols</span>
+    <span class="agent-step-chip">Summary</span>
+  </div>
+  <span class="scenario-arrow">Learn more <span>&rarr;</span></span>
+</a>
+<a href="/agents/insurance/" class="agent-card" style="border-left-color: #E53E3E;">
+  <div class="agent-card-header">
+    <div class="agent-card-icon" style="background: rgba(229,62,62,0.12); color: #E53E3E;">&#128737;</div>
+    <div>
+      <div class="agent-card-title">Patient Advocate</div>
+      <div class="agent-card-subtitle">Fight claim denials</div>
+    </div>
+  </div>
+  <p>Paste a denial letter. The agent analyzes the insurer's reasoning, looks up your patient's rights, gathers clinical evidence, and drafts an aggressive, legally-grounded appeal.</p>
+  <div class="agent-card-steps">
+    <span class="agent-step-chip">Analyze Denial</span>
+    <span class="agent-step-chip">Patient Rights</span>
+    <span class="agent-step-chip">ICD-10</span>
+    <span class="agent-step-chip">CPT</span>
+    <span class="agent-step-chip">CMS Policy</span>
+    <span class="agent-step-chip">Evidence</span>
+    <span class="agent-step-chip">Appeal Letter</span>
+  </div>
+  <span class="scenario-arrow">Learn more <span>&rarr;</span></span>
+</a>
+</div>
+<h2 id="how-to-start-an-agent">How to Start an Agent</h2>
+<div class="steps-container">
+<div class="step">
+  <div class="step-indicator">1</div>
+  <div class="step-content">
+    <h4>Open the Agents screen</h4>
+    <div>Tap <strong>Agents</strong> in the sidebar. You&rsquo;ll see three tabs: System Agents (the built-in ones), Created (your custom agents), and Community (agents published by others).</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-indicator">2</div>
+  <div class="step-content">
+    <h4>Pick the right agent for your task</h4>
+    <div>Tap <strong>New Agent</strong> and select the type that matches what you need. Not sure which one? Read the descriptions above.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-indicator">3</div>
+  <div class="step-content">
+    <h4>Add sources (optional)</h4>
+    <div>You can attach documents — PDFs, clinical notes, URLs — in the left panel. The agent reads and indexes them before running.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-indicator">4</div>
+  <div class="step-content">
+    <h4>Type your prompt and hit Send</h4>
+    <div>Describe what you need in plain English. The agent starts its pipeline immediately. You&rsquo;ll see each step light up as it progresses.</div>
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-indicator">5</div>
+  <div class="step-content">
+    <h4>Review the results</h4>
+    <div>When the pipeline finishes, you get a structured result with all the artifacts — notes, code lookups, reports — ready to review, copy, or download.</div>
+  </div>
+</div>
+
+</div>
+
+
+<div class="callout callout-info">
+  <span class="callout-icon">&#128161;</span>
+  <div><strong>Agent sessions save automatically.</strong> You can come back later, view past runs, or run the agent again with different inputs. Everything is preserved.</div>
+</div>
+
+
+
+  
+  <div class="card-grid stagger-children">
+    
+    <a href="/agents/clinical-scribe/" class="guide-card">
+      <span class="card-number">1</span>
+      <h3>Clinical Scribe</h3>
+      <p>Turn rough notes into complete clinical documentation with proper codes — automatically.</p>
+      <span class="card-arrow">Read guide <span>&rarr;</span></span>
+    </a>
+    
+    <a href="/agents/diagnostic-support/" class="guide-card">
+      <span class="card-number">2</span>
+      <h3>Diagnostic Support</h3>
+      <p>Describe a clinical presentation and get a full workup — triage, differential, codes, labs, meds, and protocols.</p>
+      <span class="card-arrow">Read guide <span>&rarr;</span></span>
+    </a>
+    
+    <a href="/agents/research-advisor/" class="guide-card">
+      <span class="card-number">3</span>
+      <h3>Research Advisor</h3>
+      <p>Get a structured literature review without spending your evening on PubMed.</p>
+      <span class="card-arrow">Read guide <span>&rarr;</span></span>
+    </a>
+    
+    <a href="/agents/insurance/" class="guide-card">
+      <span class="card-number">4</span>
+      <h3>Insurance &amp; Appeals</h3>
+      <p>Two agents that handle prior authorizations, fight claim denials, and draft legally-grounded appeals.</p>
+      <span class="card-arrow">Read guide <span>&rarr;</span></span>
+    </a>
+    
+    <a href="/agents/document-analyzer/" class="guide-card">
+      <span class="card-number">5</span>
+      <h3>Document Analyzer</h3>
+      <p>Upload any clinical document and get a structured analysis with key findings, codes, and supporting literature.</p>
+      <span class="card-arrow">Read guide <span>&rarr;</span></span>
+    </a>
+    
+    <a href="/agents/health-explainer/" class="guide-card">
+      <span class="card-number">6</span>
+      <h3>Health Explainer</h3>
+      <p>Translate complex medical information into language your patients can understand.</p>
+      <span class="card-arrow">Read guide <span>&rarr;</span></span>
+    </a>
+    
+    <a href="/agents/symptom-checker/" class="guide-card">
+      <span class="card-number">7</span>
+      <h3>Symptom Checker</h3>
+      <p>Describe symptoms, get an ESI triage level with codes, labs, and protocol recommendations.</p>
+      <span class="card-arrow">Read guide <span>&rarr;</span></span>
+    </a>
+    
+  </div>
+  
+</div>
+
+    </main>
+  </div>
+
+  
+    <footer class="site-footer">
+  <p>&copy; 2026 IntraCav Health &middot; Lumen AI User Guide</p>
+</footer>
+
+  
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
