@@ -1,5 +1,5 @@
 /* ================================================================
-   LUMEN DOCS — Interaction & Animation Engine
+   INTRACAV DOCS — Interaction & Animation Engine
    ================================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initChatDemos();
   initSmoothAnchors();
   initMarquee();
+  initThemeToggle();
 });
 
 /* ---------- Scroll Reveal (Intersection Observer) ---------- */
@@ -19,7 +20,6 @@ function initScrollReveal() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          // Don't unobserve — keeps things revealed
         }
       });
     },
@@ -144,6 +144,39 @@ function initMarquee() {
     const clone = item.cloneNode(true);
     track.appendChild(clone);
   });
+}
+
+/* ---------- Theme Toggle ---------- */
+function initThemeToggle() {
+  const btn = document.querySelector('.theme-toggle');
+  if (!btn) return;
+
+  const icon = btn.querySelector('.theme-icon');
+
+  function getEffectiveTheme() {
+    const saved = document.documentElement.getAttribute('data-theme');
+    if (saved) return saved;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function updateIcon() {
+    const theme = getEffectiveTheme();
+    // Moon for light mode (click to go dark), sun for dark mode (click to go light)
+    icon.textContent = theme === 'dark' ? '\u2600' : '\u263D';
+  }
+
+  btn.addEventListener('click', () => {
+    const current = getEffectiveTheme();
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateIcon();
+  });
+
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateIcon);
+
+  updateIcon();
 }
 
 /* ---------- Smooth Anchor Scrolling ---------- */

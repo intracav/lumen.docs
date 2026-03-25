@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.154.5"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.154.5">
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lumen AI — User Guide</title>
@@ -10,13 +10,21 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Nunito:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 
 <link rel="icon" href="/img/lumen-logo.png" type="image/png">
 
 
 <link rel="stylesheet" href="/css/main.css">
+
+
+<script>
+  (function() {
+    var t = localStorage.getItem('theme');
+    if (t) document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
 
 
 <meta property="og:title" content="Lumen AI User Guide">
@@ -28,8 +36,8 @@
   <header class="site-header">
   <div class="header-inner">
     <a href="/" class="logo">
-      <img src="/img/lumen-logo.png" alt="Lumen AI">
-      <span class="logo-label">Lumen<span class="logo-sub">User Guide</span></span>
+      <span class="logo-wordmark"><span class="intra">Intra</span><span class="cav">cav</span></span>
+      <span class="logo-sub">Lumen Docs</span>
     </a>
 
     <nav class="header-nav">
@@ -45,6 +53,10 @@
         <a href="/tools/">Chat Tools</a>
       
     </nav>
+
+    <button class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+      <span class="theme-icon">&#9789;</span>
+    </button>
 
     <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -81,7 +93,7 @@
     
     <a href="/tools/medications/" class="marquee-card">
       <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: rgba(255,149,0,0.12); color: #FF9500;">&#9888;</div>
+        <div class="marquee-card-icon" style="background: var(--accent-glow); color: var(--accent);">&#9888;</div>
         <div class="marquee-card-meta">
           <div class="marquee-card-title">Warfarin &times; Amiodarone</div>
           <div class="marquee-card-type">Drug Interaction Report</div>
@@ -108,28 +120,28 @@
       </div>
       <div class="marquee-card-footer">
         <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: rgba(255,149,0,0.12); color: #FF9500;">Medications</span>
+        <span class="marquee-card-badge" style="background: var(--accent-glow); color: var(--accent-dk);">Medications</span>
       </div>
     </a>
 
     
     <a href="/tools/protocols-decisions/" class="marquee-card">
       <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: rgba(61,191,128,0.12); color: #3DBF80;">&#9745;</div>
+        <div class="marquee-card-icon" style="background: var(--sage-glow); color: var(--sage);">&#9745;</div>
         <div class="marquee-card-meta">
           <div class="marquee-card-title">Sepsis 3-Hour Bundle</div>
           <div class="marquee-card-type">Interactive Checklist</div>
         </div>
       </div>
       <div class="marquee-card-body">
-        <div class="mini-bar"><div class="mini-bar-fill" style="width: 40%; background: #3DBF80;"></div></div>
+        <div class="mini-bar"><div class="mini-bar-fill" style="width: 40%; background: var(--sage);"></div></div>
         <div class="mini-row">
           <span class="mini-check done">&#10003;</span>
-          <span style="text-decoration: line-through; color: var(--text-tertiary);">Measure lactate level</span>
+          <span style="text-decoration: line-through; color: var(--text-3);">Measure lactate level</span>
         </div>
         <div class="mini-row">
           <span class="mini-check done">&#10003;</span>
-          <span style="text-decoration: line-through; color: var(--text-tertiary);">Obtain blood cultures</span>
+          <span style="text-decoration: line-through; color: var(--text-3);">Obtain blood cultures</span>
         </div>
         <div class="mini-row">
           <span class="mini-check"></span>
@@ -146,59 +158,59 @@
       </div>
       <div class="marquee-card-footer">
         <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: rgba(140,102,217,0.12); color: #8C66D9;">Protocols</span>
+        <span class="marquee-card-badge" style="background: var(--sage-glow); color: var(--sage-dk);">Protocols</span>
       </div>
     </a>
 
     
     <a href="/tools/protocols-decisions/" class="marquee-card">
       <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: rgba(14,165,233,0.12); color: #0EA5E9;">&#129504;</div>
+        <div class="marquee-card-icon" style="background: var(--sage-glow); color: var(--sage-dk);">&#129504;</div>
         <div class="marquee-card-meta">
           <div class="marquee-card-title">Differential Diagnosis</div>
           <div class="marquee-card-type">Ranked with workup</div>
         </div>
       </div>
       <div class="marquee-card-body">
-        <div style="font-size: 0.68rem; color: var(--text-tertiary); margin-bottom: 0.375rem;">Fatigue, weight gain, cold intolerance</div>
+        <div style="font-size: 0.68rem; color: var(--text-3); margin-bottom: 0.375rem;">Fatigue, weight gain, cold intolerance</div>
         <div class="mini-row">
           <span class="mini-ddx-rank">1</span>
           <span><span class="mini-label">Hypothyroidism</span></span>
-          <span class="mini-score" style="color: var(--green);">Most likely</span>
+          <span class="mini-score" style="color: var(--sage);">Most likely</span>
         </div>
         <div class="mini-row">
           <span class="mini-ddx-rank">2</span>
           <span><span class="mini-label">Depression / MDD</span></span>
-          <span class="mini-score" style="color: var(--orange);">Consider</span>
+          <span class="mini-score" style="color: var(--accent);">Consider</span>
         </div>
         <div class="mini-row">
           <span class="mini-ddx-rank">3</span>
           <span><span class="mini-label">Iron deficiency anemia</span></span>
-          <span class="mini-score" style="color: var(--orange);">Consider</span>
+          <span class="mini-score" style="color: var(--accent);">Consider</span>
         </div>
         <div class="mini-row">
           <span class="mini-ddx-rank">4</span>
           <span><span class="mini-label">Obstructive sleep apnea</span></span>
-          <span class="mini-score" style="color: var(--text-tertiary);">Less likely</span>
+          <span class="mini-score" style="color: var(--text-3);">Less likely</span>
         </div>
       </div>
       <div class="marquee-card-footer">
         <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: rgba(14,165,233,0.12); color: #0EA5E9;">Decision Support</span>
+        <span class="marquee-card-badge" style="background: var(--sage-glow); color: var(--sage-dk);">Decision Support</span>
       </div>
     </a>
 
     
     <a href="/tools/coding-labs/" class="marquee-card">
       <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: rgba(255,149,0,0.12); color: #FF9500;">&#127973;</div>
+        <div class="marquee-card-icon" style="background: var(--accent-glow); color: var(--accent-dk);">&#127973;</div>
         <div class="marquee-card-meta">
           <div class="marquee-card-title">ICD-10 Code Results</div>
           <div class="marquee-card-type">Diagnostic Codes</div>
         </div>
       </div>
       <div class="marquee-card-body">
-        <div style="font-size: 0.68rem; color: var(--text-tertiary); margin-bottom: 0.375rem;">&ldquo;acute systolic heart failure&rdquo;</div>
+        <div style="font-size: 0.68rem; color: var(--text-3); margin-bottom: 0.375rem;">&ldquo;acute systolic heart failure&rdquo;</div>
         <div class="mini-row">
           <span class="mini-code">I50.21</span>
           <span class="mini-value">Acute systolic (congestive) heart failure</span>
@@ -218,14 +230,14 @@
       </div>
       <div class="marquee-card-footer">
         <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: rgba(255,149,0,0.12); color: #FF9500;">Coding</span>
+        <span class="marquee-card-badge" style="background: var(--accent-glow); color: var(--accent-dk);">Coding</span>
       </div>
     </a>
 
     
     <a href="/tools/coding-labs/" class="marquee-card">
       <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: rgba(61,191,128,0.12); color: #3DBF80;">&#129514;</div>
+        <div class="marquee-card-icon" style="background: var(--sage-glow); color: var(--sage);">&#129514;</div>
         <div class="marquee-card-meta">
           <div class="marquee-card-title">Lab Reference: TSH</div>
           <div class="marquee-card-type">Reference Ranges</div>
@@ -238,11 +250,11 @@
         </div>
         <div class="mini-row">
           <span class="mini-label">Low (&lt; 0.4)</span>
-          <span class="mini-value" style="margin-left: auto; color: var(--orange);">Hyperthyroidism</span>
+          <span class="mini-value" style="margin-left: auto; color: var(--accent);">Hyperthyroidism</span>
         </div>
         <div class="mini-row">
           <span class="mini-label">High (&gt; 4.0)</span>
-          <span class="mini-value" style="margin-left: auto; color: var(--red);">Hypothyroidism</span>
+          <span class="mini-value" style="margin-left: auto; color: var(--rose);">Hypothyroidism</span>
         </div>
         <div class="mini-row">
           <span class="mini-label">Pregnancy T1</span>
@@ -255,14 +267,14 @@
       </div>
       <div class="marquee-card-footer">
         <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: rgba(61,191,128,0.12); color: #3DBF80;">Labs</span>
+        <span class="marquee-card-badge" style="background: var(--sage-glow); color: var(--sage-dk);">Labs</span>
       </div>
     </a>
 
     
     <a href="/tools/coding-labs/" class="marquee-card">
       <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: rgba(88,101,242,0.12); color: #5865F2;">&#129518;</div>
+        <div class="marquee-card-icon" style="background: var(--accent-glow); color: var(--accent);">&#129518;</div>
         <div class="marquee-card-meta">
           <div class="marquee-card-title">CHA&#8322;DS&#8322;-VASc Score</div>
           <div class="marquee-card-type">Medical Calculator</div>
@@ -270,8 +282,8 @@
       </div>
       <div class="marquee-card-body">
         <div style="text-align: center; margin-bottom: 0.5rem;">
-          <span style="font-size: 2rem; font-weight: 800; color: var(--red);">5</span>
-          <span style="font-size: 0.7rem; color: var(--text-tertiary); display: block;">High stroke risk</span>
+          <span style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 500; color: var(--rose);">5</span>
+          <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-3); display: block; letter-spacing: 0.08em;">HIGH STROKE RISK</span>
         </div>
         <div class="mini-row"><span class="mini-label">Age &ge;75</span><span class="mini-score" style="color: var(--text);">+2</span></div>
         <div class="mini-row"><span class="mini-label">Female sex</span><span class="mini-score" style="color: var(--text);">+1</span></div>
@@ -280,14 +292,14 @@
       </div>
       <div class="marquee-card-footer">
         <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: rgba(88,101,242,0.12); color: #5865F2;">Calculator</span>
+        <span class="marquee-card-badge" style="background: var(--accent-glow); color: var(--accent-dk);">Calculator</span>
       </div>
     </a>
 
     
     <a href="/tools/literature-research/" class="marquee-card">
       <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: rgba(14,165,233,0.12); color: #0EA5E9;">&#128218;</div>
+        <div class="marquee-card-icon" style="background: var(--sage-glow); color: var(--sage);">&#128218;</div>
         <div class="marquee-card-meta">
           <div class="marquee-card-title">PubMed: GLP-1 &amp; CV Outcomes</div>
           <div class="marquee-card-type">Literature Search &middot; 8 results</div>
@@ -309,14 +321,14 @@
       </div>
       <div class="marquee-card-footer">
         <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: rgba(14,165,233,0.12); color: #0EA5E9;">Research</span>
+        <span class="marquee-card-badge" style="background: var(--sage-glow); color: var(--sage-dk);">Research</span>
       </div>
     </a>
 
     
     <a href="/tools/patient-records/" class="marquee-card">
       <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: rgba(14,165,233,0.12); color: #0EA5E9;">&#128221;</div>
+        <div class="marquee-card-icon" style="background: var(--accent-glow); color: var(--accent);">&#128221;</div>
         <div class="marquee-card-meta">
           <div class="marquee-card-title">Discharge Summary</div>
           <div class="marquee-card-type">Clinical Note</div>
@@ -338,14 +350,14 @@
       </div>
       <div class="marquee-card-footer">
         <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: rgba(14,165,233,0.12); color: #0EA5E9;">Notes</span>
+        <span class="marquee-card-badge" style="background: var(--accent-glow); color: var(--accent-dk);">Notes</span>
       </div>
     </a>
 
     
     <a href="/tools/medications/" class="marquee-card">
       <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: rgba(140,102,217,0.12); color: #8C66D9;">&#129656;</div>
+        <div class="marquee-card-icon" style="background: var(--rose-glow); color: var(--rose);">&#129656;</div>
         <div class="marquee-card-meta">
           <div class="marquee-card-title">Renal Dose: Vancomycin</div>
           <div class="marquee-card-type">Dose Adjustment</div>
@@ -354,7 +366,7 @@
       <div class="marquee-card-body">
         <div class="mini-row">
           <span class="mini-label">CrCl (C-G)</span>
-          <span class="mini-value" style="margin-left: auto; font-weight: 600; color: var(--orange);">32 mL/min</span>
+          <span class="mini-value" style="margin-left: auto; font-weight: 600; color: var(--accent);">32 mL/min</span>
         </div>
         <div class="mini-row">
           <span class="mini-label">CKD Stage</span>
@@ -366,7 +378,7 @@
         </div>
         <div class="mini-row">
           <span class="mini-label">Adjusted dose</span>
-          <span class="mini-value" style="margin-left: auto; font-weight: 600; color: var(--primary);">1g q24&ndash;48h</span>
+          <span class="mini-value" style="margin-left: auto; font-weight: 600; color: var(--accent);">1g q24&ndash;48h</span>
         </div>
         <div class="mini-row">
           <span class="mini-label">Monitor</span>
@@ -375,14 +387,14 @@
       </div>
       <div class="marquee-card-footer">
         <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: rgba(140,102,217,0.12); color: #8C66D9;">Medications</span>
+        <span class="marquee-card-badge" style="background: var(--rose-glow); color: var(--rose-dk);">Medications</span>
       </div>
     </a>
 
     
     <a href="/tools/medications/" class="marquee-card">
       <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: rgba(14,165,233,0.12); color: #0EA5E9;">&#128167;</div>
+        <div class="marquee-card-icon" style="background: var(--sage-glow); color: var(--sage);">&#128167;</div>
         <div class="marquee-card-meta">
           <div class="marquee-card-title">Norepinephrine Drip</div>
           <div class="marquee-card-type">IV Rate Calculator</div>
@@ -390,8 +402,8 @@
       </div>
       <div class="marquee-card-body">
         <div style="text-align: center; margin-bottom: 0.5rem;">
-          <span style="font-size: 1.75rem; font-weight: 800; color: var(--primary);">6</span>
-          <span style="font-size: 0.9rem; font-weight: 600; color: var(--text-secondary);"> mL/hr</span>
+          <span style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 500; color: var(--accent);">6</span>
+          <span style="font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; color: var(--text-2);"> mL/hr</span>
         </div>
         <div class="mini-row">
           <span class="mini-label">Dose ordered</span>
@@ -412,7 +424,7 @@
       </div>
       <div class="marquee-card-footer">
         <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: rgba(14,165,233,0.12); color: #0EA5E9;">Calculator</span>
+        <span class="marquee-card-badge" style="background: var(--sage-glow); color: var(--sage-dk);">Calculator</span>
       </div>
     </a>
 
@@ -430,21 +442,21 @@
 
     <div class="category-grid stagger-children" style="margin-top: 1.5rem;">
       <div class="category-card" style="cursor: default;">
-        <div class="category-icon" style="background: var(--green-subtle); color: var(--green);">&#9889;</div>
+        <div class="category-icon" style="background: var(--sage-glow); color: var(--sage);">&#9889;</div>
         <div>
           <h3>Seconds, not minutes</h3>
           <p>Drug interactions, lab normals, ICD-10 codes &mdash; answers that used to take an UpToDate deep-dive now come back in seconds, with sources.</p>
         </div>
       </div>
       <div class="category-card" style="cursor: default;">
-        <div class="category-icon" style="background: var(--cyan-subtle); color: var(--cyan);">&#128218;</div>
+        <div class="category-icon" style="background: var(--accent-glow); color: var(--accent);">&#128218;</div>
         <div>
           <h3>Evidence you can trust</h3>
           <p>Every answer shows where the information came from. Tap &ldquo;Sources&rdquo; to see the guidelines, studies, or databases Lumen used.</p>
         </div>
       </div>
       <div class="category-card" style="cursor: default;">
-        <div class="category-icon" style="background: var(--purple-subtle); color: var(--purple);">&#128221;</div>
+        <div class="category-icon" style="background: var(--rose-glow); color: var(--rose);">&#128221;</div>
         <div>
           <h3>Less charting, more caring</h3>
           <p>Ask Lumen to draft a SOAP note, prior auth letter, or discharge summary. Review it, tweak it, done.</p>
@@ -476,11 +488,11 @@
               </div>
               <div class="mock-tool-detail">warfarin &times; amiodarone &middot; FDA database</div>
             </div>
-            <p style="margin:0; font-size: 0.875rem; line-height: 1.6;">
-              <strong style="color: #FF9500;">&#9888; Major interaction.</strong> Amiodarone inhibits CYP2C9 and significantly raises warfarin levels. If adding amiodarone, <strong>reduce the warfarin dose by 30&ndash;50%</strong> and monitor INR closely within the first week.
+            <p style="margin:0; font-size: 0.85rem; line-height: 1.65;">
+              <strong style="color: var(--accent);">&#9888; Major interaction.</strong> Amiodarone inhibits CYP2C9 and significantly raises warfarin levels. If adding amiodarone, <strong>reduce the warfarin dose by 30&ndash;50%</strong> and monitor INR closely within the first week.
             </p>
             <div class="mock-artifact chat-extra">
-              <div class="mock-artifact-icon" style="background: rgba(255,149,0,0.15); color: #FF9500;">&#9888;</div>
+              <div class="mock-artifact-icon" style="background: rgba(188,114,80,0.15); color: var(--accent);">&#9888;</div>
               <div class="mock-artifact-info">
                 <div class="mock-artifact-title">Full Interaction Report</div>
                 <div class="mock-artifact-type">Tap to view details</div>
@@ -496,7 +508,7 @@
         <div class="send-btn">&#8593;</div>
       </div>
     </div>
-    <p style="text-align: center; font-size: 0.85rem; color: var(--text-tertiary); margin-top: 0.75rem;">That entire exchange takes about 5 seconds.</p>
+    <p style="text-align: center; font-size: 0.82rem; color: var(--text-3); margin-top: 0.75rem;">That entire exchange takes about 5 seconds.</p>
   </section>
 
   
@@ -507,42 +519,42 @@
 
     <div class="category-grid stagger-children" style="margin-top: 1.5rem;">
       <a href="/tools/medications/" class="category-card">
-        <div class="category-icon" style="background: var(--green-subtle); color: var(--green);">&#128138;</div>
+        <div class="category-icon" style="background: var(--sage-glow); color: var(--sage);">&#128138;</div>
         <div>
           <h3>&ldquo;Is this med safe with their other drugs?&rdquo;</h3>
           <p>Check drug interactions, get dosing for renal patients, or calculate IV drip rates.</p>
         </div>
       </a>
       <a href="/tools/coding-labs/" class="category-card">
-        <div class="category-icon" style="background: var(--orange-subtle); color: var(--orange);">&#127973;</div>
+        <div class="category-icon" style="background: var(--accent-glow); color: var(--accent);">&#127973;</div>
         <div>
           <h3>&ldquo;What&rsquo;s the ICD-10 code for this?&rdquo;</h3>
           <p>Describe the diagnosis in plain English. Lumen finds the right code.</p>
         </div>
       </a>
       <a href="/tools/protocols-decisions/" class="category-card">
-        <div class="category-icon" style="background: var(--purple-subtle); color: var(--purple);">&#129504;</div>
+        <div class="category-icon" style="background: var(--rose-glow); color: var(--rose);">&#129504;</div>
         <div>
           <h3>&ldquo;What am I missing in the differential?&rdquo;</h3>
           <p>Describe symptoms and history. Lumen ranks the possibilities with evidence.</p>
         </div>
       </a>
       <a href="/tools/literature-research/" class="category-card">
-        <div class="category-icon" style="background: var(--cyan-subtle); color: var(--cyan);">&#128218;</div>
+        <div class="category-icon" style="background: var(--sage-glow); color: var(--sage-dk);">&#128218;</div>
         <div>
           <h3>&ldquo;What does the latest evidence say?&rdquo;</h3>
           <p>Lumen searches PubMed, pulls studies, and summarizes findings.</p>
         </div>
       </a>
       <a href="/tools/document-generation/" class="category-card">
-        <div class="category-icon" style="background: var(--orange-subtle); color: var(--orange);">&#128196;</div>
+        <div class="category-icon" style="background: var(--accent-glow); color: var(--accent-dk);">&#128196;</div>
         <div>
           <h3>&ldquo;Draft my note / prior auth / slides&rdquo;</h3>
           <p>Get a ready-to-edit draft in seconds.</p>
         </div>
       </a>
       <a href="/tools/protocols-decisions/" class="category-card">
-        <div class="category-icon" style="background: var(--green-subtle); color: var(--green);">&#9745;</div>
+        <div class="category-icon" style="background: var(--sage-glow); color: var(--sage);">&#9745;</div>
         <div>
           <h3>&ldquo;Give me the sepsis bundle checklist&rdquo;</h3>
           <p>Interactive checklists you can check off as you go.</p>
@@ -559,21 +571,21 @@
 
     <div class="category-grid stagger-children" style="margin-top: 1.5rem;">
       <a href="/agents/clinical-scribe/" class="category-card">
-        <div class="category-icon" style="background: rgba(14,165,233,0.12); color: #0EA5E9;">&#128221;</div>
+        <div class="category-icon" style="background: var(--accent-glow); color: var(--accent);">&#128221;</div>
         <div>
           <h3>Clinical Scribe</h3>
           <p>Paste rough notes &rarr; get a complete clinical document with ICD-10, CPT, and medication codes.</p>
         </div>
       </a>
       <a href="/agents/insurance/" class="category-card">
-        <div class="category-icon" style="background: rgba(229,62,62,0.12); color: #E53E3E;">&#128737;</div>
+        <div class="category-icon" style="background: var(--rose-glow); color: var(--rose);">&#128737;</div>
         <div>
           <h3>Fight a Claim Denial</h3>
           <p>Paste the denial letter. The agent builds a legally-grounded appeal with CMS policy and clinical evidence.</p>
         </div>
       </a>
       <a href="/agents/diagnostic-support/" class="category-card">
-        <div class="category-icon" style="background: rgba(255,149,0,0.12); color: #FF9500;">&#127973;</div>
+        <div class="category-icon" style="background: var(--sage-glow); color: var(--sage-dk);">&#127973;</div>
         <div>
           <h3>Full Diagnostic Workup</h3>
           <p>Describe a presentation. Get triage level, differential, codes, labs, meds, and protocols &mdash; all at once.</p>
@@ -597,7 +609,7 @@
       <div class="node-chain">
         <div class="wf-node">
           <div class="wf-node-header">
-            <div class="wf-node-icon" style="background: rgba(88,101,242,0.15); color: var(--primary);">&#128196;</div>
+            <div class="wf-node-icon" style="background: rgba(188,114,80,0.15); color: var(--accent);">&#128196;</div>
             <span class="wf-node-name">Upload Report</span>
           </div>
           <div class="wf-node-body">Consult PDF</div>
@@ -605,7 +617,7 @@
         <div class="wf-connector"></div>
         <div class="wf-node">
           <div class="wf-node-header">
-            <div class="wf-node-icon" style="background: rgba(140,102,217,0.15); color: var(--purple);">&#128196;</div>
+            <div class="wf-node-icon" style="background: rgba(126,156,132,0.15); color: var(--sage);">&#128196;</div>
             <span class="wf-node-name">Extract Entities</span>
           </div>
           <div class="wf-node-body">Meds &amp; diagnoses</div>
@@ -613,7 +625,7 @@
         <div class="wf-connector"></div>
         <div class="wf-node">
           <div class="wf-node-header">
-            <div class="wf-node-icon" style="background: rgba(255,149,0,0.15); color: var(--orange);">&#127973;</div>
+            <div class="wf-node-icon" style="background: rgba(188,114,80,0.15); color: var(--accent-dk);">&#127973;</div>
             <span class="wf-node-name">ICD-10 Codes</span>
           </div>
           <div class="wf-node-body">Find billing codes</div>
@@ -621,7 +633,7 @@
         <div class="wf-connector"></div>
         <div class="wf-node">
           <div class="wf-node-header">
-            <div class="wf-node-icon" style="background: rgba(52,199,89,0.15); color: var(--green);">&#9989;</div>
+            <div class="wf-node-icon" style="background: rgba(126,156,132,0.15); color: var(--sage-dk);">&#9989;</div>
             <span class="wf-node-name">CMS Coverage</span>
           </div>
           <div class="wf-node-body">Check Medicare</div>
@@ -629,7 +641,7 @@
         <div class="wf-connector"></div>
         <div class="wf-node">
           <div class="wf-node-header">
-            <div class="wf-node-icon" style="background: rgba(14,165,233,0.15); color: var(--cyan);">&#128221;</div>
+            <div class="wf-node-icon" style="background: rgba(184,112,112,0.15); color: var(--rose);">&#128221;</div>
             <span class="wf-node-name">Draft Auth</span>
           </div>
           <div class="wf-node-body">Prior auth letter</div>
@@ -685,7 +697,7 @@
 </div>
 
 <footer class="site-footer" style="margin-left: 0;">
-  <p>&copy; 2026 IntraCav Health &middot; Lumen AI User Guide</p>
+  <p>&copy; 2026 Intracav &middot; Lumen AI User Guide</p>
 </footer>
 
     </main>

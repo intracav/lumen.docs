@@ -4,9 +4,9 @@ title = 'Lumen AI — User Guide'
 
 [params]
   description = 'A visual guide for clinicians using Lumen AI'
-  tagline = 'Your AI clinical assistant, explained simply.'
-  primaryColor = '#5865F2'
-  darkBg = '#313338'
+  tagline = 'Healthcare AI Infrastructure'
+  primaryColor = '#BC7250'
+  darkBg = '#28180C'
 
 [markup]
   [markup.goldmark]

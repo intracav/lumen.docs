@@ -1,4 +1,4 @@
-{{ $color := .Get "color" | default "var(--primary)" }}
+{{ $color := .Get "color" | default "var(--accent)" }}
 <div class="tool-card">
   <div class="tool-icon" style="background: {{ $color }}1a; color: {{ $color }};">
     {{ .Get "icon" | safeHTML }}
