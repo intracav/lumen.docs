@@ -2902,3 +2902,9 @@ tr:hover td {
   .hero-stats { gap: 1.25rem; }
   .hero-stat-num { font-size: 1.5rem; }
 }
+.audience-doors {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
