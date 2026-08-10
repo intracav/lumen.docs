@@ -1,0 +1,40 @@
+# Site-wide numbers and homepage cards.
+# Update stats here ONLY — never hardcode these counts in templates or content.
+# Ground truth: specialists = src/agents/presets.rs, skills = src/skills/catalog.rs,
+# tools = ALL_REGISTERED_TOOL_NAMES in src/tools/registry.rs, calculators = catalog/clinical/calculator.rs
+stats:
+  specialists: 11
+  skills: 49
+  tools: "60+"
+  calculators: 28
+
+audiences:
+  - title: "I'm a clinician"
+    icon: "&#129658;"
+    tint: accent
+    text: "Drug checks, codes, notes, evidence — your first useful answer is 60 seconds away."
+    href: "/getting-started/"
+    cta: "Start here"
+  - title: "I run a team or hospital"
+    icon: "&#127973;"
+    tint: blue
+    text: "Shared knowledge, governed policies, website bots, EHR integration — rolled out in an afternoon."
+    href: "/organizations/"
+    cta: "See the admin tour"
+  - title: "I'm building on Lumen"
+    icon: "&#128295;"
+    tint: green
+    text: "An OpenAI-compatible API with citations, embeddable bots, MCP, and partner content packs."
+    href: "/developers/"
+    cta: "Read the API docs"
+
+learn_teasers:
+  - title: "What is an AI agent?"
+    href: "/learn/what-is-a-clinical-ai-agent/"
+    text: "Like a resident you delegate a full workup to — a clinician's guide to the idea everyone's talking about."
+  - title: "How AI uses tools"
+    href: "/learn/tool-use/"
+    text: "Why Lumen looks facts up instead of answering from memory — and how you can see it happen."
+  - title: "RAG & citations"
+    href: "/learn/rag-and-citations/"
+    text: "Chart review before rounding: how retrieval keeps AI answers grounded in real sources."

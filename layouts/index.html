@@ -10,6 +10,31 @@
     <a href="/getting-started/" class="btn btn-primary">Show Me How <span>&rarr;</span></a>
     <a href="/tools/" class="btn btn-secondary">What Can It Do?</a>
   </div>
+
+  {{ with site.Data.site.stats }}
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-num">{{ .tools }}</span><span class="hero-stat-label">clinical tools</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">{{ .skills }}</span><span class="hero-stat-label">built-in skills</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">{{ .specialists }}</span><span class="hero-stat-label">specialists</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">{{ .calculators }}</span><span class="hero-stat-label">medical calculators</span></div>
+  </div>
+  {{ end }}
+</section>
+
+<!-- Audience doors -->
+<section class="section reveal audience-doors">
+  <div class="category-grid stagger-children">
+    {{ range site.Data.site.audiences }}
+    <a href="{{ .href }}" class="category-card audience-door tint-{{ .tint }}">
+      <div class="category-icon" style="background: var(--tint-soft); color: var(--tint);">{{ .icon | safeHTML }}</div>
+      <div>
+        <h3>{{ .title }}</h3>
+        <p>{{ .text }}</p>
+        <span class="card-arrow">{{ .cta }} <span>&rarr;</span></span>
+      </div>
+    </a>
+    {{ end }}
+  </div>
 </section>
 
 <!-- ============ ARTIFACT MARQUEE ============ -->
@@ -489,38 +514,61 @@
     </div>
   </section>
 
-  <!-- Agents teaser -->
+  <!-- Specialists & Skills teaser -->
   <section class="section reveal">
     <span class="section-label">Go Deeper</span>
-    <h2 class="section-title">Need more than a quick answer? Use an Agent.</h2>
-    <p class="section-desc">Chat is great for one question. But when you need a full workup, a complete document, or an insurance appeal &mdash; hand it off to an Agent. One prompt, multiple steps, polished result.</p>
+    <h2 class="section-title">Two keystrokes unlock the expert modes.</h2>
+    <p class="section-desc">Type <strong>@</strong> to bring in a Specialist &mdash; a curated expert for a clinical domain that plans and runs the whole job. Type <strong>/</strong> for a Skill &mdash; a precise procedure for the exact document you need.</p>
 
     <div class="category-grid stagger-children" style="margin-top: 1.5rem;">
-      <a href="/agents/clinical-scribe/" class="category-card">
-        <div class="category-icon" style="background: var(--accent-glow); color: var(--accent);">&#128221;</div>
-        <div>
-          <h3>Clinical Scribe</h3>
-          <p>Paste rough notes &rarr; get a complete clinical document with ICD-10, CPT, and medication codes.</p>
-        </div>
-      </a>
-      <a href="/agents/insurance/" class="category-card">
+      <a href="/guides/prior-auth-in-minutes/" class="category-card">
         <div class="category-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#128737;</div>
         <div>
-          <h3>Fight a Claim Denial</h3>
-          <p>Paste the denial letter. The agent builds a legally-grounded appeal with CMS policy and clinical evidence.</p>
+          <h3>@Prior Authorization</h3>
+          <p>Codes verified, coverage checked, evidence gathered &mdash; a complete prior auth letter from one prompt.</p>
         </div>
       </a>
-      <a href="/agents/diagnostic-support/" class="category-card">
-        <div class="category-icon" style="background: var(--palace-green-glow); color: var(--palace-green-dk);">&#127973;</div>
+      <a href="/skills-and-specialists/specialists/" class="category-card">
+        <div class="category-icon" style="background: var(--palace-green-glow); color: var(--palace-green-dk);">&#128300;</div>
         <div>
-          <h3>Full Diagnostic Workup</h3>
-          <p>Describe a presentation. Get triage level, differential, codes, labs, meds, and protocols &mdash; all at once.</p>
+          <h3>@Clinical Research</h3>
+          <p>A cited literature review across PubMed, trials, and guidelines &mdash; ready for committee.</p>
+        </div>
+      </a>
+      <a href="/skills-and-specialists/skills/" class="category-card">
+        <div class="category-icon" style="background: var(--accent-glow); color: var(--accent);">&#128221;</div>
+        <div>
+          <h3>/discharge-summary &amp; 48 more</h3>
+          <p>SOAP notes, appeals, handoffs, patient handouts &mdash; every format, done to a professional standard.</p>
         </div>
       </a>
     </div>
 
     <div style="text-align: center; margin-top: 1.5rem;">
-      <a href="/agents/" class="btn btn-secondary">See all 8 agents <span>&rarr;</span></a>
+      <a href="/skills-and-specialists/" class="btn btn-secondary">Meet all {{ site.Data.site.stats.specialists }} Specialists &amp; {{ site.Data.site.stats.skills }} Skills <span>&rarr;</span></a>
+    </div>
+  </section>
+
+  <!-- Learn teaser -->
+  <section class="section reveal">
+    <span class="section-label">New to AI? Start Here</span>
+    <h2 class="section-title">Understand the machine you&rsquo;re working with.</h2>
+    <p class="section-desc">Agents, tool use, citations &mdash; the ideas under Lumen, explained in clinical terms. No computer science required.</p>
+
+    <div class="category-grid stagger-children" style="margin-top: 1.5rem;">
+      {{ range site.Data.site.learn_teasers }}
+      <a href="{{ .href }}" class="category-card">
+        <div class="category-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#128218;</div>
+        <div>
+          <h3>{{ .title }}</h3>
+          <p>{{ .text }}</p>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+
+    <div style="text-align: center; margin-top: 1.5rem;">
+      <a href="/learn/" class="btn btn-secondary">Browse the Learn curriculum <span>&rarr;</span></a>
     </div>
   </section>
 
@@ -528,7 +576,7 @@
   <section class="section reveal">
     <span class="section-label">Build Your Own</span>
     <h2 class="section-title">Need something custom? Build a Workflow.</h2>
-    <p class="section-desc">Connect tools visually to create your own automation — no coding needed. Then save it as a reusable agent.</p>
+    <p class="section-desc">Connect tools visually to create your own automation — no coding needed. Run it on a schedule, share it with your team, or save it as a reusable blueprint.</p>
 
     <div class="node-graph" style="margin-top: 1.5rem;">
       <div class="node-graph-label">Example Workflow</div>
@@ -623,6 +671,6 @@
 </div>
 
 <footer class="site-footer" style="margin-left: 0;">
-  <p>&copy; {{ now.Year }} Intracav &middot; Lumen AI User Guide</p>
+  <p>&copy; {{ now.Year }} Intracav &middot; Lumen Docs &middot; <a href="/trust/">Trust &amp; Security</a> &middot; <a href="/plans/">Plans</a></p>
 </footer>
 {{ end }}
