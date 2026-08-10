@@ -2665,3 +2665,24 @@ tr:hover td {
 .progress-fill-sage {
   background: linear-gradient(90deg, var(--palace-green-lt), var(--palace-green));
 }
+
+/* ==========================================================================
+   LEGACY COMPATIBILITY — pre-v2.0 token aliases.
+   Content written before the Tandoori/Palace Green/Smoky Blue palette still
+   references these vars. DELETE this block once every content file has been
+   migrated to v2 tokens (CI greps content/ for the legacy names).
+   ========================================================================== */
+:root {
+  --primary: var(--accent);
+  --cyan: var(--smoky-blue);
+  --purple: var(--smoky-blue-dk);
+  --bg-dark: var(--dark-bg);
+  --bg-darker: var(--dark-canvas);
+  --text-on-dark: var(--dark-text);
+  --text-muted-dark: var(--dark-text-muted);
+}
+
+/* ---------- Semantic tint utilities (v2) ---------- */
+.tint-accent { --tint: var(--accent); --tint-soft: var(--accent-glow); }
+.tint-green  { --tint: var(--palace-green); --tint-soft: var(--palace-green-glow); }
+.tint-blue   { --tint: var(--smoky-blue); --tint-soft: var(--smoky-blue-glow); }

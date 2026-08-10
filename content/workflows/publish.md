@@ -1,76 +1,54 @@
 ---
-title: "Turn It Into an Agent"
-description: "Export your workflow as a reusable agent, and optionally publish it for other clinicians."
+title: "Sharing Workflows & Blueprints"
+description: "Share a workflow with your organization, package it as a reusable blueprint, or run it straight from chat."
 weight: 4
 ---
 
-You've built a workflow that works well. Now you can turn it into a **reusable agent** — something you (or others) can run with one click, without opening the editor.
+You've built a workflow that works well. Now make it useful beyond the editor: share it with your team, package it as a **blueprint** others can reuse, or run it from any chat with a single sentence.
 
-## Exporting as an Agent
+## Run it from chat
+
+Every saved workflow can be run without opening the editor. Just ask:
+
+> "Run my *Med Rec & Interaction Checker* workflow on the attached document."
+
+Lumen finds the workflow by name, feeds it your input, and returns the result in the conversation. This is the fastest way to turn a workflow you built once into an everyday one-liner.
+
+## Share it with your organization
+
+Workflows are private by default. To let colleagues use one:
 
 <div class="steps-container">
 
-{{< step num="1" title="Click 'Export as Agent'" >}}
-In the workflow editor toolbar, tap **Export as Agent**. A dialog opens where you'll name and describe your agent.
+{{< step num="1" title="Open the workflow's sharing settings" >}}
+From the workflow list, open the menu on the workflow card and choose **Share**.
 {{< /step >}}
 
-{{< step num="2" title="Give it a name and description" >}}
-Choose a clear name that describes what the agent does. Write a short description — this is what other people see if you publish it.
-
-*Example:*
-- **Name:** "Med Rec & Interaction Checker"
-- **Description:** "Extracts medications from a document, checks all pairwise interactions, and drafts a reconciliation summary."
+{{< step num="2" title="Choose who can use it" >}}
+Share into your organization or a specific department. Colleagues get run access — they can use the workflow, see their own runs, and won't accidentally edit your logic.
 {{< /step >}}
 
-{{< step num="3" title="Pick an icon and color" >}}
-Choose from 24 icons and 10 accent colors. This makes your agent visually distinct in the Agents screen.
-{{< /step >}}
-
-{{< step num="4" title="Select a category" >}}
-Pick the category that fits best: clinical, research, documentation, billing, education, triage, or medications.
-{{< /step >}}
-
-{{< step num="5" title="Save" >}}
-Click Save. Your workflow is now a reusable **agent** that appears in the **Created** tab of the Agents screen.
+{{< step num="3" title="Keep improving it" >}}
+You keep edit rights. When you save changes, everyone runs the updated version — workflow **version history** means you can always restore an earlier revision if a change misbehaves.
 {{< /step >}}
 
 </div>
 
-## Using Your Agent
+{{< callout type="info" >}}
+**Sharing a workflow doesn't share your credentials.** If your workflow uses a connected account (Gmail, a CRM, Slack), colleagues connect their own — Lumen never lets someone else's workflow act as you.
+{{< /callout >}}
 
-Once exported, your agent works like the built-in ones:
+## Package it as a blueprint
 
-1. Open the **Agents** screen
-2. Go to the **Created** tab
-3. Click your agent
-4. Type your input and hit Send
-5. The workflow runs in the background and delivers the results
+A **blueprint** is a workflow exported as a reusable component: the logic, node layout, and configuration — without your documents, credentials, or run history.
 
-You don't need to open the editor or connect any nodes — it's a one-click automation.
+- **Reuse it yourself** — instantiate a new copy for a different clinic, department, or use case.
+- **Publish it** — published blueprints appear in the blueprint gallery, where other Lumen users can browse and add them.
+- **Track it** — see how often your published blueprint is used from its analytics view.
 
-## Publishing to the Community
+To create one, choose **Save as blueprint** from the workflow menu, give it a clear name and description, and decide whether to publish it or keep it in your library.
 
-Want to share your agent with other clinicians? You can publish it to the **Community** tab.
-
-<div class="steps-container">
-
-{{< step num="1" title="Open the agent management dialog" >}}
-In the Created tab, click **Manage** on your agent card.
-{{< /step >}}
-
-{{< step num="2" title="Set visibility to public" >}}
-Toggle the visibility from **Private** to **Public**. Your agent will appear in the Community tab for all Lumen users.
-{{< /step >}}
-
-{{< step num="3" title="Set pricing (optional)" >}}
-You can offer your agent for **free** or set a **paid** price. Paid agents use Stripe Connect — you earn 70% of each use, Lumen keeps 30%.
-
-To set up paid agents, you'll need to complete Stripe Connect onboarding (there's a banner in the Created tab that guides you through it).
-{{< /step >}}
-
-</div>
-
-## The Full Journey
+## The full journey
 
 <div class="journey-flow">
   <div class="journey-box">
@@ -86,24 +64,18 @@ To set up paid agents, you'll need to complete Stripe Connect onboarding (there'
   </div>
   <div class="journey-arrow">&rarr;</div>
   <div class="journey-box">
-    <div class="journey-box-icon">&#129302;</div>
-    <div class="journey-box-label">Export</div>
-    <div class="journey-box-sub">Reusable agent</div>
+    <div class="journey-box-icon">&#129309;</div>
+    <div class="journey-box-label">Share</div>
+    <div class="journey-box-sub">Org & departments</div>
   </div>
   <div class="journey-arrow">&rarr;</div>
   <div class="journey-box">
-    <div class="journey-box-icon">&#127760;</div>
-    <div class="journey-box-label">Publish</div>
-    <div class="journey-box-sub">Community (free or paid)</div>
+    <div class="journey-box-icon">&#128230;</div>
+    <div class="journey-box-label">Blueprint</div>
+    <div class="journey-box-sub">Reusable component</div>
   </div>
 </div>
 
-Your workflow started as an idea for automating a task. Now it's a polished agent that any clinician can use — and if you publish it, you can help the whole community while earning revenue from your expertise.
-
-{{< callout type="info" >}}
-**You can always update your agent.** Go back to the workflow editor, make changes, and re-export. The agent updates in place — anyone using it gets the latest version.
-{{< /callout >}}
-
-{{< tip title="Analytics" >}}
-Once published, you can see how many times your agent has been run and its average rating in the **Manage** dialog.
+{{< tip title="Automate it next" >}}
+A shared workflow gets really powerful when it runs itself. Add a **trigger** — a schedule, a webhook, or an incoming email — and the workflow runs without anyone clicking anything. See [Running & Results](../running/).
 {{< /tip >}}

@@ -1,12 +1,28 @@
-baseURL = 'https://docs.lumenai.health/'
+baseURL = 'https://docs.intracav.ai/'
 languageCode = 'en-us'
-title = 'Lumen AI — User Guide'
+title = 'Lumen Docs'
+enableGitInfo = true
+enableRobotsTXT = true
+disableKinds = ['taxonomy', 'term']
+
+[frontmatter]
+  date = [':git', 'date', 'publishDate']
+  lastmod = [':git', 'lastmod', 'date']
 
 [params]
-  description = 'A visual guide for clinicians using Lumen AI'
-  tagline = 'Healthcare AI Infrastructure'
+  description = 'Learn Lumen, the clinical AI assistant by Intracav — drug interactions, medical coding, clinical notes, evidence search, and team knowledge, explained step by step.'
+  tagline = 'The Clinical AI Assistant by Intracav'
+  ogImage = '/img/og-default.png'
   primaryColor = '#BB5C4D'
   darkBg = '#161514'
+
+[sitemap]
+  changefreq = 'weekly'
+  priority = 0.5
+
+[outputs]
+  home = ['html', 'rss']
+  section = ['html']
 
 [markup]
   [markup.goldmark]
@@ -14,6 +30,9 @@ title = 'Lumen AI — User Guide'
       unsafe = true
   [markup.highlight]
     style = 'github'
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
 
 [menu]
   [[menu.main]]
@@ -21,18 +40,22 @@ title = 'Lumen AI — User Guide'
     url = '/getting-started/'
     weight = 1
   [[menu.main]]
-    name = 'The Chat'
-    url = '/chat/'
+    name = 'Guides'
+    url = '/guides/'
     weight = 2
   [[menu.main]]
-    name = 'Agents'
-    url = '/agents/'
+    name = 'Learn'
+    url = '/learn/'
     weight = 3
   [[menu.main]]
-    name = 'Workflows'
-    url = '/workflows/'
+    name = 'For Organizations'
+    url = '/organizations/'
     weight = 4
   [[menu.main]]
-    name = 'Chat Tools'
-    url = '/tools/'
+    name = 'Developers'
+    url = '/developers/'
     weight = 5
+  [[menu.main]]
+    name = 'Plans'
+    url = '/plans/'
+    weight = 6

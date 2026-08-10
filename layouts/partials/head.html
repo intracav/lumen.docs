@@ -1,7 +1,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ if not .IsHome }}{{ .Title }} — {{ end }}{{ .Site.Title }}</title>
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+{{- $desc := "" -}}
+{{- with .Description }}{{ $desc = . }}{{ else }}{{ with .Params.lead }}{{ $desc = . }}{{ else }}{{ with .Summary }}{{ $desc = . | plainify | truncate 155 }}{{ else }}{{ $desc = site.Params.description }}{{ end }}{{ end }}{{ end -}}
+<title>{{ if .IsHome }}{{ site.Title }} — Clinical AI Assistant by Intracav{{ else }}{{ .Title }} — {{ site.Title }}{{ end }}</title>
+<meta name="description" content="{{ $desc }}">
+{{- with .Params.keywords }}
+<meta name="keywords" content="{{ delimit . ", " }}">
+{{- end }}
+<link rel="canonical" href="{{ .Permalink }}">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,8 +27,33 @@
     if (t) document.documentElement.setAttribute('data-theme', t);
   })();
 </script>
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#EDE4D5">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0D0C0C">
 
 <!-- Open Graph -->
-<meta property="og:title" content="{{ .Title }}">
-<meta property="og:description" content="{{ .Site.Params.description }}">
-<meta property="og:image" content="/img/lumen-logo.png">
+{{- $ogImage := site.Params.ogImage | default "/img/lumen-logo.png" -}}
+{{- with .Params.image }}{{ $ogImage = . }}{{ end }}
+<meta property="og:title" content="{{ if .IsHome }}{{ site.Title }} — Clinical AI Assistant by Intracav{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+<meta property="og:image" content="{{ $ogImage | absURL }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+{{- if not .IsHome }}
+<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+{{- end }}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta name="twitter:description" content="{{ $desc }}">
+<meta name="twitter:image" content="{{ $ogImage | absURL }}">
+
+<!-- RSS -->
+{{- with .OutputFormats.Get "rss" }}
+<link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .Permalink }}">
+{{- end }}
+
+{{ partial "jsonld.html" . }}

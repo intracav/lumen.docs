@@ -1,0 +1,76 @@
+{{- $desc := "" -}}
+{{- with .Description }}{{ $desc = . }}{{ else }}{{ with .Params.lead }}{{ $desc = . }}{{ else }}{{ $desc = site.Params.description }}{{ end }}{{ end -}}
+{{- if .IsHome -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Intracav",
+  "url": "https://intracav.ai/",
+  "logo": {{ "/img/lumen-logo.png" | absURL }}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ site.Title }},
+  "url": {{ site.BaseURL }},
+  "description": {{ site.Params.description }},
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": {{ printf "%ssearch/?q={search_term_string}" site.BaseURL }}
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{{- else -}}
+{{- if eq .Params.schema "software" -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Lumen",
+  "applicationCategory": "MedicalApplication",
+  "operatingSystem": "Web, iOS, Android",
+  "description": {{ $desc }},
+  "url": {{ .Permalink }},
+  "publisher": { "@type": "Organization", "name": "Intracav", "url": "https://intracav.ai/" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free plan available; paid plans for individuals and organizations." }
+}
+</script>
+{{- else -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": {{ .Title }},
+  "description": {{ $desc }},
+  "url": {{ .Permalink }},
+  "datePublished": {{ .PublishDate.Format "2006-01-02" }},
+  "dateModified": {{ .Lastmod.Format "2006-01-02" }},
+  "author": { "@type": "Organization", "name": "Intracav", "url": "https://intracav.ai/" },
+  "publisher": { "@type": "Organization", "name": "Intracav", "url": "https://intracav.ai/" },
+  "isPartOf": { "@type": "WebSite", "name": {{ site.Title }}, "url": {{ site.BaseURL }} }
+}
+</script>
+{{- end -}}
+{{- if .Ancestors -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {{- $crumbs := .Ancestors.Reverse -}}
+    {{- range $i, $p := $crumbs }}
+    { "@type": "ListItem", "position": {{ add $i 1 }}, "name": {{ if $p.IsHome }}"Home"{{ else }}{{ $p.Title }}{{ end }}, "item": {{ $p.Permalink }} },
+    {{- end }}
+    { "@type": "ListItem", "position": {{ add (len $crumbs) 1 }}, "name": {{ .Title }}, "item": {{ .Permalink }} }
+  ]
+}
+</script>
+{{- end -}}
+{{- end -}}
