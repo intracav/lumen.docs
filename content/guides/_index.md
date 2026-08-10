@@ -34,6 +34,30 @@ Upload anything long and interrogate it like a colleague who read every page.
 {{< card title="Build Grand Rounds Slides" href="/guides/grand-rounds-slides/" tint="accent" prompt="Turn this case and these three papers into a 20-minute grand rounds deck." >}}
 From case plus evidence to a presentation-ready outline and slides.
 {{< /card >}}
+{{< card title="Run a Medication Review" href="/guides/med-reconciliation/" tint="green" prompt="Fourteen meds from three sources — reconcile them and flag what's risky." >}}
+Deduplication, interactions, and renal flags with the reasoning shown.
+{{< /card >}}
+{{< card title="Match a Patient to Trials" href="/guides/find-a-trial/" tint="blue" prompt="Recruiting trials for metastatic pancreatic ca after FOLFIRINOX — what's out there?" >}}
+A recruiting-trial shortlist with the eligibility gaps to verify. {{< tier-badge "pro" >}}
+{{< /card >}}
+{{< card title="Build a Staff Schedule" href="/guides/staff-schedule/" tint="accent" prompt="Six weeks, nine nurses, two no-weekend constraints — build it and prove it's fair." >}}
+A solved, rule-by-rule verified schedule — infeasibility named, not hidden.
+{{< /card >}}
+{{< card title="Make a Study Guide & Quiz" href="/guides/study-guide-quiz/" tint="blue" prompt="Turn this guideline into a study guide and a scored competency quiz." >}}
+Education to proof-of-completion PDFs in one flow.
+{{< /card >}}
+{{< card title="Deep Web Research" href="/guides/deep-web-research/" tint="green" prompt="Compare complication rates across the recent literature — with sources I can check." >}}
+A multi-source, citation-first research brief. {{< tier-badge "pro" >}}
+{{< /card >}}
+{{< card title="Dictate a Note Hands-Free" href="/guides/dictate-a-note/" tint="accent" prompt="Dictate the post-procedure note between cases; structure it as a procedure note." >}}
+From spoken words to a structured note you review and sign.
+{{< /card >}}
+{{< card title="The Browser Extension" href="/guides/browser-extension/" tint="blue" prompt="Bring Lumen alongside the systems you already chart in." >}}
+Side-panel Lumen with confirm-gated page actions. {{< tier-badge "pro" >}} {{< status-badge "beta" >}}
+{{< /card >}}
+{{< card title="Connect Your EHR" href="/guides/connect-your-ehr/" tint="green" prompt="Link my EHR login so answers can use patient context — read-only." >}}
+The SMART on FHIR flow, from launch to a verified connection. {{< tier-badge "plus" >}}
+{{< /card >}}
 {{< /card-grid >}}
 
 ## For team admins
@@ -50,5 +74,8 @@ The full Policies loop — import, review, publish, revise to v2. {{< tier-badge
 {{< /card >}}
 {{< card title="Launch a Website Bot" href="/guides/launch-a-website-bot/" tint="green" prompt="Our site should answer visitor questions from our own content — and admit what it doesn't know." >}}
 Ground it in your packs, lock it to your domain, read what visitors ask. {{< tier-badge "max" >}}
+{{< /card >}}
+{{< card title="Automate a Recurring Report" href="/guides/automate-with-triggers/" tint="accent" prompt="Every Monday at 7am, send the team a literature digest — without anyone remembering to." >}}
+A workflow that runs itself: cron trigger, test-fire, run history. {{< tier-badge "plus" >}}
 {{< /card >}}
 {{< /card-grid >}}

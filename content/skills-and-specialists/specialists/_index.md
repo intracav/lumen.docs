@@ -133,3 +133,5 @@ If your task is *produce a specific document*, you may only need a [Skill](/skil
 {{< cta heading="Try a Specialist on real work" href="/getting-started/" label="Get started with Lumen" variant="subtle" >}}
 Type @ in any chat and pick the expert for the job — the first result usually sells itself.
 {{< /cta >}}
+
+Four Specialists get full deep-dive pages below — what they do end to end, worked examples, and when each one saves you the most time.
