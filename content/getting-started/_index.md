@@ -1,7 +1,11 @@
 ---
 title: "Getting Started"
+description: "Get started with Lumen in under 10 minutes — your first chat, a drug interaction check, a billing code, and a drafted clinical note."
 lead: "If you can send a text message, you can use Lumen. Pick a scenario below and follow along — each one takes less than a minute to try."
 weight: 1
+hideAutoGrid: true
+cascade:
+  audience: clinician
 ---
 
 <div class="scenario-grid stagger-children">

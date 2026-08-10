@@ -1,0 +1,3 @@
+{{- $aud := .Get 0 | lower -}}
+{{- $labels := dict "clinician" "For clinicians" "org" "For org admins" "partner" "For partners & developers" -}}
+<span class="audience-badge audience-{{ $aud }}">{{ index $labels $aud | default $aud }}</span>

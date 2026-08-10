@@ -3,6 +3,8 @@ name: Deploy Hugo site to GitHub Pages
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -31,17 +33,42 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history — required for GitInfo lastmod
 
       - name: Setup Pages
-        id: pages
+        if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
+
+      - name: Guard against legacy brand tokens in content
+        run: |
+          if grep -rEn -- 'var\(--(primary|cyan|purple|bg-dark|bg-darker|text-on-dark|text-muted-dark)\)' content/; then
+            echo '::error::Legacy CSS variables found in content/ — use v2 tokens or tint classes.'
+            exit 1
+          fi
+
+      - name: Guard against retired product claims
+        run: |
+          if grep -rniE 'you earn 70%|lumen keeps 30%|export as agent' content/; then
+            echo '::error::Retired product claims found in content/.'
+            exit 1
+          fi
 
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
           TZ: America/New_York
-        run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+        run: hugo --minify   # baseURL comes from hugo.toml (docs.intracav.ai via CNAME)
+
+      - name: Build Pagefind search index
+        run: npx --yes pagefind --site public
+
+      - name: Check internal links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline --no-progress --root-dir "${{ github.workspace }}/public" "public/**/*.html"
+          fail: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -49,6 +76,7 @@ jobs:
           path: ./public
 
   deploy:
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

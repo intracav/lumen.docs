@@ -1,7 +1,11 @@
 ---
 title: "Workflows"
+description: "Build no-code clinical automations with Lumen workflows: a visual editor, 40+ building blocks, triggers, and team sharing."
 lead: "The built-in agents are powerful — but what if you could build your own? Workflows let you connect Lumen's tools into custom automations, no coding required."
-weight: 4
+weight: 7
+hideAutoGrid: true
+cascade:
+  audience: clinician
 ---
 
 ## Why Would I Build a Workflow?

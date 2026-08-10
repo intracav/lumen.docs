@@ -1,0 +1,30 @@
+{{ define "main" }}
+<div class="content-body">
+  <div class="page-header">
+    <h1>Search the docs</h1>
+    <p class="lead">Every guide, tool, skill, and concept — one search away.</p>
+  </div>
+
+  <div class="search-wrap">
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+    <script src="/pagefind/pagefind-ui.js"></script>
+    <div id="search"></div>
+    <script>
+      window.addEventListener('DOMContentLoaded', function () {
+        if (window.PagefindUI) {
+          new PagefindUI({ element: '#search', showSubResults: true, autofocus: true });
+          var params = new URLSearchParams(window.location.search);
+          var q = params.get('q');
+          if (q) {
+            var input = document.querySelector('#search input');
+            if (input) { input.value = q; input.dispatchEvent(new Event('input', { bubbles: true })); }
+          }
+        } else {
+          document.getElementById('search').innerHTML = '<p>Search is available on the published site. Run <code>npx pagefind --site public</code> after <code>hugo</code> to test locally.</p>';
+        }
+      });
+    </script>
+    <noscript><p>Search requires JavaScript. Try the section index pages instead — every page is reachable from the sidebar.</p></noscript>
+  </div>
+</div>
+{{ end }}

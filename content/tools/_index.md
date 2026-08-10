@@ -1,7 +1,10 @@
 ---
 title: "What Lumen Can Do"
+description: "The Lumen tool library: drug interactions, medical coding, PubMed search, clinical calculators, triage systems, document generation, and more."
 lead: "You don't need to memorize anything. Just ask your question and Lumen picks the right tool automatically. Here's a look at what's available behind the scenes."
-weight: 3
+weight: 6
+cascade:
+  audience: clinician
 ---
 
 Think of Lumen's tools like the specialists on your team &mdash; a pharmacist for drug questions, a coder for billing, a librarian for literature. You don't need to call them by name. Just describe what you need and Lumen routes it to the right place.

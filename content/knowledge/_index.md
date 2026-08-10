@@ -2,7 +2,7 @@
 title: "Knowledge & Documents"
 description: "Where Lumen's knowledge lives: your documents, your team's folders, and the curated Knowledge Packs your answers cite."
 lead: "Your documents, your team's folders, and the curated Knowledge Packs Lumen cites — organized in one place."
-weight: 5
+weight: 8
 cascade:
   audience: clinician
 ---

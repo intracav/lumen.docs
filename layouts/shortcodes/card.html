@@ -1,0 +1,10 @@
+{{- $tint := .Get "tint" | default "accent" -}}
+{{- $href := .Get "href" -}}
+{{- $tag := cond (ne $href nil) "a" "div" -}}
+<{{ $tag }}{{ with $href }} href="{{ . }}"{{ end }} class="guide-card tint-{{ $tint }}">
+  {{ with .Get "icon" }}<span class="card-icon" style="background: var(--tint-soft); color: var(--tint);">{{ . | safeHTML }}</span>{{ end }}
+  <h3>{{ .Get "title" }}</h3>
+  {{ with .Inner }}<p>{{ . | markdownify }}</p>{{ end }}
+  {{ with .Get "prompt" }}<div class="card-prompt">&ldquo;{{ . }}&rdquo;</div>{{ end }}
+  {{ if $href }}<span class="card-arrow">{{ .Get "label" | default "Read more" }} <span>&rarr;</span></span>{{ end }}
+</{{ $tag }}>

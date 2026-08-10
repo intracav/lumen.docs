@@ -2,7 +2,7 @@
 title: "Plans"
 description: "Compare Lumen plans — Free, Pro, Plus, and Max — by features, tools, usage limits, and organization capabilities."
 lead: "What each Lumen plan includes, side by side."
-weight: 9
+weight: 12
 schema: software
 cascade:
   audience: all

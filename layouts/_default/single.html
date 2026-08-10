@@ -1,64 +1,51 @@
 {{ define "main" }}
 <div class="content-body">
-  <nav class="breadcrumbs">
-    <a href="/">Home</a>
-    <span class="sep">/</span>
-    {{ with .Parent }}
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      <span class="sep">/</span>
-    {{ end }}
-    <span>{{ .Title }}</span>
-  </nav>
+  {{ partial "breadcrumbs.html" . }}
 
   <div class="page-header">
     <h1>{{ .Title }}</h1>
     {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
+    {{ if or .Params.tier .Params.status }}
+    <div class="page-badges">
+      {{ with .Params.tier }}<a class="tier-badge tier-{{ . | lower }}" href="/plans/">{{ . | title }}</a>{{ end }}
+      {{ with .Params.status }}<span class="status-badge status-{{ . }}">{{ replace . "-" " " | title }}</span>{{ end }}
+    </div>
+    {{ end }}
   </div>
 
-  <div class="page-content">
+  {{ if gt (len .Fragments.Headings) 2 }}
+  <details class="page-toc">
+    <summary>On this page</summary>
+    {{ .TableOfContents }}
+  </details>
+  {{ end }}
+
+  <div class="page-content" data-pagefind-body>
     {{ .Content }}
   </div>
 
-  {{/* Next/Prev navigation */}}
-  {{ $parent := .Parent }}
-  {{ if $parent }}
-    {{ $pages := $parent.Pages }}
-    {{ $current := . }}
-    {{ $prev := false }}
-    {{ $next := false }}
-    {{ $found := false }}
-
-    {{ range $pages }}
-      {{ if $found }}
-        {{ if not $next }}
-          {{ $next = . }}
-        {{ end }}
-      {{ end }}
-      {{ if eq .RelPermalink $current.RelPermalink }}
-        {{ $found = true }}
-      {{ else }}
-        {{ if not $found }}
-          {{ $prev = . }}
-        {{ end }}
-      {{ end }}
+  {{/* Prev/next within the section. Hugo orders pages by weight ascending;
+       .NextInSection points toward the front of that list (lower weight),
+       .PrevInSection toward the back — so they map to Previous/Next reading order. */}}
+  {{ $prev := .NextInSection }}
+  {{ $next := .PrevInSection }}
+  {{ if or $prev $next }}
+  <nav class="page-nav">
+    {{ with $prev }}
+      <a href="{{ .RelPermalink }}">
+        <div class="nav-label">&larr; Previous</div>
+        <div class="nav-title">{{ .Title }}</div>
+      </a>
+    {{ else }}
+      <div></div>
     {{ end }}
-
-    <nav class="page-nav">
-      {{ with $prev }}
-        <a href="{{ .RelPermalink }}">
-          <div class="nav-label">&larr; Previous</div>
-          <div class="nav-title">{{ .Title }}</div>
-        </a>
-      {{ else }}
-        <div></div>
-      {{ end }}
-      {{ with $next }}
-        <a href="{{ .RelPermalink }}" class="next">
-          <div class="nav-label">Next &rarr;</div>
-          <div class="nav-title">{{ .Title }}</div>
-        </a>
-      {{ end }}
-    </nav>
+    {{ with $next }}
+      <a href="{{ .RelPermalink }}" class="next">
+        <div class="nav-label">Next &rarr;</div>
+        <div class="nav-title">{{ .Title }}</div>
+      </a>
+    {{ end }}
+  </nav>
   {{ end }}
 </div>
 {{ end }}

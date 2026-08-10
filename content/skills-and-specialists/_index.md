@@ -2,7 +2,7 @@
 title: "Specialists & Skills"
 description: "Lumen's expert modes: @ Specialists focus the AI on a clinical domain, / Skills shape its output into the exact document you need."
 lead: "Chat gives you quick answers. Specialists and Skills turn the same chat into an expert that does the whole job — multiple steps, multiple tools, one polished result."
-weight: 3
+weight: 5
 aliases:
   - /agents/
   - /agents/clinical-scribe/

@@ -2,7 +2,7 @@
 title: "For Organizations"
 description: "Lumen for hospitals and clinical teams: departments and seats, shared Knowledge Packs, policy management, website bots, and EHR integration."
 lead: "One assistant, your whole team: shared knowledge, governed policies, and admin controls built for clinical organizations."
-weight: 7
+weight: 9
 cascade:
   audience: org
 ---

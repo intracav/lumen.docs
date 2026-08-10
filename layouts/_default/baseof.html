@@ -23,6 +23,7 @@
 
   {{ partial "jsonld-faq.html" . }}
 
-  <script src="/js/main.js"></script>
+  {{ $js := resources.Get "js/main.js" | minify | fingerprint }}
+  <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
 </body>
 </html>

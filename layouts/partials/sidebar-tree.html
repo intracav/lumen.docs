@@ -1,0 +1,11 @@
+{{- $current := .current -}}
+{{- range .section.Pages.ByWeight }}
+{{- if .IsSection }}
+<div class="sidebar-subsection">
+  <a class="sidebar-link sidebar-sublink{{ if eq . $current }} active{{ end }}" href="{{ .RelPermalink }}"{{ if eq . $current }} aria-current="page"{{ end }}>{{ .Title }}</a>
+  {{ partial "sidebar-tree.html" (dict "section" . "current" $current) }}
+</div>
+{{- else }}
+<a class="sidebar-link{{ if eq . $current }} active{{ end }}" href="{{ .RelPermalink }}"{{ if eq . $current }} aria-current="page"{{ end }}>{{ .Title }}</a>
+{{- end }}
+{{- end }}

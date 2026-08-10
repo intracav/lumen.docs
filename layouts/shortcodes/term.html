@@ -1,0 +1,2 @@
+{{- $slug := .Get "slug" | default (.Get 0 | urlize) -}}
+<a class="glossary-term" href="/help/glossary/#{{ $slug }}" title="See definition in the glossary">{{ .Get 0 }}</a>

@@ -11,7 +11,26 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothAnchors();
   initMarquee();
   initThemeToggle();
+  initTabs();
 });
+
+/* ---------- Tabs ---------- */
+function initTabs() {
+  document.querySelectorAll('.tabs').forEach((tabs) => {
+    const btns = tabs.querySelectorAll(':scope > .tabs-nav > .tab-btn');
+    const panels = tabs.querySelectorAll(':scope > .tab-panel');
+    btns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const idx = btn.dataset.tabIndex;
+        btns.forEach((b) => {
+          b.classList.toggle('active', b === btn);
+          b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+        });
+        panels.forEach((p) => p.classList.toggle('active', p.dataset.tabIndex === idx));
+      });
+    });
+  });
+}
 
 /* ---------- Scroll Reveal (Intersection Observer) ---------- */
 function initScrollReveal() {

@@ -9,16 +9,18 @@
 {{- end }}
 <link rel="canonical" href="{{ .Permalink }}">
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Nunito:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Fonts (self-hosted, declared in main.css) -->
+<link rel="preload" href="/fonts/Nunito-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/CormorantGaramond-var.woff2" as="font" type="font/woff2" crossorigin>
 
 <!-- Favicon -->
-<link rel="icon" href="/img/lumen-logo.png" type="image/png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <!-- Styles -->
-<link rel="stylesheet" href="/css/main.css">
+{{ $css := resources.Get "css/main.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 
 <!-- Theme: respect saved preference, fallback to system -->
 <script>

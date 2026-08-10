@@ -2,7 +2,7 @@
 title: "Partners & Developers"
 description: "Build on Lumen: an OpenAI-compatible API with citations, embeddable website bots, an MCP server, and partner content integration."
 lead: "APIs, embeds, and content integration — everything you need to put Lumen's grounded clinical answers into your own product or site."
-weight: 8
+weight: 10
 cascade:
   audience: partner
 ---
