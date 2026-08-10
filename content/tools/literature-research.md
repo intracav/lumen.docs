@@ -10,13 +10,19 @@ Need to look something up in PubMed mid-round? Want to check what the FDA label 
 
 <div class="tool-grid">
 
-{{< tool-card name="PubMed Search" icon="&#128218;" color="#0EA5E9" desc="Searches the PubMed/MEDLINE database via NLM E-utilities. Finds relevant articles, fetches abstracts, and ranks results by relevance to your question." example="\"Find recent systematic reviews on SGLT2 inhibitors and heart failure outcomes\"" badge="Research" >}}
+{{< tool-card name="PubMed Search" icon="&#128218;" color="var(--smoky-blue)" desc="Searches the PubMed/MEDLINE database via NLM E-utilities. Finds relevant articles, fetches abstracts, and ranks results by relevance to your question." example="\"Find recent systematic reviews on SGLT2 inhibitors and heart failure outcomes\"" badge="Research" >}}
 
-{{< tool-card name="FDA Drug Labels" icon="&#128138;" color="#34C759" desc="Queries the openFDA drug labeling API. Returns official FDA-approved label information including indications, dosing, warnings, and contraindications." example="\"What does the FDA label say about semaglutide contraindications?\"" badge="Regulatory" >}}
+{{< tool-card name="FDA Drug Labels" icon="&#128138;" color="var(--palace-green)" desc="Queries the openFDA drug labeling API. Returns official FDA-approved label information including indications, dosing, warnings, and contraindications." example="\"What does the FDA label say about semaglutide contraindications?\"" badge="Regulatory" >}}
 
-{{< tool-card name="Clinical Trials Search" icon="&#129514;" color="#8C66D9" desc="Searches ClinicalTrials.gov for active and completed studies. Filter by condition, recruitment status, and trial phase." example="\"Find active Phase 3 trials for NASH/MASH treatment\"" badge="Research" >}}
+{{< tool-card name="Clinical Trials Search" icon="&#129514;" color="var(--smoky-blue-dk)" desc="Searches ClinicalTrials.gov for active and completed studies. Returns NCT ID, phase, sponsor, eligibility criteria, locations, and outcomes — filter by condition, recruitment status, and trial phase." example="\"Find active Phase 3 trials for NASH/MASH treatment\"" badge="Pro" >}}
+
+{{< tool-card name="Clinical Guidelines" icon="&#128214;" color="var(--palace-green)" desc="Looks up current USPSTF preventive care recommendations, ACC/AHA and IDSA guidelines, and PubMed practice guidelines for clinical conditions." example="\"Current guidelines for managing newly diagnosed hypertension\"" badge="Guidelines" >}}
+
+{{< tool-card name="medRxiv Preprint Search" icon="&#128240;" color="var(--accent)" desc="Searches the medRxiv preprint server by keyword — useful for the newest research that hasn't finished peer review yet. Treat preprint findings as preliminary." example="\"Any recent medRxiv preprints on long COVID biomarkers?\"" badge="Research" >}}
 
 </div>
+
+Tools marked **Pro** are available on paid plans — see [Plans](/plans/).
 
 ## How PubMed Search Works
 
@@ -41,11 +47,11 @@ When Lumen searches PubMed, you'll see a tool call block showing the progress:
             query: "ketamine treatment-resistant depression" &middot; Queried E-utilities &middot; Fetched abstracts &middot; Ranked by relevance
           </div>
         </div>
-        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--text-on-dark);">
+        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--dark-text);">
           I found <strong>12 relevant articles</strong> on ketamine for TRD. Here are the key findings...
         </p>
         <div class="mock-artifact chat-extra">
-          <div class="mock-artifact-icon" style="background: rgba(14,165,233,0.15); color: #0EA5E9;">&#128218;</div>
+          <div class="mock-artifact-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#128218;</div>
           <div class="mock-artifact-info">
             <div class="mock-artifact-title">PubMed Results: Ketamine &amp; TRD</div>
             <div class="mock-artifact-type">12 articles</div>

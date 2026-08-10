@@ -1,26 +1,28 @@
 ---
 title: "Patient Records & Notes"
 description: "Pull patient data from your EHR, check appointment availability, and draft clinical notes — all from within the chat."
-weight: 6
+weight: 7
 ---
 
 If your practice has EHR integration set up, Lumen can pull a patient's current medications, recent labs, and diagnoses right into the conversation. It can also draft clinical notes and check scheduling availability.
 
 {{< callout type="warning" >}}
-**EHR integration requires setup.** These tools are only available after configuring your FHIR connection in Settings > EHR Integration. See your administrator for access.
+**EHR integration requires setup.** The FHIR and scheduling tools become available once your organization connects its EHR — see [EHR integration](/organizations/ehr/) or ask your administrator.
 {{< /callout >}}
 
 ## Available Tools
 
 <div class="tool-grid">
 
-{{< tool-card name="FHIR Patient Data" icon="&#128100;" color="#3DBF80" desc="Queries your EHR via FHIR R4. Pulls current medications, recent labs, active diagnoses, allergies, and encounter history for a specific patient." example="\"Pull the current medication list for patient ID 12345\"" badge="EHR" >}}
+{{< tool-card name="FHIR Patient Data" icon="&#128100;" color="#3DBF80" desc="Queries your EHR via FHIR R4 — works with Epic, Oracle Health, and any FHIR R4 server. Pulls current medications, recent labs, active diagnoses, allergies, and encounter history for a specific patient." example="\"Pull the current medication list for patient ID 12345\"" badge="Pro" >}}
 
-{{< tool-card name="Scheduling" icon="&#128197;" color="#8C66D9" desc="Queries the booking system for available appointment slots. Filter by provider, specialty, date range, and location." example="\"Show available cardiology slots next week\"" badge="EHR" >}}
+{{< tool-card name="Scheduling" icon="&#128197;" color="var(--smoky-blue-dk)" desc="Scheduling intelligence backed by your EHR's FHIR data — appointment availability and booking, on-call lookups, coverage-gap checks, and duty-hour and staffing-ratio review." example="\"Show available cardiology slots next week\"" badge="Pro" >}}
 
-{{< tool-card name="Clinical Notes" icon="&#128221;" color="#0EA5E9" desc="Auto-generates clinical documentation — SOAP notes, H&P notes, discharge summaries, and referral letters. Structured according to standard clinical formats." example="\"Generate a SOAP note for today's visit — 45yo with uncontrolled HTN\"" badge="Documentation" >}}
+{{< tool-card name="Clinical Notes" icon="&#128221;" color="var(--smoky-blue)" desc="Auto-generates clinical documentation — SOAP notes, H&P notes, discharge summaries, and referral letters. Structured according to standard clinical formats. Available on every plan, no EHR required." example="\"Generate a SOAP note for today's visit — 45yo with uncontrolled HTN\"" badge="Documentation" >}}
 
 </div>
+
+Tools marked **Pro** are available on paid plans — see [Plans](/plans/).
 
 ## Clinical Note Generation
 
@@ -53,11 +55,11 @@ Lumen can draft several types of clinical documentation:
           </div>
           <div class="mock-tool-detail">type: discharge summary</div>
         </div>
-        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--text-on-dark);">
+        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--dark-text);">
           Here's your discharge summary. Review and edit as needed:
         </p>
         <div class="mock-artifact chat-extra">
-          <div class="mock-artifact-icon" style="background: rgba(14,165,233,0.15); color: #0EA5E9;">&#128221;</div>
+          <div class="mock-artifact-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#128221;</div>
           <div class="mock-artifact-info">
             <div class="mock-artifact-title">Discharge Summary</div>
             <div class="mock-artifact-type">Clinical Note</div>

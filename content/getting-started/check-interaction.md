@@ -36,11 +36,11 @@ You don't need to use a specific format. Ask it the way you'd ask a pharmacist.
           </div>
           <div class="mock-tool-detail">ketorolac &times; apixaban &middot; FDA database</div>
         </div>
-        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--text-on-dark);">
+        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--dark-text);">
           <strong style="color: #FF3B30;">&#9888; Major interaction.</strong> Ketorolac + apixaban significantly increases bleeding risk. NSAIDs impair platelet function and can cause GI erosion, compounding anticoagulant effects. <strong>This combination is generally avoided.</strong>
         </p>
         <div class="mock-artifact chat-extra">
-          <div class="mock-artifact-icon" style="background: rgba(255,149,0,0.15); color: #FF9500;">&#9888;</div>
+          <div class="mock-artifact-icon" style="background: var(--accent-glow); color: var(--accent);">&#9888;</div>
           <div class="mock-artifact-info">
             <div class="mock-artifact-title">Interaction Report</div>
             <div class="mock-artifact-type">Tap for full details</div>
@@ -66,4 +66,8 @@ You don't need to use a specific format. Ask it the way you'd ask a pharmacist.
 
 {{< callout type="info" >}}
 For the full list of medication tools (renal dosing, IV calculators, adverse events), see [Medication Questions](/tools/medications/).
+{{< /callout >}}
+
+{{< callout type="success" >}}
+**Notice the evidence chip.** Interaction answers come from a real drug-interaction database lookup, not the model's memory — that's why you see a tool chip above the answer. Tap it to see exactly what was checked. More on why that matters in [How AI Uses Tools](/learn/tool-use/).
 {{< /callout >}}

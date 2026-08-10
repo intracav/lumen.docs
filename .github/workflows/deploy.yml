@@ -42,7 +42,7 @@ jobs:
 
       - name: Guard against legacy brand tokens in content
         run: |
-          if grep -rEn -- 'var\(--(primary|cyan|purple|bg-dark|bg-darker|text-on-dark|text-muted-dark)\)' content/; then
+          if grep -rEn -- 'var\(--(primary|primary-light|cyan|purple|green|orange|bg-dark|bg-darker|bg-card|text-on-dark|text-muted-dark|text-secondary|text-tertiary|radius-sm|radius-md|shadow-card)\)' content/; then
             echo '::error::Legacy CSS variables found in content/ — use v2 tokens or tint classes.'
             exit 1
           fi

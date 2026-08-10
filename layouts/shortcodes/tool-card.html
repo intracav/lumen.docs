@@ -1,6 +1,9 @@
 {{ $color := .Get "color" | default "var(--accent)" }}
+{{/* Hex colors get an appended alpha byte; var() tokens need color-mix for the soft tint. */}}
+{{ $soft := printf "%s1a" $color }}
+{{ if hasPrefix $color "var(" }}{{ $soft = printf "color-mix(in srgb, %s 12%%, transparent)" $color }}{{ end }}
 <div class="tool-card">
-  <div class="tool-icon" style="background: {{ $color }}1a; color: {{ $color }};">
+  <div class="tool-icon" style="background: {{ $soft | safeCSS }}; color: {{ $color | safeCSS }};">
     {{ .Get "icon" | safeHTML }}
   </div>
   <div class="tool-info">
@@ -11,7 +14,7 @@
     {{ end }}
     {{ if .Get "badge" }}
     <div class="tool-badges">
-      <span class="tool-badge" style="background: {{ $color }}1a; color: {{ $color }};">{{ .Get "badge" }}</span>
+      <span class="tool-badge" style="background: {{ $soft | safeCSS }}; color: {{ $color | safeCSS }};">{{ .Get "badge" }}</span>
     </div>
     {{ end }}
   </div>

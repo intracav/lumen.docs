@@ -33,11 +33,11 @@ Describe the diagnosis or procedure however you normally would:
             Looked up ICD-10 codes
           </div>
         </div>
-        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--text-on-dark);">
-          The primary code is <strong style="color: var(--primary-light);">I50.23</strong> &mdash; Acute on chronic systolic (congestive) heart failure.
+        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--dark-text);">
+          The primary code is <strong style="color: var(--accent-lt);">I50.23</strong> &mdash; Acute on chronic systolic (congestive) heart failure.
         </p>
         <div class="mock-artifact chat-extra">
-          <div class="mock-artifact-icon" style="background: rgba(14,165,233,0.15); color: #0EA5E9;">&#127973;</div>
+          <div class="mock-artifact-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#127973;</div>
           <div class="mock-artifact-info">
             <div class="mock-artifact-title">ICD-10 Results</div>
             <div class="mock-artifact-type">3 related codes</div>
@@ -66,6 +66,6 @@ Billing often requires the *most specific* code. Lumen handles this automaticall
 | **CPT** | Procedures, surgeries, E/M visits |
 | **HCPCS** | DME, supplies, J-codes for drugs |
 
-{{< tip title="Check Medicare coverage too" >}}
-After finding a code, you can ask: *"Does Medicare cover this?"* Lumen checks the CMS coverage database and tells you the criteria.
+{{< tip title="Check Medicare coverage, pricing, and code pairs too" >}}
+After finding a code, keep going: *"Does Medicare cover this?"* checks the CMS coverage database, *"What does Medicare pay for it?"* looks up the Physician Fee Schedule, and *"Can I bill this with 36573?"* runs the NCCI edit check for code-pair conflicts. See all the [coding and billing tools](/tools/coding-labs/).
 {{< /tip >}}

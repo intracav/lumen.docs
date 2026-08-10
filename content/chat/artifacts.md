@@ -19,9 +19,9 @@ An artifact is a structured, interactive piece of content that Lumen creates dur
     <div class="chat-msg assistant">
       <div class="msg-avatar"><span>&#10022;</span></div>
       <div class="msg-content">
-        <p style="margin: 0; font-size: 0.875rem; color: var(--text-on-dark);">Here's the drug interaction report you requested:</p>
+        <p style="margin: 0; font-size: 0.875rem; color: var(--dark-text);">Here's the drug interaction report you requested:</p>
         <div class="mock-artifact" style="margin-top: 0.75rem;">
-          <div class="mock-artifact-icon" style="background: rgba(255,149,0,0.15); color: #FF9500;">&#9888;</div>
+          <div class="mock-artifact-icon" style="background: var(--accent-glow); color: var(--accent);">&#9888;</div>
           <div class="mock-artifact-info">
             <div class="mock-artifact-title">Warfarin × Amiodarone Interactions</div>
             <div class="mock-artifact-type">Drug Interaction Report</div>
@@ -29,7 +29,7 @@ An artifact is a structured, interactive piece of content that Lumen creates dur
           <div class="mock-artifact-chevron">&rsaquo;</div>
         </div>
         <div class="mock-artifact" style="margin-top: 0.5rem;">
-          <div class="mock-artifact-icon" style="background: rgba(229,62,62,0.15); color: #E53E3E;">&#128196;</div>
+          <div class="mock-artifact-icon" style="background: var(--accent-glow); color: var(--accent);">&#128196;</div>
           <div class="mock-artifact-info">
             <div class="mock-artifact-title">Patient Safety Summary</div>
             <div class="mock-artifact-type">PDF Document</div>
@@ -52,21 +52,21 @@ When you click an artifact card, it opens in a **side panel** on the right side 
     <div class="app-frame-dot green"></div>
   </div>
   <div class="app-frame-content" style="display: flex; gap: 0; padding: 0;">
-    <div style="flex: 1; padding: 1rem; border-right: 1px solid rgba(255,255,255,0.08); background: var(--bg-dark);">
-      <div style="font-size: 0.75rem; color: var(--text-muted-dark); text-align: center;">Chat area</div>
+    <div style="flex: 1; padding: 1rem; border-right: 1px solid rgba(255,255,255,0.08); background: var(--dark-bg);">
+      <div style="font-size: 0.75rem; color: var(--dark-text-muted); text-align: center;">Chat area</div>
     </div>
-    <div style="width: 260px; padding: 1rem; background: var(--bg-darker);">
+    <div style="width: 260px; padding: 1rem; background: var(--dark-canvas);">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-        <div style="font-size: 0.8rem; font-weight: 600; color: var(--text-on-dark);">&#9888; Drug Interactions</div>
-        <div style="font-size: 0.75rem; color: var(--text-muted-dark); cursor: pointer;">&#10005;</div>
+        <div style="font-size: 0.8rem; font-weight: 600; color: var(--dark-text);">&#9888; Drug Interactions</div>
+        <div style="font-size: 0.75rem; color: var(--dark-text-muted); cursor: pointer;">&#10005;</div>
       </div>
-      <div style="font-size: 0.75rem; color: var(--text-muted-dark); line-height: 1.6;">
-        <div style="padding: 0.5rem; background: rgba(255,149,0,0.1); border-radius: 6px; margin-bottom: 0.5rem; border-left: 3px solid #FF9500;">
-          <strong style="color: #FF9500;">Moderate Risk</strong><br>
+      <div style="font-size: 0.75rem; color: var(--dark-text-muted); line-height: 1.6;">
+        <div style="padding: 0.5rem; background: var(--accent-glow); border-radius: 6px; margin-bottom: 0.5rem; border-left: 3px solid var(--accent);">
+          <strong style="color: var(--accent);">Moderate Risk</strong><br>
           Amiodarone inhibits CYP2C9, increasing warfarin levels. Monitor INR closely.
         </div>
         <div style="padding: 0.5rem; background: rgba(255,255,255,0.05); border-radius: 6px;">
-          <strong style="color: var(--text-on-dark);">Recommendation</strong><br>
+          <strong style="color: var(--dark-text);">Recommendation</strong><br>
           Reduce warfarin dose by 30&ndash;50% when initiating amiodarone.
         </div>
       </div>
@@ -82,7 +82,7 @@ Lumen can generate over **30 types** of artifacts. Here are the most common:
 
 <div class="tool-grid" style="margin: 1rem 0;">
   <div class="tool-card">
-    <div class="tool-icon" style="background: rgba(255,149,0,0.1); color: #FF9500;">&#9888;</div>
+    <div class="tool-icon" style="background: var(--accent-glow); color: var(--accent);">&#9888;</div>
     <div class="tool-info">
       <div class="tool-name">Drug Interaction Reports</div>
       <div class="tool-desc">Severity ratings, mechanisms, and management recommendations for drug combinations.</div>
@@ -96,7 +96,7 @@ Lumen can generate over **30 types** of artifacts. Here are the most common:
     </div>
   </div>
   <div class="tool-card">
-    <div class="tool-icon" style="background: rgba(14,165,233,0.1); color: #0EA5E9;">&#128202;</div>
+    <div class="tool-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#128202;</div>
     <div class="tool-info">
       <div class="tool-name">Lab Reference Ranges</div>
       <div class="tool-desc">Normal intervals with units, color-coded thresholds, and clinical significance notes.</div>
@@ -108,7 +108,7 @@ Lumen can generate over **30 types** of artifacts. Here are the most common:
 
 <div class="tool-grid" style="margin: 1rem 0;">
   <div class="tool-card">
-    <div class="tool-icon" style="background: rgba(229,62,62,0.1); color: #E53E3E;">&#128196;</div>
+    <div class="tool-icon" style="background: var(--accent-glow); color: var(--accent);">&#128196;</div>
     <div class="tool-info">
       <div class="tool-name">PDF Documents</div>
       <div class="tool-desc">Formatted reports, patient summaries, and reference documents. Downloadable directly.</div>
@@ -134,7 +134,7 @@ Lumen can generate over **30 types** of artifacts. Here are the most common:
 
 <div class="tool-grid" style="margin: 1rem 0;">
   <div class="tool-card">
-    <div class="tool-icon" style="background: rgba(14,165,233,0.1); color: #0EA5E9;">&#129504;</div>
+    <div class="tool-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#129504;</div>
     <div class="tool-info">
       <div class="tool-name">Differential Diagnosis</div>
       <div class="tool-desc">Ranked list of possible diagnoses with distinguishing features and recommended workup.</div>
@@ -154,8 +154,8 @@ Lumen can generate over **30 types** of artifacts. Here are the most common:
 At the bottom of every artifact panel, you'll find action buttons:
 
 - **Copy** — Copy the content to your clipboard
-- **Download** — Download as a file (PDF, PPTX, Excel, etc.)
-- **Pin to Space** — Save the artifact to a shared workspace
+- **Download** — Export as a file: PDF, DOCX, PPTX, or XLSX, depending on the artifact type
+- **Share** — Create a link so a colleague can view the artifact
 
 {{< callout type="success" >}}
 **Interactive artifacts update in real time.** Checklists save your progress, and calculators update as you change inputs.

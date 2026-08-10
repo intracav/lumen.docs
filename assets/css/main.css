@@ -2708,12 +2708,21 @@ tr:hover td {
    ========================================================================== */
 :root {
   --primary: var(--accent);
+  --primary-light: var(--accent-lt);
   --cyan: var(--smoky-blue);
   --purple: var(--smoky-blue-dk);
+  --green: var(--palace-green);
+  --orange: var(--accent);
   --bg-dark: var(--dark-bg);
   --bg-darker: var(--dark-canvas);
+  --bg-card: var(--surface);
   --text-on-dark: var(--dark-text);
   --text-muted-dark: var(--dark-text-muted);
+  --text-secondary: var(--text-2);
+  --text-tertiary: var(--text-3);
+  --radius-sm: var(--r-sm);
+  --radius-md: var(--r);
+  --shadow-card: var(--shadow-sm);
 }
 
 /* ---------- Semantic tint utilities (v2) ---------- */

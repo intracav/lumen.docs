@@ -54,6 +54,11 @@ Every time you run a workflow, the results are saved. You can:
 - **View past runs** in the History panel on the right side
 - **Compare results** from different runs
 - **Re-run** the same workflow with different inputs
+- **Replay a past run** — run the workflow again with exactly the same input as before. Useful after you fix a node: replay the run that failed and confirm the same input now succeeds.
+
+## Versions
+
+The workflow itself has history too, not just its runs. Each time you save, a **version** is kept — so if an edit breaks something, you can look back through earlier versions and **restore** the one that worked. Combined with replay, this makes experimenting safe: change boldly, and if the results get worse, roll back and replay.
 
 {{< tip title="Iterate quickly" >}}
 Run your workflow, check the results, adjust a node's settings, and run again. Each run takes seconds, so you can experiment freely.
@@ -72,3 +77,7 @@ The workflow stops at the failed step. Fix the issue and run again — you don't
 {{< callout type="info" >}}
 **Workflows auto-save.** Your nodes, connections, and configurations are preserved even if you close the editor. Pick up where you left off anytime.
 {{< /callout >}}
+
+## Beyond the Run button
+
+Once a workflow runs reliably, you don't have to be the one running it. Add a **trigger** — a schedule, a webhook, an incoming email, or a CRM event — and it runs itself, with every automatic run landing in the same history you use today. See [Workflow Triggers](/workflows/triggers/).

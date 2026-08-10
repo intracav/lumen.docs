@@ -35,11 +35,11 @@ You don't even need to name the calculator. Just describe what you need:
           </div>
           <div class="mock-tool-detail">CHA&#8322;DS&#8322;-VASc</div>
         </div>
-        <div style="text-align: center; padding: 0.5rem 0; color: var(--text-on-dark);">
+        <div style="text-align: center; padding: 0.5rem 0; color: var(--dark-text);">
           <span style="font-size: 2rem; font-weight: 800; color: #FF3B30;">5</span>
-          <span style="display: block; font-size: 0.8rem; color: var(--text-muted-dark);">High stroke risk &mdash; anticoagulation recommended</span>
+          <span style="display: block; font-size: 0.8rem; color: var(--dark-text-muted);">High stroke risk &mdash; anticoagulation recommended</span>
         </div>
-        <div style="font-size: 0.8rem; color: var(--text-muted-dark); line-height: 1.7;">
+        <div style="font-size: 0.8rem; color: var(--dark-text-muted); line-height: 1.7;">
           Age 65&ndash;74: +1 &bull; Age &ge;75: +1 &bull; Female: +1 &bull; HTN: +1 &bull; DM: +1
         </div>
       </div>
@@ -64,8 +64,10 @@ You don't even need to name the calculator. Just describe what you need:
 | **eGFR (CKD-EPI)** | Kidney function |
 | **CURB-65** | Pneumonia severity |
 | **Wells Criteria** | PE or DVT probability |
-| **APACHE II** | ICU mortality prediction |
+| **NEWS2** | Early-warning deterioration score |
 | **SOFA** | Organ dysfunction in sepsis |
+
+These are a sample — Lumen has 28 validated calculators built in, from HEART score to FIB-4 to pediatric fluids. [See the full list.](/tools/calculators/)
 
 {{< tip title="Chain your questions" >}}
 After getting a score, keep going in the same chat: *"Based on that score, should I start anticoagulation? What are the options?"* Lumen will use the score in its answer.

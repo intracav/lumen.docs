@@ -55,6 +55,28 @@ This is especially powerful when you want to:
 **The sources chip** at the bottom of each response shows exactly which documents were used. Click it to verify the evidence chain.
 {{< /callout >}}
 
+## The Tools Behind the Toggles
+
+You never call these by name, but it helps to know what Lumen can actually do when it goes looking:
+
+<div class="tool-grid">
+
+{{< tool-card name="Web Search" icon="&#128269;" color="var(--smoky-blue)" desc="Searches the web and returns titles, URLs, and snippets — the default way Lumen finds current information and sources to read." example="\"What were the key findings from this year's ADA Standards of Care update?\"" badge="Web" >}}
+
+{{< tool-card name="Read a Page" icon="&#128279;" color="var(--palace-green)" desc="Fetches a single URL you've shared (or one found by search) and extracts it as clean, readable text." example="\"Read this page and summarize the dosing table: [link]\"" badge="Web" >}}
+
+{{< tool-card name="Deep Web Research" icon="&#129517;" color="var(--accent)" desc="Searches multiple engines and automatically reads the top results in one pass — up to 9 full pages with per-source attribution. For questions that deserve more than snippets." example="\"Research the current evidence landscape for GLP-1s in heart failure with preserved EF\"" badge="Pro" >}}
+
+{{< tool-card name="Site Mapping & Crawling" icon="&#128506;" color="var(--smoky-blue-dk)" desc="Maps the URLs of a site you point at, crawls its pages into readable text, or extracts structured data from them — useful for working through a society's guideline library or a departmental site." example="\"Crawl our department protocol site and list every airway-related page\"" badge="Pro" >}}
+
+{{< tool-card name="YouTube Transcripts" icon="&#127909;" color="var(--accent)" desc="Pulls the spoken transcript of a YouTube video you link, so Lumen can summarize or quote a lecture or conference talk." example="\"Summarize the key points from this grand rounds recording: [link]\"" badge="Media" >}}
+
+{{< tool-card name="Document Search & Read" icon="&#128193;" color="var(--palace-green)" desc="Semantically searches your uploaded documents for relevant passages, or reads a specific document end-to-end when the task depends on seeing every row or paragraph." example="\"Based on the uploaded protocol, what are the exclusion criteria?\"" badge="Your Library" >}}
+
+</div>
+
+Tools marked **Pro** are available on paid plans — see [Plans](/plans/).
+
 ## Attach Documents
 
 Beyond the knowledge toggles, you can also **attach specific documents** to a message using the paperclip icon. Attached documents are always included regardless of toggle state.

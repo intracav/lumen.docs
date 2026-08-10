@@ -43,25 +43,27 @@ Once attached, the file appears as a chip above the text field. Now type your qu
 | **TXT** | 5 MB | Plain text files |
 | **CSV** | 5 MB | Data tables, lab results |
 
+You can also attach **images** — a photo of a wound site, an ECG strip, a device setup — and Lumen will look at the picture itself, not just any text in it. Image understanding is available on Pro and above {{< tier-badge "pro" >}}.
+
 ## Example Use Cases
 
 <div class="tool-grid" style="margin: 1rem 0;">
   <div class="tool-card">
-    <div class="tool-icon" style="background: rgba(88,101,242,0.1); color: var(--primary);">&#128196;</div>
+    <div class="tool-icon" style="background: var(--smoky-blue-glow); color: var(--accent);">&#128196;</div>
     <div class="tool-info">
       <div class="tool-name">Summarize a research paper</div>
       <div class="tool-example">"Summarize the key findings and limitations of this study"</div>
     </div>
   </div>
   <div class="tool-card">
-    <div class="tool-icon" style="background: rgba(14,165,233,0.1); color: var(--cyan);">&#128203;</div>
+    <div class="tool-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#128203;</div>
     <div class="tool-info">
       <div class="tool-name">Analyze lab results</div>
       <div class="tool-example">"Review this patient's lab panel and flag any abnormal values"</div>
     </div>
   </div>
   <div class="tool-card">
-    <div class="tool-icon" style="background: rgba(140,102,217,0.1); color: var(--purple);">&#128221;</div>
+    <div class="tool-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue-dk);">&#128221;</div>
     <div class="tool-info">
       <div class="tool-name">Compare guidelines</div>
       <div class="tool-example">"Compare the treatment recommendations in this document with current ACC guidelines"</div>

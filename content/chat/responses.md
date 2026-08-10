@@ -34,7 +34,7 @@ Every assistant response follows a consistent structure. Here's what you'll see,
         <p style="margin:0; font-size: 0.875rem; line-height: 1.6;">
           The <strong>CHA₂DS₂-VASc score is 5</strong> for this patient, which indicates a <strong>high stroke risk</strong>. Anticoagulation is recommended.
         </p>
-        <div style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted-dark); line-height: 1.5;">
+        <div style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--dark-text-muted); line-height: 1.5;">
           <strong>Score breakdown:</strong><br>
           &bull; Age 65&ndash;74: +1<br>
           &bull; Age &ge;75: +1 (additional)<br>
@@ -52,9 +52,9 @@ Every assistant response follows a consistent structure. Here's what you'll see,
 
 ### 1. The Avatar
 
-<div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: var(--bg-card); border-radius: var(--radius-md); box-shadow: var(--shadow-card); margin: 1rem 0;">
-  <div style="width: 28px; height: 28px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; flex-shrink: 0;">&#10022;</div>
-  <div style="font-size: 0.9rem; color: var(--text-secondary);">
+<div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: var(--surface); border-radius: var(--r); box-shadow: var(--shadow-sm); margin: 1rem 0;">
+  <div style="width: 28px; height: 28px; border-radius: 50%; background: var(--smoky-blue); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem; flex-shrink: 0;">&#10022;</div>
+  <div style="font-size: 0.9rem; color: var(--text-2);">
     The blue circle with the <strong>&#10022;</strong> symbol identifies messages from Lumen. Your messages appear on the right in blue bubbles.
   </div>
 </div>
@@ -90,7 +90,7 @@ Lumen streams its response as it's generated. You'll see:
 This gives you immediate feedback that Lumen is working, and you can start reading while the response is still being generated.
 
 {{< tip title="You can stop a response" >}}
-While Lumen is streaming, the Send button turns into a **Stop** button (a square icon). Tap it to cancel the current response at any time.
+While Lumen is streaming, the Send button turns into a **Stop** button (a square icon). Tap it to cancel the current response at any time. See [Edit, Branch, Fork & Stop](/chat/editing-and-branching/) for the full stop-edit-regenerate workflow.
 {{< /tip >}}
 
 ## Copying Responses

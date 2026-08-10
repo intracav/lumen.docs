@@ -55,7 +55,7 @@ Every node has a small dot on its right side (output) and left side (input). To 
   <div class="node-chain">
     <div class="wf-node">
       <div class="wf-node-header">
-        <div class="wf-node-icon" style="background: rgba(88,101,242,0.15); color: var(--primary);">&#128196;</div>
+        <div class="wf-node-icon" style="background: var(--accent-glow); color: var(--accent);">&#128196;</div>
         <span class="wf-node-name">Text Input</span>
       </div>
       <div class="wf-node-body">"55yo male, chest pain..."</div>
@@ -63,7 +63,7 @@ Every node has a small dot on its right side (output) and left side (input). To 
     <div class="wf-connector"></div>
     <div class="wf-node">
       <div class="wf-node-header">
-        <div class="wf-node-icon" style="background: rgba(140,102,217,0.15); color: var(--purple);">&#128196;</div>
+        <div class="wf-node-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#128196;</div>
         <span class="wf-node-name">Extract Entities</span>
       </div>
       <div class="wf-node-body">Finds meds, diagnoses, labs</div>

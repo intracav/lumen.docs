@@ -17,7 +17,7 @@ At the bottom of every chat is the input bar. Here's what each element does:
     <div class="app-frame-dot green"></div>
   </div>
   <div class="app-frame-content" style="padding: 0;">
-    <div class="chat-toggles" style="padding: 0.75rem 1.25rem; background: var(--bg-darker);">
+    <div class="chat-toggles" style="padding: 0.75rem 1.25rem; background: var(--dark-canvas);">
       <div class="mock-toggle active" style="background: rgba(59,130,246,0.2); color: #3B82F6;">
         <span class="toggle-dot" style="background: #3B82F6;"></span> Clinical Database
       </div>
@@ -70,6 +70,15 @@ Searches the **live internet** for the most up-to-date information. Enable this 
 All three toggles can be active at the same time. Lumen will search across all enabled sources and merge the results.
 {{< /tip >}}
 
+## Two Characters Worth Knowing: @ and /
+
+The input bar has two shortcuts that unlock more of Lumen:
+
+- Type **@** to bring in a **Specialist** — a preset expert persona (like a pharmacist or infection-prevention lead) that shapes how Lumen approaches your question.
+- Type **/** to run a **Skill** — a reusable, structured task like drafting a patient handout or building a literature summary.
+
+Both appear as a picker the moment you type the trigger character. See [Skills & Specialists](/skills-and-specialists/) for the full catalog.
+
 ## Keyboard Shortcuts
 
 | Action | Shortcut |
@@ -82,15 +91,15 @@ All three toggles can be active at the same time. Lumen will search across all e
 Lumen understands natural language, but being specific helps get better results:
 
 <div class="tool-grid" style="margin-top: 1rem;">
-  <div class="tool-card" style="border-left: 3px solid var(--green);">
+  <div class="tool-card" style="border-left: 3px solid var(--palace-green);">
     <div class="tool-info">
-      <div class="tool-name" style="color: var(--green);">Good prompt</div>
+      <div class="tool-name" style="color: var(--palace-green);">Good prompt</div>
       <div class="tool-desc">"What are the drug interactions between metformin 1000mg and enalapril 10mg in a 65-year-old patient with CKD stage 3?"</div>
     </div>
   </div>
-  <div class="tool-card" style="border-left: 3px solid var(--orange);">
+  <div class="tool-card" style="border-left: 3px solid var(--accent);">
     <div class="tool-info">
-      <div class="tool-name" style="color: var(--orange);">Less helpful prompt</div>
+      <div class="tool-name" style="color: var(--accent);">Less helpful prompt</div>
       <div class="tool-desc">"drug interactions"</div>
     </div>
   </div>

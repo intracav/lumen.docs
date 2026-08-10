@@ -10,7 +10,7 @@ Lumen always shows its work. After every answer, you'll see a **"Sources"** link
 
 After a response that draws on evidence, you'll see a sources chip:
 
-<div style="margin: 1.5rem 0; padding: 1.5rem; background: var(--bg-dark); border-radius: var(--radius-md);">
+<div style="margin: 1.5rem 0; padding: 1.5rem; background: var(--dark-bg); border-radius: var(--r);">
   <div class="mock-sources" style="display: inline-flex;">&#128218; Sources (4)</div>
 </div>
 
@@ -26,26 +26,26 @@ Each source shows:
     <div class="app-frame-dot yellow"></div>
     <div class="app-frame-dot green"></div>
   </div>
-  <div class="app-frame-content" style="background: var(--bg-dark); padding: 1rem;">
-    <div style="display: flex; gap: 0.75rem; padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); margin-bottom: 0.5rem; align-items: flex-start;">
-      <div style="width: 24px; height: 24px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0;">1</div>
+  <div class="app-frame-content" style="background: var(--dark-bg); padding: 1rem;">
+    <div style="display: flex; gap: 0.75rem; padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: var(--r-sm); margin-bottom: 0.5rem; align-items: flex-start;">
+      <div style="width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0;">1</div>
       <div style="flex: 1; min-width: 0;">
-        <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-on-dark);">ACC/AHA Guidelines on Anticoagulation in AF</div>
-        <div style="font-size: 0.75rem; color: var(--text-muted-dark); margin-top: 0.25rem; line-height: 1.5;">Evidence-based recommendations for stroke prevention in patients with nonvalvular atrial fibrillation, including risk stratification...</div>
+        <div style="font-size: 0.85rem; font-weight: 600; color: var(--dark-text);">ACC/AHA Guidelines on Anticoagulation in AF</div>
+        <div style="font-size: 0.75rem; color: var(--dark-text-muted); margin-top: 0.25rem; line-height: 1.5;">Evidence-based recommendations for stroke prevention in patients with nonvalvular atrial fibrillation, including risk stratification...</div>
         <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.375rem;">
-          <div style="font-size: 0.7rem; color: var(--text-muted-dark);">acc.org</div>
-          <div style="font-size: 0.65rem; font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 999px; background: rgba(52,199,89,0.15); color: #34C759;">92% match</div>
+          <div style="font-size: 0.7rem; color: var(--dark-text-muted);">acc.org</div>
+          <div style="font-size: 0.65rem; font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 999px; background: var(--palace-green-glow); color: var(--palace-green);">92% match</div>
         </div>
       </div>
     </div>
-    <div style="display: flex; gap: 0.75rem; padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); align-items: flex-start;">
-      <div style="width: 24px; height: 24px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0;">2</div>
+    <div style="display: flex; gap: 0.75rem; padding: 0.75rem; background: rgba(255,255,255,0.05); border-radius: var(--r-sm); align-items: flex-start;">
+      <div style="width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0;">2</div>
       <div style="flex: 1; min-width: 0;">
-        <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-on-dark);">CHEST Guidelines: Antithrombotic Therapy</div>
-        <div style="font-size: 0.75rem; color: var(--text-muted-dark); margin-top: 0.25rem; line-height: 1.5;">Comprehensive review of antithrombotic strategies including DOACs vs warfarin comparative efficacy...</div>
+        <div style="font-size: 0.85rem; font-weight: 600; color: var(--dark-text);">CHEST Guidelines: Antithrombotic Therapy</div>
+        <div style="font-size: 0.75rem; color: var(--dark-text-muted); margin-top: 0.25rem; line-height: 1.5;">Comprehensive review of antithrombotic strategies including DOACs vs warfarin comparative efficacy...</div>
         <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.375rem;">
-          <div style="font-size: 0.7rem; color: var(--text-muted-dark);">journal.chestnet.org</div>
-          <div style="font-size: 0.65rem; font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 999px; background: rgba(255,149,0,0.15); color: #FF9500;">74% match</div>
+          <div style="font-size: 0.7rem; color: var(--dark-text-muted);">journal.chestnet.org</div>
+          <div style="font-size: 0.65rem; font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 999px; background: var(--accent-glow); color: var(--accent);">74% match</div>
         </div>
       </div>
     </div>
@@ -57,21 +57,21 @@ Each source shows:
 Each source has a **match percentage** that indicates how closely it relates to your question:
 
 <div class="tool-grid" style="margin: 1rem 0;">
-  <div class="tool-card" style="border-left: 3px solid var(--green);">
+  <div class="tool-card" style="border-left: 3px solid var(--palace-green);">
     <div class="tool-info">
-      <div class="tool-name" style="color: var(--green);">80–100% — Highly Relevant</div>
+      <div class="tool-name" style="color: var(--palace-green);">80–100% — Highly Relevant</div>
       <div class="tool-desc">Strong match. This source directly addresses your question. Shown in green.</div>
     </div>
   </div>
-  <div class="tool-card" style="border-left: 3px solid var(--orange);">
+  <div class="tool-card" style="border-left: 3px solid var(--accent);">
     <div class="tool-info">
-      <div class="tool-name" style="color: var(--orange);">60–79% — Relevant</div>
+      <div class="tool-name" style="color: var(--accent);">60–79% — Relevant</div>
       <div class="tool-desc">Good match. This source covers related topics. Shown in gold.</div>
     </div>
   </div>
-  <div class="tool-card" style="border-left: 3px solid var(--text-tertiary);">
+  <div class="tool-card" style="border-left: 3px solid var(--text-3);">
     <div class="tool-info">
-      <div class="tool-name" style="color: var(--text-tertiary);">Below 60% — Supporting</div>
+      <div class="tool-name" style="color: var(--text-3);">Below 60% — Supporting</div>
       <div class="tool-desc">Partial match. Provides background context. Shown in muted gray.</div>
     </div>
   </div>
@@ -84,6 +84,8 @@ Depending on which knowledge toggles you have enabled, sources can come from:
 - **Clinical Database** — Peer-reviewed guidelines, drug databases, clinical protocols
 - **My Docs** — Your personally uploaded documents and notes
 - **Web** — Live internet search results with URLs
+
+If you belong to an organization, answers can also cite your organization's own materials: the [Knowledge Packs](/knowledge/knowledge-packs/) your admins have published, and your institution's published [Policies](/organizations/policies/). These appear as sources just like anything else — same cards, same match scores — so an answer grounded in *your hospital's* policy is as verifiable as one grounded in a national guideline.
 
 {{< callout type="info" >}}
 **Sources aren't just decorative.** They're the evidence chain for Lumen's answer. If a response doesn't have the sources you'd expect, try enabling additional knowledge toggles or rephrasing your question.

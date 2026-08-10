@@ -16,13 +16,13 @@ When Lumen processes a complex question, it first "thinks" through the problem b
     <div class="app-frame-dot yellow"></div>
     <div class="app-frame-dot green"></div>
   </div>
-  <div class="app-frame-content" style="background: var(--bg-dark);">
+  <div class="app-frame-content" style="background: var(--dark-bg);">
     <div class="mock-thinking" style="cursor: pointer; margin: 0;">
       <span class="pulse-dot"></span>
       <span style="flex: 1;">Thought for 4s</span>
       <span style="font-size: 0.7rem;">&#9660;</span>
     </div>
-    <div style="padding: 0.75rem; background: rgba(255,255,255,0.03); border-radius: 0 0 var(--radius-sm) var(--radius-sm); margin-top: 2px; font-size: 0.8rem; color: var(--text-muted-dark); line-height: 1.6;">
+    <div style="padding: 0.75rem; background: rgba(255,255,255,0.03); border-radius: 0 0 var(--r-sm) var(--r-sm); margin-top: 2px; font-size: 0.8rem; color: var(--dark-text-muted); line-height: 1.6;">
       The user is asking about anticoagulation for a patient with atrial fibrillation and a history of GI bleeding. I need to weigh the stroke risk (CHA₂DS₂-VASc) against the bleeding risk (HAS-BLED). Let me calculate both scores and then look up current guidelines for this specific scenario...
     </div>
   </div>
@@ -72,3 +72,7 @@ Simple, factual questions (like "What is the generic name for Lipitor?") may be 
 - Questions requiring risk-benefit analysis
 - Multi-step diagnostic or treatment planning
 - Cases where multiple tools need to be coordinated
+
+## Go Deeper
+
+Curious what's actually happening during those seconds of "thinking" &mdash; and when extended reasoning genuinely improves an answer versus just taking longer? Read [Extended Thinking, Explained](/learn/extended-thinking/).

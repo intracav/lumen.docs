@@ -10,17 +10,23 @@ These are the questions that come up a dozen times a shift. *"Can I give these t
 
 <div class="tool-grid">
 
-{{< tool-card name="Drug Name Lookup (RxNorm)" icon="&#128138;" color="#34C759" desc="Resolves drug names via NLM RxNorm. Works with brand names, generics, abbreviations, and even misspellings. Returns the normalized name, RxCUI, ingredients, and drug class." example="\"Look up the generic name for Jardiance\"" badge="Lookup" >}}
+{{< tool-card name="Drug Name Lookup (RxNorm)" icon="&#128138;" color="var(--palace-green)" desc="Resolves drug names via NLM RxNorm. Works with brand names, generics, abbreviations, and even misspellings. Returns the normalized name, RxCUI, ingredients, and drug class." example="\"Look up the generic name for Jardiance\"" badge="Lookup" >}}
 
-{{< tool-card name="Drug Interactions" icon="&#9888;" color="#FF9500" desc="Checks drug-drug interactions using the FDA interaction database. Returns severity level, mechanism of interaction, and clinical management recommendations." example="\"Check interactions between warfarin, amiodarone, and metoprolol\"" badge="Safety" >}}
+{{< tool-card name="Drug Interactions" icon="&#9888;" color="var(--accent)" desc="Checks drug-drug interactions using the FDA interaction database. Returns severity level, mechanism of interaction, and clinical management recommendations." example="\"Check interactions between warfarin, amiodarone, and metoprolol\"" badge="Safety" >}}
 
-{{< tool-card name="IV Drip Calculator" icon="&#128167;" color="#0EA5E9" desc="Calculates IV infusion rates from weight-based dosing. Computes mL/hr with titration guidance. Supports common drips like vasopressors, insulin, and heparin." example="\"Calculate norepinephrine drip at 0.1 mcg/kg/min for an 80kg patient\"" badge="Calculator" >}}
+{{< tool-card name="IV Drip Calculator" icon="&#128167;" color="var(--smoky-blue)" desc="Calculates IV infusion rates from weight-based dosing. Computes mL/hr with titration guidance. Supports common drips like vasopressors, insulin, and heparin." example="\"Calculate norepinephrine drip at 0.1 mcg/kg/min for an 80kg patient\"" badge="Calculator" >}}
 
-{{< tool-card name="Renal Dose Adjustment" icon="&#129656;" color="#8C66D9" desc="Computes creatinine clearance (Cockcroft-Gault), determines CKD stage, and looks up FDA-recommended dose adjustments for renal impairment." example="\"Renal dose check for vancomycin in a 70-year-old male, 85kg, SCr 2.1\"" badge="Calculator" >}}
+{{< tool-card name="Renal Dose Adjustment" icon="&#129656;" color="var(--smoky-blue-dk)" desc="Computes creatinine clearance (Cockcroft-Gault), determines CKD stage, and looks up FDA-recommended dose adjustments for renal impairment." example="\"Renal dose check for vancomycin in a 70-year-old male, 85kg, SCr 2.1\"" badge="Calculator" >}}
 
-{{< tool-card name="FDA Adverse Events" icon="&#128200;" color="#E53E3E" desc="Searches the FDA FAERS (adverse event reporting) database. Aggregates reaction reports by drug, showing frequencies, outcomes, and severity distributions." example="\"What are the most reported adverse events for methotrexate?\"" badge="Safety" >}}
+{{< tool-card name="FDA Adverse Events" icon="&#128200;" color="var(--accent)" desc="Searches the FDA FAERS (adverse event reporting) database. Aggregates reaction reports by drug, showing frequencies, outcomes, and severity distributions." example="\"What are the most reported adverse events for methotrexate?\"" badge="Safety" >}}
 
-{{< tool-card name="FDA Drug Recalls" icon="&#128680;" color="#E53E3E" desc="Checks the FDA enforcement and recall database. Shows recall classifications, affected lots, and current status." example="\"Are there any recent recalls for metformin products?\"" badge="Safety" >}}
+{{< tool-card name="FDA Drug Recalls" icon="&#128680;" color="var(--accent)" desc="Checks the FDA enforcement and recall database. Shows recall classifications, affected lots, and current status." example="\"Are there any recent recalls for metformin products?\"" badge="Safety" >}}
+
+{{< tool-card name="FDA Drug Labels" icon="&#128220;" color="var(--palace-green)" desc="Searches the FDA structured product label database for official prescribing information — boxed warnings, indications, contraindications, dosing, and adverse reactions, with direct DailyMed links." example="\"What does the FDA label say about semaglutide contraindications?\"" badge="Regulatory" >}}
+
+{{< tool-card name="Allergy Cross-Reactivity" icon="&#128165;" color="var(--accent)" desc="Given a known drug allergy, identifies cross-reactive agents to avoid and safe prescribing alternatives, with notes on the reaction mechanism." example="\"What can I use instead of cephalexin if the patient has a penicillin allergy?\"" badge="Safety" >}}
+
+{{< tool-card name="Antimicrobial Selector" icon="&#129440;" color="var(--palace-green)" desc="Selects empiric and targeted antibiotic therapy from IDSA guidance — first-line, second-line, and allergy-alternative regimens with dosing and duration. Accounts for renal impairment, pregnancy, and care setting." example="\"Best antibiotic for community-acquired pneumonia, PCN allergy, outpatient\"" badge="Treatment" >}}
 
 </div>
 
@@ -45,12 +51,12 @@ Here's what a drug interaction check looks like in action:
           </div>
           <div class="mock-tool-detail">simvastatin &times; clarithromycin</div>
         </div>
-        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--text-on-dark);">
-          <strong style="color: #FF3B30;">&#9888; Major Interaction Detected</strong><br><br>
+        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--dark-text);">
+          <strong style="color: var(--accent);">&#9888; Major Interaction Detected</strong><br><br>
           Clarithromycin is a <strong>potent CYP3A4 inhibitor</strong> that significantly increases simvastatin levels, raising the risk of <strong>rhabdomyolysis</strong>.
         </p>
         <div class="mock-artifact chat-extra">
-          <div class="mock-artifact-icon" style="background: rgba(255,149,0,0.15); color: #FF9500;">&#9888;</div>
+          <div class="mock-artifact-icon" style="background: var(--accent-glow); color: var(--accent);">&#9888;</div>
           <div class="mock-artifact-info">
             <div class="mock-artifact-title">Interaction Report: Simvastatin &times; Clarithromycin</div>
             <div class="mock-artifact-type">Drug Interaction Report</div>

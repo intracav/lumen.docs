@@ -73,21 +73,21 @@ Here are a few things clinicians ask Lumen on a typical day:
 
 <div class="tool-grid">
   <div class="tool-card">
-    <div class="tool-icon" style="background: rgba(88,101,242,0.1); color: #5865F2;">&#128138;</div>
+    <div class="tool-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#128138;</div>
     <div class="tool-info">
       <div class="tool-name">Quick drug check</div>
       <div class="tool-example">"Can I give ketorolac if the patient is on apixaban?"</div>
     </div>
   </div>
   <div class="tool-card">
-    <div class="tool-icon" style="background: rgba(14,165,233,0.1); color: #0EA5E9;">&#127973;</div>
+    <div class="tool-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#127973;</div>
     <div class="tool-info">
       <div class="tool-name">Billing code lookup</div>
       <div class="tool-example">"ICD-10 for acute on chronic systolic heart failure"</div>
     </div>
   </div>
   <div class="tool-card">
-    <div class="tool-icon" style="background: rgba(140,102,217,0.1); color: #8C66D9;">&#128221;</div>
+    <div class="tool-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue-dk);">&#128221;</div>
     <div class="tool-info">
       <div class="tool-name">Documentation help</div>
       <div class="tool-example">"Write a discharge summary for a 72yo with CHF exacerbation treated with IV diuresis"</div>
@@ -98,3 +98,9 @@ Here are a few things clinicians ask Lumen on a typical day:
 {{< callout type="info" >}}
 **Your conversations save automatically.** Come back anytime to pick up where you left off. You'll find past chats in the sidebar on the left.
 {{< /callout >}}
+
+## Where the answers come from
+
+When your question needs a fact — a dose, a code, a study — Lumen doesn't answer from memory. It looks the fact up in a real database while you watch, then cites what it found. That's the little tool chip you'll see above answers, and it's the single most important thing to understand about Lumen: [How AI Uses Tools](/learn/tool-use/) explains it in two minutes.
+
+Two small things worth knowing on day one: the **web search toggle** near the message box controls whether Lumen may also search the open web, and if you tell Lumen something about your practice — *"I'm a NICU nurse practitioner"* — it can [remember it](/chat/memory/) so future answers fit your world.

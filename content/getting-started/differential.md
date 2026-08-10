@@ -35,22 +35,22 @@ The more detail you give, the better the differential.
             Generated differential diagnosis
           </div>
         </div>
-        <div style="font-size: 0.85rem; color: var(--text-on-dark); line-height: 1.6;">
+        <div style="font-size: 0.85rem; color: var(--dark-text); line-height: 1.6;">
           <div style="padding: 0.375rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
             1. <strong>Pulmonary embolism</strong> <span style="color: #FF3B30; font-size: 0.75rem;">(Urgent)</span><br>
-            <span style="color: var(--text-muted-dark); font-size: 0.8rem;">OCP use is a major risk factor. Order CT-PA, D-dimer, Wells score.</span>
+            <span style="color: var(--dark-text-muted); font-size: 0.8rem;">OCP use is a major risk factor. Order CT-PA, D-dimer, Wells score.</span>
           </div>
           <div style="padding: 0.375rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
             2. <strong>Pericarditis</strong><br>
-            <span style="color: var(--text-muted-dark); font-size: 0.8rem;">Pleuritic pain, may have friction rub. ECG, troponin, echo.</span>
+            <span style="color: var(--dark-text-muted); font-size: 0.8rem;">Pleuritic pain, may have friction rub. ECG, troponin, echo.</span>
           </div>
           <div style="padding: 0.375rem 0;">
             3. <strong>Pneumothorax</strong><br>
-            <span style="color: var(--text-muted-dark); font-size: 0.8rem;">Sudden onset in young female. CXR is first-line imaging.</span>
+            <span style="color: var(--dark-text-muted); font-size: 0.8rem;">Sudden onset in young female. CXR is first-line imaging.</span>
           </div>
         </div>
         <div class="mock-artifact chat-extra">
-          <div class="mock-artifact-icon" style="background: rgba(14,165,233,0.15); color: #0EA5E9;">&#129504;</div>
+          <div class="mock-artifact-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#129504;</div>
           <div class="mock-artifact-info">
             <div class="mock-artifact-title">Full Differential Diagnosis</div>
             <div class="mock-artifact-type">6 diagnoses with workup plan</div>
@@ -84,3 +84,5 @@ Lumen remembers the context from earlier in the chat, so you don't need to repea
 {{< callout type="info" >}}
 For more decision support tools (checklists, triage scoring, antibiotic selection), see [Protocols & Decision Support](/tools/protocols-decisions/).
 {{< /callout >}}
+
+Two ways to go deeper: for a hard case, bring in the [@Clinical Reasoning Specialist](/skills-and-specialists/specialists/) — it works the problem in more steps with more tools. And if you've noticed Lumen pausing to "think" before a tough differential, that's [extended thinking](/learn/extended-thinking/) — worth two minutes to understand.

@@ -35,11 +35,11 @@ Lumen creates a structured note in the standard format:
             Generated clinical note
           </div>
         </div>
-        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--text-on-dark);">
+        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--dark-text);">
           Here's your SOAP note. Review and edit as needed:
         </p>
         <div class="mock-artifact chat-extra">
-          <div class="mock-artifact-icon" style="background: rgba(14,165,233,0.15); color: #0EA5E9;">&#128221;</div>
+          <div class="mock-artifact-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#128221;</div>
           <div class="mock-artifact-info">
             <div class="mock-artifact-title">SOAP Note &mdash; HTN Follow-up</div>
             <div class="mock-artifact-type">Clinical Note</div>
@@ -72,3 +72,7 @@ Tap the card to open the full note. It includes all four SOAP sections, properly
 {{< callout type="important" >}}
 **Always review before signing.** Lumen drafts the note; you verify the accuracy and sign off per your institution's policy.
 {{< /callout >}}
+
+{{< tip title="Skills: the note formats live behind /" >}}
+Type **/** in the chat to see every document format Lumen knows — SOAP note, H&P, discharge summary, procedure note, referral letter, and dozens more. Each one follows a proper clinical structure. [Browse the Skills directory.](/skills-and-specialists/skills/)
+{{< /tip >}}
