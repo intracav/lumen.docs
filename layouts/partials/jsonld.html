@@ -5,9 +5,17 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://intracav.ai/#organization",
   "name": "Intracav",
   "url": "https://intracav.ai/",
-  "logo": {{ "/img/lumen-logo.png" | absURL }}
+  "logo": {{ "/img/lumen-logo.png" | absURL }},
+  "sameAs": [
+    "https://intracav.ai",
+    "https://lumen.intracav.ai",
+    "https://clinical-database.com",
+    "https://magicaf.intracav.ai",
+    "https://qpolicy.ai"
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -17,6 +25,7 @@
   "name": {{ site.Title }},
   "url": {{ site.BaseURL }},
   "description": {{ site.Params.description }},
+  "publisher": { "@id": "https://intracav.ai/#organization" },
   "potentialAction": {
     "@type": "SearchAction",
     "target": {
@@ -38,7 +47,7 @@
   "operatingSystem": "Web, iOS, Android",
   "description": {{ $desc }},
   "url": {{ .Permalink }},
-  "publisher": { "@type": "Organization", "name": "Intracav", "url": "https://intracav.ai/" },
+  "publisher": { "@type": "Organization", "@id": "https://intracav.ai/#organization", "name": "Intracav", "url": "https://intracav.ai/" },
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free plan available; paid plans for individuals and organizations." }
 }
 </script>
@@ -52,8 +61,8 @@
   "url": {{ .Permalink }},
   "datePublished": {{ .PublishDate.Format "2006-01-02" }},
   "dateModified": {{ .Lastmod.Format "2006-01-02" }},
-  "author": { "@type": "Organization", "name": "Intracav", "url": "https://intracav.ai/" },
-  "publisher": { "@type": "Organization", "name": "Intracav", "url": "https://intracav.ai/" },
+  "author": { "@type": "Organization", "@id": "https://intracav.ai/#organization", "name": "Intracav", "url": "https://intracav.ai/" },
+  "publisher": { "@type": "Organization", "@id": "https://intracav.ai/#organization", "name": "Intracav", "url": "https://intracav.ai/" },
   "isPartOf": { "@type": "WebSite", "name": {{ site.Title }}, "url": {{ site.BaseURL }} }
 }
 </script>

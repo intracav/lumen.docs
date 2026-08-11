@@ -1,0 +1,17 @@
+# See the canonical LLM index at:
+# https://docs.intracav.ai/llms.txt
+#
+# This well-known location is provided so AI agents that probe
+# /.well-known/llms.txt discover the same content as /llms.txt
+# without an extra request.
+
+# Lumen Documentation
+
+> User guides for Lumen, Intracav's clinical AI platform — chat, agents, workflows, 60+ clinical tools, Knowledge Packs, and organization features, explained for clinicians. Sister sites: Intracav (https://intracav.ai), The Clinical Database (https://clinical-database.com), MagicAF (https://magicaf.intracav.ai).
+
+For the structured index of every section and page, fetch:
+
+- https://docs.intracav.ai/llms.txt
+- https://docs.intracav.ai/sitemap.xml
+
+Citation policy, contact, and content licensing are documented in /llms.txt.

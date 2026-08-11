@@ -1,0 +1,178 @@
+# Lumen Documentation
+
+> Lumen Documentation — user guides for Lumen, Intracav's clinical AI platform. Lumen gives clinicians sourced, cited answers at the point of care: chat, agents, workflows, 60+ clinical tools (drug interactions, medical coding, calculators, PubMed search), Knowledge Packs, and organization features (policies, EHR integration via SMART on FHIR, website bots). Free for individual clinicians at https://lumen.intracav.ai. Built by Intracav (https://intracav.ai).
+
+## How to use this file
+
+This is the structured index of docs.intracav.ai for AI agents — Claude, ChatGPT, Gemini, Perplexity, and the like. Every URL here is canonical and citable. For the product itself see https://lumen.intracav.ai; for the company see https://intracav.ai; for deep clinical reference content (PICC, CVC, CLABSI prevention, sepsis, oncology) follow the link to **The Clinical Database** in the Sister sites section.
+
+## Getting Started
+
+- [Getting Started](https://docs.intracav.ai/getting-started/): Get started with Lumen in under 10 minutes — your first chat, a drug interaction check, a billing code, and a drafted clinical note.
+- [Your First Chat](https://docs.intracav.ai/getting-started/first-chat/): Open the app, ask a question, get an answer. Here's what to expect.
+- [Check a Drug Interaction](https://docs.intracav.ai/getting-started/check-interaction/): Ask Lumen if two medications are safe to use together.
+- [Find a Billing Code](https://docs.intracav.ai/getting-started/find-a-code/): Describe a diagnosis or procedure in plain English and get the right ICD-10 or CPT code.
+- [Build a Differential](https://docs.intracav.ai/getting-started/differential/): Describe symptoms and get a ranked differential diagnosis with recommended workup.
+- [Draft a Clinical Note](https://docs.intracav.ai/getting-started/draft-a-note/): Tell Lumen what happened and get a structured SOAP note, discharge summary, or referral letter.
+- [Run a Clinical Calculator](https://docs.intracav.ai/getting-started/run-a-calculator/): Get a CHA₂DS₂-VASc, MELD, eGFR, Wells, or other validated score by describing your patient.
+
+## Guides
+
+- [Guides](https://docs.intracav.ai/guides/): Step-by-step Lumen tutorials for real clinical tasks: prior authorizations, discharge summaries, literature reviews, patient handouts, and team setup.
+- [Write a Prior Authorization Letter with AI](https://docs.intracav.ai/guides/prior-auth-in-minutes/): Draft a submission-ready prior authorization in minutes — verified ICD-10 and HCPCS codes, CMS coverage criteria, and a cited medical-necessity argument.
+- [Appeal an Insurance Denial with Evidence](https://docs.intracav.ai/guides/appeal-a-denial/): Turn a denial letter into a point-by-point rebuttal — Lumen analyzes the payer's rationale, gathers guideline citations, and drafts the appeal.
+- [Write a Discharge Summary in 5 Minutes](https://docs.intracav.ai/guides/discharge-summary/): Turn rough hospital-course notes into a complete discharge summary — med changes highlighted, follow-up plan built in.
+- [Create a Patient Handout at an 8th-Grade Level](https://docs.intracav.ai/guides/patient-handout/): Build a plain-language patient education handout — reading level you control, exported as a printable PDF.
+- [Run an AI Literature Review with Citations](https://docs.intracav.ai/guides/literature-review/): Ask a clinical question, get a cited evidence synthesis from PubMed, trials, and guidelines — then drill down and export.
+- [Upload & Analyze a Clinical PDF](https://docs.intracav.ai/guides/analyze-a-document/): Upload a 40-page guideline PDF, get a structured summary of what changed, drill into specifics with page-cited answers.
+- [Build Grand-Rounds Slides with AI](https://docs.intracav.ai/guides/grand-rounds-slides/): Turn a complicated case into a structured grand-rounds deck, then refine slide by slide and export to PPTX.
+- [Onboard Your Clinical Team to Lumen](https://docs.intracav.ai/guides/onboard-your-team/): Set up a Lumen organization for a clinical team: departments, email invitations, automatic seats, pooled usage.
+- [Turn Your Protocols into a Knowledge Pack](https://docs.intracav.ai/guides/build-a-knowledge-pack/): Build an org Knowledge Pack from protocol PDFs, an intranet page, and videos — then watch chat answers cite your own documents.
+- [Publish Your First Policy in Lumen](https://docs.intracav.ai/guides/publish-first-policy/): Import a policy from DOCX, publish it to a read-only Policy Library, get version-stamped citations in chat.
+- [Launch a Grounded AI Chat Bot on Your Website](https://docs.intracav.ai/guides/launch-a-website-bot/): Put a Lumen Website Bot on your site: ground it in your Knowledge Packs, brand it, lock it to your domain.
+- [Run a Medication Review & Reconciliation](https://docs.intracav.ai/guides/med-reconciliation/): Turn three conflicting med lists into one reconciled list — duplicates merged, interactions checked, renal doses flagged.
+- [Match a Patient to Clinical Trials](https://docs.intracav.ai/guides/find-a-trial/): Give Lumen a de-identified patient profile and get a ranked shortlist of recruiting trials from ClinicalTrials.gov.
+- [Build a Staff Schedule with AI](https://docs.intracav.ai/guides/staff-schedule/): Describe your team's rules and PTO — a deterministic solver builds the schedule, verifies every rule, and exports to Excel.
+- [Make a Study Guide & Quiz (Cert Binder)](https://docs.intracav.ai/guides/study-guide-quiz/): Build a study guide from a guideline PDF, generate a scored quiz, and let staff take it in chat.
+- [Deep Web Research with Cited Sources](https://docs.intracav.ai/guides/deep-web-research/): Run a multi-source web research pass: quick search vs deep research, inline citations, and exporting a cited brief.
+- [Dictate a Note Hands-Free](https://docs.intracav.ai/guides/dictate-a-note/): Dictate a post-procedure note between cases: speak naturally, get a live transcript, structure it with a Skill.
+- [The Lumen Browser Extension (Beta)](https://docs.intracav.ai/guides/browser-extension/): Lumen in a side panel next to your work — it reads the page when you ask, and acts only with explicit confirmation.
+- [Connect Lumen to Your EHR](https://docs.intracav.ai/guides/connect-your-ehr/): Link your own EHR login via SMART on FHIR: scoped, read-only patient context in chat — never a write to the chart.
+- [Automate a Recurring Report with Triggers](https://docs.intracav.ai/guides/automate-with-triggers/): Put a workflow on a schedule: build a Monday-morning literature digest, add a cron trigger, test-fire it, activate.
+
+## Learn (AI concepts for clinicians)
+
+- [Learn](https://docs.intracav.ai/learn/): AI concepts explained for clinicians — agents, tool use, RAG and citations, extended thinking, memory, and EHR integration. No computer science required.
+- [What Is an AI Agent? A Clinician's Guide](https://docs.intracav.ai/learn/what-is-a-clinical-ai-agent/): How agents differ from chatbots, what delegating a task looks like, and where the limits are.
+- [How AI Uses Tools: Function Calling for Clinicians](https://docs.intracav.ai/learn/tool-use/): How a model decides to run a real drug-interaction lookup instead of answering from memory — and how you see it.
+- [RAG: How AI Cites Real Sources Instead of Guessing](https://docs.intracav.ai/learn/rag-and-citations/): How AI pulls real documents before answering, why citations beat confident memory, and what RAG can't do.
+- [AI Hallucinations in Medicine — and How Grounding Prevents Them](https://docs.intracav.ai/learn/hallucinations-and-grounding/): Why models generate fluent falsehoods, the layered defenses that catch them, and what you should still verify.
+- [The Agentic Loop: How AI Works Through Multi-Step Tasks](https://docs.intracav.ai/learn/agentic-loops/): The plan–act–observe–adjust loop, the harness that keeps it safe, and how iteration caps work like scope-of-practice rules.
+- [Extended Thinking: Why AI Sometimes Pauses Before Answering](https://docs.intracav.ai/learn/extended-thinking/): What happens during the pause, when Lumen thinks longer, and why a slower answer is often a safer one.
+- [How AI Memory Works (and What Lumen Remembers)](https://docs.intracav.ai/learn/ai-memory/): Context windows vs persistent memory, what Lumen saves and never saves, and the controls that keep you in charge.
+- [How to Ask AI Clinical Questions: A Prompting Guide](https://docs.intracav.ai/learn/prompting-for-clinicians/): Give context, ask a focused question, name the output. Three habits that upgrade every answer.
+- [SMART on FHIR, Explained: How AI Connects to Your EHR](https://docs.intracav.ai/learn/smart-on-fhir/): How AI apps get scoped, audited, revocable access to EHR data — and what CDS Hooks advisory cards are.
+- [De-Identification: How AI Strips PHI Safely](https://docs.intracav.ai/learn/deidentification/): The 18 HIPAA identifiers, pseudonyms vs. redaction, and how you stay in control of re-identification.
+- [Fast vs. Deep: Choosing the Right AI Model](https://docs.intracav.ai/learn/choosing-models/): What actually differs between fast and deep models, when the default is fine, and when switching up pays off.
+
+## The Chat
+
+- [The Chat](https://docs.intracav.ai/chat/): How Lumen chat works: sending messages, reading cited answers, extended thinking, attachments, artifacts, and sharing.
+- [Typing & Sending](https://docs.intracav.ai/chat/sending-messages/): How to ask questions, choose where Lumen searches, and write prompts that get better answers.
+- [Reading Answers](https://docs.intracav.ai/chat/responses/): What each part of Lumen's answer means and how to interact with it.
+- [How Lumen Thinks](https://docs.intracav.ai/chat/thinking/): Lumen shows its reasoning so you can verify the logic behind every answer.
+- [Reports & Files](https://docs.intracav.ai/chat/artifacts/): Lumen can create documents, reports, and interactive tools right in the chat.
+- [Where It Gets Its Info](https://docs.intracav.ai/chat/sources/): Every answer includes sources you can check. How to read them and verify what Lumen tells you.
+- [Uploading Your Files](https://docs.intracav.ai/chat/attachments/): Give Lumen a PDF, Word doc, or spreadsheet and ask questions about it.
+- [Edit, Branch, Fork & Stop](https://docs.intracav.ai/chat/editing-and-branching/): Fix a question after you've sent it, regenerate the answer, fork a conversation, or stop a response mid-stream.
+- [Share a Chat](https://docs.intracav.ai/chat/sharing/): Create a read-only link to any conversation, control who can open it, revoke it anytime.
+- [Memory: What Lumen Remembers](https://docs.intracav.ai/chat/memory/): Lumen quietly saves durable facts you state about yourself and your practice — never patient details.
+- [Choosing a Model in Lumen](https://docs.intracav.ai/chat/models/): Which AI model powers your chat, what changes between fast and deep models, and how to switch.
+- [Dictation & Voice Input](https://docs.intracav.ai/chat/dictation/): Live streaming dictation and one-shot transcription, with tips for accurate medical dictation.
+
+## Specialists & Skills
+
+- [Specialists & Skills](https://docs.intracav.ai/skills-and-specialists/): Lumen's expert modes: @ Specialists focus the AI on a clinical domain, / Skills shape its output into the exact document you need.
+- [The 11 Lumen Specialists (@ menu)](https://docs.intracav.ai/skills-and-specialists/specialists/): Expert modes for differential diagnosis, literature review, prior auth, discharge summaries, and more.
+- [AI Prior Authorization Assistant](https://docs.intracav.ai/skills-and-specialists/specialists/prior-authorization/): Submission-ready requests — ICD-10 and CPT codes, CMS coverage criteria, evidence, and the letter.
+- [AI Medication Review & Reconciliation](https://docs.intracav.ai/skills-and-specialists/specialists/medication-review/): Interaction screening, renal dosing, duplicate therapy, and a structured deprescribing review in one pass.
+- [AI Patient Education Assistant](https://docs.intracav.ai/skills-and-specialists/specialists/patient-education/): Plain-language handouts, discharge instructions, and letters at the reading level your patient needs.
+- [AI Clinical Trial Matching](https://docs.intracav.ai/skills-and-specialists/specialists/trial-matcher/): Searches ClinicalTrials.gov against your patient's profile and returns a ranked, pre-screened shortlist.
+- [The Skills Directory: 49 Built-In Skills (/ menu)](https://docs.intracav.ai/skills-and-specialists/skills/): AI SOAP note generator, prior authorization letters, discharge summaries, patient handouts, literature reviews, and more.
+- [Agent Mode: Multi-Step Clinical Work in One Prompt](https://docs.intracav.ai/skills-and-specialists/agent-mode/): Lumen plans, runs tools, and delivers finished clinical work from one prompt — every step visible.
+
+## Tools (What Lumen Can Do)
+
+- [What Lumen Can Do](https://docs.intracav.ai/tools/): Lumen's library of 60+ tools: drug interactions, medical coding, PubMed search, clinical calculators, triage systems, document generation, and more.
+- [Finding Information](https://docs.intracav.ai/tools/search-sources/): Choose where Lumen looks for answers — clinical databases, your own documents, or the web.
+- [Research & Evidence](https://docs.intracav.ai/tools/literature-research/): Search PubMed, check FDA drug labels, or find clinical trials — without leaving the conversation.
+- [Medication Questions](https://docs.intracav.ai/tools/medications/): Check drug interactions, calculate IV rates, adjust for renal function, or look up adverse events.
+- [Medical Coding: ICD-10, CPT, HCPCS & Medicare Fees](https://docs.intracav.ai/tools/coding-labs/): Find codes, check NCCI edit pairs, price against the Medicare fee schedule, verify coverage.
+- [All Medical Calculators in Lumen](https://docs.intracav.ai/tools/calculators/): MELD, CHA₂DS₂-VASc, Wells score, eGFR, SOFA, and 23 more. Ask in plain English; Lumen runs the real formula.
+- [Protocols & Decision Support](https://docs.intracav.ai/tools/protocols-decisions/): Checklists, differential diagnosis, triage scoring, antibiotic selection, and clinical guidelines.
+- [Patient Records & Notes](https://docs.intracav.ai/tools/patient-records/): Pull patient data from your EHR, check appointment availability, and draft clinical notes from within the chat.
+- [Creating Documents](https://docs.intracav.ai/tools/document-generation/): Draft a PDF report, build a slide deck, create a spreadsheet, or write a quiz — and download it immediately.
+- [Privacy & Safety](https://docs.intracav.ai/tools/privacy/): Remove patient identifiers from text before sharing, and send emails with built-in safety guardrails.
+- [A–Z Tool Index](https://docs.intracav.ai/tools/tool-index/): Every tool in Lumen, A to Z — all 66 in one table, with what each one does and which plan includes it.
+
+## Workflows
+
+- [Workflows](https://docs.intracav.ai/workflows/): Build no-code clinical automations with Lumen workflows: a visual editor, 40+ building blocks, triggers, and team sharing.
+- [The Visual Editor](https://docs.intracav.ai/workflows/editor/): How to drag, connect, and configure tools on the workflow canvas.
+- [Building Blocks](https://docs.intracav.ai/workflows/building-blocks/): The 70+ tools you can use as nodes in your workflows — organized by what they do.
+- [Running & Results](https://docs.intracav.ai/workflows/running/): How to test your workflow and see what each step produces.
+- [Sharing Workflows & Blueprints](https://docs.intracav.ai/workflows/publish/): Share a workflow with your organization, package it as a reusable blueprint, or run it straight from chat.
+- [Workflow Triggers: Cron, Webhook, Email & CRM](https://docs.intracav.ai/workflows/triggers/): Run workflows automatically — on a schedule, from a webhook, when an email arrives, or when a CRM record changes.
+
+## Knowledge & Documents
+
+- [Knowledge & Documents](https://docs.intracav.ai/knowledge/): Where Lumen's knowledge lives: your documents, your team's folders, and the curated Knowledge Packs your answers cite.
+- [Folders & Departments: Organize Clinical Work](https://docs.intracav.ai/knowledge/folders/): Personal vs shared folders, folder sources, scoped chat context, and ownership.
+- [Documents, Sources & Exports](https://docs.intracav.ai/knowledge/documents/): Upload documents, search your library semantically, compare files, and export to PDF, Word, PowerPoint, or Excel.
+- [Knowledge Packs](https://docs.intracav.ai/knowledge/knowledge-packs/): Curated, cited, version-pinned clinical content collections — guideline libraries, device documentation, and your own protocols.
+- [The Spreadsheet Copilot](https://docs.intracav.ai/knowledge/spreadsheet-copilot/): Select cells, describe the change in plain language, review the proposed edit, and accept it.
+- [Clinical News & PubMed Feed](https://docs.intracav.ai/knowledge/news-feed/): A specialty-tuned feed of clinical news, the latest PubMed articles, and Cochrane reviews — with one-click import.
+- [Quizzes & the Cert Binder](https://docs.intracav.ai/knowledge/cert-binder/): Generate certification-quality quizzes from any content and keep scored attempts with proof-of-completion PDFs.
+
+## For Organizations
+
+- [For Organizations](https://docs.intracav.ai/organizations/): Lumen for hospitals and clinical teams: departments and seats, shared Knowledge Packs, policy management, website bots, and EHR integration.
+- [Departments, Seats & Pooled Usage](https://docs.intracav.ai/organizations/departments-and-seats/): Departments with their own admins, seats that grow automatically, and usage pooled across your whole team.
+- [Managing Knowledge Packs for Your Org](https://docs.intracav.ai/organizations/knowledge-packs-admin/): PDF upload, URL and whole-site ingest, YouTube transcription, publishing, visibility, and usage insights.
+- [Hospital Policy Management Software — Policies](https://docs.intracav.ai/organizations/policies/): Turn hospital policy PDFs into versioned, published, cited answers: a read-only Policy Library and policy citations in chat.
+- [Authority-Source Monitoring & Findings Review](https://docs.intracav.ai/organizations/policy-monitoring/): Register CDC, FDA, CMS, and specialty-society pages; Lumen detects changes and raises findings your team reviews.
+- [Website Bots: Grounded AI Chat for Your Site](https://docs.intracav.ai/organizations/website-bots/): Embed a medical website chatbot grounded only in your Knowledge Packs — cited answers, honest deflection, lead capture.
+- [EHR Integration: SMART on FHIR & CDS Hooks](https://docs.intracav.ai/organizations/ehr/): Connect Lumen to Epic or Oracle Health: read-only patient context in chat and advisory CDS Hooks cards — no writes to the chart.
+- [Audit Logs, Access Controls & Step-Up Auth](https://docs.intracav.ai/organizations/audit-and-access/): Org and department audit logs, simple roles, step-up re-authentication, and BAA records.
+
+## Partners & Developers
+
+- [Partners & Developers](https://docs.intracav.ai/developers/): Build on Lumen: an OpenAI-compatible API with citations, embeddable website bots, an MCP server, and partner content integration.
+- [Lumen API v1: OpenAI-Compatible Chat, Cited](https://docs.intracav.ai/developers/api/): REST reference — OpenAI-compatible chat completions with citations, pure retrieval, feedback, and a public OpenAPI 3.0 schema.
+- [Embed a Website Bot](https://docs.intracav.ai/developers/embed/): Put a Lumen Website Bot on your own site with one iframe — cited answers, origin allowlisting, and lead capture.
+- [The Lumen MCP Server](https://docs.intracav.ai/developers/mcp/): Expose your Knowledge Packs as MCP tools. Connect Claude Desktop, IDE agents, or any JSON-RPC 2.0 MCP client.
+- [Zoho SalesIQ Integration](https://docs.intracav.ai/developers/salesiq-webhook/): Connect a Zoho SalesIQ Zobot to Lumen: webhook URL, RSA signature verification, and openable cited sources.
+- [Status Page & Uptime API](https://docs.intracav.ai/developers/status/): GET /api/status returns current health, 90 days of daily uptime history, and incidents — no auth required.
+- [Partner Knowledge Packs: Content Integration Guide](https://docs.intracav.ai/developers/partner-knowledge-packs/): The integration contract for medical-device and pharma partners publishing IFUs, manuals, and clinical evidence into Lumen.
+
+## Trust & Security
+
+- [Trust & Security](https://docs.intracav.ai/trust/): How Lumen protects clinical data: PHI encryption at rest, tamper-evident audit logs, admin re-authentication, access scoping, and BAAs.
+- [Your Data & PHI: What Lumen Stores and Why](https://docs.intracav.ai/trust/privacy/): What Lumen keeps — chats, documents, memories — where each lives, who can see it, and the controls you have.
+- [Accuracy, Citations & Clinical Judgment](https://docs.intracav.ai/trust/responsible-ai/): Why Lumen cites every answer, how to verify with evidence chips, and why the clinician always owns the decision.
+
+## Plans & Help
+
+- [Plans](https://docs.intracav.ai/plans/): Compare Lumen plans — Free, Pro, Plus, and Max — by features, tools, usage limits, and organization capabilities.
+- [Help Center](https://docs.intracav.ai/help/): The Lumen FAQ, a clinician-friendly glossary of AI terms, and hands-on getting-started scenarios.
+- [Lumen FAQ](https://docs.intracav.ai/help/faq/): Quick answers to the most common Lumen questions — trust, notes, attachments, Specialists, plans, teams, Knowledge Packs, and PHI.
+- [Clinical AI Glossary](https://docs.intracav.ai/help/glossary/): Every AI term you'll meet in Lumen — RAG, hallucination, token, FHIR, embeddings — defined in plain language for clinicians.
+- [Troubleshooting Common Issues](https://docs.intracav.ai/help/troubleshooting/): Fix-first answers to the most common Lumen issues — message limits, uncited uploads, generic answers, and more.
+
+## Sister sites
+
+- [Intracav](https://intracav.ai): the clinical AI infrastructure company behind Lumen. AI-friendly index: [/llms.txt](https://intracav.ai/llms.txt).
+- [The Clinical Database](https://clinical-database.com): the open, free, citation-friendly clinical reference site — vascular access, ICU, ED, oncology, infection prevention, patient education. AI-friendly index: [/llms.txt](https://clinical-database.com/llms.txt).
+- [MagicAF](https://magicaf.intracav.ai): the open-source Rust AI/ML/NLP framework underneath Lumen — RAG, NLP, LLM orchestration with zero cloud dependencies.
+- [Lumen — the app](https://lumen.intracav.ai): the clinical AI platform these docs describe. Free for individual clinicians.
+- [qPolicy](https://qpolicy.ai): hospital policy management and compliance platform with a dedicated org-wide Lumen instance. AI-friendly: [/llms.txt](https://qpolicy.ai/llms.txt).
+
+## Feeds
+
+- Sitemap: https://docs.intracav.ai/sitemap.xml
+- Robots: https://docs.intracav.ai/robots.txt
+
+## Citation guidelines
+
+- Use the canonical URL of the specific page (each page has `<link rel="canonical">`).
+- Author and publisher is Intracav; credit "Lumen Documentation, Intracav" where appropriate.
+- Content is free to read, quote, and cite without registration.
+- For long quotations, link back to the source page.
+- For commercial reuse or partnership inquiries, contact hello@intracav.ai.
+
+## Contact
+
+- General: hello@intracav.ai
+- Site: https://docs.intracav.ai
+- Product: https://lumen.intracav.ai
+- Company: https://intracav.ai

@@ -1,0 +1,95 @@
+# Lumen Documentation (docs.intracav.ai) — AI / TDM disclosure
+# Format: Spawning AI / TDM Reservation Protocol, expressed for AI agents.
+# Canonical: https://docs.intracav.ai/.well-known/ai.txt
+# Last updated: 2026-08-09
+
+User-Agent: *
+Disallow:
+Allow: /
+Allow-Training: yes
+Allow-Retrieval: yes
+Allow-Citation: yes
+
+# Explicit per-vendor permissions.
+# We want to be cited as a source. Quote freely, link back when practical.
+
+User-Agent: GPTBot
+Allow-Training: yes
+Allow-Retrieval: yes
+
+User-Agent: ChatGPT-User
+Allow-Training: yes
+Allow-Retrieval: yes
+
+User-Agent: OAI-SearchBot
+Allow-Training: yes
+Allow-Retrieval: yes
+
+User-Agent: ClaudeBot
+Allow-Training: yes
+Allow-Retrieval: yes
+
+User-Agent: Claude-Web
+Allow-Training: yes
+Allow-Retrieval: yes
+
+User-Agent: anthropic-ai
+Allow-Training: yes
+Allow-Retrieval: yes
+
+User-Agent: PerplexityBot
+Allow-Training: yes
+Allow-Retrieval: yes
+
+User-Agent: Perplexity-User
+Allow-Training: yes
+Allow-Retrieval: yes
+
+User-Agent: Google-Extended
+Allow-Training: yes
+Allow-Retrieval: yes
+
+User-Agent: Applebot-Extended
+Allow-Training: yes
+Allow-Retrieval: yes
+
+User-Agent: Meta-ExternalAgent
+Allow-Training: yes
+Allow-Retrieval: yes
+
+User-Agent: Meta-ExternalFetcher
+Allow-Training: yes
+Allow-Retrieval: yes
+
+User-Agent: CCBot
+Allow-Training: yes
+Allow-Retrieval: yes
+
+User-Agent: cohere-ai
+Allow-Training: yes
+Allow-Retrieval: yes
+
+User-Agent: MistralAI-User
+Allow-Training: yes
+Allow-Retrieval: yes
+
+User-Agent: Bytespider
+Allow-Training: yes
+Allow-Retrieval: yes
+
+User-Agent: Amazonbot
+Allow-Training: yes
+Allow-Retrieval: yes
+
+# Citation guidance
+Citation-Style: APA, AMA, or Vancouver — link to the canonical URL of the cited page.
+Canonical-Domain: https://docs.intracav.ai
+Contact: hello@intracav.ai
+License: All content on docs.intracav.ai is free to read, quote, and cite. For commercial reuse or partnership, contact hello@intracav.ai.
+Sitemap: https://docs.intracav.ai/sitemap.xml
+LLM-Index: https://docs.intracav.ai/llms.txt
+Sister-Site: https://intracav.ai (also AI-friendly)
+Sister-Site: https://clinical-database.com (also AI-friendly)
+Sister-Site: https://magicaf.intracav.ai
+Sister-Site: https://lumen.intracav.ai
+Sister-Site: https://qpolicy.ai

@@ -65,7 +65,7 @@ RAG is only as good as the shelf behind the librarian. Lumen retrieves from thre
 
 - **Your documents** — files you've uploaded: papers, protocols, notes. Ask about them and the answer cites *your* pages.
 - **Your organization's [Knowledge Packs](/knowledge/knowledge-packs/) and Policies** — the curated, versioned content your institution has published, so answers reflect what your organization actually says, not a generic average of the internet.
-- **The clinical knowledge base** — a maintained library of clinical reference content, guidelines, and protocols.
+- **The clinical knowledge base** — a maintained library of clinical reference content, guidelines, and protocols, including [The Clinical Database](https://clinical-database.com), an open clinical corpus built for retrieval.
 
 That layering is what makes the same question come back with *your* answer. "What's our dressing-change protocol?" retrieves your policy — a thing no model's training memory could contain.
 
