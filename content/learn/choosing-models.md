@@ -1,97 +1,91 @@
 ---
-title: "Fast vs. Deep: Choosing the Right AI Model"
-description: "Which AI model should you use? What actually differs between fast and deep models, when the default is fine, and when switching up pays off."
+title: "AI models: fast, deep and what Lumen uses"
+navTitle: "Choosing models"
+description: "What actually differs between AI models, why tools matter more than model size for factual questions, and how Lumen selects its model by plan."
+lead: "You don't send every sore throat to a tertiary center. AI models are similar: different sizes suit different work. In Lumen, the model is chosen for you by plan."
 weight: 11
-keywords: ["which AI model should I use", "fast vs deep AI models", "AI model comparison for clinicians", "when to use a reasoning model"]
+icon: sliders
+keywords: ["which AI model should I use", "fast vs deep AI models", "AI model comparison for clinicians"]
+glance:
+  what: "An AI model is the language engine underneath an assistant. Models differ in speed, depth of reasoning and cost. Lumen selects the model by plan; you don't pick one."
+  who: "Clinicians, buyers and IT or informatics leads comparing AI tools."
+  why: "To understand what a bigger model does and doesn't buy you, and what to ask any vendor about models."
+  needs: "Nothing. About 4 minutes to read."
+  result: "A realistic picture of how models affect answers, and an honest account of how Lumen handles them."
 ---
 
-You don't send every sore throat to a tertiary referral center. Not because the referral center is bad at sore throats — it would handle them beautifully — but because the visit costs more, takes longer, and buys nothing the walk-in clinic wouldn't have delivered. Triage isn't about ranking institutions from worst to best. It's about matching the case to the resource.
+You don't send every sore throat to a tertiary referral center. Not because the referral center is bad at sore throats, but because it's slower, costs more and adds nothing the walk-in clinic wouldn't. Triage is about matching the case to the resource. AI models raise a similar question. An **AI model** (more precisely, a *large language model*) is the language engine underneath an AI assistant. Some are built to be fast, some to reason more deeply. The surprise for most clinicians is how little the model's size matters for factual questions, once the assistant uses real tools.
 
-Choosing an AI model is the same decision. Lumen offers more than one model, and the honest way to think about them is not "weaker versus smarter" but **fast versus deep** — a walk-in clinic and a referral center, both competent, tuned for different cases. This page is about doing that triage well.
+## What differs between models
 
-## What actually differs between models
+Models differ on three measurable things:
 
-Strip away the mystique and models differ on three measurable axes:
+- **Speed.** A smaller model starts answering almost at once. A larger one may take longer, especially when it reasons first.
+- **Depth of reasoning.** Larger models can hold more of a complex problem in view and check their own logic more thoroughly. See [Extended thinking](/learn/extended-thinking/).
+- **Cost to run.** Larger models use far more computing power per answer, which is why AI products tie them to higher plans.
 
-- **Speed.** A fast model starts answering almost immediately. A deep model may spend seconds — sometimes tens of seconds — reasoning before the first word appears.
-- **Depth of reasoning.** Deep models sustain longer chains of reasoning before committing to an answer: more variables held in play at once, more self-checking, more room for the [extended thinking](/learn/extended-thinking/) that hard problems reward. Fast models reason too — just with less headroom before they need to conclude.
-- **Cost to run.** Deep models consume far more computation per answer. That's not your bill to think about in the moment, but it *is* why every AI product ties its deepest models to higher plans — and why "run the biggest model for everything" is nobody's actual workflow.
+"Intelligence" as a single number isn't on the list. A smaller model isn't a larger one with judgment shaved off. They're different trade-offs.
 
-Notice what's not on the list: "intelligence" as some single magic quantity. A fast model isn't a deep model with points shaved off its judgment. They're different trade-offs on the same curve, the way a walk-in clinic isn't a defective hospital.
+## How it works: tools carry the facts
 
-<div class="compare-grid">
-  <div class="compare-card tint-blue" style="border-top-color: var(--smoky-blue);">
-    <h3>&#9889; Fast model</h3>
-    <div class="compare-subtitle">The walk-in clinic — right for most visits</div>
-    <ul class="compare-list">
-      <li><span class="compare-check" style="color: var(--smoky-blue);">&#8226;</span> Answers start immediately</li>
-      <li><span class="compare-check" style="color: var(--smoky-blue);">&#8226;</span> Lookups, single-topic questions, everyday drafting</li>
-      <li><span class="compare-check" style="color: var(--smoky-blue);">&#8226;</span> Tools supply the facts; the model orchestrates</li>
-      <li><span class="compare-check" style="color: var(--smoky-blue);">&#8226;</span> Cheap enough to use all day</li>
-    </ul>
-  </div>
-  <div class="compare-card tint-accent" style="border-top-color: var(--palace-green);">
-    <h3>&#129504; Deep model</h3>
-    <div class="compare-subtitle">The referral center — for the cases that earn it</div>
-    <ul class="compare-list">
-      <li><span class="compare-check" style="color: var(--palace-green);">&#10003;</span> Sustained multi-step reasoning before answering</li>
-      <li><span class="compare-check" style="color: var(--palace-green);">&#10003;</span> Complex differentials, competing risks, long documents</li>
-      <li><span class="compare-check" style="color: var(--palace-green);">&#10003;</span> Deeper extended-thinking budget</li>
-      <li><span class="compare-check" style="color: var(--palace-green);">&#10003;</span> Slower and costlier — worth it selectively</li>
-    </ul>
-  </div>
-</div>
+{{< flow >}}
+{{< flow-node kicker="Model" title="Decides what to look up" icon="brain" tint="blue" >}}Recognizes the question and picks tools.{{< /flow-node >}}
+{{< flow-node kicker="Tools" title="Supply the facts" icon="search" tint="plum" >}}Databases, labels, calculators, your documents.{{< /flow-node >}}
+{{< flow-node kicker="Model" title="Explains the result" icon="message" tint="green" >}}Turns the facts into a clear answer.{{< /flow-node >}}
+{{< /flow >}}
 
-## The default is fine for most questions
+In a well-built assistant, the facts behind a dosing, interaction or coding answer come from [tools](/learn/tool-use/) and [retrieved sources](/learn/rag-and-citations/), not from the model's memory. The model's job is to recognize what to look up, run the right tool and explain what came back. So for factual questions, **a model with good tools beats a bigger model guessing**. A large model reciting a dose threshold from memory is an attending quoting from memory; a smaller model calling the reference is a colleague with the formulary open. You want the second.
 
-Here's the part that saves you from decision fatigue: **you usually don't need to choose.** Your plan's default model handles the large majority of clinical questions well, for a reason that's easy to miss if you think of the model as doing all the work.
+Model depth matters more when the reasoning itself is the hard part: weighing competing risks, pulling together long documents, or writing that has to persuade.
 
-It isn't. In Lumen, the factual heavy lifting — drug interactions, code lookups, guideline retrieval, calculations, current literature — is done by [tools](/learn/tool-use/), not by the model's memory. The model's job on those questions is to recognize what to look up, run the right tool, and summarize what came back. That's an orchestration task, and fast models orchestrate well.
+## How Lumen does it
 
-This inverts the intuition that "harder question → bigger model." **A fast model with good tools beats a slow model guessing.** A deep model answering a dosing question from its own recollection is a referral-center attending reciting a threshold from memory; a fast model calling the actual reference is a clinic doc with the formulary open. You want the second one. For factual questions, the trustworthiness lives in the lookup, not in the model's size.
+- **The model is selected by your plan.** You don't choose a model, and there's no model picker in the app. Lumen's team plans (Plus and Max) currently use a larger model than the individual plans (Free and Pro).
+- **One model per plan, not a router.** Lumen doesn't switch between models or AI vendors question by question.
+- **The same tools on every paid plan.** Pro, Plus and Max have the same tools. The difference between them is usage limits and team features, not which lookups you can run. Free has fewer tools.
+- **Reasoning on every plan.** Lumen's model reasons before it answers on every plan, and shows you that reasoning behind the **Thought for** line.
+- **Grounding doesn't change by plan.** Citations, citation checks and the **Lumen Evidence** pill work the same way on every plan.
 
-## When to switch up
+See [Plans](/plans/) for what each plan includes, and [intracav.ai](https://intracav.ai) for pricing.
 
-Some questions really do earn the referral. Switch to a deeper model when the *reasoning itself* is the hard part — when no single lookup settles it:
+{{< chat-demo title="A lookup question" caption="Illustration. For factual questions, the answer rests on the tool and the source, whichever plan you're on." >}}
+{{< user >}}Renal dose adjustment for cefepime at a CrCl of 25?{{< /user >}}
+{{< lumen thought="3" tools="Renal dosing, Drug label, Clinical guidelines" sources="2" evidence="true" >}}
+Cefepime needs a dose reduction at a CrCl of 25 mL/min; the label gives the adjusted regimen by indication {{< cite 1 >}}. Check the label table for your indication and watch for neurotoxicity in kidney impairment {{< cite 2 >}}.
 
-- **Complex reasoning under competing risks.** Anticoagulation with a bleeding history; chemotherapy timing around surgery; anything where the answer is a weighing, not a fact. Deep models hold more of the problem in view at once and spend more [thinking time](/learn/extended-thinking/) checking their own logic.
-- **Long documents.** Synthesizing a 60-page guideline against your local protocol, or reconciling three specialists' notes into one coherent picture, rewards a model with the depth to track detail across the whole text rather than summarizing the first impression.
-- **Nuanced writing.** An appeal letter that has to persuade a medical director, a committee summary where tone and precision both matter — writing quality is one place where deeper models are visibly better, because the "reasoning" is in every sentence.
+Open the label to confirm the exact regimen before ordering.
+{{< /lumen >}}
+{{< /chat-demo >}}
 
-The tell, in practice: if you find yourself writing a long, careful prompt with multiple considerations, you've already triaged the question as complex. Match the model to the effort you just put in.
+## What this means for you
 
-## When fast is right
+- **You don't need to choose.** Ask your question; Lumen uses your plan's model.
+- **Judge answers by their sources, not the model.** The citations and tool chips tell you how an answer was built.
+- **For hard reasoning, give more context.** Spelling out the trade-offs helps any model reason better. See [Prompting for clinicians](/learn/prompting-for-clinicians/).
+- **When comparing vendors, ask the right questions.** Which model is used on which plan? Do facts come from tools and sources or from memory? Are citations checked? Those answers matter more than a model's name.
 
-Choose fast — that is, happily stay on the default — when the question has a findable answer:
+## Limits and safety
 
-- "Renal dosing for cefepime at a CrCl of 25?"
-- "Is there an interaction between apixaban and diltiazem?"
-- "What does the current guideline say about first-line therapy here?"
+- **No model is always right.** Larger models reason better on hard problems, and they still make mistakes.
+- **Models change.** The model behind each plan can be updated over time. Lumen's grounding and checks stay in place when it does.
+- **Speed varies.** Busy periods and long reasoning can slow answers on any plan.
 
-Each of these resolves to a lookup Lumen's tools perform identically regardless of which model asked. Waiting twenty extra seconds for a deep model buys you a more elaborately worded copy of the same retrieved fact. Fast is not the budget option here; it's the *correct* option — the sore throat seen promptly at the clinic instead of impressively at the referral center.
-
-## What your plan includes
-
-Model lineup scales with plan: Free includes **DeepSeek V4 Flash**; Pro adds **DeepSeek V4 Pro**; Plus and Max add **Claude Sonnet 5** and **Claude Opus 4.8**, the deepest models in the lineup. The full table — and how to switch using the model picker in chat — lives on [Choosing a Model in Lumen](/chat/models/), and plan details are on [Plans](/plans/).
-
-{{< callout type="success" >}}
-**See it in Lumen:** open the model picker in any chat to see your plan's lineup — the walkthrough is at [Choosing a Model in Lumen](/chat/models/). Then give a deep model a case that deserves it: [build a differential](/getting-started/differential/) and watch the thinking block earn its seconds.
+{{< callout type="safety" title="Whatever the model, check the sources" >}}
+Open the citations before acting on an answer. Lumen supports clinical judgment; it doesn't replace it.
 {{< /callout >}}
 
-## Frequently asked questions
+## FAQ
 
-{{< faq question="Which AI model should I use for everyday clinical questions?" >}}
-Your plan's default. Everyday questions — dosing, interactions, guideline lookups, quick drafts — are resolved by Lumen's tools, and a fast model directs those lookups just as well as a deep one while responding sooner. Save the deep models for questions where the reasoning, not the retrieval, is the hard part.
+{{< faq question="Can I pick a different model?" >}}
+No. Lumen selects the model by plan. There's no model picker.
+{{< /faq >}}
+{{< faq question="Is a bigger model more accurate?" >}}
+On reasoning-heavy problems, usually somewhat. On factual lookups, accuracy comes from the tool and the source, which don't change with the model. Judge any answer by its citations.
+{{< /faq >}}
+{{< faq question="Does Lumen send my question to several AI companies?" >}}
+No. Lumen doesn't route questions between AI vendors. Each plan uses one model.
 {{< /faq >}}
 
-{{< faq question="Is a deeper model more accurate?" >}}
-On reasoning-heavy problems, deeper models genuinely do better — more of the problem held in view, more self-checking before committing. On factual lookups, accuracy comes from the tool call and the retrieved source, which don't change with the model. That's why the fast-model-plus-tools combination is so strong, and why you should judge any answer by its citations rather than by which model produced it.
-{{< /faq >}}
+## Next steps
 
-{{< faq question="Can I switch models in the middle of a conversation?" >}}
-Yes — pick a different model from the model picker and it applies from your next message. This fits how real threads evolve: a conversation that starts as a quick lookup and grows into a management question can graduate to a deeper model without starting over. See [Choosing a Model in Lumen](/chat/models/).
-{{< /faq >}}
-
----
-
-Next up: the reason fast models punch above their weight — [how AI uses tools instead of guessing](/learn/tool-use/).
+{{< related "/chat/models/" "/plans/" "/learn/tool-use/" "/learn/extended-thinking/" >}}

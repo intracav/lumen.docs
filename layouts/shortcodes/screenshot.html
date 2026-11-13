@@ -1,0 +1,36 @@
+{{- /*
+Real product capture, theme-aware.
+{{< screenshot src="chat-cited-answer" alt="…" caption="…" url="lumen.intracav.ai/chat" phone=false >}}
+optional fallback mockup (shown until the capture exists)
+{{< /screenshot >}}
+Looks for static/img/screens/<src>-light.(webp|png) and -dark.(webp|png); phone=true uses -mobile.
+*/ -}}
+{{- $src := .Get "src" -}}
+{{- $phone := eq (printf "%v" (.Get "phone")) "true" -}}
+{{- $alt := .Get "alt" | default (.Get "caption") -}}
+{{- $base := printf "img/screens/%s" $src -}}
+{{- $find := dict -}}
+{{- range $variant := (cond $phone (slice "mobile" "mobile-dark") (slice "light" "dark")) -}}
+{{- range $ext := slice "webp" "png" "jpg" -}}
+{{- $f := printf "%s-%s.%s" $base $variant $ext -}}
+{{- if and (fileExists (printf "static/%s" $f)) (not (index $find $variant)) }}{{ $find = merge $find (dict $variant (printf "/%s" $f)) }}{{ end -}}
+{{- end -}}
+{{- end -}}
+{{- $light := index $find (cond $phone "mobile" "light") -}}
+{{- $dark := index $find (cond $phone "mobile-dark" "dark") -}}
+{{- if $light }}
+<figure class="shot{{ if $dark }} has-dark{{ end }}{{ if $phone }} phone{{ end }}">
+<div class="shot-frame{{ if and (not $phone) (ne (.Get "frame") "none") }} browser{{ end }}">
+{{- if and (not $phone) (ne (.Get "frame") "none") }}
+<div class="shot-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">{{ partial "icon.html" "lock" }}{{ .Get "url" | default "lumen.intracav.ai" }}</span></div>
+{{- end }}
+<img class="shot-light" src="{{ $light }}" alt="{{ $alt }}" loading="lazy" decoding="async">
+{{- with $dark }}<img class="shot-dark" src="{{ . }}" alt="{{ $alt }}" loading="lazy" decoding="async">{{ end }}
+</div>
+{{ with .Get "caption" }}<figcaption>{{ partial "icon.html" "image" }}<span>{{ . | markdownify }}</span></figcaption>{{ end }}
+</figure>
+{{- else if .Inner }}
+{{ .Inner }}
+{{- else }}
+{{- warnf "screenshot: no capture for %q yet (%s)" $src .Page.File.Path -}}
+{{- end }}

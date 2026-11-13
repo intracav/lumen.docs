@@ -1,0 +1,12 @@
+{{- /* {{< related "/chat/sources/" "/tools/" >}} — link rows built from the pages themselves. */ -}}
+<div class="link-rows">
+{{- range .Params }}
+{{- with site.GetPage . }}
+<a class="link-row" href="{{ .RelPermalink }}">
+{{ partial "icon.html" (.Params.icon | default "file-text") }}
+<span class="lr-text"><span class="lr-title">{{ .Params.navTitle | default .Title }}</span><span class="lr-desc">{{ with .Description }}{{ . }}{{ end }}</span></span>
+<span class="lr-go">{{ partial "icon.html" "chevron-right" }}</span>
+</a>
+{{- else }}{{ errorf "related: page %q not found (in %s)" . $.Page.File.Path }}{{ end }}
+{{- end }}
+</div>

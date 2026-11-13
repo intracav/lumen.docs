@@ -1,93 +1,93 @@
 ---
-title: "Creating Documents"
-description: "Ask Lumen to draft a PDF report, build a slide deck, create a spreadsheet, or write a quiz — and download it immediately."
+title: "Create documents, slides and spreadsheets"
+navTitle: "Documents and files"
+description: "Ask Lumen for a PDF, Word document, PowerPoint deck, Excel workbook, interactive HTML page or quiz. It builds the file and you can download it."
+lead: "Describe the document you need. Lumen writes it, builds the file, and opens it beside the chat so you can review, edit and download it."
 weight: 8
+icon: file-text
+keywords: ["AI PDF generator", "AI PowerPoint clinical", "AI Excel workbook", "patient handout generator", "clinical quiz generator"]
+glance:
+  what: "Built-in tools that turn Lumen's work into files: PDF, Word, PowerPoint, Excel, interactive HTML pages, editable documents and quizzes."
+  who: "Clinicians, educators, managers and anyone who needs a finished document, not only an answer."
+  why: "To go from a question to a handout, slide deck or tracker you can share, in one conversation."
+  needs: "A Lumen account on any plan. About 1 to 3 minutes per file."
+  result: "A file card in the chat that opens in a side panel and downloads in its own format."
 ---
 
-Need slides for grand rounds by tomorrow? A patient education handout? A spreadsheet tracking your department's metrics? Just tell Lumen what you need, and it creates a professional, ready-to-edit document you can download right away.
+Sometimes an answer isn't enough: you need slides for grand rounds, a handout, or a spreadsheet to track a unit's numbers. Ask for the file and Lumen creates it as an *artifact*, a file attached to the chat that you can open, change and download. You can ask for changes in plain words, and Lumen edits the existing file instead of starting again.
 
-## Available Tools
+## Before you start
 
-<div class="tool-grid">
+- Document tools work on every plan.
+- Have the content or the source ready: paste notes, attach a document, or ask Lumen to research the topic first.
+- Say who the document is for and how long it should be.
 
-{{< tool-card name="PDF Creation" icon="&#128196;" color="var(--accent)" desc="Generates formatted PDF documents — patient summaries, protocol references, research summaries, and more. Download directly from the artifact panel." example="\"Create a PDF summary of our discussion about this patient's treatment plan\"" badge="Documents" >}}
+## The tools
 
-{{< tool-card name="Word Documents (DOCX)" icon="&#128209;" color="var(--smoky-blue)" desc="Generates Word documents you can keep editing in Microsoft Word or Google Docs — letters, policies, handouts, and reports." example="\"Draft a prior authorization appeal letter as a Word document\"" badge="Documents" >}}
+| Tool (as shown in Explore) | What it makes | When finished, the chip reads |
+|---|---|---|
+| **Generate PDF** | A styled, multi-page PDF. | **PDF ready** |
+| Word document | A styled Word (.docx) file. | **Word document ready** |
+| **Create Presentation** | A PowerPoint deck with headings, bullets and speaker notes. | **Presentation ready** |
+| **Create Spreadsheet** | An Excel workbook for schedules, quality reports and tracking. | **Spreadsheet ready** |
+| **Interactive Dashboard** | A self-contained HTML page with charts, tables or calculators, shown in the app. | **HTML artifact ready** |
+| Editable document | A living document, such as a memo or handout, that you and Lumen keep editing. | **Document ready** |
+| **Generate a Quiz** | Multiple-choice questions with answer explanations. | **Quiz ready** |
 
-{{< tool-card name="Living Documents" icon="&#128221;" color="var(--palace-green)" desc="Creates an editable prose document that lives in the conversation — Lumen can then revise individual paragraphs on request instead of regenerating the whole file. Export to PDF or DOCX when it's ready." example="\"Start a draft of our new sepsis escalation policy we can refine together\"" badge="Editable" >}}
+Lumen can also change a file it already made, such as editing one slide, a few cells or a paragraph. The chip then reads, for example, **Presentation updated**.
 
-{{< tool-card name="Presentations (PPTX)" icon="&#128202;" color="#D69E2E" desc="Builds PowerPoint slide decks with professional formatting. Great for grand rounds, patient education, and team presentations." example="\"Create a 10-slide presentation on the latest sepsis management guidelines for our grand rounds\"" badge="Documents" >}}
+## How to create a document
 
-{{< tool-card name="Spreadsheets (Excel)" icon="&#128203;" color="#217346" desc="Generates Excel workbooks with formatted data tables, calculations, and organized sheets. Useful for tracking, reporting, and data organization." example="\"Create a spreadsheet tracking our department's antibiotic stewardship metrics\"" badge="Documents" >}}
+{{< steps >}}
+{{< step title="Ask for the file" >}}For example: "Make a one-page PDF handout for a patient starting metformin, at a 6th-grade reading level."{{< /step >}}
+{{< step title="Open it" >}}When the file is ready, a card appears in the answer. Click it to open the file in the side panel.{{< /step >}}
+{{< step title="Ask for changes" >}}Type what to change: "Shorter", "Add a section on low blood sugar", "Use our unit name, Harbor Valley Med-Surg".{{< /step >}}
+{{< step title="Check and download" >}}Read the whole file, check every clinical statement against its source, then download it.{{< /step >}}
+{{< /steps >}}
 
-{{< tool-card name="Interactive HTML" icon="&#127760;" color="var(--smoky-blue)" desc="Creates self-contained interactive HTML documents — calculators, decision trees, patient education materials with interactive elements." example="\"Build an interactive patient education page about diabetes self-management\"" badge="Interactive" >}}
+To browse these tools with examples, open {{< ui-path "Explore" "Built-in tools" >}} and choose **Write & make files**.
 
-{{< tool-card name="CME Quiz" icon="&#127891;" color="var(--smoky-blue-dk)" desc="Generates board-style multiple-choice questions with detailed rationales. Perfect for self-study, teaching, and exam preparation." example="\"Create a 5-question quiz on atrial fibrillation management\"" badge="Education" >}}
+## What you'll see
 
-{{< tool-card name="Saved Artifacts" icon="&#128190;" color="var(--palace-green)" desc="Saves substantial deliverables — documents, tables, checklists, interactive views — to your library so they survive the conversation and can be reopened, versioned, and shared." example="\"Save this dosing table to my library so I can find it later\"" badge="Library" >}}
+{{< screenshot src="chat-artifact" alt="A Lumen answer with a PDF file card and the side panel open" caption="Files appear as cards in the chat and open in a side panel." url="lumen.intracav.ai" >}}
+{{< chat-demo title="Metformin handout" caption="Illustration. Always review a handout before giving it to a patient." >}}
+{{< user >}}Make a one-page PDF handout for a patient starting metformin. Plain language.{{< /user >}}
+{{< lumen tools="FDA drug data retrieved, PDF ready" sources="1" >}}
+Here's the handout. It covers how to take metformin with meals, common stomach side effects that often ease after the first few weeks, and when to call the clinic {{< cite 1 >}}.
 
-{{< tool-card name="Scientific Animations & Explainer Videos" icon="&#127916;" color="var(--accent)" desc="Renders scientific animations (Manim) and branded explainer videos (Remotion) — turn a mechanism of action or patient-education script into a short video." example="\"Create a short animation explaining how ACE inhibitors lower blood pressure\"" badge="Pro" >}}
+{{< artifact type="pdf" title="Starting metformin: what to know" sub="PDF · 1 page" >}}
+{{< follow-ups "Translate to Spanish|Add a section on kidney tests|Make the text larger" >}}
+{{< /lumen >}}
+{{< /chat-demo >}}
+{{< /screenshot >}}
 
-</div>
+## Tips
 
-Tools marked **Pro** are available on paid plans — see [Plans](/plans/).
+- **Give the audience.** "For new graduate nurses" and "for a patient's family" produce very different documents.
+- **Start from your own material.** Attach your protocol or notes and ask Lumen to turn them into slides.
+- **Ask for edits, not a rebuild.** Changing one section keeps the rest of the file as it was.
 
-## Presentation Example
+## Limits and safety
 
-<div class="chat-mockup" style="margin: 2rem 0;">
-  <div class="chat-mockup-header">
-    <div class="chat-mockup-avatar">&#10022;</div>
-    <div class="chat-mockup-title">Chat</div>
-  </div>
-  <div class="chat-mockup-body">
-    <div class="chat-msg user">Create a presentation on COPD management guidelines for our nursing staff education session</div>
-    <div class="chat-msg assistant">
-      <div class="msg-avatar"><span>&#10022;</span></div>
-      <div class="msg-content">
-        <div class="mock-tool">
-          <div class="mock-tool-header">
-            <span class="mock-tool-status done"></span>
-            Created presentation
-          </div>
-          <div class="mock-tool-detail">title: "COPD Management Guidelines" &middot; 8 slides</div>
-        </div>
-        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--dark-text);">
-          I've created an 8-slide presentation covering GOLD guidelines, pharmacotherapy stepwise approach, and acute exacerbation management.
-        </p>
-        <div class="mock-artifact chat-extra">
-          <div class="mock-artifact-icon" style="background: rgba(214,158,46,0.15); color: #D69E2E;">&#128202;</div>
-          <div class="mock-artifact-info">
-            <div class="mock-artifact-title">COPD Management Guidelines</div>
-            <div class="mock-artifact-type">PowerPoint &middot; 8 slides</div>
-          </div>
-          <div class="mock-artifact-chevron">&rsaquo;</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-## Tips for Better Documents
-
-{{< tip title="Be specific about format and audience" >}}
-Tell Lumen who the document is for and how it will be used. A patient education handout should look very different from a grand rounds presentation.
-{{< /tip >}}
-
-- **Specify the audience** — "for nursing staff", "for patient education", "for the board meeting"
-- **Set the length** — "a 5-slide presentation", "a 2-page summary"
-- **Define the structure** — "include an introduction, key findings, and recommendations"
-- **Request visuals** — "include tables comparing treatment options"
-
-## Downloading Documents
-
-All generated documents can be downloaded from the artifact panel:
-
-1. Click the **artifact card** to open the side panel
-2. Review the content in the preview
-3. Click the **Download** button at the bottom
-
-Documents are generated in standard formats (PDF, PPTX, XLSX) compatible with all major applications.
-
-{{< callout type="info" >}}
-**Documents are saved with your chat.** You can return to any conversation later and re-download generated documents from the artifact cards.
+{{< callout type="safety" title="You are the author" >}}
+Lumen drafts the document; you are responsible for what it says. Check every clinical statement against its source and your organization's policies before you share it. Have patient handouts reviewed under your usual process.
 {{< /callout >}}
+
+- Lumen measures reading level only when the Patient Education specialist makes a handout. A plain request for "simple language" isn't measured.
+- Files use Lumen's built-in design.
+
+## FAQ
+
+{{< faq question="Which formats can I download?" >}}
+PDF, Word (.docx), PowerPoint (.pptx), Excel (.xlsx) and HTML.
+{{< /faq >}}
+{{< faq question="Where are my files kept?" >}}
+In the chat where they were made. Open the chat again to find them. See [Reports and files](/chat/artifacts/).
+{{< /faq >}}
+{{< faq question="Can Lumen email the document?" >}}
+On Pro and above, Lumen can send an email, but it waits for your approval and sends exactly what you approved. See [Approvals](/skills-and-specialists/approvals/).
+{{< /faq >}}
+
+## Next steps
+
+{{< related "/chat/artifacts/" "/guides/patient-handout/" "/guides/grand-rounds-slides/" "/skills-and-specialists/skills/" >}}

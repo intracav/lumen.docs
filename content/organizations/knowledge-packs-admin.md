@@ -1,58 +1,96 @@
 ---
-title: "Managing Knowledge Packs for Your Org"
-description: "How org admins build Knowledge Packs in Lumen: PDF upload, URL and whole-site ingest, YouTube transcription, publishing, visibility, and usage insights."
-lead: "Your protocols become the cited answer — not a binder nobody opens."
-weight: 2
-keywords: ["hospital knowledge management AI", "clinical protocol AI", "organization knowledge base"]
+title: "Manage Knowledge Packs for your organization"
+navTitle: "Knowledge Packs"
+description: "How hospital admins build Knowledge Packs from protocols and references, choose which departments answer from them, and see whether staff use them."
+lead: "Turn the protocols your staff already rely on into sources Lumen cites, and decide exactly which units answer from each one."
+weight: 3
+icon: library
+status: admin
+who: "team owners and admins"
+glance:
+  what: "A Knowledge Pack is a named collection of your documents, such as protocols, references and education material, that Lumen can search and cite. Admins create packs and choose who answers from them."
+  who: "Admins who own clinical content: nursing education, clinical informatics, department leads."
+  why: "When a nurse asks about your flush protocol, the answer cites your protocol, not a general source, and you control which units see which content."
+  needs: "A Lumen team on Plus or Max, the owner or admin role, and your documents as files or web pages. About 20 minutes for a first pack."
+  result: "A pack of your documents that the right departments answer from, and a view of how it's used."
 ---
 
-Every hospital has the binder: the protocols someone spent months writing, stored somewhere between a shared drive and institutional memory. A Knowledge Pack is how that content becomes what your team actually sees — when a member asks a question your protocol answers, the response cites *your document*, by name, with a link back to the source.
+Every hospital has protocols that took months to write and are hard to find at 3 a.m. A **Knowledge Pack** is a named collection of documents that Lumen searches when it answers. When an answer uses one of your documents, it cites it by name, so staff can open the source and check it. Admins decide which departments answer from each pack, and Lumen shows you what would change before you switch one off. Lumen calls your organization a *team*.
 
-This page is the admin's guide. For what members experience, see [Knowledge Packs](/knowledge/knowledge-packs/).
+## Before you start
 
-## Creating an org pack
+- **Role:** owner or admin.
+- **Plan:** Plus or Max.
+- **Have ready:** the documents (PDF, Word and similar) or the web addresses of pages you want included. Start with the five or ten documents staff ask about most.
 
-Org admins create packs from the organization's knowledge admin area. A pack is just a named, governed container — "Vascular Access Protocols," "Pharmacy References," "New Hire Orientation." Create it once, then feed it through any of the ingest paths below. Content is retrievable by your members in chat as soon as it's indexed.
+## How to create a pack and add documents
 
-## Five ways to get content in
+{{< steps >}}
+{{< step title="Open Sources" >}}In the Admin console, click {{< ui-path "Knowledge" "Sources" >}}.{{< /step >}}
+{{< step title="Create the pack" >}}Click **New pack**, name it, for example *Vascular Access Protocols*, and click **Create**.{{< /step >}}
+{{< step title="Add documents" >}}Drop files onto the pack, or open its **Add** menu and choose **Upload files**. To add a web page, choose **Add page URL** and paste the full address. To add recorded education, choose **Add YouTube videos** and paste a video, playlist or channel link; Lumen adds the transcripts.{{< /step >}}
+{{< step title="Wait for processing" >}}Each document shows its state: **Processing**, then searchable. Page URLs usually take under a minute. If a file shows **Couldn't process**, it may be a scan with no readable text; replace it with a text version.{{< /step >}}
+{{< step title="Choose who answers from it" >}}Open the pack's **Manage** menu. Under **Departments**, switch on each department whose members should get answers from this pack, then click **Done**.{{< /step >}}
+{{< /steps >}}
 
-**Upload files.** The workhorse. Drop in PDFs (and other documents) directly — batch uploads are supported, so the forty-protocol backlog is one session, not forty.
-
-**Add a single URL.** Point Lumen at a page — an intranet protocol page, a society statement — and it's fetched, extracted, and indexed on the spot. If the page changes later, refresh the document to re-index it; fetch failures come back as clear errors, not silent gaps.
-
-**Crawl a whole site.** For a site's worth of content — a guideline library, a departmental microsite — Lumen can crawl the site and stage every page in a **review queue**. Nothing goes live until a human approves it: you see each page, quality flags (thin content, extraction problems, duplicates), and approve or reject individually or in bulk. What your members end up citing is exactly what a reviewer saw and approved.
-
-**Ingest YouTube.** Give Lumen a video, playlist, or channel URL. It discovers every video behind the link, transcribes them automatically in the background, and adds the transcripts as pack documents. The in-service your educator recorded three years ago becomes searchable, citable knowledge.
-
-**Publish from your library.** A document that already lives in your Lumen library can be published into a pack directly — no re-upload. If the pack also feeds your public [Website Bot](/organizations/website-bots/), Lumen asks you to confirm before anything becomes publicly answerable. Publishing to the public web should never happen by accident.
-
-## Versions, refresh, and retraction
-
-Pack citations are version-stamped: a member always sees which document, and which version of it, an answer came from. When a source page or document changes, refreshing it re-indexes the new content — and when a document is retracted, it disappears from retrieval within minutes, with a banner over past answers that cited it. The failure mode of paper — someone quoting the 2022 protocol in 2026 — is structurally closed.
-
-## Entitled packs: curated and partner content
-
-Beyond the packs you build, your organization can be entitled to **curated clinical packs** (recognized guideline libraries that ship with Lumen) and **partner packs** (manufacturer documentation licensed to your org). Admins review and accept the terms for entitled packs, then control whether they're active for the organization; members keep a per-pack toggle on their side. The layering — org grants, member preference, per-chat override — is described in [Knowledge Packs](/knowledge/knowledge-packs/).
-
-## Per-pack visibility
-
-Your packs default to **organization-only**: your members, nobody else. A pack can also be submitted for publication review if you want its content available beyond your org — it stays private until explicitly approved, and even then other organizations must opt in. Nothing you upload becomes public as a side effect.
-
-## Usage insights
-
-The admin view answers the question every knowledge manager eventually asks: *is anyone using this?*
-
-- **Per pack** — which packs are actually being cited in members' answers, and how often.
-- **Per member** — who is drawing on shared knowledge and who isn't (useful for onboarding follow-up, not surveillance — you see engagement, not transcripts).
-
-If the sepsis pack gets cited daily and the orientation pack never does, you've learned something about your content — before an audit or an adverse event teaches you the hard way.
-
-{{< callout type="success" >}}
-**The payoff, concretely:** a nurse asks about flushing protocol for a midline. Without a pack, she gets a well-cited general answer. With your pack, she gets *your institution's* answer, citing *your* protocol, current version — the same answer her educator would give, available at 3 a.m.
+{{< callout type="warning" title="Website assistants are public" >}}
+The same **Manage** screen lists **Website assistants**. A website assistant answers anyone on the internet, so adding a pack there makes its documents quotable to the public. Lumen asks you to confirm with **Publish** before it does this. Keep internal protocols off public assistants.
 {{< /callout >}}
+
+## What you'll see
+
+{{< screenshot src="knowledge-packs" alt="The Knowledge Sources page with a team pack, its documents and its department access" caption="Knowledge Sources: your packs, licensed packs your team can switch on, and who each pack is used by." url="lumen.intracav.ai/org/harbor-valley/admin/knowledge/sources" >}}
+{{< lui-block title="Knowledge sources" >}}
+{{< lui-block title="Vascular Access Protocols" sub="Used by: Vascular Access · ICU · Med-Surg" >}}
+{{< lui-rows >}}
+{{< lui-row title="PICC insertion and maintenance" body="PDF · 14 pages" value="Searchable" >}}
+{{< lui-row title="Midline flushing and locking" body="PDF · 6 pages" value="Searchable" >}}
+{{< lui-row title="CLABSI bundle checklist" body="Web page" value="Processing" >}}
+{{< /lui-rows >}}
+{{< lui-actions "Add" "Manage" >}}
+{{< /lui-block >}}
+{{< lui-block title="Available knowledge" sub="Licensed clinical packs your team can switch on" >}}
+{{< lui-rows >}}
+{{< lui-row title="A licensed clinical pack" value="Needs terms" >}}
+{{< /lui-rows >}}
+{{< /lui-block >}}
+{{< /lui-block >}}
+{{< /screenshot >}}
+
+## The other Knowledge pages
+
+- **Map** shows where your knowledge goes: each pack, your policy library and your always-on guidance, and what answers from each. Open a node to see what depends on it.
+- **Standing knowledge** holds [always-on guidance](/organizations/always-on-guidance/): short facts that shape every answer and are never cited.
+- **Insights** shows **Knowledge coverage** (how many questions were answered from your knowledge), **Gaps worth filling** (the most common topics among questions your packs could not answer) and adoption per person. It shows activity counts only, never what anyone asked.
+- **Share links** creates guest or member links. See [Departments and seats](/organizations/departments-and-seats/).
+
+## Tips
+
+- **Check the impact before you switch a pack off.** When you deactivate a pack, Lumen lists everything that stops answering from it. Its documents are kept, and you can activate it again.
+- **Keep one topic per pack.** Separate packs make it easy to give the ICU its sedation protocols without giving them to Emergency.
+- **Refresh changed web pages.** A page added by URL is read when you add it. Use the document's re-fetch option after the page changes.
+- **Licensed packs.** Under **Available knowledge**, your team may have licensed clinical or partner packs. Those marked **Needs terms** wait for an admin to accept their license terms.
+- **Policies belong in qPolicy.** A pack holds reference material. For governed policy with approvals, versions and attestation, use [qPolicy](/qpolicy/).
+
+## Limits and safety
+
+- Lumen cites what's in your documents. If a protocol is out of date, answers that cite it are out of date too. Remove or replace superseded documents.
+- Uploaded documents don't keep a version history in a pack. Replacing a file replaces what Lumen answers from.
+- A pack you build stays private to your team. Making it available to all Lumen accounts needs a request that Intracav reviews first.
+- Answers support clinical judgment. Staff should open the cited document and follow your policies before acting.
+
+## FAQ
+
+{{< faq question="How quickly can staff use a new document?" >}}
+As soon as it has finished processing. A web page usually takes under a minute; long PDFs take longer.
+{{< /faq >}}
+{{< faq question="Can I see who uses a pack?" >}}
+Yes, as counts. {{< ui-path "Knowledge" "Insights" >}} shows adoption per person and which questions your packs answered. It never shows what anyone asked.
+{{< /faq >}}
+{{< faq question="What's the difference between a pack and always-on guidance?" >}}
+A pack holds documents Lumen searches and cites. Always-on guidance is a short block of facts Lumen keeps in mind for every answer and never cites. Anything staff should be able to check belongs in a pack.
+{{< /faq >}}
 
 ## Next steps
 
-- [Members' view of Knowledge Packs](/knowledge/knowledge-packs/)
-- [Publish governed policy — a stronger guarantee than a pack](/organizations/policies/)
-- [Ground a public website bot in your packs](/organizations/website-bots/)
+{{< related "/organizations/always-on-guidance/" "/knowledge/knowledge-packs/" "/organizations/departments-and-seats/" "/qpolicy/" >}}

@@ -1,4 +1,33 @@
-<div class="chat-msg assistant">
-  <div class="msg-avatar"><span>&#10022;</span></div>
-  <div class="msg-content">{{ .Inner | markdownify }}</div>
+{{- /*
+A Lumen answer. Params (all optional):
+thought="6"           → "Thought for 6s"
+tools="Drug interactions, Renal dosing"   → "Used 2 tools" + chips
+sources="4"           → footer "4 sources" pill
+evidence="true"|"Moderate support"|… → evidence grade pill (Strong / Moderate / Limited support); opens the Lumen Evidence panel
+memory="true"         → memory chip
+actions="false"       → hide footer actions
+*/ -}}
+{{- $tools := slice }}{{ with .Get "tools" }}{{ range split . "," }}{{ $tools = $tools | append (trim . " ") }}{{ end }}{{ end -}}
+<div class="turn-lumen">
+<div class="answer">
+{{- if or (.Get "thought") $tools }}
+<div class="process-strip">
+<span class="spark">✦</span>
+{{- with .Get "thought" }}<span>Thought for {{ . }}s</span>{{ end }}
+{{- if and (.Get "thought") $tools }}<span>·</span>{{ end }}
+{{- if $tools }}<span>Used {{ len $tools }} tool{{ if gt (len $tools) 1 }}s{{ end }}</span>{{ end }}
+{{ partial "icon.html" (dict "name" "chevron-down" "class" "chev") }}
+</div>
+{{- if $tools }}<div class="tool-chips">{{ range $tools }}<span class="tool-chip">{{ partial "icon.html" (dict "name" "check" "class" "ok") }}{{ . }}</span>{{ end }}</div>{{ end }}
+{{- end }}
+{{ .Inner | .Page.RenderString (dict "display" "block") }}
+{{- if ne (printf "%v" (.Get "actions")) "false" }}
+<div class="reply-footer">
+{{- with .Get "sources" }}<span class="hair-pill"><span class="favs"><i></i><i></i><i></i></span>{{ . }} source{{ if ne . "1" }}s{{ end }}</span>{{ end }}
+{{- with .Get "evidence" }}{{ $ev := printf "%v" . }}{{ if ne $ev "false" }}<span class="hair-pill evidence" title="Opens the Lumen Evidence panel">{{ partial "icon.html" "shield-check" }}{{ cond (eq $ev "true") "Strong support" $ev }}</span>{{ end }}{{ end }}
+{{- if eq (printf "%v" (.Get "memory")) "true" }}<span class="hair-pill memory">{{ partial "icon.html" "brain" }}Used memory</span>{{ end }}
+<span class="reply-actions" aria-hidden="true"><span>{{ partial "icon.html" "copy" }}</span><span>{{ partial "icon.html" "refresh" }}</span><span>{{ partial "icon.html" "thumbs-up" }}</span><span>{{ partial "icon.html" "share" }}</span></span>
+</div>
+{{- end }}
+</div>
 </div>

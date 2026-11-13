@@ -14,14 +14,43 @@ disableKinds = ['taxonomy', 'term']
   tagline = 'The Clinical AI Assistant by Intracav'
   ogImage = '/img/og-default.png'
   primaryColor = '#BB5C4D'
-  darkBg = '#161514'
+  darkBg = '#1B1A19'
+  appURL = 'https://lumen.intracav.ai'
+  magicafURL = 'https://magicaf.intracav.ai'
+  # Sidebar groups, in order. Each section's _index.md sets `group` (cascaded
+  # pages inherit nothing from it — the sidebar reads it from the section).
+  [[params.sidebarGroups]]
+    key = 'start'
+    label = 'Start here'
+  [[params.sidebarGroups]]
+    key = 'use'
+    label = 'Use Lumen'
+  [[params.sidebarGroups]]
+    key = 'create'
+    label = 'Teach, research & create'
+  [[params.sidebarGroups]]
+    key = 'org'
+    label = 'For organizations'
+  [[params.sidebarGroups]]
+    key = 'dev'
+    label = 'Developers'
+  [[params.sidebarGroups]]
+    key = 'more'
+    label = 'Reference'
 
 [sitemap]
   changefreq = 'weekly'
   priority = 0.5
 
+[outputFormats]
+  [outputFormats.llms]
+    mediaType = 'text/plain'
+    baseName = 'llms'
+    isPlainText = true
+    notAlternative = true
+
 [outputs]
-  home = ['html', 'rss']
+  home = ['html', 'rss', 'llms']
   section = ['html']
 
 [markup]
@@ -29,14 +58,16 @@ disableKinds = ['taxonomy', 'term']
     [markup.goldmark.renderer]
       unsafe = true
   [markup.highlight]
-    style = 'github'
+    noClasses = false
+  [markup.goldmark.parser.attribute]
+      block = true
   [markup.tableOfContents]
     startLevel = 2
     endLevel = 3
 
 [menu]
   [[menu.main]]
-    name = 'Getting Started'
+    name = 'Get started'
     url = '/getting-started/'
     weight = 1
   [[menu.main]]
@@ -44,18 +75,14 @@ disableKinds = ['taxonomy', 'term']
     url = '/guides/'
     weight = 2
   [[menu.main]]
-    name = 'Learn'
-    url = '/learn/'
-    weight = 3
-  [[menu.main]]
-    name = 'For Organizations'
+    name = 'Organizations'
     url = '/organizations/'
-    weight = 4
+    weight = 3
   [[menu.main]]
     name = 'Developers'
     url = '/developers/'
-    weight = 5
+    weight = 4
   [[menu.main]]
-    name = 'Plans'
-    url = '/plans/'
-    weight = 6
+    name = 'Help'
+    url = '/help/'
+    weight = 5

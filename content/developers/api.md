@@ -1,56 +1,50 @@
 ---
-title: "Lumen API v1: OpenAI-Compatible Chat, Cited"
-description: "REST reference for Lumen API v1 — OpenAI-compatible chat completions with citations, pure retrieval, feedback, and a public OpenAPI 3.0 schema."
-lead: "Point any OpenAI SDK at Lumen and get answers grounded in your Knowledge Packs — with the citations attached to every response."
+title: "Lumen API v1: cited answers and retrieval"
+navTitle: "API v1"
+description: "REST reference for Lumen API v1: OpenAI-shaped chat completions grounded in your documents with citations, pure retrieval, feedback, keys, scopes and quotas."
+lead: "Send a question, get an answer grounded in your own documents, with the sources attached. Or skip the model and retrieve the cited passages directly."
 weight: 1
+icon: code
+who: "developers and partners"
 keywords: ["lumen api", "openai compatible", "chat completions", "retrieval api", "citations"]
+glance:
+  what: "Lumen API v1 is a REST API that answers questions from the documents behind one of your website assistants, and returns the passages it used, with document titles, links and page numbers."
+  who: "Developers at device makers and partners who want Lumen's cited answers inside their own app, support tool or backend."
+  why: "To reuse the same grounded, cited answering as your website assistant, without the chat window, and to show users where each answer came from."
+  needs: "A website assistant on your team, the owner or admin role to create a secret key, and a server to call from. About 15 minutes to a first call."
+  result: "A working call that returns an answer, its citations, and a request ID you can use for feedback."
 ---
+
+Lumen API v1 gives your own software the answering engine behind a [website assistant](/connect/website-assistant/). Each answer is grounded in that assistant's documents and comes with a `lumen` block listing the passages it used, including the document title, link and page numbers. The request and response follow the OpenAI chat completions shape, so most OpenAI-style clients work with a base-URL change.
+
+## Before you start
+
+- **A website assistant** whose documents you want to answer from. Each key belongs to exactly one assistant and can only read its documents.
+- **A secret key.** In Lumen, open {{< ui-path "Admin console" "Website assistants" >}}, choose the assistant, open **Install & CRM**, then the **API keys** tile. Click **Mint secret key**, give it a **Name (optional)**, choose its **Scopes**, and copy the key. It's shown once.
+- **A server.** Secret keys (`sk_…`) belong on a server, never in a web page or app bundle.
+
+{{< callout type="warning" title="No patient information" >}}
+This API doesn't accept protected health information. Don't send patient-identifying details in `messages` or `query`.
+{{< /callout >}}
+
+## Endpoints
 
 Base URL: `https://api.intracav.ai`
 
-Four endpoints:
-
-| Endpoint | What it does |
-|---|---|
-| `POST /api/v1/chat/completions` | OpenAI-shaped chat completion, grounded in your Knowledge Packs, with a `lumen` citation block |
-| `POST /api/v1/retrieve` | Pure retrieval — cited source chunks, no LLM round-trip |
-| `POST /api/v1/feedback` | Report a rating on a specific answer by `request_id` |
-| `GET /api/v1/openapi.json` | Public OpenAPI 3.0 schema for this surface (no auth) |
-
-## Authentication
-
-Send your secret key as a bearer token:
-
-```
-Authorization: Bearer sk_...
-```
-
-Keys are minted in your publisher portal. Each key carries:
-
-- **Scopes** — `chat:invoke` gates `/chat/completions` and `/feedback`; `retrieval:read` gates `/retrieve`. A missing scope returns `403` with `{"error": "scope_denied", "required_scope": "..."}`.
-- **A daily call quota** — counted per key over a rolling 24-hour window. Exceeding it returns `429` with `{"error": "quota_exceeded", "daily_limit": …, "resets_at": …, "retry_after_secs": …}` and a `Retry-After` header.
-- **A daily token budget** — chat calls are charged an estimate (prompt size plus `max_tokens`) *before* the model runs, so one expensive request can't blow past the ceiling. Exceeding it returns `429` with `{"error": "token_budget_exceeded", …}`.
-- **An optional origin allowlist** — when set, requests must carry a matching `Origin` header or they're rejected with `403 origin_rejected` before anything else runs.
-
-Keys are bound to one publisher. Rotating or revoking a key never affects your other keys.
-
-## POST /api/v1/chat/completions
-
-An OpenAI-compatible request body. If you already use an OpenAI SDK, swap the base URL and key and you're done — unknown fields are ignored, and Lumen's additions live under a top-level `lumen` key that strict OpenAI parsers skip.
-
-Request fields:
-
-| Field | Type | Notes |
+| Method and path | What it does | Scope |
 |---|---|---|
-| `messages` | array, required | `{role, content}` objects. The latest `user` message drives retrieval; assistant history rides through, so replay the whole array each turn for multi-turn conversations. |
-| `model` | string, optional | Omit it to use the model configured for your account. When present the value is forwarded verbatim to the model gateway — only set it to a value agreed with your integration contact. |
-| `temperature` | number, optional | Defaults to `0.2`. |
-| `max_tokens` | integer, optional | Defaults to `900`, silently clamped to `2000`. |
-| `stream` | boolean, optional | `true` returns SSE `chat.completion.chunk` frames (below). Default: one JSON object. |
-| `conversation_id` | string, optional | Your stable thread id — groups turns for conversation analytics and lead attribution. If omitted, Lumen derives one from the OpenAI `user` field or the first user message. |
-| `user` | string, optional | OpenAI-compatible end-user identifier; second-choice conversation identity. |
+| `POST /api/v1/chat/completions` | A cited answer, OpenAI-shaped, with a `lumen` block | `chat:invoke` |
+| `POST /api/v1/retrieve` | The cited passages only, with no model call | `retrieval:read` |
+| `POST /api/v1/feedback` | Rate a specific answer by its request ID | `chat:invoke` |
+| `GET /api/v1/openapi.json` | OpenAPI 3.0 description of `chat/completions` and `retrieve` (no key needed) | none |
 
-Partner-supplied `system` messages are kept, but they cannot override Lumen's safety prompt — they're passed through as visible notes. Use them for tone and style hints.
+## How to make your first call
+
+{{< steps >}}
+{{< step title="Mint a key" >}}Mint a secret key with the **Chat API** scope, as described above, and store it as an environment variable such as `LUMEN_API_KEY`.{{< /step >}}
+{{< step title="Send a question" >}}Call `POST /api/v1/chat/completions` with a `messages` array.{{< /step >}}
+{{< step title="Show the sources" >}}Read `lumen.citations` and show the title and page of each source next to the answer. If `lumen.sources_found` is `false`, show "no source found" or route to a person.{{< /step >}}
+{{< /steps >}}
 
 {{< tabs >}}
 {{< tab name="curl" >}}
@@ -60,196 +54,164 @@ curl https://api.intracav.ai/api/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
     "messages": [
-      {"role": "user", "content": "What is the maximum dwell time for the AC-100 dressing?"}
+      {"role": "user", "content": "What catheter sizes does the SL-4 securement device fit?"}
     ],
     "conversation_id": "support-thread-8841"
   }'
 ```
 {{< /tab >}}
-{{< tab name="Python" >}}
+{{< tab name="OpenAI SDK (Python)" >}}
 ```python
+import os
 from openai import OpenAI
 
 client = OpenAI(
     base_url="https://api.intracav.ai/api/v1",
-    api_key="sk_...",  # your Lumen secret key
+    api_key=os.environ["LUMEN_API_KEY"],  # your Lumen secret key
 )
 
 resp = client.chat.completions.create(
-    model="lumen-default",  # forwarded verbatim — agree the value with Lumen, or omit `model` over raw HTTP
-    messages=[
-        {"role": "user", "content": "What is the maximum dwell time for the AC-100 dressing?"}
-    ],
+    # The SDK requires `model`, and Lumen forwards it as given.
+    # Use the value your Intracav contact provides.
+    model=os.environ["LUMEN_MODEL"],
+    messages=[{"role": "user", "content": "What catheter sizes does the SL-4 securement device fit?"}],
 )
 
 print(resp.choices[0].message.content)
-
-# The `lumen` grounding block rides along as an extra field —
-# the OpenAI SDK tolerates unknown keys.
-lumen = getattr(resp, "lumen", None)
-if lumen and not lumen["sources_found"]:
-    print("No authoritative source grounded this answer — handle with care.")
-```
-{{< /tab >}}
-{{< tab name="JavaScript" >}}
-```javascript
-import OpenAI from "openai";
-
-const client = new OpenAI({
-  baseURL: "https://api.intracav.ai/api/v1",
-  apiKey: process.env.LUMEN_API_KEY, // sk_...
-});
-
-const resp = await client.chat.completions.create({
-  model: "lumen-default", // forwarded verbatim — agree the value with Lumen, or omit over raw HTTP
-  messages: [
-    { role: "user", content: "What is the maximum dwell time for the AC-100 dressing?" },
-  ],
-});
-
-console.log(resp.choices[0].message.content);
-console.log(resp.lumen.citations); // Lumen's grounding block
+lumen = resp.model_extra.get("lumen", {})  # Lumen's citation block
+for c in lumen.get("citations", []):
+    print(c["title"], c.get("page_start"))
 ```
 {{< /tab >}}
 {{< /tabs >}}
 
-### Response shape
+There is no Lumen-specific SDK. OpenAI-compatible clients work because the request and response follow the same shape.
 
-A standard `chat.completion` object plus the `lumen` grounding block:
+## What you'll see
+
+A standard `chat.completion` object, plus the `lumen` block:
 
 ```json
 {
-  "id": "chatcmpl-…",
+  "id": "…",
   "object": "chat.completion",
-  "created": 1754700000,
+  "created": 1762992000,
   "model": "…",
   "choices": [
-    {
-      "index": 0,
-      "message": { "role": "assistant", "content": "…" },
-      "finish_reason": "stop"
-    }
+    { "index": 0, "message": { "role": "assistant", "content": "…" }, "finish_reason": "stop" }
   ],
   "usage": { "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0 },
   "lumen": {
-    "publisher_slug": "acme",
+    "publisher_slug": "northwind-vascular",
     "citations": [
       {
         "id": "…",
-        "content": "…chunk text the model was shown…",
+        "content": "…the passage the model was given…",
         "score": 0.83,
-        "title": "AC-100 Instructions for Use",
+        "title": "SL-4 Securement Device, Instructions for Use",
         "url": "https://…",
-        "page_start": 7,
-        "page_end": 7,
-        "metadata": { }
+        "page_start": 4,
+        "page_end": 4,
+        "metadata": {}
       }
     ],
     "safety_critical_present": false,
     "sources_found": true,
-    "request_id": "3f1c…-uuid"
+    "request_id": "3f1c…"
   }
 }
 ```
 
-The `lumen` block:
+- **`citations`**: the passages the model was given, with `title`, `url`, a similarity `score`, and `page_start` and `page_end` (1-based PDF pages, present for paged documents).
+- **`sources_found`**: `false` means nothing in the documents matched closely enough, and the model was told to decline. Treat these turns with care.
+- **`safety_critical_present`**: `true` when at least one cited document is marked safety-critical.
+- **`request_id`**: identifies this exact answer. It's also returned in the `X-Lumen-Request-Id` header. Use it with `/api/v1/feedback`.
 
-- **`citations`** — the source chunks the model was shown, each with `title`, `url`, an optional `page_start`/`page_end` (1-based PDF page span, present only for paged sources), a similarity `score`, and the chunk `content` itself.
-- **`sources_found`** — `false` means nothing authoritative matched the question and the reply rode on the refuse-instruction alone. Treat those turns with extra care: show "no source found" instead of the prose, or route to human support.
-- **`safety_critical_present`** — `true` when at least one cited source is flagged safety-critical.
-- **`request_id`** — echo this in `/api/v1/feedback` (or a support report) to pin an exact turn. Also returned as the `X-Lumen-Request-Id` response header for clients that strict-parse the OpenAI schema.
+## Request reference
 
-### Streaming (`"stream": true`)
+### `POST /api/v1/chat/completions`
 
-OpenAI-style SSE. Frames are `chat.completion.chunk` objects terminated by `data: [DONE]`:
+| Field | Type | Notes |
+|---|---|---|
+| `messages` | array, required | `{role, content}` objects. `content` must be a string. The latest `user` message drives retrieval. Send the whole history each turn for multi-turn conversations. |
+| `model` | string, optional | Omit it over raw HTTP to use the default. If present, it's passed to the model as given. |
+| `temperature` | number, optional | Default `0.2`. |
+| `max_tokens` | integer, optional | Default `900`, capped at `2000`. |
+| `stream` | boolean, optional | `true` returns server-sent events (below). |
+| `conversation_id` | string, optional | Your thread ID, used to group turns for analytics and lead attribution. If omitted, Lumen derives one from `user` or the first message. |
+| `user` | string, optional | Your end-user identifier. |
 
-1. First chunk announces the role: `"delta": {"role": "assistant"}`.
-2. Content chunks carry `"delta": {"content": "…"}`.
-3. The **terminal chunk** has an empty delta, `"finish_reason": "stop"` (or `"error"`), and additionally carries the full `lumen` block — same shape as above. Strict OpenAI clients ignore the unknown key; read it there to render citations after the text finishes.
+Each answer uses up to six passages. A `system` message you send is kept as a visible note, but it can't override Lumen's own safety instructions. Use it for tone and style.
 
-```json
-{
-  "id": "chatcmpl-…",
-  "object": "chat.completion.chunk",
-  "created": 1754700000,
-  "model": "…",
-  "choices": [{ "index": 0, "delta": {}, "finish_reason": "stop" }],
-  "lumen": { "publisher_slug": "…", "citations": [ … ], "safety_critical_present": false, "sources_found": true, "request_id": "…" }
-}
-```
+**Streaming.** With `"stream": true`, Lumen sends OpenAI-style `chat.completion.chunk` events: first the role, then content deltas, then a final chunk with an empty delta, a `finish_reason` of `stop` or `error`, and the full `lumen` block. The stream ends with `data: [DONE]`. Streaming responses don't include `usage`.
 
-## POST /api/v1/retrieve
+### `POST /api/v1/retrieve`
 
-Pure retrieval: the cited chunks that would ground an answer, with no LLM round-trip. Prefer it when you're feeding your own model (OpenAI tool-calling, an in-house agent), building a search UI, or want deterministic latency and zero token spend. Requires the `retrieval:read` scope.
+The passages that would ground an answer, with no model call. Use it to feed your own model or build a search view.
 
 ```bash
 curl https://api.intracav.ai/api/v1/retrieve \
   -H "Authorization: Bearer $LUMEN_API_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"query": "AC-100 dwell time", "limit": 6}'
+  -d '{"query": "SL-4 replacement interval", "limit": 6}'
 ```
 
-Request: `query` (required, max 4,000 characters), `limit` (optional, default 6, clamped to 25), `extensions` (optional array of Knowledge Pack slugs to restrict the search — the field keeps its historical name on the wire).
+| Field | Notes |
+|---|---|
+| `query` | Required, up to 4,000 characters |
+| `limit` | Optional, default 6, between 1 and 25 |
+| `extensions` | Optional array of Knowledge Pack slugs to search (the field keeps its older name) |
 
-Response:
+The response has `chunks` (same fields as a citation), `publisher_slug`, `query` and `returned`. No match is a `200` with `"returned": 0`.
 
-```json
-{
-  "chunks": [
-    {
-      "id": "…",
-      "content": "…",
-      "score": 0.83,
-      "title": "AC-100 Instructions for Use",
-      "url": "https://…",
-      "page_start": 7,
-      "page_end": 7,
-      "metadata": { }
-    }
-  ],
-  "publisher_slug": "acme",
-  "query": "AC-100 dwell time",
-  "returned": 1
-}
-```
-
-An empty result is `200` with `"returned": 0`, not a `404` — decide in your integration what to surface.
-
-## POST /api/v1/feedback
-
-Report a rating on a specific answer. Requires the `chat:invoke` scope.
+### `POST /api/v1/feedback`
 
 ```bash
 curl https://api.intracav.ai/api/v1/feedback \
   -H "Authorization: Bearer $LUMEN_API_KEY" \
   -H "Content-Type: application/json" \
-  -d '{
-    "request_id": "3f1c…-uuid",
-    "rating": "thumbs_down",
-    "comment": "Cited the wrong revision of the IFU."
-  }'
+  -d '{"request_id": "3f1c…", "rating": "thumbs_down", "comment": "Cited the wrong IFU revision."}'
 ```
 
-- `request_id` — the UUID from `lumen.request_id` (or the `X-Lumen-Request-Id` header) of the turn you're rating.
-- `rating` — one of `thumbs_up`, `thumbs_down`, `flagged`.
-- `comment` — optional, max 2,000 characters.
+`rating` is `thumbs_up`, `thumbs_down` or `flagged`. `comment` is optional, up to 2,000 characters. Feedback is recorded in the audit log against that request ID.
 
-Returns `{"request_id": …, "rating": …, "received_at": …}`. Feedback ties directly to the audit record for that exact turn, which is what incident triage reads.
+## Keys, scopes and quotas
 
-## GET /api/v1/openapi.json
+- **Key types.** Secret keys start with `sk_` and publishable keys with `pk_`. Each belongs to one assistant.
+- **Scopes.** `chat:invoke` (chat and feedback), `retrieval:read` (retrieve) and `mcp:invoke` ([MCP](/developers/mcp/)). A missing scope returns `403` with `scope_denied` and `required_scope`.
+- **Limits per key.** Under **Edit key limits**, set a **Daily call limit**, a **Daily token budget** (0 means unlimited for both) and **Allowed origins**. The two limits share a 24-hour window that starts with the first call after the previous window ends. Chat calls are charged an estimate before the model runs, so one large request can't overshoot the budget.
+- **Origins.** If a key has allowed origins, requests without a matching `Origin` header get `403 origin_rejected`.
 
-Unauthenticated OpenAPI 3.0 document describing this surface — it's a contract, not data. Point any "import from URL" connector at it: Salesforce External Services (the operations become Flow/Agentforce actions, with your `sk_` key in a Named Credential), HubSpot, Zoho, or Postman.
+### Errors
 
-```bash
-curl https://api.intracav.ai/api/v1/openapi.json
-```
+| Status | `error` | Meaning |
+|---|---|---|
+| 401 | `key_missing`, `key_invalid` | No key, or an unknown or revoked key |
+| 403 | `scope_denied`, `origin_rejected`, `slug_mismatch` | The key can't do this, from here, or for this assistant |
+| 429 | `quota_exceeded` | Daily call limit reached. Includes `daily_limit`, `resets_at`, `retry_after_secs` and a `Retry-After` header |
+| 429 | `token_budget_exceeded` | Daily token budget reached. Includes `daily_token_budget`, `token_count_today`, `resets_at`, `retry_after_secs` |
+| 502 | `upstream_error` | The model call failed. Retry with backoff |
+| 503 | `publisher_suspended` | The assistant is suspended |
 
-{{< callout type="warning" >}}
-This surface does not accept or return PHI. Do not send patient-identifying data in `messages` or `query`.
-{{< /callout >}}
+## Limits
+
+- **Answers come only from the assistant's documents.** The API doesn't answer from the open web.
+- **The OpenAPI file is partial.** It describes `chat/completions` and `retrieve`, not `feedback`.
+- **String content only.** OpenAI's array form of message content isn't accepted.
+- **Fixed daily window.** Quotas reset 24 hours after the window started, not at midnight.
+
+## FAQ
+
+{{< faq question="Can I call the API from a browser?" >}}
+Not with a secret key. Keep `sk_` keys on your server. For a browser, use the [website assistant embed](/developers/embed/).
+{{< /faq >}}
+{{< faq question="Why did I get an answer with sources_found set to false?" >}}
+Nothing in the assistant's documents matched closely enough, so the model was told to say it couldn't find the information. Show that to the user plainly, or route the question to a person.
+{{< /faq >}}
+{{< faq question="Can I choose the AI model?" >}}
+Lumen uses one model provider. Omit `model` to use the default. If your client requires a value, ask your Intracav contact which to use.
+{{< /faq >}}
 
 ## Next steps
 
-- [Embed a Website Bot](/developers/embed/) — the same grounded answering as a widget on your site
-- [The Lumen MCP Server](/developers/mcp/) — expose your Knowledge Packs to Claude Desktop and IDE agents
-- [Partner Knowledge Packs](/developers/partner-knowledge-packs/) — publish your content into Lumen
+{{< related "/developers/embed/" "/developers/mcp/" "/developers/status/" "/connect/website-assistant/" >}}

@@ -1,101 +1,132 @@
 ---
-title: "The Lumen Browser Extension (Beta)"
-description: "Lumen in a side panel next to your work: it reads the page when you ask, and acts on pages only with your explicit, action-by-action confirmation."
+title: "Use Lumen beside any web page with the browser extension"
+navTitle: "Browser extension"
+description: "The Lumen browser extension opens Lumen beside the page you're on. It reads the page when you allow it and acts only with your approval."
+lead: "Lumen in a panel beside your web-based EHR, formulary or supplier portal: it reads the page you're on when you allow it, and every click or keystroke it proposes waits for your approval."
 weight: 26
-audience: clinician
+icon: panels
 tier: pro
 status: beta
-time: "~10 minutes"
-keywords: ["AI browser extension clinical", "AI side panel assistant", "clinical AI copilot browser"]
+who: "clinicians"
+glance:
+  what: "The Lumen browser extension puts Lumen in a side panel next to the web page you're on. You can ask about the page, and Lumen can propose actions on it, such as typing in a search box, which run only after you approve them."
+  who: "Clinicians and staff who spend their day in web-based systems, such as a browser-based EHR, a formulary or a supplier portal."
+  why: "You ask about what's on screen without copying and pasting between windows, and you stay in control of anything that changes the page."
+  needs: "A Lumen Pro plan or above, Chrome or Microsoft Edge, and early access to the extension (it isn't in the browser extension stores yet). About 10 minutes."
+  result: "Lumen open beside your work, reading the page on request, with every action shown to you first."
 ---
 
-{{< status-badge "beta" >}}
+A charge nurse at Harbor Valley Medical Center is looking at a supply catalog in one tab and a dressing protocol in another. She wants to know which catalog item matches the protocol, without copying text between windows. With the extension, Lumen sits in a panel beside the page. She asks about what's on screen, and when Lumen offers to search the catalog for her, she approves each step before it happens.
 
-Most of your screen time isn't in a chat window — it's in the systems where the work lives. The Lumen browser extension puts Lumen in a **side panel next to whatever you're working in**, where it can read the page you're on when you ask it to, and — with your explicit confirmation, action by action — interact with pages while you watch. In this guide you'll open the panel, have Lumen read what's in front of you, approve its first actions, and use dictation and Specialists without leaving the page.
-
-## What you'll make
-
-A working side-by-side setup: Lumen reading the page you're looking at on request, taking small, confirmed actions under your eyes, and answering questions with your current context already in view — no copy-paste shuttle between windows.
+{{< callout type="info" title="Early access" >}}
+The extension is in beta and isn't in the Chrome Web Store or Edge Add-ons yet. To try it, ask your Lumen contact for early access. You'll get the extension and install steps directly. A Safari version, which opens in its own window, is in development.
+{{< /callout >}}
 
 ## Before you start
 
-- **A Pro plan or above** {{< tier-badge "pro" >}} — see [Plans](/plans/).
-- **Beta access.** The extension is in beta and isn't in the Chrome Web Store yet — access is through the early-access program. If you're interested, ask your Lumen contact to add you; you'll receive the extension and install steps directly.
+- **Plan.** Browser actions need **Pro** or above {{< tier-badge "pro" >}}. On a lower plan, the panel works as a normal chat and shows "Browser tools are not enabled for your plan yet." See [Plans](/plans/).
+- **Browser.** Chrome or Microsoft Edge on a computer.
+- **Early access**, as described above.
+- **Your organization's rules.** If you'll use it beside a system that shows patient information, check your organization's policy first. Whatever Lumen reads from a page is sent with your message, just as if you had pasted it.
 
-{{< callout type="warning" >}}
-**PHI moves when you ask it to.** The extension reads a page only when you ask — but when you do, what's on that page enters your conversation, exactly as if you'd pasted it. If the page in front of you shows patient information, the same rules apply as for anything you type: bring in what the question needs, and see [privacy and de-identification](/tools/privacy/).
+## How to use the extension
+
+{{< steps >}}
+{{< step title="Install it and sign in" >}}
+Follow the install steps that came with your early access. Then click the Lumen icon in your browser toolbar, or press {{< kbd "Alt" "L" >}}, to open the panel. Under **Sign in with your Lumen account**, enter your **Email** and **Password** and click **Sign in**.
+
+The panel uses the same account, chats and specialists as the Lumen app.
+{{< /step >}}
+
+{{< step title="Allow access to the site you're on" >}}
+The bar at the top of the panel shows the site you're on. Lumen can't read a site until you allow it. Click **Allow access**, or, when Lumen asks, choose:
+
+- **Always allow reads**: Lumen may read this site whenever you ask.
+- **Allow once**: for this session only.
+- **Deny**: nothing is read.
+{{< /step >}}
+
+{{< step title="Check what will be sent" >}}
+Beside the message box, the page context chip shows **Included** or **Not included**. Click it to switch. To see exactly what will go with your message, open **Review page context** and click **Show everything that will be sent**.
+{{< /step >}}
+
+{{< step title="Ask about the page" >}}
+Ask about what's in front of you:
+
+```text
+Summarize this page and pull out anything about dressing change intervals.
+```
+
+Lumen answers from the page text, with citations, in the panel. You can also highlight text on any page, right-click, and choose **Ask Lumen about "…"** to start a question about that selection.
+
+If the tab is a PDF or Office file, the chip shows **Read as document**. Lumen reads the file itself, page by page.
+{{< /step >}}
+
+{{< step title="Let Lumen act, and approve each step" >}}
+Ask for something that needs the page to change:
+
+```text
+Search this catalog for 5 Fr dual-lumen PICC kits and open the first result.
+```
+
+Before anything happens, the panel shows **Lumen wants to act in your browser**, with each proposed action described in plain words, such as typing a search term or clicking a result. Approve or deny each one with the tick and cross, or use **Approve all** or **Deny all**. When every action has a decision, click **Continue**.
+{{< /step >}}
+
+{{< step title="Deny something, and tell Lumen why" >}}
+Try denying an action. A box appears: **Tell Lumen why (optional — helps it adjust)**. Lumen doesn't run the denied action and adjusts its plan.
+
+To stop a reply at any time, click **Stop** or press {{< kbd "Esc" >}}.
+{{< /step >}}
+{{< /steps >}}
+
+## What you'll see
+
+{{< chat-demo title="Lumen side panel · catalog.supplier.example" caption="Illustration of the side panel with a fictional supplier site. Nothing on the page changes until you approve." >}}
+{{< user >}}Search this catalog for 5 Fr dual-lumen PICC kits and open the first result.{{< /user >}}
+{{< lumen >}}
+I'll search the catalog, then open the first result.
+
+{{< approval action="Lumen wants to act in your browser" >}}**Type** "5 Fr dual-lumen PICC kit" into the catalog search box · **Click** the first search result{{< /approval >}}
+{{< /lumen >}}
+{{< /chat-demo >}}
+
+## Check it worked
+
+- The site bar shows the site you're on, with access allowed.
+- The page context chip says **Included** when you ask about the page, and the answer reflects what's on screen.
+- Proposed actions appear under **Lumen wants to act in your browser** and nothing on the page changes until you approve.
+
+## Tips
+
+- **Open the chat in the full app.** Click **Open in Lumen** in the panel header to continue the same conversation in the Lumen app.
+- **Use specialists in the panel.** Type `@` to bring in a specialist, just as in the app.
+- **Keep auto-approval off.** Each site has **Auto-allow reads** and **Auto-approve actions** switches. Leave **Auto-approve actions** off unless you're sure. When it's on, actions on that site run without asking you first. **Always allow on** a site, shown under an approval, turns it on too.
+
+## Limits and safety
+
+- **Some actions are always blocked.** Lumen can't sign orders or notes, attest, or document medication administration, even if you approve, and even with auto-approval on. Those steps stay with you.
+- **Page text is information, not instructions.** Lumen follows your messages, not text written on a web page.
+- **Lumen reads the main page only.** Content inside embedded frames from another site, which some EHRs use, isn't read.
+- **Lumen doesn't look at screenshots yet.** It reads the page's text and structure. Charts and images on the page aren't interpreted.
+- **What you send is sent.** When page context is **Included**, the page's text goes with your message. Exclude it, or don't allow the site, when the page shows information you shouldn't share.
+- **Beta software.** Expect changes, and report problems to your Lumen contact.
+
+{{< callout type="safety" title="You stay responsible for the chart" >}}
+Check every proposed action before you approve it, and check answers against the source on the page. Lumen supports your work. It doesn't replace your review.
 {{< /callout >}}
 
-## The safety design, up front
+## FAQ
 
-This is the part to understand before the first click, because the whole extension is built around one line: **nothing that changes a page happens without your confirmation.**
-
-The extension gives Lumen twelve browser abilities, split into two classes:
-
-- **Read-only** — take a screenshot, read the page, find something on it, scroll, wait for content to load, hover to reveal a tooltip. These observe; they change nothing.
-- **Confirm-gated** — click, type, choose from a menu, press a key, navigate, drag. Every one of these is previewed to you with a plain-language description of exactly what it's about to do, and runs only after you approve it. There's no batch approval — each action is confirmed on its own, and you watch it happen. Decline one, and Lumen stops and asks how you want to proceed rather than trying again.
-
-Two more rails worth knowing. Text on a web page is treated as **data, never as instructions** — a page can't smuggle commands to Lumen; only your messages direct it. And Lumen is designed never to sign, attest, or finalize anything — the steps that carry your name belong to you alone.
-
-## The steps
-
-<div class="steps-container">
-
-{{< step num="1" title="Install through the early-access program and open the panel" >}}
-Follow the install steps that came with your beta access, then open the Lumen side panel from the extension icon in your browser toolbar.
-
-**You should see:** Lumen docked beside the page you were already on — same account, same chats, same [Skills and Specialists](/skills-and-specialists/) as the full app, in a panel that stays put while you work.
-{{< /step >}}
-
-{{< step num="2" title="Ask about the page in front of you" >}}
-With any work page open — a guideline, a formulary page, a supplier portal — ask about it directly:
-
-```text
-What am I looking at? Summarize this page and pull out
-anything about dosing adjustments.
-```
-
-**You should see:** Lumen read the page and answer from what's actually on it — no URL pasting, no copy-paste. Say "this page," "here," "what I'm looking at," and it knows you mean the tab in front of you. For visual content — a chart, a figure — it can take a screenshot and literally look.
-{{< /step >}}
-
-{{< step num="3" title="Let it act — and approve each step" >}}
-Now ask for something that requires touching the page:
-
-```text
-On this supply catalog page, search for 5 Fr dual-lumen PICC kits
-and open the first result.
-```
-
-**You should see:** a confirmation prompt before anything happens — "type *5 Fr dual-lumen PICC kit* into the search field," then, separately, "click the first result." Each prompt describes the action in plain language; you approve or decline each one, and the page responds where you can see it. It should feel like supervising, because it is.
-{{< /step >}}
-
-{{< step num="4" title="Decline something, just to feel the brakes" >}}
-On any confirmation prompt, choose decline.
-
-**You should see:** Lumen stop — no retry, no workaround — and ask how you'd like to proceed. Worth doing once deliberately: knowing exactly what the brakes feel like is what makes the accelerator comfortable.
-{{< /step >}}
-
-{{< step num="5" title="Use dictation and Specialists in the panel" >}}
-The panel is a full Lumen chat, so the composer works the way it does everywhere: tap the microphone to [dictate](/chat/dictation/) instead of typing, and type `@` to bring in a [Specialist](/skills-and-specialists/specialists/) for the deep version of a task:
-
-```text
-@Document Analysis — compare what this page recommends
-against the protocol PDF I uploaded last week.
-```
-
-**You should see:** the same capabilities you have in the main app, applied with your current page as context.
-{{< /step >}}
-
-</div>
-
-## Troubleshooting
-
-- **Lumen says it can't read the tab.** If the tab is a file — a PDF, Word, or Excel document in the browser's viewer — there's no page text to read. The extension attaches the file to your conversation instead, and Lumen reads it as a document, page by page, citing page numbers.
-- **An action failed after the page changed.** Lumen's picture of a page goes stale when the page updates; it takes a fresh look before acting again. If something stalls, just restate what you want.
-- **An action was blocked without your input.** Beyond your confirmations there's a safety policy that can refuse actions outright. Blocked means blocked — Lumen will tell you and ask how to proceed.
+{{< faq question="Can I get it from the Chrome Web Store?" >}}
+Not yet. The extension is in early access. Ask your Lumen contact.
+{{< /faq >}}
+{{< faq question="Does the extension read every page I visit?" >}}
+No. It reads a site only after you allow access, and only sends page content with a message when the page context chip says **Included**.
+{{< /faq >}}
+{{< faq question="Can it work inside our EHR?" >}}
+It works with web-based EHRs that run in Chrome or Edge, within the limits above. It reads the main page, not embedded frames from other sites, and it can never sign, attest or document medication administration. For a governed connection to the chart, see [Connect Lumen to your EHR](/guides/connect-your-ehr/).
+{{< /faq >}}
 
 ## Next steps
 
-- [How AI Tool Use Works](/learn/tool-use/) — what's actually happening when Lumen reads and acts.
-- [Connect Lumen to Your EHR](/guides/connect-your-ehr/) — the governed way to bring patient context in.
-- [Dictate a Note Hands-Free](/guides/dictate-a-note/) — the dictation workflow, panel or full app.
+{{< related "/guides/connect-your-ehr/" "/skills-and-specialists/approvals/" "/trust/privacy/" "/guides/dictate-a-note/" >}}

@@ -1,64 +1,112 @@
 ---
-title: "Memory: What Lumen Remembers"
-description: "Lumen quietly saves durable facts you state about yourself and your practice — never patient details — and you stay in full control."
-weight: 9
+title: "Control what Lumen remembers about you"
+navTitle: "Memory"
+description: "Lumen can remember lasting facts about you and your practice, never patient details, to tailor answers. See, edit, add or clear them, or turn memory off."
+lead: "Tell Lumen once that you work in a pediatric ICU and prefer doses in mg/kg, and it keeps that in mind next time. You can see everything it remembers, and change or clear it."
+weight: 10
+icon: brain
+glance:
+  what: "Memory is a short list of lasting facts about you and your practice that Lumen recalls in later chats to tailor its answers."
+  who: "Everyone who uses Lumen chat, on any plan."
+  why: "So you don't have to repeat your role, setting and preferences in every conversation."
+  needs: "A Lumen account. About 3 minutes."
+  result: "Answers that fit your practice, and a memory list you've checked."
 ---
 
-Tell Lumen once that you're a NICU nurse who prefers weight-based dosing tables, and it shouldn't have to be told again next week. That's what memory is for: Lumen quietly keeps a short list of durable facts **you've stated about yourself and your practice**, and uses them to tailor future answers.
+You shouldn't have to tell Lumen in every chat that you're a NICU nurse or that your unit follows a two-nurse heparin check. Memory lets Lumen keep a short list of lasting facts **you've said about yourself and your practice**, and recall them when they're relevant. Every change is shown in the chat, and you can see, edit or clear the whole list at any time.
 
-## What gets remembered
+## Before you start
 
-Lumen is deliberately conservative about what it saves. A fact is only stored when it clears all of these bars:
+Memory is on by default. You need nothing else. To find the full list, go to {{< ui-path "Settings" "Privacy & data" "Memory" >}}.
 
-- **You asserted it about yourself** — "I'm an interventional radiologist", "call me Sam", "our unit follows the 2-RN heparin double-check". Facts that merely appear inside a question or a case you're presenting are never treated as facts about you.
-- **It's durable** — still true and useful months from now. "I'm on shift tonight" doesn't qualify.
-- **It's useful across conversations** — knowing it would genuinely change how Lumen should answer you in unrelated future chats.
+## How to tell Lumen to remember something
 
-Typical memories: your specialty and role, formatting preferences, protocols and guidelines your institution follows, and how you like answers structured.
+{{< steps >}}
+{{< step title="Say it in any chat" >}}
+Start with "Remember that…", "From now on…" or "Call me…". For example: *"Remember that I work in a pediatric ICU and prefer doses in mg/kg."*
+{{< /step >}}
+{{< step title="Check the memory chip" >}}
+Lumen shows a chip in the chat, such as **Memory saved**, followed by what it saved. If it changed an existing memory, you'll see **Memory updated**.
+{{< /step >}}
+{{< step title="Forget something" >}}
+Say *"Forget that I work nights."* The chip shows **Memory removed**.
+{{< /step >}}
+{{< /steps >}}
 
-## What never gets remembered
+Lumen may also save a lasting fact you mention in passing, such as your specialty. You always see a chip when it does.
 
-{{< callout type="important" >}}
-**Lumen does not memorize your patients.** Information about a patient or a clinical case is never stored as a memory — even when you state it as fact. Memory is about *you and your practice*, not the cases you bring. Also never stored: questions you asked, one-off task details, speculation, or credentials.
-{{< /callout >}}
+## How to review and edit your memory
 
-## Memories stay in their workspace
+{{< steps >}}
+{{< step title="Open Memory" >}}
+Click your name at the bottom of the sidebar to open Settings. Go to {{< ui-path "Privacy & data" "Memory" >}}.
+{{< /step >}}
+{{< step title="Read what's there" >}}
+The **About you** tab lists what Lumen recalls in every chat in this workspace. If Lumen asks **Did Lumen get these right?**, review the facts it's unsure about.
+{{< /step >}}
+{{< step title="Change it" >}}
+Click a memory to edit or delete it (**Edit memory**). Click **Add memory** to add one. Click **Clear all** to remove everything Lumen knows about you in this workspace.
+{{< /step >}}
+{{< step title="Turn memory off, if you want" >}}
+Use the switch next to **Memory is on**. When it's off, chats recall nothing and Lumen learns nothing new. What's already saved stays in the list until you delete it.
+{{< /step >}}
+{{< /steps >}}
 
-Memories are kept **per workspace**: what Lumen learns about you in your Personal workspace is separate from what it learns in each organization you belong to. A preference you set while working in your hospital's workspace won't follow you into your personal one, and vice versa.
+## What you'll see
 
-And in every workspace, your memories are **yours alone** — they are never shared with colleagues, your department, or your organization. There is no shared or organizational memory.
-
-## Taking control explicitly
-
-You don't have to wait for Lumen to notice things. Just say it:
-
-{{< chat-demo title="Explicit memory control" >}}
+{{< screenshot src="memory-second-brain" alt="The Memory page in Lumen Settings, showing the About you tab with saved facts and the memory switch" caption="Settings > Privacy & data > Memory, on the About you tab." url="lumen.intracav.ai/settings" >}}
+{{< chat-demo title="Saving a memory" caption="Illustration. Every memory change shows a chip like this one." >}}
 {{< user >}}Remember that I work in a pediatric ICU and prefer doses in mg/kg.{{< /user >}}
-{{< lumen >}}Got it — I'll remember that you work in a pediatric ICU and prefer doses expressed in mg/kg. Future answers will default to weight-based dosing.{{< /lumen >}}
+{{< lumen memory="true" actions="false" >}}
+**Memory saved** · Works in a pediatric ICU; prefers doses in mg/kg.
+
+Got it. I'll give weight-based doses in mg/kg by default.
+{{< /lumen >}}
 {{< /chat-demo >}}
+{{< /screenshot >}}
 
-- **"Remember that I…"** saves a fact immediately
-- **"Forget that…"** removes one
-- **"What do you remember about me?"** lists what's stored
+## What Lumen remembers, and what it doesn't
 
-## The memory chip
+| Remembered | Never remembered |
+|---|---|
+| Your role and specialty | Anything about a patient or a clinical case |
+| Your setting, such as "pediatric ICU" | Details from a case you presented |
+| How you like answers laid out | Questions you asked |
+| Protocols your unit follows | One-off tasks, guesses or speculation |
+| What to call you | Passwords or other credentials |
 
-Whenever Lumen adds, updates, or removes a memory during a conversation, a small **chip appears in the chat** telling you what changed. Memory never updates silently — if something was saved, you'll see it.
+The memory page has more tabs: **Notes** (notes you keep for Lumen to search and cite), **Connections** (how people, places and topics in your notes link up), **Activity** and **Settings**.
 
-## Reviewing and switching it off
+## Memory in a team
 
-Your full memory list lives in **settings**, where you can read every stored fact, edit or delete individual entries, or clear everything.
+- **Each workspace has its own memory.** What Lumen learns about you in your personal workspace is separate from what it learns in your team's workspace. Lumen calls an organization a *team*. If you belong to one, you'll see **This chat lives in…** at the top of a chat, with **Switch**.
+- **Your memory is yours.** Colleagues don't see it.
+- **Team memory is separate.** Some teams keep shared facts in **Team memory**, such as a unit's standing protocols. You may be able to **Add to team** or **Suggest to team**, depending on your role. A suggestion waits for review.
 
-There's also a single on/off toggle. **Memory off means off**: Lumen stops saving new facts *and* stops using the ones already stored — nothing is captured from your conversations while the toggle is off.
+## Tips
 
-## Where memory fits in privacy
+- **Start with your role and setting.** "I'm an ED charge nurse at a level I trauma center" changes many answers for the better.
+- **Check the list now and then.** Delete anything that's out of date, such as a unit you've left.
+- **Use a chat when memory would get in the way.** If you're asking for a colleague in a different role, say so in the message, or turn memory off for a while.
 
-Memories are part of your account data: encrypted at rest and covered by the same audit logging as the rest of Lumen — see [Privacy at Lumen](/trust/privacy/). For a deeper look at how AI memory works under the hood and why conservatism matters, read [How AI Memory Works](/learn/ai-memory/).
+## Limits and safety
 
----
+- Memory tailors answers. It doesn't change the sources Lumen uses or the checks it runs.
+- Lumen is told never to save patient or case details. If you ever see a memory chip about a patient, delete it from **About you** and report it.
+- Memory is part of your account data and is protected like the rest of it. See [Privacy and data](/trust/privacy/).
 
-**Next steps:**
+## FAQ
 
-- [How AI Memory Works](/learn/ai-memory/) — the reasoning behind what gets kept
-- [Privacy at Lumen](/trust/privacy/) — how your data is protected
-- [Typing & Sending](/chat/sending-messages/) — get more out of every message
+{{< faq question="Will Lumen remember my patients?" >}}
+No. Information about a patient or a clinical case is never saved as a memory, even if you state it as fact.
+{{< /faq >}}
+{{< faq question="Does turning memory off delete what's saved?" >}}
+No. Turning it off stops Lumen from recalling or learning anything. To delete what's saved, use **Clear all** or delete memories one by one.
+{{< /faq >}}
+{{< faq question="How do I know when Lumen used a memory?" >}}
+The answer's footer shows a line such as **Remembered 2 facts**. Click it to see which.
+{{< /faq >}}
+
+## Next steps
+
+{{< related "/knowledge/second-brain/" "/learn/ai-memory/" "/trust/privacy/" "/chat/sending-messages/" >}}

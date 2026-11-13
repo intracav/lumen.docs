@@ -1,103 +1,128 @@
 ---
-title: "Make a Study Guide & Quiz (Cert Binder)"
-description: "Build a study guide from a guideline PDF, generate a scored quiz, and let staff take it in chat — attempts save to the Cert Binder with proof PDFs."
+title: "Make a study guide and quiz"
+navTitle: "Study guide and quiz"
+description: "Build a study guide from a guideline PDF, turn it into a scored quiz, take it in Lumen, and keep each attempt in your Cert Binder with a proof PDF."
+lead: "Attach the guideline, ask for a study guide, then turn it into a quiz. Lumen grades each attempt and files it in your Cert Binder."
 weight: 23
-audience: clinician
-time: "~15 minutes"
-keywords: ["AI study guide generator", "clinical quiz builder", "nursing competency quiz", "CRBSI prevention training"]
+icon: graduation
+who: "nurses, educators and trainees"
+keywords: ["AI study guide generator", "clinical quiz builder", "nursing knowledge check quiz", "CLABSI prevention training"]
+glance:
+  what: "A step-by-step way to turn a guideline into a study guide and a scored quiz in Lumen, with each attempt recorded in your Cert Binder."
+  who: "Nurses, educators, residents and students preparing for a knowledge check or teaching from a guideline."
+  why: "Building study material and a fair quiz from a long guideline usually takes an evening. Lumen drafts both from the document you trust, grades attempts and keeps a record with a downloadable proof PDF."
+  needs: "Any Lumen plan. The guideline or policy as a PDF. About 15 minutes to build, plus time to take the quiz."
+  result: "A study guide, a scored quiz with explanations, and each attempt saved in your Cert Binder with a proof PDF."
 ---
 
-## What you'll make
-
-A complete competency package from a single source document: a focused study guide distilled from your guideline PDF, a scored quiz with an explanation and citation behind every answer, and — because staff take the quiz right in chat — **a record of every attempt saved automatically to the [Cert Binder](/knowledge/cert-binder/), with a proof PDF** you can hand to a surveyor or an educator. The part that usually means an evening in a slide editor and a separate quiz tool becomes one conversation.
-
-We'll build a real-shaped example: **preparing a unit for a CRBSI-prevention competency** from a central-line infection-prevention guideline. Every detail below is fictional.
+Your unit has a central line infection prevention knowledge check next month, and the source is a 40-page guideline. Lumen can turn that guideline into a focused study guide, then into a scored quiz with an explanation for every answer. You take the quiz in Lumen. It grades your answers on its servers, so the answer key isn't visible beforehand, and it saves each attempt to your **Cert Binder**, your record of quiz attempts, with a proof PDF you can download.
 
 ## Before you start
 
-- **Any plan works.** Study guides and quizzes run on every Lumen plan; see [Plans](/plans/) if you're bumping into message limits.
-- **Have the source document.** One authoritative guideline PDF beats five loose ones — the guide and the quiz will both be grounded in what you attach, so attach the version your competency is actually based on.
-- **Know your audience and the bar.** "Vascular access nurses, bedside competency" produces a different guide than "new residents, boards prep" — say which one you mean.
+- **Plan:** any Lumen plan.
+- **The source document.** Use the version your knowledge check is based on. Lumen builds the guide from what you attach.
+- **Your audience and level**, such as "med-surg nurses, annual knowledge check" or "PGY-1 residents".
+- **A passing score**, if your program has one. 80% is common.
+- **Time:** about 15 minutes to build, plus time to take the quiz.
 
-## Build the package
+A *skill* is a set of instructions Lumen follows for a kind of output. You choose one by typing `/` in the message box.
 
-<div class="steps-container">
+## How to build the guide and quiz
 
-{{< step num="1" title="Attach the guideline and run /study-guide" >}}
-Start a chat, attach the guideline PDF, and type **/** to pick **[Study Guide](/skills-and-specialists/skills/)** — or just type the command:
-
-```text
-/study-guide — build a study guide from the attached CRBSI-prevention
-guideline for our vascular access nurses. Focus on insertion bundle
-elements, dressing and hub care, and when to draw blood cultures.
-Keep it to what a bedside competency would actually test.
-```
-
-**You should see:** Lumen read the attachment first — the guide is built from *your* document, with section references back to it — then a structured study guide: key concepts, the must-know numbers, and the points where units most often drift from the guideline.
+{{< steps >}}
+{{< step title="Attach the guideline" >}}
+Open a new chat. Click **+** (**Attach document**) and add the PDF. Wait until the file chip has finished **Reading…**.
 {{< /step >}}
+{{< step title="Ask for a study guide" >}}
+Type `/` and choose **Study Guide** from the **Skills** list. The skill appears as a chip in the message box. Type the request and press **Send**:
 
-{{< step num="2" title="Review and sharpen the guide" >}}
-Read it as the educator, not the student. Trim what your competency doesn't cover; deepen what it does:
-
-```text
-Cut the pediatric section — we're an adult unit. Expand hub
-disinfection: scrub time, agent, and dry time as their own bullet
-list. Add a one-page quick-reference summary at the top.
-```
-
-**You should see:** the guide revised in place, with your emphasis reflected — and every clinical claim still traceable to the attached guideline rather than general knowledge.
+{{< composer chips="Study Guide" text="Build a study guide from the attached central line infection prevention guideline for med-surg nurses. Focus on the insertion bundle, skin antisepsis, dressing changes, hub disinfection and when to draw blood cultures. Include the must-know numbers with the section they come from. Adults only." >}}
 {{< /step >}}
+{{< step title="Sharpen the guide" >}}
+Read it as the educator. Ask for changes in the same chat:
 
-{{< step num="3" title="Generate the scored quiz with /clinical-quiz-builder" >}}
-Turn the finished guide into the assessment with the **[Clinical Quiz Builder](/skills-and-specialists/skills/)** skill:
-
-```text
-/clinical-quiz-builder — turn this study guide into a 10-question
-scored quiz for the CRBSI-prevention competency. Mix scenario-based
-and recall questions. Passing score 80%. Explanation and guideline
-citation behind every answer.
-```
-
-**You should see:** a 10-question quiz where the wrong answers are plausible (real distractors, not giveaways), and each question carries a hidden explanation plus a citation into the guideline — revealed after the question is answered, not before.
+{{< composer text="Cut anything about pediatrics. Put a one-page quick reference at the top. Turn the dressing section into a table: dressing type and change interval." >}}
 {{< /step >}}
+{{< step title="Turn it into a quiz" >}}
+Type `/` and choose **Clinical Quiz Builder**. Then type the request and press **Send**:
 
-{{< step num="4" title="Have staff take the quiz in chat" >}}
-Each staff member takes the quiz in their own chat — question by question, one answer at a time, with the explanation appearing after each response so the quiz teaches as it scores.
+{{< composer chips="Clinical Quiz Builder" text="Make a 10-question quiz from this study guide. Mostly bedside scenarios, one best answer each, plausible wrong answers. Pass threshold 80%. Give the rationale and the guideline section for every answer." >}}
 
-{{< chat-demo title="Taking the quiz" >}}
-{{< user >}}
-B — hold the culture and re-draw from a peripheral site only.
-{{< /user >}}
-{{< lumen >}}
-**Correct — 7 of 7 so far.** When a central-line infection is suspected, paired cultures are the standard: one from the catheter hub *and* one peripheral, drawn before antimicrobials start. A catheter-only draw can't distinguish colonization from bloodstream infection — which is exactly what the differential time-to-positivity comparison needs. *(Guideline §4.2)*
+You'll see **Generating quiz**, then **Quiz ready**. A quiz card appears in the chat.
+{{< /step >}}
+{{< step title="Take the quiz" >}}
+Click the quiz card to open it in the side panel. It shows **Question 1 of 10**. Choose an answer and click **Next**. Use **Back** to change an answer. When you've answered every question, click **Submit Quiz**.
+{{< /step >}}
+{{< step title="Read your results" >}}
+Lumen grades the quiz on its servers and shows your score, **Passed** or **Failed** against the **Pass threshold**, and the rationale for each question. Click **Retake** to try again. Each attempt is saved separately.
+{{< /step >}}
+{{< step title="Download the proof PDF" >}}
+Go to {{< ui-path "Home" "Cert Binder" >}} and open the attempt. On the **Proof Packet** screen, click **Download proof PDF**.
+{{< /step >}}
+{{< /steps >}}
 
-Question 8 of 10: a dressing placed 5 days ago is clean, dry, and intact…
+## What you'll get
+
+{{< screenshot src="cert-binder" alt="The Cert Binder in Lumen listing quiz attempts with scores and pass or fail results" caption="The Cert Binder. Each graded attempt is listed with its score and a downloadable proof PDF." url="lumen.intracav.ai" >}}
+{{< chat-demo title="Central line infection prevention quiz" caption="Illustration with fictional content. Check every item against your own guideline." >}}
+{{< user attach="cvc-infection-prevention-guideline.pdf" >}}Make a 10-question quiz from this study guide. Bedside scenarios, pass threshold 80%, rationale and guideline section for every answer.{{< /user >}}
+{{< lumen thought="9" tools="Document read, Quiz ready" sources="1" >}}
+Your quiz is ready: **Central line infection prevention, med-surg**. 10 questions, pass threshold 80%. Answers and rationales appear after you submit.
+
+**Question 4 of 10:** A patient with a central line spikes a fever of 38.6 °C. Antibiotics haven't been started. Which blood culture plan best supports a diagnosis of catheter-related bloodstream infection?
+
+- A. One set drawn through the catheter
+- B. One set from a peripheral vein only
+- C. Paired sets, one through the catheter and one from a peripheral vein, before antibiotics
+- D. One set drawn through the catheter after the first antibiotic dose
+
 {{< /lumen >}}
 {{< /chat-demo >}}
+{{< /screenshot >}}
 
-**You should see:** a running score, an explanation with its guideline citation after every answer, and a final scored result against the passing bar when the last question is done.
-{{< /step >}}
+After you submit, the rationale for question 4 explains why paired cultures drawn before antibiotics let the lab compare the catheter and peripheral samples.
 
-{{< step num="5" title="Collect the proof from the Cert Binder" >}}
-Nothing to file by hand: each completed attempt saves automatically to the **[Cert Binder](/knowledge/cert-binder/)** — who took it, when, the score, and a proof PDF of the attempt suitable for a competency file or a survey binder.
+## Check the result
 
-**You should see:** the attempt listed in the Cert Binder with its proof PDF ready to download — your audit trail builds itself as staff complete the quiz.
-{{< /step >}}
+{{< lui-block title="Before anyone studies from it" >}}
+{{< lui-rows >}}
+{{< lui-row type="check" title="Every number in the guide matches the guideline" body="Intervals, concentrations and timings, each with its section." >}}
+{{< lui-row type="check" title="Each quiz answer is supported by the guideline section it names" >}}
+{{< lui-row type="check" title="Wrong answers are clearly wrong on careful reading" body="Rewrite any question where two answers could be defended." >}}
+{{< lui-row type="check" title="Local policy differences are handled" body="If your policy differs from the national guideline, decide which one the quiz tests." >}}
+{{< lui-row type="check" title="You've taken the quiz once yourself" >}}
+{{< /lui-rows >}}
+{{< /lui-block >}}
 
-</div>
+## Tips
 
-{{< callout type="info" >}}
-**The educator still owns the bar.** The quiz scores answers against the guideline you attached — but which score counts as competent, and what happens after a failed attempt, is your program's call. Lumen keeps the records; you keep the standard.
+- **Make it harder by changing the format, not the facts.** Ask `Rewrite questions 2, 5 and 9 as bedside scenarios where the wrong answers are common mistakes.`
+- **Missing section?** Point to it: `Work in the section on dressing-change frequency.`
+- **Test your policy, not only the guideline.** Attach your unit's policy too and say `Where they differ, test our policy and note the difference in the rationale.`
+- **For a whole unit**, use the **Clinical Educator** Specialist on a team plan (Plus or higher). It builds an education module from your policies. You then create a quiz with a protected answer key, a Live session or a learner page for your team, and see completion by learner.
+
+## Limits and safety
+
+{{< callout type="safety" title="A knowledge check, not a competency sign-off" >}}
+A passed quiz shows what someone knew on a test. It doesn't certify bedside skill. A qualified assessor validates skills. Check every study guide fact and quiz answer against the source before anyone learns from it. Lumen can be wrong.
 {{< /callout >}}
 
-## Troubleshooting
+- **Your Cert Binder holds your own attempts.** It isn't a team training record. For team tracking, use the Clinical Educator route described above.
+- **The quiz tests what you gave it.** If the source is out of date, so is the quiz.
+- **Proof PDFs are simple attempt records.** They list your name, the quiz, score, pass threshold, result, attempt number, date and each question's result. Check what your program or accreditor needs.
 
-- **The quiz feels too easy.** Ask for harder construction, not just harder facts: *"rewrite questions 2, 5, and 9 as bedside scenarios where the wrong answers are things people actually do."* Recall questions test reading; scenario questions test practice.
-- **The study guide skipped a section you care about.** Point at it directly — *"the guide missed the section on dressing-change frequency, around pages 18–20; work it in"* — Lumen re-reads that part of the PDF and folds it in with citations.
-- **An answer's explanation doesn't match your local policy.** The quiz is grounded in the guideline you attached, and national guidance can differ from local policy. Attach your unit's policy too and say *"where the two differ, test our policy and note the difference in the explanation."*
+## FAQ
+
+{{< faq question="Can someone see the answers before they submit?" >}}
+No. The answer key stays on Lumen's servers. Rationales and correct answers appear only after the quiz is submitted.
+{{< /faq >}}
+{{< faq question="Where do I find past attempts?" >}}
+Go to {{< ui-path "Home" "Cert Binder" >}}. Each attempt is listed with its score and result. Retakes are saved as separate attempts.
+{{< /faq >}}
+{{< faq question="Can I run the quiz live in a staff meeting?" >}}
+Yes, with **Lumen Live**, Lumen's real-time sessions where people answer on their phones and results show on a shared screen. See [Run a Live session](/live/run-a-session/).
+{{< /faq >}}
 
 ## Next steps
 
-- **Make the guideline itself searchable for the whole team:** [Turn Your Protocols into a Knowledge Pack](/guides/build-a-knowledge-pack/) — so every chat can cite it, not just this one.
-- **Why the citations behind each answer are trustworthy:** [RAG: how AI cites real sources instead of guessing](/learn/rag-and-citations/).
-- **Where the attempts and proof PDFs live:** [Cert Binder](/knowledge/cert-binder/) — the competency record that builds itself.
+{{< related "/learning/cert-binder/" "/live/run-a-session/" "/skills-and-specialists/skills/" "/guides/analyze-a-document/" >}}

@@ -1,0 +1,21 @@
+{{- /* "At a glance" — makes every page understandable when sent on its own.
+       Frontmatter:
+         glance:
+           what:  "One plain sentence: what this is."
+           who:   "Who it's for (role / organization type)."
+           why:   "The outcome or problem it solves."
+           needs: "Plan, role, setup, or time required."
+           result: "What you'll have when you finish."   (optional)
+*/ -}}
+{{- with .Params.glance }}
+<section class="glance" aria-label="At a glance">
+  <div class="glance-head">{{ partial "icon.html" "sparkle" }} At a glance</div>
+  <dl class="glance-grid">
+    {{- with .what }}<div class="g-item g-what"><dt>{{ partial "icon.html" "info" }} What it is</dt><dd>{{ . | markdownify }}</dd></div>{{ end }}
+    {{- with .who }}<div class="g-item"><dt>{{ partial "icon.html" "users" }} Who it's for</dt><dd>{{ . | markdownify }}</dd></div>{{ end }}
+    {{- with .why }}<div class="g-item"><dt>{{ partial "icon.html" "target" }} Why it matters</dt><dd>{{ . | markdownify }}</dd></div>{{ end }}
+    {{- with .needs }}<div class="g-item"><dt>{{ partial "icon.html" "clipboard-check" }} What you need</dt><dd>{{ . | markdownify }}</dd></div>{{ end }}
+    {{- with .result }}<div class="g-item"><dt>{{ partial "icon.html" "check-circle" }} You'll end up with</dt><dd>{{ . | markdownify }}</dd></div>{{ end }}
+  </dl>
+</section>
+{{- end }}

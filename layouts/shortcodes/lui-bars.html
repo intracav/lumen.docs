@@ -1,0 +1,11 @@
+{{- /* BarChart. {{< lui-bars data="Jan:12,Feb:18,Mar:9" unit="" max="20" color="blue|green|accent|plum" >}} */ -}}
+{{- $rows := slice -}}{{- $max := 0.0 -}}
+{{- range split (.Get "data") "," }}{{ $p := split . ":" }}{{ $v := float (trim (index $p 1) " ") }}{{ $rows = $rows | append (dict "l" (trim (index $p 0) " ") "v" $v) }}{{ if gt $v $max }}{{ $max = $v }}{{ end }}{{ end -}}
+{{- with .Get "max" }}{{ $max = float . }}{{ end -}}
+{{- $colors := dict "blue" "var(--smoky-blue)" "green" "var(--palace-green)" "accent" "var(--accent)" "plum" "var(--plum)" "amber" "var(--amber)" -}}
+{{- $c := index $colors (.Get "color" | default "blue") -}}
+<div class="lui-bars" role="img" aria-label="{{ .Get "label" | default "Bar chart" }}">
+{{- range $rows }}
+<div class="lui-bar"><span class="bl">{{ .l }}</span><span class="bt"><i style="width: {{ math.Round (mul (div .v $max) 100) }}%; background: {{ $c | safeCSS }}"></i></span><span class="bv">{{ .v }}{{ $.Get "unit" }}</span></div>
+{{- end }}
+</div>

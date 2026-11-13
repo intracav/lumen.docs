@@ -1,0 +1,4 @@
+{{- $v := .Get "variant" | default "info" -}}
+{{- $tints := dict "info" "tint-blue" "success" "tint-green" "warning" "tint-amber" "error" "tint-accent" -}}
+{{- $icons := dict "info" "info" "success" "check-circle" "warning" "alert" "error" "alert-circle" -}}
+<div class="lui-callout {{ index $tints $v }}">{{ partial "icon.html" (index $icons $v) }}<div>{{ with .Get "title" }}<strong>{{ . }}</strong> {{ end }}{{ .Inner | markdownify }}</div></div>

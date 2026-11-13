@@ -1,18 +1,15 @@
 {{- $tint := .Get "tint" | default "accent" -}}
 {{- $href := .Get "href" -}}
-{{- if $href -}}
-<a href="{{ $href }}" class="guide-card tint-{{ $tint }}">
-  {{ with .Get "icon" }}<span class="card-icon" style="background: var(--tint-soft); color: var(--tint);">{{ . | safeHTML }}</span>{{ end }}
-  <h3>{{ .Get "title" }}</h3>
-  {{ with .Inner }}<p>{{ . | markdownify }}</p>{{ end }}
-  {{ with .Get "prompt" }}<div class="card-prompt">&ldquo;{{ . }}&rdquo;</div>{{ end }}
-  <span class="card-arrow">{{ .Get "label" | default "Read more" }} <span>&rarr;</span></span>
-</a>
-{{- else -}}
-<div class="guide-card tint-{{ $tint }}">
-  {{ with .Get "icon" }}<span class="card-icon" style="background: var(--tint-soft); color: var(--tint);">{{ . | safeHTML }}</span>{{ end }}
-  <h3>{{ .Get "title" }}</h3>
-  {{ with .Inner }}<p>{{ . | markdownify }}</p>{{ end }}
-  {{ with .Get "prompt" }}<div class="card-prompt">&ldquo;{{ . }}&rdquo;</div>{{ end }}
+{{- $icon := .Get "icon" -}}
+{{- $tag := cond (ne $href "") "a" "div" -}}
+{{- if $href }}<a href="{{ $href }}" class="doc-card tint-{{ $tint }}">{{ else }}<div class="doc-card tint-{{ $tint }}">{{ end }}
+{{- with .Get "badge" }}<span class="badge status-badge status-{{ lower . }}">{{ partial "status-label.html" . }}</span>{{ end }}
+<div class="card-head">
+{{- if and $icon (not (hasPrefix $icon "&")) }}<span class="card-icon">{{ partial "icon.html" $icon }}</span>{{ end }}
+<h3>{{ .Get "title" | markdownify }}</h3>
 </div>
-{{- end -}}
+{{ with .Get "kicker" }}<div class="card-kicker">{{ . }}</div>{{ end }}
+{{ with .Inner }}<p>{{ . | markdownify }}</p>{{ end }}
+{{ with .Get "prompt" }}<div class="card-prompt">&ldquo;{{ . }}&rdquo;</div>{{ end }}
+{{ if $href }}<span class="card-foot">{{ .Get "label" | default "Read" }} {{ partial "icon.html" "arrow-right" }}</span>{{ end }}
+{{ if $href }}</a>{{ else }}</div>{{ end }}

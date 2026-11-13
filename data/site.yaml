@@ -1,40 +1,85 @@
-# Site-wide numbers and homepage cards.
-# Update stats here ONLY — never hardcode these counts in templates or content.
-# Ground truth: specialists = src/agents/presets.rs, skills = src/skills/catalog.rs,
-# tools = ALL_REGISTERED_TOOL_NAMES in src/tools/registry.rs, calculators = catalog/clinical/calculator.rs
-stats:
-  specialists: 11
-  skills: 49
-  tools: "60+"
-  calculators: 28
+# Homepage content. Only claims supported by intracav-landing/docs/capability-inventory.md.
+# Do not add counts here unless they were verified against lumen_server source the same day.
+
+announcement:
+  title: "Meet Pilot:"
+  text: "Lumen can now show you around the app, or do the clicks for you."
+  href: "/pilot/"
+
+popular:
+  - { title: "Ask your first question", href: "/getting-started/first-chat/" }
+  - { title: "Check a drug interaction", href: "/getting-started/check-interaction/" }
+  - { title: "Where answers come from", href: "/chat/sources/" }
+  - { title: "Plans", href: "/plans/" }
 
 audiences:
-  - title: "I'm a clinician"
-    icon: "&#129658;"
+  - title: "Clinicians and individual users"
+    icon: stethoscope
     tint: accent
-    text: "Drug checks, codes, notes, evidence — your first useful answer is 60 seconds away."
+    text: "Ask clinical questions and get answers you can check, draft notes and handouts, and hand longer work to a specialist."
     href: "/getting-started/"
-    cta: "Start here"
-  - title: "I run a team or hospital"
-    icon: "&#127973;"
+    cta: "Start the 5-minute tour"
+    links:
+      - { title: "What is Lumen?", href: "/getting-started/what-is-lumen/" }
+      - { title: "Ask your first question", href: "/getting-started/first-chat/" }
+      - { title: "Work with a specialist", href: "/skills-and-specialists/" }
+  - title: "Hospitals and health systems"
+    icon: hospital
     tint: blue
-    text: "Shared knowledge, governed policies, website bots, EHR integration — rolled out in an afternoon."
+    text: "Give staff answers from your own policies, manage policies and compliance in qPolicy, and control who can see what."
     href: "/organizations/"
-    cta: "See the admin tour"
-  - title: "I'm building on Lumen"
-    icon: "&#128295;"
+    cta: "See the organization guide"
+    links:
+      - { title: "Set up your organization", href: "/organizations/" }
+      - { title: "qPolicy: policies and compliance", href: "/qpolicy/" }
+      - { title: "Onboard your team", href: "/guides/onboard-your-team/" }
+  - title: "Medical device makers"
+    icon: package
     tint: green
-    text: "An OpenAI-compatible API with citations, embeddable bots, MCP, and partner content packs."
+    text: "Turn your instructions for use into a page that answers questions and cites the exact page, and add a cited assistant to your website."
+    href: "/connect/"
+    cta: "Explore Lumen Connect"
+    links:
+      - { title: "Smart IFU pages", href: "/connect/smart-ifu/" }
+      - { title: "Website assistant", href: "/connect/website-assistant/" }
+      - { title: "Leads and analytics", href: "/connect/leads-and-analytics/" }
+  - title: "Developers and partners"
+    icon: code
+    tint: plum
+    text: "Use the API, embed Lumen, connect tools over MCP, and learn how Lumen UI turns answers into interactive components."
     href: "/developers/"
-    cta: "Read the API docs"
+    cta: "Read the developer docs"
+    links:
+      - { title: "API quickstart", href: "/developers/api/" }
+      - { title: "Lumen UI", href: "/developers/lumen-ui/" }
+      - { title: "Embed the assistant", href: "/developers/embed/" }
 
-learn_teasers:
-  - title: "What is an AI agent?"
-    href: "/learn/what-is-a-clinical-ai-agent/"
-    text: "Like a resident you delegate a full workup to — a clinician's guide to the idea everyone's talking about."
-  - title: "How AI uses tools"
-    href: "/learn/tool-use/"
-    text: "Why Lumen looks facts up instead of answering from memory — and how you can see it happen."
-  - title: "RAG & citations"
-    href: "/learn/rag-and-citations/"
-    text: "Chart review before rounding: how retrieval keeps AI answers grounded in real sources."
+areas:
+  - { title: "Chat", icon: message, tint: blue, href: "/chat/", text: "Ask anything clinical. Answers cite their sources, and you can open each one." }
+  - { title: "Specialists", icon: user-round-check, tint: plum, href: "/skills-and-specialists/", text: "Hand off multi-step work. Outside actions wait for your approval, and the results are checked against their sources." }
+  - { title: "Clinical tools", icon: pill, tint: accent, href: "/tools/", text: "Drug checks, calculators, codes, trials and literature, looked up live rather than recalled." }
+  - { title: "Knowledge", icon: library, tint: green, href: "/knowledge/", text: "Your documents, folders and knowledge packs, so answers draw on your own material." }
+  - { title: "Workflows", icon: workflow, tint: green, href: "/workflows/", text: "Recurring work that runs on a schedule, such as recall watches and evidence alerts." }
+  - { title: "Pilot", icon: navigation, tint: accent, href: "/pilot/", text: "Lumen shows you where things are, or does the clicks for you once you confirm." }
+  - { title: "Live", icon: radio, tint: blue, href: "/live/", text: "Real-time sessions with polls and knowledge checks. People join from their phones." }
+  - { title: "Learning", icon: graduation, tint: plum, href: "/learning/", status: gated, text: "Courses, assignments, CE tracking and your certification binder." }
+  - { title: "Research", icon: flask, tint: blue, href: "/research/", text: "A statistics workspace. Your data stays on your device." }
+  - { title: "qPolicy", icon: scale, tint: accent, href: "/qpolicy/", text: "Policies with versions, approvals, sign-offs and links to CMS requirements." }
+  - { title: "Lumen Connect", icon: globe, tint: green, href: "/connect/", text: "Smart IFU pages and website assistants for device makers." }
+  - { title: "Organizations", icon: building, tint: neutral, href: "/organizations/", text: "Departments, seats, access, audit log and the admin console." }
+
+tasks:
+  - { title: "Check a drug interaction", sub: "Severity, mechanism and what to do, with sources", icon: pill, href: "/getting-started/check-interaction/" }
+  - { title: "Draft a clinical note", sub: "SOAP, H&P or progress note from your bullets", icon: file-text, href: "/getting-started/draft-a-note/" }
+  - { title: "Write a prior authorization", sub: "Medical-necessity letter with the payer's criteria", icon: clipboard-check, href: "/guides/prior-auth-in-minutes/" }
+  - { title: "Make a patient handout", sub: "Plain-language, at the reading level you choose", icon: book-open, href: "/guides/patient-handout/" }
+  - { title: "Publish your first policy", sub: "Draft, review, sign off and make it searchable", icon: scale, href: "/guides/publish-first-policy/" }
+  - { title: "Launch a website assistant", sub: "Answers from your documents, on your own site", icon: globe, href: "/guides/launch-a-website-bot/" }
+  - { title: "Run a literature review", sub: "PubMed and trials, with quotes you can check", icon: search, href: "/guides/literature-review/" }
+  - { title: "Onboard your team", sub: "Invite people, set up departments and share knowledge", icon: users, href: "/guides/onboard-your-team/" }
+
+trust:
+  - { title: "Every answer shows its sources", icon: quote, text: "Citations link to the passage the answer came from, so you can check it in seconds." }
+  - { title: "Specialists ask before acting", icon: hand, text: "When a specialist wants to send or post something outside Lumen, it waits for your approval and runs exactly as you approved it." }
+  - { title: "Tamper-evident audit log", icon: history, text: "Organization activity is recorded in a hash-chained log that can be independently verified." }
+  - { title: "Built with security safeguards", icon: shield-check, text: "Encryption, access controls and a tamper-evident audit log. Talk to us before using Lumen with patient information." }

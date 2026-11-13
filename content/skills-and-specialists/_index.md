@@ -1,8 +1,8 @@
 ---
-title: "Specialists & Skills"
-description: "Lumen's expert modes: @ Specialists focus the AI on a clinical domain, / Skills shape its output into the exact document you need."
-lead: "Chat gives you quick answers. Specialists and Skills turn the same chat into an expert that does the whole job — multiple steps, multiple tools, one polished result."
-weight: 5
+title: "Specialists and skills"
+description: "Specialists take on multi-step work and show every step. Skills shape what Lumen writes. Find both, and every built-in tool, in Explore."
+lead: "Chat answers a question. A specialist finishes a piece of work, such as a medication review or a prior authorization packet, and checks it against its sources before handing it to you."
+weight: 11
 aliases:
   - /agents/
   - /agents/clinical-scribe/
@@ -14,76 +14,44 @@ aliases:
   - /agents/symptom-checker/
 cascade:
   audience: clinician
+group: use
+icon: user-round-check
+navTitle: "Specialists & skills"
+hideAutoGrid: true
 ---
 
-## Two characters, everything changes
+Most questions need one answer. Some jobs need ten lookups, a document and a careful check before anyone should rely on them. Lumen has two ways to take on that kind of work, and one place to find them.
 
-Everything in Lumen happens in the chat — there's no separate screen to learn. Two keystrokes unlock its expert modes:
+{{< card-grid cols="3" >}}
+{{< card title="Specialists" href="/skills-and-specialists/specialists/" icon="user-round-check" tint="plum" kicker="Type @" >}}A *specialist* is a focused assistant for one kind of work, such as **Medication Review** or **Clinical Educator**. It plans the steps, uses the right tools, and saves a checked result.{{< /card >}}
+{{< card title="Skills" href="/skills-and-specialists/skills/" icon="zap" tint="blue" kicker="Type /" >}}A *skill* is a set of instructions Lumen follows for one kind of output, such as a **SOAP Note** or a **Patient Handout**. It shapes your next answer.{{< /card >}}
+{{< card title="Explore" href="/skills-and-specialists/explore/" icon="compass" tint="green" kicker="One list" >}}**Explore** lists every specialist, skill and built-in tool in one place, with examples and what your plan includes.{{< /card >}}
+{{< /card-grid >}}
 
-- Type **`@`** to bring in a **Specialist** — a curated expert configuration for a clinical domain, like `@Clinical Research` or `@Prior Authorization`. The Specialist changes *how Lumen approaches the whole task*: which tools it reaches for, how many steps it's willing to take, and what a finished result looks like.
-- Type **`/`** to invoke a **Skill** — a precise procedure for a specific output, like `/soap-note` or `/insurance-appeal`. The Skill changes *what Lumen produces*: the structure, the format, the standards it follows.
+## Which one do I need?
 
-They compose. `@Prior Authorization` + your patient summary + `/insurance-appeal` gets you a complete, evidence-cited appeal letter in one message.
+| You want to… | Use | Example |
+|---|---|---|
+| Ask a quick clinical question | Ordinary chat | "Max daily dose of acetaminophen in an adult with cirrhosis?" |
+| Get a familiar format | A skill (`/`) | The **SOAP Note** skill with your encounter details |
+| Hand off a whole piece of work | A specialist (`@`) | `@Medication Review` with a 12-drug list and a creatinine |
 
-## Quick answer, or the whole job?
+You don't have to choose up front. Lumen picks tools on its own, and applies a matching skill automatically. A specialist tells you when a request belongs to a different specialist.
 
-The chat is perfect for quick questions — *"Any interactions between these two drugs?"* Ask, get an answer, move on.
+## How Lumen keeps specialist work checkable
 
-But some clinical tasks aren't one question. They're a whole workflow: pull the meds, check the codes, search the literature, *then* draft the document. Specialists handle exactly that.
+{{< flow >}}
+{{< flow-node kicker="You ask" title="Start a specialist" icon="user-round-check" tint="plum" >}}From its page in Explore, or by typing @ in any chat.{{< /flow-node >}}
+{{< flow-node kicker="It works" title="Every step shown" icon="list-checks" tint="blue" >}}A task strip lists what it did. Actions outside Lumen wait for your approval.{{< /flow-node >}}
+{{< flow-node kicker="Lumen checks" title="A verified result" icon="badge-check" tint="green" >}}Each quote is found again in its source, and the result carries a verdict.{{< /flow-node >}}
+{{< /flow >}}
 
-<div class="compare-grid">
-  <div class="compare-card tint-blue" style="border-top-color: var(--smoky-blue);">
-    <h3>&#128172; A plain chat message</h3>
-    <div class="compare-subtitle">Like texting a colleague for a quick answer</div>
-    <ul class="compare-list">
-      <li><span class="compare-check" style="color: var(--smoky-blue);">&#10003;</span> One question, one answer</li>
-      <li><span class="compare-check" style="color: var(--smoky-blue);">&#10003;</span> You guide the conversation</li>
-      <li><span class="compare-check" style="color: var(--smoky-blue);">&#10003;</span> Great for quick lookups</li>
-      <li><span class="compare-check" style="color: var(--smoky-blue);">&#10003;</span> Uses 1&ndash;2 tools per question</li>
-      <li><span class="compare-check" style="color: var(--smoky-blue);">&#10003;</span> Conversational &mdash; ask follow-ups</li>
-    </ul>
-  </div>
-  <div class="compare-card tint-accent" style="border-top-color: var(--accent);">
-    <h3>&#129658; With a Specialist</h3>
-    <div class="compare-subtitle">Like handing a complete task to a consultant</div>
-    <ul class="compare-list">
-      <li><span class="compare-check" style="color: var(--accent);">&#10003;</span> One prompt, multi-step result</li>
-      <li><span class="compare-check" style="color: var(--accent);">&#10003;</span> The Specialist plans the workflow</li>
-      <li><span class="compare-check" style="color: var(--accent);">&#10003;</span> Great for complex tasks</li>
-      <li><span class="compare-check" style="color: var(--accent);">&#10003;</span> Runs 5&ndash;10 tools automatically</li>
-      <li><span class="compare-check" style="color: var(--accent);">&#10003;</span> Shows its work &mdash; every step visible</li>
-    </ul>
-  </div>
-</div>
+- **Approvals.** When a specialist wants to act outside Lumen (send an email, post a message, write to another system), it waits on an approval card and runs exactly as you approved it. See [Approve actions](/skills-and-specialists/approvals/).
+- **Verified results.** Lumen's server re-finds every quoted source before a result is saved. The verdict says **Passed its checks**, which means "checked", never "correct". See [Verified results](/skills-and-specialists/verified-results/).
+- **Work keeps going.** Specialist work runs on Lumen's servers. You can close the tab and come back to it later, up to about an hour per task.
 
-## The cast
-
-**11 Specialists** cover the major kinds of clinical work: Clinical Reasoning, Vascular Access, Clinical Research, Trial Matcher, Document Analysis, Patient Education, Medication Review, Care Transitions, Prior Authorization, Calculator Builder, and Staff Scheduler. [Meet all 11 →](specialists/)
-
-**49 built-in Skills** produce specific outputs to a professional standard — SOAP notes, discharge summaries, prior auth letters, journal-club summaries, patient handouts, I-PASS handoffs, literature reviews, and more. You can also teach Lumen your own. [Browse the Skills directory →](skills/)
-
-## How to use a Specialist
-
-<div class="steps-container">
-
-{{< step num="1" title="Type @ in any chat" >}}
-A menu of Specialists appears. Pick one — say, **@Clinical Research** — or keep typing to filter.
-{{< /step >}}
-
-{{< step num="2" title="Ask for the whole job" >}}
-Describe what you need in plain English, and attach any documents that matter. *"@Clinical Research — what's the current evidence on early mobilization after PICC placement? I need a summary I can bring to committee."*
-{{< /step >}}
-
-{{< step num="3" title="Watch it work" >}}
-The Specialist plans its approach, then works through it — searching, checking databases, cross-referencing — with every step and source visible as it goes.
-{{< /step >}}
-
-{{< step num="4" title="Keep it around (or not)" >}}
-By default a Specialist joins for that one message. If you want it to drive the rest of the conversation, tap **Stay** on its chip.
-{{< /step >}}
-
-</div>
-
-{{< callout type="info" >}}
-**Everything stays a chat.** Specialist runs live in your chat history like any other conversation — come back later, ask follow-ups, or fork the thread and take it in a new direction.
+{{< callout type="safety" title="A specialist drafts. You decide." >}}
+Specialists propose; they don't order, sign or submit. Read the result, open its sources, and apply your own clinical judgment and your organization's policies before you act on it.
 {{< /callout >}}
+
+## In this section

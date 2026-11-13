@@ -1,81 +1,85 @@
 ---
-title: "Sharing Workflows & Blueprints"
-description: "Share a workflow with your organization, package it as a reusable blueprint, or run it straight from chat."
-weight: 4
+title: "Share and reuse a workflow"
+navTitle: "Share and reuse"
+description: "Share a Lumen workflow with your department or team, save a runnable copy others can use from a simple form, and export or import workflows as files."
+lead: "Build it once, and let your colleagues use it too."
+weight: 5
+icon: share
+glance:
+  what: "How to share a workflow with your department or team, save a runnable copy with a simple form, and export or import a workflow file."
+  who: "Workflow owners in a Lumen team, and anyone who wants to reuse a workflow."
+  why: "So a workflow that works for one person becomes a shared routine, without everyone rebuilding it."
+  needs: "A workflow you own that belongs to a team (Lumen's word for an organization). About 2 minutes."
+  result: "A workflow your colleagues can view, run or copy."
 ---
 
-You've built a workflow that works well. Now make it useful beyond the editor: share it with your team, package it as a **blueprint** others can reuse, or run it from any chat with a single sentence.
+You've built a referral-triage workflow that works. Now the rest of the department wants it. You can share it with your department or the whole team, save a runnable copy colleagues use from a simple form, or export it as a file. Sharing never lets anyone else change your original.
 
-## Run it from chat
+## Before you start
 
-Every saved workflow can be run without opening the editor. Just ask:
+- **You own the workflow**, and it belongs to a team. In Lumen, a *team* is your organization's shared workspace. Personal workflows can't be shared until they're in a team.
+- The workflow runs cleanly. See [Runs and history](/workflows/running/).
 
-> "Run my *Med Rec & Interaction Checker* workflow on the attached document."
+## How to share a workflow
 
-Lumen finds the workflow by name, feeds it your input, and returns the result in the conversation. This is the fastest way to turn a workflow you built once into an everyday one-liner.
+{{< steps >}}
+{{< step title="Open the workflow" >}}Open it in the editor.{{< /step >}}
+{{< step title="Open sharing" >}}Click **Share with your team** in the toolbar. The **Who can see this workflow?** panel opens.{{< /step >}}
+{{< step title="Choose who" >}}Choose **Personal** (only you), **Department**, or **Team** (everyone in your team).{{< /step >}}
+{{< step title="Save" >}}Click **Update sharing**.{{< /step >}}
+{{< /steps >}}
 
-## Share it with your organization
+People it's shared with can view, run and make their own copy. Only you can change the original.
 
-Workflows are private by default. To let colleagues use one:
+## How to save a runnable copy
 
-<div class="steps-container">
+A runnable copy lets someone use the workflow from a simple form without opening the canvas.
 
-{{< step num="1" title="Open the workflow's sharing settings" >}}
-From the workflow list, open the menu on the workflow card and choose **Share**.
-{{< /step >}}
+{{< steps >}}
+{{< step title="Open the save option" >}}In the editor toolbar, click **Save as a runnable workflow**.{{< /step >}}
+{{< step title="Save it" >}}Click **Save to my library**. Lumen saves a copy that anyone you share it with can run from a form.{{< /step >}}
+{{< /steps >}}
 
-{{< step num="2" title="Choose who can use it" >}}
-Share into your organization or a specific department. Colleagues get run access — they can use the workflow, see their own runs, and won't accidentally edit your logic.
-{{< /step >}}
+## How to export or import a workflow
 
-{{< step num="3" title="Keep improving it" >}}
-You keep edit rights. When you save changes, everyone runs the updated version — workflow **version history** means you can always restore an earlier revision if a change misbehaves.
-{{< /step >}}
+In the **Workflows** list, open a workflow's menu and choose **Export as JSON** to save it as a file. To bring a file in, click **Import**, then **Import from JSON…**. Use this to keep a backup or move a workflow between accounts.
 
-</div>
+## What you'll see
 
-{{< callout type="info" >}}
-**Sharing a workflow doesn't share your credentials.** If your workflow uses a connected account (Gmail, a CRM, Slack), colleagues connect their own — Lumen never lets someone else's workflow act as you.
-{{< /callout >}}
+{{< lui-block title="Who can see this workflow?" sub="People it's shared with can view and fork — only you can change it." >}}
+{{< lui-rows >}}
+{{< lui-row type="radio" title="Personal" body="Only you." >}}
+{{< lui-row type="radio" title="Department" body="Vascular Access" >}}
+{{< lui-row type="radio" checked=true title="Team" body="Everyone in Harbor Valley Medical Center can view." >}}
+{{< /lui-rows >}}
+{{< lui-actions "Update sharing" >}}
+{{< /lui-block >}}
 
-## Package it as a blueprint
+## Tips
 
-A **blueprint** is a workflow exported as a reusable component: the logic, node layout, and configuration — without your documents, credentials, or run history.
+- **Share with a department first.** Let a small group use it for a few weeks before sharing it team-wide.
+- **Name it for what it does.** "Referral Intake & Triage — Vascular Access" tells colleagues what they're running.
+- **Export before big changes.** A JSON copy is a simple backup, alongside the versions Lumen keeps.
 
-- **Reuse it yourself** — instantiate a new copy for a different clinic, department, or use case.
-- **Publish it** — published blueprints appear in the blueprint gallery, where other Lumen users can browse and add them.
-- **Track it** — see how often your published blueprint is used from its analytics view.
+## Limits and safety
 
-To create one, choose **Save as blueprint** from the workflow menu, give it a clear name and description, and decide whether to publish it or keep it in your library.
+- **Only the owner can share.** **Share with your team** appears only for the owner of a team workflow.
+- **Shared isn't the same as reviewed.** Before a department relies on a workflow, have someone check its steps and recipients.
+- **Check connected accounts.** A workflow that reads or sends email uses the connected account it was set up with. Review email and CRM steps before you share.
+- **No public gallery.** Runnable copies are shared within your team, not published for other Lumen users.
 
-## The full journey
+## FAQ
 
-<div class="journey-flow">
-  <div class="journey-box">
-    <div class="journey-box-icon">&#128196;</div>
-    <div class="journey-box-label">Build</div>
-    <div class="journey-box-sub">Visual editor</div>
-  </div>
-  <div class="journey-arrow">&rarr;</div>
-  <div class="journey-box">
-    <div class="journey-box-icon">&#9654;</div>
-    <div class="journey-box-label">Test</div>
-    <div class="journey-box-sub">Run & inspect</div>
-  </div>
-  <div class="journey-arrow">&rarr;</div>
-  <div class="journey-box">
-    <div class="journey-box-icon">&#129309;</div>
-    <div class="journey-box-label">Share</div>
-    <div class="journey-box-sub">Org & departments</div>
-  </div>
-  <div class="journey-arrow">&rarr;</div>
-  <div class="journey-box">
-    <div class="journey-box-icon">&#128230;</div>
-    <div class="journey-box-label">Blueprint</div>
-    <div class="journey-box-sub">Reusable component</div>
-  </div>
-</div>
+{{< faq question="Can people I share with change my workflow?" >}}
+No. They can view it, run it and make their own copy. Only you can change the original.
+{{< /faq >}}
+{{< faq question="Can I share a workflow with someone outside my team?" >}}
+Not directly. Export it with **Export as JSON** and send the file; they can bring it in with **Import from JSON…**. Check that it contains no addresses or details you don't want to share.
+{{< /faq >}}
+{{< faq question="Why don't I see Share with your team?" >}}
+Either you aren't the workflow's owner, or the workflow is personal rather than in a team.
+{{< /faq >}}
 
-{{< tip title="Automate it next" >}}
-A shared workflow gets really powerful when it runs itself. Add a **trigger** — a schedule, a webhook, or an incoming email — and the workflow runs without anyone clicking anything. See [Running & Results](../running/).
-{{< /tip >}}
+## Next steps
+
+{{< related "/workflows/running/" "/workflows/triggers/" "/organizations/" >}}

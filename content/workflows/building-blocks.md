@@ -1,139 +1,114 @@
 ---
-title: "Building Blocks"
-description: "The 70+ tools you can use as nodes in your workflows — organized by what they do."
+title: "Workflow building blocks"
+navTitle: "Building blocks"
+description: "The kinds of steps you can use in a Lumen workflow: triggers, inputs, text analysis, clinical lookups, logic, connections, privacy and outputs."
+lead: "Every workflow is made of steps. Here's what each family of steps does."
 weight: 2
+icon: layers
+glance:
+  what: "A guide to the steps in Lumen's workflow palette, grouped the way the palette groups them."
+  who: "Anyone building or adjusting a workflow."
+  why: "Knowing which step does what lets you build a workflow that does exactly the job, without extra steps."
+  needs: "A Lumen account. Steps marked with a lock in the palette need Pro or above."
+  result: "A clear idea of which steps to use for your workflow."
 ---
 
-Every node in a workflow is a tool that does one thing. Here are all the tools available, grouped by the kind of work they do.
+A workflow is a chain of **steps**. Each step does one job, such as search PubMed, summarize text or send an email, and passes its result to the next. The **Steps** palette in the editor groups them by what they do. You don't need to learn them all: the **Start here** group covers most first workflows.
 
-## Where Data Comes In
+## Before you start
 
-These nodes start your workflow — they're how you get information into the pipeline.
+Open a workflow in the editor (see [Build a workflow](/workflows/editor/)). The palette is on the side of the canvas. Steps that need Pro or above show a lock icon.
 
-<div class="tool-grid">
+## How to find and add a step
 
-{{< tool-card name="Text Input" icon="&#128221;" color="var(--accent)" desc="Type or paste text. This is the most common starting point — paste a clinical note, a question, or any text you want to process." >}}
+{{< steps >}}
+{{< step title="Open the palette" >}}In the editor, open the **Steps** palette.{{< /step >}}
+{{< step title="Search or browse" >}}Type in **Search steps…**, such as "recall" or "email", or open a category.{{< /step >}}
+{{< step title="Add it" >}}Click the step, or drag it onto the canvas, then connect it to the step before it.{{< /step >}}
+{{< /steps >}}
 
-{{< tool-card name="Document Upload" icon="&#128196;" color="var(--accent)" desc="Upload a PDF, Word doc, or text file. The workflow reads and extracts the text automatically." >}}
+## The step families
 
-{{< tool-card name="Voice Input" icon="&#127908;" color="var(--accent)" desc="Use a dictation transcript as input. Pairs well with Lumen's dictation feature." >}}
+### Start here
 
-{{< tool-card name="Web Scrape" icon="&#127760;" color="var(--smoky-blue)" desc="Fetch and parse content from a URL. Useful for pulling in guidelines or reference material from the web." >}}
+The most-used steps: **Text Input**, **Document**, **Generate Text**, **Knowledge Bases**, **Summarize**, **Condition**, **Send Email**, **Export PDF** and **Write the Final Answer**. Most first workflows use only these.
 
-</div>
+### Triggers: when it runs
 
-{{< tip title="Or skip the manual input entirely" >}}
-Trigger nodes — schedule, webhook, incoming email, CRM events — can start a workflow with no one at the keyboard. See [Workflow Triggers](/workflows/triggers/).
-{{< /tip >}}
+**Schedule trigger**, **Email trigger**, **Webhook trigger**, **CRM trigger** and **Manual trigger**. A trigger starts the workflow. See [Triggers](/workflows/triggers/).
 
-## Text Analysis
+### Inputs and your documents
 
-These nodes read text and extract useful structure from it.
+Bring material in: text you type, a document, or search your knowledge with **Knowledge Bases** (your documents) and **Knowledge Pack Lookup** (a [Knowledge Pack](/knowledge/knowledge-packs/), a curated collection of documents Lumen can search and cite).
 
-<div class="tool-grid">
+### Text Analysis
 
-{{< tool-card name="Summarize" icon="&#128203;" color="var(--smoky-blue)" desc="Condense long text into a shorter summary. You control the length." >}}
+**Summarize**, **Extract Entities** (medications, diagnoses, procedures, lab values), **Classify** (into categories you define), **Sentiment**, **Translate**, **Keywords**, **Q & A** (answer a question about the text) and **Generate Text**.
 
-{{< tool-card name="Extract Entities" icon="&#128196;" color="var(--smoky-blue)" desc="Find medications, diagnoses, procedures, and lab values in unstructured text." >}}
+### Clinical lookups
 
-{{< tool-card name="Classify" icon="&#127991;" color="var(--smoky-blue)" desc="Sort text into categories you define. Example: classify a note as 'urgent', 'routine', or 'follow-up'." >}}
+Steps grouped as **Medications**, **Coding & Labs**, **Insurance & Coverage**, **Protocols**, **Records**, **Education** and **Research**. They use the same clinical tools as Lumen chat, such as FDA recalls and adverse events, PubMed, ClinicalTrials.gov, drug interactions, ICD-10 and CPT lookup, and CMS coverage.
 
-{{< tool-card name="Sentiment" icon="&#128200;" color="var(--smoky-blue)" desc="Detect whether text is positive, negative, or neutral — with a confidence score." >}}
+### Agent
 
-{{< tool-card name="Translate" icon="&#127760;" color="var(--smoky-blue)" desc="Translate text between languages. Useful for multilingual patient communication." >}}
+The **Agent** step hands a task to Lumen to work through with tools, the way a specialist does in chat. Use it when the task needs judgment across several lookups. It needs Pro or above.
 
-{{< tool-card name="Keywords" icon="&#128273;" color="var(--smoky-blue)" desc="Extract the most important terms from a piece of text." >}}
+### Logic and flow control
 
-{{< tool-card name="Q&A" icon="&#10067;" color="var(--smoky-blue)" desc="Answer a specific question based on the text that comes in. Example: 'What medications is this patient on?'" >}}
+**Condition** sends the workflow down different paths, such as "only email if something new was found". **Delay**, **Loop / iterate** and **Sub-workflow** control timing and repetition.
 
-{{< tool-card name="Generate Text" icon="&#9999;" color="var(--smoky-blue)" desc="Write new text based on a prompt. Example: 'Write a patient-friendly explanation of these lab results.'" >}}
+### Connections
 
-</div>
+Work with other systems: **Read Email**, **Send Email**, **Slack: send**, **CRM: Find Contact**, **CRM: Upsert Contact** and **Contact List**. These use accounts you've connected.
 
-## Knowledge & Research
+### Data and privacy
 
-These nodes search databases and bring in external evidence.
+**Format**, **JSON extract**, **Merge** and **Transform** reshape results. **De-identify PHI** removes identifiers before later steps, and **Re-identify PHI** puts them back where you need them.
 
-<div class="tool-grid">
+### Outputs: where results go
 
-{{< tool-card name="Search Clinical Knowledge" icon="&#128218;" color="var(--smoky-blue)" desc="Search Lumen's clinical database for relevant guidelines and evidence." >}}
+**Send Email**, **Export PDF**, **Export Presentation**, **Newsletter**, **Post to Chat Thread**, **Send to Webhook**, **Download as Text** and **Write the Final Answer** (the result you see at the end of a run).
 
-{{< tool-card name="Search Your Documents" icon="&#128193;" color="var(--smoky-blue)" desc="Search your personally uploaded files for relevant passages." >}}
+### System
 
-{{< tool-card name="PubMed Search" icon="&#128218;" color="var(--smoky-blue)" desc="Search PubMed for peer-reviewed articles. Set the query and max results." >}}
+**HTTP Request**, **Python Sandbox** and **Other tool**, for technical users. They need Pro or above.
 
-{{< tool-card name="FDA Drug Labels" icon="&#128138;" color="var(--palace-green)" desc="Look up FDA-approved prescribing information — indications, warnings, dosing." >}}
+## What you'll see
 
-{{< tool-card name="Clinical Trials" icon="&#129514;" color="var(--smoky-blue)" desc="Search ClinicalTrials.gov for active and completed studies." badge="Pro" >}}
+{{< lui-block title="Steps" sub="Click to add · or drag onto the canvas" >}}
+{{< lui-rows >}}
+{{< lui-row title="Start here" body="Text Input · Document · Generate Text · Knowledge Bases · Summarize · Condition · Send Email · Export PDF · Write the Final Answer" >}}
+{{< lui-row title="Triggers" body="Webhook trigger · Schedule trigger · Email trigger · CRM trigger · Manual trigger" >}}
+{{< lui-row title="Text Analysis" body="Summarize · Extract Entities · Sentiment · Classify · Translate · Keywords · Q & A" >}}
+{{< lui-row title="Privacy" body="De-identify PHI · Re-identify PHI" value="Pro" >}}
+{{< /lui-rows >}}
+{{< /lui-block >}}
 
-</div>
+## Tips
 
-## Medications
+- **End with a clear output.** A workflow that runs on a schedule needs an output step, such as **Send Email** or **Post to Chat Thread**, or nobody will see the result.
+- **Use Condition to stay quiet.** A weekly digest that only sends when something changed gets read. One that sends "nothing new" every week gets ignored.
+- **Search your own knowledge.** **Knowledge Pack Lookup** lets a workflow answer from your organization's documents, with citations.
 
-<div class="tool-grid">
+## Limits and safety
 
-{{< tool-card name="Identify a Drug (RxNorm)" icon="&#128138;" color="var(--palace-green)" desc="Normalize drug names — brand to generic, get drug class and RxCUI." >}}
+- **Some steps need Pro or above.** They show a lock icon in the palette. See [Plans](/plans/).
+- **Outputs run without approval.** **Send Email**, **Slack: send**, **Send to Webhook** and CRM steps act as soon as the workflow reaches them, including in unattended runs.
+- **Clinical lookups can miss things.** A recall or literature sweep is a prompt to look, not proof that nothing changed. Check the cited sources.
+- **De-identification isn't perfect.** **De-identify PHI** reduces risk but can miss identifiers. Keep patient data out of workflows that don't need it.
 
-{{< tool-card name="Check Drug Interactions" icon="&#9888;" color="var(--accent-dk)" desc="Check for interactions between drugs. Returns severity and management." >}}
+## FAQ
 
-{{< tool-card name="IV Drip Calculator" icon="&#128167;" color="var(--palace-green)" desc="Calculate infusion rates from weight-based dosing." >}}
+{{< faq question="Which steps should I learn first?" >}}
+The **Start here** group: **Text Input**, **Document**, **Summarize**, **Generate Text**, **Condition**, **Send Email** and **Write the Final Answer**.
+{{< /faq >}}
+{{< faq question="Can a workflow search my own documents?" >}}
+Yes. Use **Knowledge Bases** for your documents, or **Knowledge Pack Lookup** for a Knowledge Pack you have access to.
+{{< /faq >}}
+{{< faq question="Why is a step locked?" >}}
+It needs Pro or above. The lock tells you before you build it in.
+{{< /faq >}}
 
-{{< tool-card name="Renal Dose Check" icon="&#129656;" color="var(--palace-green)" desc="Compute CrCl and look up renal dose adjustments." >}}
+## Next steps
 
-</div>
-
-## Coding & Labs
-
-<div class="tool-grid">
-
-{{< tool-card name="ICD-10 Lookup" icon="&#127973;" color="var(--accent-dk)" desc="Find diagnosis codes from a clinical description." >}}
-
-{{< tool-card name="CPT Lookup" icon="&#129534;" color="var(--accent-dk)" desc="Find procedure codes." >}}
-
-{{< tool-card name="HCPCS Lookup" icon="&#128203;" color="var(--accent-dk)" desc="Find Level II codes for DME, supplies, and drugs." >}}
-
-{{< tool-card name="Lab Reference Ranges" icon="&#129514;" color="var(--palace-green)" desc="Get normal ranges for any lab test." >}}
-
-{{< tool-card name="Clinical Calculator" icon="&#129518;" color="var(--accent)" desc="Run validated scoring tools — eGFR, CHA₂DS₂-VASc, MELD, Wells, and more." >}}
-
-{{< tool-card name="CMS Coverage" icon="&#9989;" color="var(--palace-green)" desc="Check Medicare coverage determinations (NCDs and LCDs)." >}}
-
-</div>
-
-## Protocols & Decisions
-
-<div class="tool-grid">
-
-{{< tool-card name="Clinical Checklist" icon="&#9745;" color="var(--palace-green)" desc="Load evidence-based protocol checklists (sepsis, DKA, central line, etc.)." >}}
-
-{{< tool-card name="Triage Assessment" icon="&#127973;" color="var(--accent-dk)" desc="Score patient acuity using ESI, Manchester, CTAS, or START." >}}
-
-{{< tool-card name="Differential Diagnosis" icon="&#129504;" color="var(--smoky-blue)" desc="Generate a ranked differential with workup recommendations." >}}
-
-{{< tool-card name="Antimicrobial Selector" icon="&#129440;" color="var(--palace-green)" desc="Select appropriate antibiotics with dosing and allergy alternatives." >}}
-
-{{< tool-card name="Clinical Guidelines" icon="&#128214;" color="var(--smoky-blue)" desc="Search USPSTF and current practice guidelines." >}}
-
-</div>
-
-## Where Results Go Out
-
-These nodes deliver the final output of your workflow.
-
-<div class="tool-grid">
-
-{{< tool-card name="Send to Chat" icon="&#128172;" color="var(--palace-green)" desc="Output appears in the chat — the most common output node." >}}
-
-{{< tool-card name="Export as PDF" icon="&#128196;" color="var(--accent)" desc="Generate a downloadable PDF document." >}}
-
-{{< tool-card name="Export as Slides" icon="&#128202;" color="var(--accent)" desc="Generate a PowerPoint presentation." >}}
-
-{{< tool-card name="Create Spreadsheet" icon="&#128203;" color="var(--accent)" desc="Generate an Excel workbook." >}}
-
-{{< tool-card name="Send Email" icon="&#128231;" color="var(--accent-dk)" desc="Email the output to a specified address." badge="Pro" >}}
-
-</div>
-
-{{< callout type="info" >}}
-**A Pro badge** means that tool needs a paid plan — see [plans](/plans/) for what each tier includes. Everything else here, from entity extraction to ICD-10 lookup to PDF export, is available on every plan.
-{{< /callout >}}
+{{< related "/workflows/editor/" "/workflows/triggers/" "/tools/" >}}

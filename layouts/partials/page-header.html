@@ -1,0 +1,19 @@
+{{- $p := . -}}
+<header class="page-header">
+  {{ if not .IsHome }}{{ partial "breadcrumbs.html" . }}{{ end }}
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.lead }}<p class="lead">{{ . | markdownify }}</p>{{ end }}
+  {{- $hasMeta := or .Params.tier .Params.status .Params.who (and .IsPage (gt .ReadingTime 1)) }}
+  {{- if $hasMeta }}
+  <div class="page-meta">
+    {{- if or .Params.tier .Params.status }}
+    <span class="page-badges">
+      {{- with .Params.tier }}{{ $t := lower . }}<a class="badge tier-badge tier-{{ $t }}" href="/plans/" title="Available on the {{ title $t }} plan — compare plans"><span class="dot"></span>{{ title $t }}{{ if ne $t "free" }} plan{{ end }}</a>{{ end }}
+      {{- with .Params.status }}<span class="badge status-badge status-{{ lower . }}">{{ partial "status-label.html" . }}</span>{{ end }}
+    </span>
+    {{- end }}
+    {{- with .Params.who }}<span class="meta-item">{{ partial "icon.html" "user" }} For {{ . }}</span>{{ end }}
+    {{- if and .IsPage (gt .ReadingTime 1) }}<span class="meta-item">{{ partial "icon.html" "clock" }} {{ .ReadingTime }} min read</span>{{ end }}
+  </div>
+  {{- end }}
+</header>

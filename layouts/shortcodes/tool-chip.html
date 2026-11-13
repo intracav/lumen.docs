@@ -1,0 +1,3 @@
+{{- $s := .Get "status" | default "done" -}}
+<span class="tool-chip {{ $s }}">{{ if eq $s "running" }}{{ partial "icon.html" (dict "name" "loader" "class" "spin") }}{{ else if eq $s "failed" }}{{ partial "icon.html" "alert-circle" }}{{ else }}{{ partial "icon.html" (dict "name" "check" "class" "ok") }}{{ end }}{{ .Get "name" | default (.Get 0) }}</span>
+{{- /* trim */ -}}

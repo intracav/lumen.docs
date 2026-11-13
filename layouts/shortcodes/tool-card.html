@@ -1,21 +1,8 @@
-{{ $color := .Get "color" | default "var(--accent)" }}
-{{/* Hex colors get an appended alpha byte; var() tokens need color-mix for the soft tint. */}}
-{{ $soft := printf "%s1a" $color }}
-{{ if hasPrefix $color "var(" }}{{ $soft = printf "color-mix(in srgb, %s 12%%, transparent)" $color }}{{ end }}
-<div class="tool-card">
-  <div class="tool-icon" style="background: {{ $soft | safeCSS }}; color: {{ $color | safeCSS }};">
-    {{ .Get "icon" | safeHTML }}
-  </div>
-  <div class="tool-info">
-    <div class="tool-name">{{ .Get "name" }}</div>
-    <div class="tool-desc">{{ .Get "desc" }}</div>
-    {{ with .Get "example" }}
-    <div class="tool-example">{{ . }}</div>
-    {{ end }}
-    {{ if .Get "badge" }}
-    <div class="tool-badges">
-      <span class="tool-badge" style="background: {{ $soft | safeCSS }}; color: {{ $color | safeCSS }};">{{ .Get "badge" }}</span>
-    </div>
-    {{ end }}
-  </div>
+{{- /* Legacy-compatible: renders as a card. Prefer {{< card >}}. */ -}}
+{{- $icon := .Get "icon" -}}
+<div class="doc-card tint-accent">
+<div class="card-head">{{ if and $icon (not (hasPrefix $icon "&")) }}<span class="card-icon">{{ partial "icon.html" $icon }}</span>{{ end }}<h3>{{ .Get "name" }}</h3></div>
+<p>{{ .Get "desc" | markdownify }}</p>
+{{ with .Get "example" }}<div class="card-prompt">&ldquo;{{ . }}&rdquo;</div>{{ end }}
+{{ with .Get "badge" }}<span class="card-kicker">{{ . }}</span>{{ end }}
 </div>

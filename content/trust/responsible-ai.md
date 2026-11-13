@@ -1,34 +1,83 @@
 ---
-title: "Accuracy, Citations & Clinical Judgment"
-description: "Why Lumen cites every answer, how to verify with evidence chips, what hallucination means, and why the clinician always owns the decision."
-lead: "Lumen is designed so you never have to take its word for anything — and never should."
+title: "Accuracy and clinical judgment"
+navTitle: "Accuracy and judgment"
+description: "How Lumen keeps AI answers checkable: citations, Lumen Evidence, verified deliverables, honest refusals and approvals, and why the clinician always decides."
+lead: "Lumen is built so you don't have to take its word for anything. This page explains how answers stay checkable, where AI can still be wrong, and how to report a problem."
 weight: 2
+icon: scale
+glance:
+  what: "An explanation of how Lumen makes AI answers checkable (citations, evidence checks, honest refusals and approvals) and the limits that remain."
+  who: "Clinicians, clinical leaders, and the quality, risk and procurement reviewers deciding whether to rely on Lumen."
+  why: "AI can sound confident and still be wrong. Knowing how Lumen shows its work, and where it stops, lets you use it safely."
+  needs: "Nothing. Applies to every plan."
+  result: "You know how to check a Lumen answer, what the checks do and don't prove, and how to report a bad answer."
 ---
 
-An answer you can't verify is an anecdote. Lumen is built on the opposite premise: every clinical claim should carry its receipt, and the final call always belongs to you.
+An answer you can't check is an opinion. Lumen is designed so that each statement in an answer points to the passage it came from, and so that when a specialist wants to act outside Lumen, it waits for a person to approve. (Workflows you build run their steps as you configured them.) The final decision always belongs to you.
 
-## Why Lumen cites sources
+## How it works
 
-Lumen grounds its answers in retrievable sources — the literature, guidelines, and your own documents — and shows you where each claim came from. This is the same standard you'd hold a consult to: a recommendation is only as good as the evidence behind it. Grounding isn't decoration; it's the mechanism that keeps the model tethered to something checkable. Read more in [How Lumen finds its sources](/chat/sources/) and [RAG and citations](/learn/rag-and-citations/).
+### Answers cite their sources
 
-## Evidence chips let you verify
+When you ask a question, Lumen looks things up (clinical databases, guidelines, PubMed, the web, and your own documents) and writes an answer that cites what it found. Numbered citations link each statement to its source, so you can open the passage and read it yourself. See [Where answers come from](/chat/sources/).
 
-Below Lumen's answers you'll see evidence chips — compact cards pointing at the specific sources behind the response. Tap one and read the actual passage. The habit worth building: **verify before you act**, the way you'd glance at the primary source before changing a plan based on a colleague's summary. The chips exist precisely so that verification takes seconds, not a literature search.
+### Lumen Evidence and verified deliverables
 
-## AI can be wrong — honestly
+Below some answers you'll see a **Lumen Evidence** pill. It means Lumen checked the answer's statements against the sources it read.
 
-Language models sometimes produce statements that are fluent, confident, and false — the field calls this *hallucination*. It isn't lying, and it isn't a bug that will be patched away; it's a byproduct of how these models generate text, a bit like confabulation in a patient with an intact narrative drive and a gap in the record. Grounding and citations dramatically reduce it — an answer tied to a retrieved source has far less room to invent — but no system eliminates it, which is why Lumen shows its sources instead of asking for your trust. The full picture is in [Hallucinations and grounding](/learn/hallucinations-and-grounding/).
+When a specialist produces a finished piece of work, such as an education module or an evidence review, Lumen's servers re-find every quoted passage in the sources they loaded themselves, then store the result with a verdict. If a check fails, the specialist has to repair the work. A verdict says the work was **checked**, never that it is **correct**.
 
-## Decision support, not a decision maker
+### Honest refusals
 
-Lumen informs decisions; it does not make them. It is not a diagnostic device and it does not replace clinical judgment. The model can synthesize evidence faster than any of us, but it has never examined your patient — you have. The clinician owns the decision, the same way you own a decision after reading a review article or calling a consult. Lumen's job is to make that decision better-informed and faster to reach.
+If Lumen can't find support for something, it says so rather than filling the gap. The [website assistant](/connect/website-assistant/) that device makers run follows the same rule. It declines when its documents don't cover a question.
 
-## When Lumen gets it wrong
+### Actions wait for approval
 
-Flag it. Every response can be reported as bad, and that feedback feeds directly into improving the system. A flagged answer is worth more to Lumen's accuracy than a hundred silent successes — if something looks off, take the two seconds.
+When Lumen proposes an action that leaves Lumen, such as sending an email or writing to another system, it stores the exact details and shows you an approval card. Nothing happens until a person approves it. On approval, Lumen confirms the details haven't changed, and then runs the action exactly as approved. Typing "I approve" in the chat does nothing.
+
+## What you'll see
+
+{{< screenshot src="chat-cited-answer" alt="A Lumen answer with numbered citations, the sources list and a Lumen Evidence pill" caption="Numbered citations link each statement to a source you can open." url="lumen.intracav.ai" >}}
+{{< chat-demo title="Dressing change interval" caption="Illustration with fictional content. Always open the cited source." >}}
+{{< user >}}How often should a transparent dressing over a PICC be changed?{{< /user >}}
+{{< lumen thought="3" tools="Clinical guidelines" sources="2" evidence="true" >}}
+Transparent semipermeable dressings are generally changed at least every 7 days, and sooner if the dressing is damp, loose or soiled {{< cite 1 >}}. Follow the dressing and securement device manufacturers' instructions for use as well {{< cite 2 >}}.
+{{< /lumen >}}
+{{< /chat-demo >}}
+{{< /screenshot >}}
+
+## How to check an answer
+
+{{< steps >}}
+{{< step title="Open the cited sources" >}}Click a numbered citation to read the passage it points to. Check that the passage says what the answer says.{{< /step >}}
+{{< step title="Check it against your own rules" >}}Compare the answer with your organization's policies and, for devices, the instructions for use.{{< /step >}}
+{{< step title="Report anything wrong" >}}Below the answer, click **Not helpful**, or click **Report** to open **Report this response**. Choose a reason (**Inaccurate**, **Unsafe**, **Off-topic**, **Unhelpful refusal** or **Other**), add a note if you like, and click **Submit report**.{{< /step >}}
+{{< /steps >}}
+
+## Limits and safety
+
+- **AI can be wrong.** Language models sometimes produce fluent, confident statements that are false. This is often called *hallucination*. Citations and evidence checks reduce it, but they don't eliminate it. See [Hallucinations and grounding](/learn/hallucinations-and-grounding/).
+- **A citation can be misread.** A source can be real and still not support the exact claim. Read the passage, not only the title.
+- **Checked isn't the same as correct.** Lumen Evidence and deliverable verdicts confirm that quotes and statements were found in the sources. They don't confirm that the sources apply to your patient.
+- **One model provider, chosen by plan.** Lumen uses one external model provider and picks the model by plan. It doesn't compare answers across several AI providers.
+- **Lumen isn't a medical device.** It doesn't diagnose or treat, and it doesn't replace clinical judgment.
+
+{{< callout type="safety" title="Lumen supports clinical judgment. It doesn't replace it." >}}
+Before acting on an answer, open the cited sources, check them against your organization's policies, and use your professional judgment. The person acting on an answer is responsible for the decision.
+{{< /callout >}}
+
+## FAQ
+
+{{< faq question="What does the Lumen Evidence pill mean?" >}}
+That Lumen checked the answer's statements against the sources it read. It's a sign the answer is grounded, not a guarantee that it's right for your situation.
+{{< /faq >}}
+{{< faq question="Why does Lumen sometimes say it can't answer?" >}}
+Because it couldn't find support in its sources. A clear "I couldn't find that" is safer than a confident guess.
+{{< /faq >}}
+{{< faq question="What happens when I report an answer?" >}}
+Your report, its reason and your note are recorded so the Intracav team can review the answer.
+{{< /faq >}}
 
 ## Next steps
 
-- [Reading sources and citations](/chat/sources/)
-- [Hallucinations and grounding](/learn/hallucinations-and-grounding/)
-- [Your data & PHI](/trust/privacy/)
+{{< related "/chat/sources/" "/learn/hallucinations-and-grounding/" "/trust/privacy/" "/trust/" >}}

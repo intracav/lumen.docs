@@ -1,0 +1,19 @@
+{{- /* Per-page social card: base art + section + title, rendered at build time. Returns an absolute URL. */ -}}
+{{- $base := resources.Get "og/base.png" -}}
+{{- $semi := resources.Get "og/Inter-SemiBold.ttf" -}}
+{{- $url := "" -}}
+{{- if and $base $semi -}}
+  {{- $title := .Title -}}
+  {{- if .IsHome }}{{ $title = "Lumen, explained step by step" }}{{ end -}}
+  {{- $title = $title | truncate 70 -}}
+  {{- $size := cond (gt (len $title) 40) 58 68 -}}
+  {{- $kicker := "" -}}
+  {{- with .FirstSection }}{{ if not .IsHome }}{{ $kicker = .Params.navTitle | default .Title }}{{ end }}{{ end -}}
+  {{- $filters := slice -}}
+  {{- with $kicker }}{{ $filters = $filters | append (images.Text . (dict "color" "#A14A3C" "size" 28 "x" 96 "y" 214 "font" $semi)) }}{{ end -}}
+  {{- $filters = $filters | append (images.Text $title (dict "color" "#1A1918" "size" $size "linespacing" 10 "x" 96 "y" (cond (ne $kicker "") 262 236) "font" $semi)) -}}
+  {{- $img := $base | images.Filter $filters -}}
+  {{- $img = $img.Process "webp q85" | resources.Copy (printf "og/%s.webp" (cond .IsHome "home" (.RelPermalink | strings.TrimSuffix "/" | strings.TrimPrefix "/" | replaceRE "/" "-"))) -}}
+  {{- $url = $img.Permalink -}}
+{{- end -}}
+{{- return $url -}}

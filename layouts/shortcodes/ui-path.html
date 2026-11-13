@@ -1,0 +1,3 @@
+{{- /* {{< ui-path "Settings" "Appearance" >}} → the clicks, as the app labels them. */ -}}
+<span class="ui-path">{{ range $i, $p := .Params }}{{ if $i }}<span class="sr-only"> › </span>{{ partial "icon.html" "chevron-right" }}{{ end }}<span class="ui-el">{{ $p }}</span>{{ end }}</span>
+{{- /* trim */ -}}

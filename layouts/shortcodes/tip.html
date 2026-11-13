@@ -1,5 +1,7 @@
-<div class="tip-card">
-  <div class="tip-label">&#128161; Tip</div>
-  {{ with .Get "title" }}<div class="tip-title">{{ . }}</div>{{ end }}
-  <div class="tip-body">{{ .Inner | markdownify }}</div>
+<div class="callout callout-tip" role="note">
+{{ partial "icon.html" "lightbulb" }}
+<div class="callout-body">
+<div class="callout-title">{{ .Get "title" | default "Tip" }}</div>
+{{ .Inner | .Page.RenderString (dict "display" "block") }}
+</div>
 </div>

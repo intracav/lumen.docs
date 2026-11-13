@@ -1,112 +1,109 @@
 ---
-title: "Typing & Sending"
-description: "How to ask questions, choose where Lumen searches, and write prompts that get better answers."
+title: "Write and send a message"
+navTitle: "Writing and sending"
+description: "Use Lumen's message box: send and stop, choose sources, call a specialist with @, use a skill with /, and ask questions that get better answers."
+lead: "The message box at the bottom of every chat does more than send text. Here's every control in it, and how to ask questions that get useful answers."
 weight: 1
+icon: send
+glance:
+  what: "The message box (composer) where you type to Lumen, and the buttons around it for files, sources, skills, specialists and chat settings."
+  who: "Everyone who uses Lumen chat, on any plan."
+  why: "Knowing the controls lets you point Lumen at the right sources and get a better answer the first time."
+  needs: "A Lumen account. About 4 minutes to read."
+  result: "You'll know how to send, stop, pick sources, call a specialist or skill, and phrase a strong question."
 ---
 
-The bottom of the screen is where you type. It looks and works like any messaging app &mdash; but it has a few extra buttons that let you control where Lumen looks for answers.
+You type to Lumen in the message box at the bottom of the chat. It reads **Ask Lumen** until you start typing. Around it are a few buttons that control what Lumen searches, which expert approach it takes, and what format it produces. You can ignore them all and just ask. When you want more control, they're one click away.
 
-## The Input Bar
+## Before you start
 
-At the bottom of every chat is the input bar. Here's what each element does:
+Open a chat: click **New Chat** in the sidebar at [lumen.intracav.ai](https://lumen.intracav.ai). Everything on this page works on every plan, though some specialists and Knowledge Packs need a higher plan or a team.
 
-<div class="app-frame" style="margin: 2rem 0;">
-  <div class="app-frame-bar">
-    <div class="app-frame-dot red"></div>
-    <div class="app-frame-dot yellow"></div>
-    <div class="app-frame-dot green"></div>
-  </div>
-  <div class="app-frame-content" style="padding: 0;">
-    <div class="chat-toggles" style="padding: 0.75rem 1.25rem; background: var(--dark-canvas);">
-      <div class="mock-toggle active" style="background: rgba(59,130,246,0.2); color: #3B82F6;">
-        <span class="toggle-dot" style="background: #3B82F6;"></span> Clinical Database
-      </div>
-      <div class="mock-toggle">
-        <span class="toggle-dot" style="background: #6633CC;"></span> My Docs
-      </div>
-      <div class="mock-toggle">
-        <span class="toggle-dot" style="background: #299966;"></span> Web
-      </div>
-    </div>
-    <div class="chat-mockup-input" style="border-top: 1px solid rgba(255,255,255,0.06);">
-      <div class="input-field">Message Lumen&hellip;</div>
-      <div class="send-btn">&#8593;</div>
-    </div>
-  </div>
-</div>
+## How to send a message
 
-## Knowledge Source Toggles
+{{< steps >}}
+{{< step title="Type your question" >}}
+Click the message box and type. On a computer, press {{< kbd "Shift" "Enter" >}} for a new line. On a phone, **Enter** adds a new line.
+{{< /step >}}
+{{< step title="Send it" >}}
+Press {{< kbd "Enter" >}} or click the send button (**Send message (Enter)**). On a phone, tap the send button.
+{{< /step >}}
+{{< step title="Stop it if you need to" >}}
+While Lumen writes, the send button becomes **Stop generating**. Click it to stop. If Lumen asks **Stop generating?**, click **Stop**, or **Keep going** to let it finish. What's already written stays in the chat, marked **Stopped**.
+{{< /step >}}
+{{< /steps >}}
 
-Below the text field are three toggles that control **where** Lumen searches for information:
+## How to choose where Lumen looks
 
-### Clinical Database
-<div style="display: flex; align-items: center; gap: 0.5rem; margin: 0.5rem 0;">
-  <div class="mock-toggle active" style="background: rgba(59,130,246,0.2); color: #3B82F6; display: inline-flex;">
-    <span class="toggle-dot" style="background: #3B82F6;"></span> Clinical Database
-  </div>
-</div>
+{{< steps >}}
+{{< step title="Open the sources menu" >}}
+Click the **Sources** chip in the row under the message box. It shows how many sources are on, for example **Sources · 2**.
+{{< /step >}}
+{{< step title="Turn sources on or off" >}}
+Choose what Lumen draws from:
+- **Clinical knowledge base**: Intracav-curated clinical literature and policies.
+- **My Documents**: files you've uploaded to Lumen.
+- **Knowledge Packs**: curated collections of documents that you or your team have turned on. Click **Browse Knowledge Packs** to find more.
+{{< /step >}}
+{{< step title="Turn web search on or off" >}}
+Click **Chat settings** under the message box, then go to **Sources & retrieval**. **Allow web search** is on by default. When it's on, web sources are cited with their address.
+{{< /step >}}
+{{< /steps >}}
 
-Searches Lumen's curated clinical knowledge base — peer-reviewed guidelines, drug databases, lab references, and clinical protocols. **This is on by default** and is the most commonly used source.
+## How to call a specialist or use a skill
 
-### My Docs
-<div style="display: flex; align-items: center; gap: 0.5rem; margin: 0.5rem 0;">
-  <div class="mock-toggle active" style="background: rgba(102,51,204,0.2); color: #6633CC; display: inline-flex;">
-    <span class="toggle-dot" style="background: #6633CC;"></span> My Docs
-  </div>
-</div>
+- Type `@` (or click **Call a specialist (@)**) to open **Specialists**. A *specialist* is a persona that takes on multi-step work, such as **Medication Review** or **Prior Authorization**. Pick one, and the chat shows **Working with** and the specialist's name. Click the × next to it (**Back to normal chat**) to hand back.
+- Type `/` (or click **Use a skill (/)**) to open **Suggested skills**. A *skill* is a set procedure for one kind of output, such as a **SOAP Note** or a **Discharge Summary**. Keep typing to filter the list.
 
-Searches your **personally uploaded documents** — PDFs, notes, and reference materials that you've added to Lumen. Useful when you want to ask questions about your own files.
+You don't have to use either. If you write "draft a discharge summary," Lumen picks the matching skill itself.
 
-### Web
-<div style="display: flex; align-items: center; gap: 0.5rem; margin: 0.5rem 0;">
-  <div class="mock-toggle active" style="background: rgba(41,153,102,0.2); color: #299966; display: inline-flex;">
-    <span class="toggle-dot" style="background: #299966;"></span> Web
-  </div>
-</div>
+## What you'll see
 
-Searches the **live internet** for the most up-to-date information. Enable this when you need recent news, conference abstracts, or content not yet in the clinical database.
+{{< screenshot src="composer-specialists" alt="The Lumen message box with the specialists menu open after typing @" caption="Typing @ opens the specialists menu." url="lumen.intracav.ai/chat" >}}
+{{< composer text="@" menu="specialists" items="Medication Review|Checks a medication list for problems;Prior Authorization|Drafts payer letters and packets;Clinical Educator|Builds teaching material with sourced questions" >}}
+{{< /screenshot >}}
 
-{{< tip title="You can enable multiple sources" >}}
-All three toggles can be active at the same time. Lumen will search across all enabled sources and merge the results.
-{{< /tip >}}
+| Control | What it does |
+|---|---|
+| Paperclip (**Attach document**) | Attach a file from **Your documents** or upload a new one. See [Attach files](/chat/attachments/). |
+| **Sources · N** | Choose the knowledge Lumen searches. |
+| **Use a skill (/)** | Pick a skill. |
+| **Call a specialist (@)** | Bring a specialist into the chat. |
+| **Help and capabilities** | See what Lumen can do from here. |
+| **Chat settings** | Web search, source options and the model your plan uses. |
+| Microphone (**Voice conversation**) | Talk to Lumen instead of typing. See [Talk to Lumen by voice](/chat/dictation/). |
 
-## Two Characters Worth Knowing: @ and /
+## Tips for better questions
 
-The input bar has two shortcuts that unlock more of Lumen:
+| Instead of | Try |
+|---|---|
+| "drug interactions" | "Any interactions between metformin 1,000 mg twice daily and lisinopril 10 mg in a 65-year-old with CKD stage 3?" |
+| "sepsis" | "What's in the 1-hour sepsis bundle? Make it a checklist." |
+| "write a letter" | "Draft a referral letter to cardiology for a 42-year-old with a new murmur and exertional breathlessness." |
 
-- Type **@** to bring in a **Specialist** — a preset expert persona (like a pharmacist or infection-prevention lead) that shapes how Lumen approaches your question.
-- Type **/** to run a **Skill** — a reusable, structured task like drafting a patient handout or building a literature summary.
+- **Give context:** age, relevant conditions, medicines and doses, setting.
+- **Say the format:** a table, a checklist, three bullets, a one-page handout.
+- **Say the audience:** "for a new graduate nurse," or "at a 6th-grade reading level."
+- **Drafts are saved.** If you leave a chat mid-message, your text is waiting when you come back on that device.
 
-Both appear as a picker the moment you type the trigger character. See [Skills & Specialists](/skills-and-specialists/) for the full catalog.
+## Limits and safety
 
-## Keyboard Shortcuts
+- Lumen sees only what's in the chat, the sources you've turned on, and files you've attached.
+- Turning a source off means Lumen won't search it for that chat. If an answer is missing something you expected, check the **Sources** menu.
+- Don't type information you're not permitted to share. Leave out patient identifiers.
 
-| Action | Shortcut |
-|--------|----------|
-| Send message | <kbd>Enter</kbd> |
-| New line | <kbd>Shift</kbd> + <kbd>Enter</kbd> |
+## FAQ
 
-## Writing Effective Prompts
+{{< faq question="Is web search on by default?" >}}
+Yes. You can turn it off in **Chat settings** > **Sources & retrieval** > **Allow web search**.
+{{< /faq >}}
+{{< faq question="Can I send a message while Lumen is still answering?" >}}
+Stop the current answer first with **Stop generating**, then send your next message.
+{{< /faq >}}
+{{< faq question="What's the difference between @ and /?" >}}
+`@` brings in a specialist, which shapes how Lumen works through multi-step tasks. `/` picks a skill, which sets the format of one output. You can use both in the same message.
+{{< /faq >}}
 
-Lumen understands natural language, but being specific helps get better results:
+## Next steps
 
-<div class="tool-grid" style="margin-top: 1rem;">
-  <div class="tool-card" style="border-left: 3px solid var(--palace-green);">
-    <div class="tool-info">
-      <div class="tool-name" style="color: var(--palace-green);">Good prompt</div>
-      <div class="tool-desc">"What are the drug interactions between metformin 1000mg and enalapril 10mg in a 65-year-old patient with CKD stage 3?"</div>
-    </div>
-  </div>
-  <div class="tool-card" style="border-left: 3px solid var(--accent);">
-    <div class="tool-info">
-      <div class="tool-name" style="color: var(--accent);">Less helpful prompt</div>
-      <div class="tool-desc">"drug interactions"</div>
-    </div>
-  </div>
-</div>
-
-The more context you provide — patient demographics, specific medications, relevant history — the more tailored and useful Lumen's response will be.
-
-{{< callout type="info" >}}
-**Drafts are saved automatically.** If you navigate away mid-message, your text will be waiting when you return.
-{{< /callout >}}
+{{< related "/chat/responses/" "/chat/attachments/" "/skills-and-specialists/" "/chat/sources/" >}}

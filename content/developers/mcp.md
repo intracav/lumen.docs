@@ -1,39 +1,57 @@
 ---
-title: "The Lumen MCP Server"
-description: "Expose your Knowledge Packs as MCP tools. Connect Claude Desktop, IDE agents, or any JSON-RPC 2.0 MCP client to Lumen's cited retrieval."
-lead: "Your Knowledge Packs, callable as tools by any MCP client — with the same citations and the same key."
+title: "Connect an MCP client to your documents"
+navTitle: "MCP server"
+description: "Expose a website assistant's Knowledge Packs as MCP tools, so desktop AI apps and coding assistants can look up your documents with citations."
+lead: "Lumen serves each assistant's Knowledge Packs as Model Context Protocol tools. Any MCP client can discover them and look up your documents, with the same citations as the API."
 weight: 3
-keywords: ["mcp", "model context protocol", "claude desktop", "json-rpc", "knowledge pack tools"]
+icon: plug
+who: "developers and partners"
+keywords: ["mcp", "model context protocol", "json-rpc", "knowledge pack tools"]
+glance:
+  what: "An MCP endpoint that turns each Knowledge Pack behind one of your website assistants into a lookup tool any Model Context Protocol (MCP) client can call."
+  who: "Developers connecting AI clients, such as desktop AI apps, coding assistants or their own agents, to a device maker's documentation."
+  why: "So an AI client decides on its own when to look something up in your documents, and gets cited passages back."
+  needs: "A website assistant, a secret key with the mcp:invoke scope, and an MCP client that supports remote HTTP servers. About 10 minutes."
+  result: "Your MCP client lists a lookup tool for each Knowledge Pack and returns cited passages."
 ---
 
-## What MCP is
+The *Model Context Protocol* (MCP) is an open standard that lets AI clients call outside tools through one interface. Instead of wiring search into each client, the client asks a server which tools it offers, and calls them when they help. Lumen runs an MCP server for each website assistant: every active *Knowledge Pack* (a curated collection of documents Lumen can search) becomes a lookup tool that returns cited passages.
 
-The Model Context Protocol is an open standard that lets AI clients — Claude Desktop, IDE coding agents, custom assistants — call external tools over a uniform JSON-RPC 2.0 interface. Instead of you wiring retrieval into each client, the client discovers your tools with `tools/list` and calls them with `tools/call`; the model decides when a lookup is worth making.
+## Before you start
 
-## The endpoint
+- A [website assistant](/connect/website-assistant/) with at least one active Knowledge Pack.
+- A **secret key** with the `mcp:invoke` scope. Mint it under {{< ui-path "Admin console" "Website assistants" >}}, then the assistant's **Install & CRM** tab, the **API keys** tile and **Mint secret key**.
+- An MCP client that can connect to a remote HTTP server and send an `Authorization` header.
 
-Lumen exposes each publisher's Knowledge Packs as MCP tools at:
+## How to connect a client
 
-```
-POST https://api.intracav.ai/api/v1/mcp/:publisher_slug
-```
+{{< steps >}}
+{{< step title="Mint a dedicated key" >}}Mint a secret key with only the `mcp:invoke` scope, and set a **Daily call limit** under **Edit key limits**.{{< /step >}}
+{{< step title="Add the server to your client" >}}Point the client at `https://api.intracav.ai/api/v1/mcp/<assistant-slug>` with the header `Authorization: Bearer sk_…`.{{< /step >}}
+{{< step title="Ask something your documents answer" >}}The client lists a tool for each pack, and calls it when a question needs it.{{< /step >}}
+{{< /steps >}}
 
-It's a JSON-RPC 2.0 surface (MCP protocol version `2024-11-05`). The server identifies itself as `lumen-publisher-<slug>`.
-
-Supported methods: `initialize`, `notifications/initialized`, `ping`, `tools/list`, `tools/call`, plus `prompts/list` and `resources/list` (both currently empty). Anything else returns a JSON-RPC `-32601`.
-
-## Auth
-
-The same bearer-key model as the REST API: `Authorization: Bearer sk_…`, with the `mcp:invoke` scope on the key. The key is bound to one publisher, and the URL slug must match the key's publisher — a mismatched slug is a `403`, never silent cross-publisher access. Per-key daily quotas apply here exactly as they do on `/api/v1/chat/completions`.
-
-## What a client sees
-
-`tools/list` returns **one tool per active Knowledge Pack**, named `<pack-slug>.lookup`:
+Clients configure remote servers differently, so adapt this pattern to yours:
 
 ```json
 {
-  "name": "acme-ifu.lookup",
-  "description": "Look up ACME IFU content. Returns chunks of publisher-supplied content with citation metadata.",
+  "mcpServers": {
+    "northwind-vascular": {
+      "url": "https://api.intracav.ai/api/v1/mcp/northwind-vascular",
+      "headers": { "Authorization": "Bearer sk_…" }
+    }
+  }
+}
+```
+
+## What you'll see
+
+`tools/list` returns one tool per active pack, named `<pack-slug>.lookup`:
+
+```json
+{
+  "name": "sl4-ifu.lookup",
+  "description": "Lookup against the 'SL-4 IFU' extension. Returns chunks…",
   "inputSchema": {
     "type": "object",
     "properties": {
@@ -45,45 +63,42 @@ The same bearer-key model as the REST API: `Authorization: Bearer sk_…`, with 
 }
 ```
 
-`tools/call` runs cited retrieval scoped to that one pack and returns MCP text content blocks — one per chunk, formatted `[Source N: Title]` followed by the chunk text. Structured citation metadata (title, URL, similarity score, section) rides in each block's `_meta` field, an MCP convention: clients that understand it can render trust signals; clients that don't just see the text. The result's own `_meta` carries `{ extension_slug, publisher_slug, result_count }`.
+`tools/call` searches that pack and returns one text block per passage, starting `[Source N: Title]`. Each block's `_meta` holds the citation details (title, URL, score, source index and metadata), and the result's `_meta` holds `extension_slug`, `publisher_slug` and `result_count`. If nothing matches, you get one "No matching content…" block.
 
-Queries are audited by length only — raw query text is never logged.
+## Protocol details
 
-## Claude Desktop example
+- **Endpoint:** `POST https://api.intracav.ai/api/v1/mcp/:assistant_slug`, JSON-RPC 2.0, protocol version `2024-11-05`.
+- **Server name:** `lumen-publisher-<slug>`.
+- **Methods:** `initialize`, `notifications/initialized`, `ping`, `tools/list`, `tools/call`, `prompts/list` and `resources/list` (the last two return empty lists). Other methods return `-32601`.
+- **Auth:** the key must have `mcp:invoke`, and the slug in the URL must match the key's assistant, or the call is refused with `403`.
+- **Limits:** the key's daily call limit applies. The token budget doesn't, because no model runs.
+- **Logging:** only the length of each query is recorded, not its text.
 
-A remote-server entry looks like this — **treat it as a pattern to adapt**: MCP clients differ in how they declare remote HTTP servers and auth headers (some versions need a stdio-to-HTTP bridge such as `mcp-remote`), so match your client's current config format.
+## Limits
 
-```json
-{
-  "mcpServers": {
-    "lumen-acme": {
-      "url": "https://api.intracav.ai/api/v1/mcp/acme",
-      "headers": {
-        "Authorization": "Bearer sk_your_secret_key"
-      }
-    }
-  }
-}
-```
+- **Lookup only.** The tools return passages. Your client's own model writes any answer, so check its use of the citations.
+- **One assistant per endpoint.** To search another assistant's packs, use its slug and its key.
 
-Once connected, ask the client something your pack can answer and watch it call `acme-ifu.lookup` on its own.
-
-{{< callout type="warning" >}}
-The key in a desktop client's config sits in a file on that machine. Mint a dedicated key with only the `mcp:invoke` scope and a sensible daily quota, so a leaked laptop config can be revoked without touching your production integrations.
+{{< callout type="warning" title="Keys in desktop configs" >}}
+A key in a desktop app's config file sits on that computer. Use a dedicated key with only `mcp:invoke` and a daily limit, so you can revoke it without touching your other integrations.
 {{< /callout >}}
 
-## MCP vs the REST API
+## MCP or the REST API?
 
-| Use MCP when… | Use the [REST API](/developers/api/) when… |
+| Use MCP when | Use the [REST API](/developers/api/) when |
 |---|---|
-| An AI client owns the conversation (Claude Desktop, IDE agents) and should decide *when* to look things up | Your own product or backend orchestrates the calls |
-| You want tool discovery — new packs appear as new tools automatically | You want a fixed contract: `retrieve` for chunks, `chat/completions` for finished, cited answers |
-| The consumer already speaks MCP | You need streaming answers, feedback reporting, or an OpenAPI import into a CRM |
+| An AI client runs the conversation and should decide when to look things up | Your own software decides when to call |
+| You want new packs to appear as new tools automatically | You want a fixed contract and finished, cited answers |
 
-Same key infrastructure, same retrieval, same citations underneath — pick per consumer, not per project.
+## FAQ
+
+{{< faq question="Does the MCP server write answers?" >}}
+No. It returns cited passages. The client's model writes the answer.
+{{< /faq >}}
+{{< faq question="Why don't I see a tool for one of our packs?" >}}
+Only active packs on that assistant become tools. Check the assistant's **Knowledge** tab.
+{{< /faq >}}
 
 ## Next steps
 
-- [Lumen API v1](/developers/api/) — the REST surface: completions, retrieval, feedback
-- [Partner Knowledge Packs](/developers/partner-knowledge-packs/) — publish the content these tools search
-- [Embed a Website Bot](/developers/embed/) — the same answering as a widget on your site
+{{< related "/developers/api/" "/developers/partner-knowledge-packs/" "/developers/lumen-ui/" "/developers/" >}}

@@ -1,0 +1,10 @@
+{{- /* {{< source n="1" title="…" meta="acc.org · Guideline · 2023" quote="…" >}}summary{{< /source >}} */ -}}
+<div class="source-row">
+<span class="n">{{ .Get "n" }}</span>
+<div>
+<div class="st">{{ .Get "title" }}</div>
+{{ with .Inner }}<div class="ss">{{ . | markdownify }}</div>{{ end }}
+{{ with .Get "quote" }}<div class="sq">&ldquo;{{ . }}&rdquo;</div>{{ end }}
+{{ with .Get "meta" }}<div class="sm">{{ partial "icon.html" "globe" }}{{ . }}</div>{{ end }}
+</div>
+</div>

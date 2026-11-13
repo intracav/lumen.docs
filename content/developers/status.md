@@ -1,86 +1,77 @@
 ---
-title: "Status Page & Uptime API"
-description: "Check Lumen service health programmatically: GET /api/status returns current health, 90 days of daily uptime history, and incidents — no auth required."
-lead: "One unauthenticated GET tells you what's up, what's degraded, and what happened over the last 90 days."
-weight: 5
-keywords: ["lumen status", "uptime api", "service health", "incident history"]
+title: "Check Lumen's status from code"
+navTitle: "Status API"
+description: "GET /api/status returns Lumen's current service health, 90 days of daily uptime and recent incidents, with no key needed. Fields, thresholds and polling advice."
+lead: "One request, no key: current health for each Lumen service, 90 days of daily history, and active and recent incidents."
+weight: 7
+icon: activity
+who: "developers and IT teams"
+keywords: ["lumen status", "uptime api", "service health"]
+glance:
+  what: "A public JSON endpoint with the same data as status.intracav.ai: overall health, each service's status and uptime, daily history and incidents."
+  who: "Developers and IT teams who monitor an integration with Lumen, and reviewers checking service history."
+  why: "To tell \"Lumen is degraded\" apart from \"our integration is broken\" in one request, and to show an honest status banner."
+  needs: "Nothing. No account or key. About 5 minutes."
+  result: "A monitor or banner that reads Lumen's health."
 ---
 
-Lumen's live health is public — both as a human-readable page at [status.intracav.ai](https://status.intracav.ai) and as the JSON API that page is built on. If you're integrating Lumen into your own product, the API is the piece you want: wire it into your monitoring and you'll distinguish "Lumen is degraded" from "my integration is broken" in one request.
+Lumen's service health is public, as a page at [status.intracav.ai](https://status.intracav.ai) and as the JSON endpoint behind it. If you've built on Lumen, wire the endpoint into your monitoring so you can see at once whether a problem is on Lumen's side or yours.
 
-## The endpoint
+## How to check status
 
+{{< steps >}}
+{{< step title="Call the endpoint" >}}Send `GET https://api.intracav.ai/api/status`. No key is needed.{{< /step >}}
+{{< step title="Read overall_status" >}}`operational`, `degraded` or `outage`. If you read one field, read this one.{{< /step >}}
+{{< step title="Drill in when needed" >}}Read `services` to see which part is affected, and `active_incidents` for the latest update.{{< /step >}}
+{{< /steps >}}
+
+```bash
+curl https://api.intracav.ai/api/status
 ```
-GET https://api.intracav.ai/api/status
-```
 
-No authentication, no API key. Returns current service health, **90 days of daily uptime history**, and active plus recently resolved incidents.
-
-## Response shape
+## What you'll see
 
 ```json
 {
   "overall_status": "operational",
   "services": [
-    {
-      "name": "api",
-      "display_name": "API Server",
-      "status": "operational",
-      "latency_ms": 12,
-      "uptime_90d": 99.97
-    }
+    { "name": "api", "display_name": "API Server", "status": "operational", "latency_ms": 12, "uptime_90d": 100.0 }
   ],
   "daily_history": {
-    "api": [
-      { "date": "2026-08-08", "uptime_pct": 100.0, "status": "operational" }
-    ]
+    "api": [ { "date": "2026-11-12", "uptime_pct": 100.0, "status": "operational" } ]
   },
   "active_incidents": [],
-  "recent_incidents": [
-    {
-      "id": "3f1c…-uuid",
-      "title": "Elevated vector search latency",
-      "status": "resolved",
-      "severity": "minor",
-      "affected_services": ["vector_search"],
-      "created_at": "2026-08-01T14:03:00Z",
-      "resolved_at": "2026-08-01T15:40:00Z",
-      "updates": [
-        {
-          "id": "…-uuid",
-          "status": "investigating",
-          "message": "We are investigating elevated latency on vector search.",
-          "created_at": "2026-08-01T14:05:00Z"
-        }
-      ]
-    }
-  ]
+  "recent_incidents": []
 }
 ```
 
-Field by field:
+- **`overall_status`**: the worst status across services. Services with no checks yet (`unknown`) don't count.
+- **`services`**: the API server, database, vector search, AI services, embedding and object storage, each with `status`, the latest probe `latency_ms`, and `uptime_90d`.
+- **`daily_history`**: for each service, one entry per day for 90 days. A day is `operational` at 99% uptime or more, `degraded` at 95% or more, and `outage` below that.
+- **`active_incidents`**: unresolved incidents, newest first, each with its `updates`.
+- **`recent_incidents`**: up to 20 incidents resolved in the last 14 days.
 
-- **`overall_status`** — the worst status across all services: `operational`, `degraded`, or `outage`. If you read one field, read this one.
-- **`services[]`** — one entry per monitored service (API server, database, vector search, AI services, embedding, object storage), each with its current `status`, latest probe `latency_ms`, and `uptime_90d` percentage. A service with no recorded checks yet reports `"unknown"`.
-- **`daily_history`** — a map of service name → per-day entries for the last 90 days. Each day carries `uptime_pct` and a rolled-up `status`: a day is `operational` at ≥ 99% uptime, `degraded` at ≥ 95%, and `outage` below that.
-- **`active_incidents`** — incidents not yet resolved, newest first, each with a timeline of `updates` from first report onward.
-- **`recent_incidents`** — incidents resolved within the last 14 days, so a consumer that only polls occasionally still sees what it missed.
+## Good to know
 
-## Polling etiquette
+- **Probes run every 5 minutes.** Polling more often than once a minute gains nothing.
+- **Cache the last good response,** and show it while a poll is in flight or failing.
+- **Back off on errors.** If the endpoint itself can't be reached, treat that as a signal and retry with increasing delays.
+- **For a banner,** combine `overall_status` with the newest update in `active_incidents`.
 
-Health data changes on the cadence of the underlying probes, not per-request — hammering the endpoint buys you nothing.
+## Limits
 
-- **Poll at most once per minute.** The official status page refreshes on a 60-second cycle; there is no fresher signal to find below that.
-- **Cache the last good response** and serve it while a poll is in flight or failing.
-- **Back off on errors.** If the endpoint itself is unreachable, treat that as its own signal and retry with exponential backoff rather than tightening the loop.
-- **Branch on `overall_status`** for dashboards and alerting; reach into `services[]` only when you need to know *which* dependency is affected.
+- **A new service reports 100% uptime until it has data.** Check `status` alongside `uptime_90d`.
+- **Status reflects Lumen's probes,** not every user's experience. A problem limited to one network may not appear.
 
-{{< callout type="info" >}}
-**Wiring it into an incident banner?** `overall_status != "operational"` plus the newest entry in `active_incidents[].updates` gives you a truthful one-line banner with zero interpretation on your side.
-{{< /callout >}}
+## FAQ
+
+{{< faq question="Is there a rate limit?" >}}
+The endpoint is public and shared, so poll at most once a minute.
+{{< /faq >}}
+{{< faq question="Where can people without code check status?" >}}
+At [status.intracav.ai](https://status.intracav.ai).
+{{< /faq >}}
 
 ## Next steps
 
-- [Lumen API v1](/developers/api/) — the authenticated surface this endpoint keeps honest
-- [Embed a Website Bot](/developers/embed/) — the widget handles rate and error states itself
-- [status.intracav.ai](https://status.intracav.ai) — the same data, for humans
+{{< related "/developers/api/" "/developers/embed/" "/trust/" >}}

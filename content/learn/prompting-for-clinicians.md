@@ -1,89 +1,95 @@
 ---
-title: "How to Ask AI Clinical Questions: A Prompting Guide"
-description: "How to write AI prompts for clinical questions: give context, ask a focused question, name the output. Three habits that upgrade every answer."
+title: "How to ask AI clinical questions"
+navTitle: "Prompting for clinicians"
+description: "Write AI questions the way you write a good consult: context, a specific question and the output you need. Plus how Specialists, Skills and attachments help."
+lead: "You already know how to prompt an AI. You learned it writing consult requests."
 weight: 8
-keywords: ["how to write AI prompts for clinical questions", "prompting guide for clinicians", "clinical AI prompts", "prompt engineering for doctors"]
+icon: message
+keywords: ["how to write AI prompts for clinical questions", "prompting guide for clinicians", "clinical AI prompts"]
+glance:
+  what: "A prompt is what you type to an AI. This page shows how to write one that gets a usable clinical answer the first time."
+  who: "Clinicians, educators, coders and staff who use Lumen, or any AI assistant, for work."
+  why: "A focused question gets an answer you can use at the bedside instead of a textbook chapter."
+  needs: "Nothing. About 5 minutes to read. Try the examples in any Lumen chat."
+  result: "Three habits that improve every answer."
 ---
 
-You already know how to prompt an AI — you learned it writing consult requests. A good consult gives the consultant three things: the context (*"68-year-old on warfarin, mechanical mitral valve"*), the specific question (*"how would you bridge for his colonoscopy?"*), and what you'll do with the answer (*"procedure is Thursday; I need a plan for the clinic note"*). Write *"eval and treat"* or *"rule out badness"* on the consult and you get a worse consult back — not because the consultant got worse, but because the request gave them nothing to aim at.
+A good consult request gives the consultant three things: the context ("68-year-old on warfarin, mechanical mitral valve"), the specific question ("how would you bridge for his colonoscopy?") and what you'll do with the answer ("procedure is Thursday; I need a plan for the clinic note"). Write "eval and treat" and you get a worse consult back, not because the consultant got worse, but because the request gave them nothing to aim at. Asking Lumen works the same way. A **prompt** is what you type; a good one reads like a good consult.
 
-Asking Lumen a clinical question works exactly the same way. No computer science, no magic phrases — just the skills of a well-written consult, applied in chat. Here's the anatomy, one before-and-after, and the three habits worth keeping.
+## How it works: the anatomy of a good question
 
-## The anatomy of a good clinical prompt
+{{< flow >}}
+{{< flow-node kicker="1 · Context" title="Who and what" icon="user" tint="blue" >}}Your role, your setting, the patient factors that change the answer.{{< /flow-node >}}
+{{< flow-node kicker="2 · Question" title="The decision you face" icon="target" tint="plum" >}}Specific enough to have an answer.{{< /flow-node >}}
+{{< flow-node kicker="3 · Output" title="What it's for" icon="file-text" tint="green" >}}A table, three bullets, a note-ready paragraph.{{< /flow-node >}}
+{{< /flow >}}
 
-**1. Context — who's asking, about what.** A sentence of clinical setting changes everything: patient factors that matter, your role, your environment. *"I'm a hospitalist"* and *"I'm a home-infusion pharmacist"* deserve different answers to the same question. You don't need the whole H&P — just the variables that would change *your* answer if a colleague asked you.
+- **Context.** One sentence changes everything. "I'm a hospitalist" and "I'm a home-infusion pharmacist" deserve different answers. You don't need the whole history, only the details that would change *your* answer if a colleague asked you.
+- **The specific question.** "Tell me about DOACs" invites an essay. "Which DOAC has the clearest dosing guidance at a CrCl of 22?" invites an answer.
+- **The output.** Say what the answer is for: a table to scan on rounds, three bullets for a call-back, a paragraph for a committee memo.
 
-**2. The specific question.** "Tell me about DOACs" invites an essay. "Which DOAC has the best renal-dosing evidence for a CrCl of 22?" invites an answer. If you can name the decision you're actually facing, name it — the question behind the question is the one worth asking.
+### Before and after
 
-**3. The output you want.** Say what the answer is *for*: a table you can scan on rounds, three bullet points for a patient call-back, a paragraph for a committee memo, a citation-backed summary. Lumen will happily match the format — but only if you name it.
-
-## Before and after
-
-{{< chat-demo title="Before — the 'rule out badness' consult" >}}
+{{< chat-demo title="Before: the topic, not the question" caption="Illustration. A vague question gets a generic answer." >}}
 {{< user >}}Tell me about vancomycin dosing{{< /user >}}
-{{< lumen >}}Vancomycin dosing depends on the indication, patient weight, and renal function. Typical adult dosing is 15&ndash;20 mg/kg every 8&ndash;12 hours, with trough or AUC-guided monitoring&hellip; *(a textbook chapter follows — accurate, generic, and not about your patient)*{{< /lumen >}}
+{{< lumen sources="3" >}}
+Vancomycin dosing depends on the indication, weight and kidney function, with AUC-guided monitoring now preferred in many settings {{< cite 1 >}}… *(a general overview follows: accurate, but not about your patient)*
+{{< /lumen >}}
 {{< /chat-demo >}}
 
-{{< chat-demo title="After — the focused consult" >}}
-{{< user >}}I'm covering the ICU. 52-year-old, 110 kg, MRSA bacteremia, CrCl around 30 and falling. Starting vancomycin — give me a loading dose, an initial maintenance plan, and when to draw the first level, as three short bullets I can put in my note.{{< /user >}}
-{{< lumen >}}**For a 110 kg patient with MRSA bacteremia and CrCl ~30, declining:**
+{{< chat-demo title="After: the focused consult" caption="Illustration with a fictional ICU patient. Confirm doses with your pharmacy protocol and the cited sources." >}}
+{{< user >}}I'm covering the ICU. 52-year-old, 110 kg, MRSA bacteremia, CrCl about 30 and falling. Starting vancomycin. Give me the loading dose approach, an initial maintenance plan and when to draw the first level, as three short bullets for my note.{{< /user >}}
+{{< lumen thought="11" tools="Renal dosing, Clinical guidelines, Dose calculator" sources="3" evidence="true" >}}
+- **Load:** a weight-based loading dose is commonly used in serious MRSA infection, and it isn't reduced for kidney function {{< cite 1 >}}. Round per your protocol.
+- **Maintain:** extend the interval for the falling CrCl and adjust to an AUC target {{< cite 2 >}}.
+- **First level:** check early, given the unstable kidney function, and involve pharmacy for AUC dosing {{< cite 3 >}}.
 
-- **Load:** 25 mg/kg &asymp; 2,750 mg (round per your protocol) &mdash; loading dose is not reduced for renal function
-- **Maintain:** start ~15 mg/kg every 24 h given the falling CrCl; reassess with renal trend, target AUC/MIC 400&ndash;600
-- **First level:** before the second dose given the unstable renal function, then per pharmacy monitoring
-
-Renal function is moving &mdash; consider looping in pharmacy for AUC-based dosing. Want this as a note-ready plan block?{{< /lumen >}}
+Open each source and confirm against your institution's vancomycin protocol before ordering.
+{{< /lumen >}}
 {{< /chat-demo >}}
 
-Same topic, same model — the second answer is usable at the bedside because the prompt told it whose bedside.
+Same topic, same model. The second answer is usable because the question said whose bedside it was for.
 
-{{< callout type="warning" >}}
-**Pasting clinical text? De-identify first.** The examples above use fictional details. When you paste real notes or results, strip names, MRNs, and dates — Lumen's [de-identification tool](/tools/privacy/) does this in one step.
+## How Lumen does it
+
+Lumen gives you three shortcuts that replace paragraphs of instructions:
+
+- **Type `@` for a Specialist.** A *Specialist* is Lumen's name for an AI agent built for one kind of job. `@Prior Authorization` already knows the tools, the steps and what a finished appeal looks like. You bring the case.
+- **Type `/` for a Skill.** A *Skill* is a ready-made procedure for one kind of output. `/soap-note` or `/discharge-summary` carries the structure, so you don't describe what a SOAP note is.
+- **Attach, don't describe.** If your question is about a document, attach it with the paperclip. Your summary of a 40-page policy loses detail; the original lets Lumen quote the exact line.
+
+You can browse every Specialist and Skill in **Explore**, the one list of Specialists, Skills and tools.
+
+## What this means for you
+
+1. **Write the consult, not the topic.** Context, specific question, intended output.
+2. **Steer with follow-ups.** Follow-ups cost nothing. Send a decent question, look at the answer, then say "shorter", "as a table", "what about CKD?" or "cite the guideline for that second point". A rough question and two follow-ups usually beat ten minutes of polishing.
+3. **Reach for `@`, `/` and the paperclip before long instructions.**
+
+If you aren't sure what to ask, say so: "I'm seeing my first case of X and don't know what I don't know. What should I be asking?" is a good prompt.
+
+## Limits and safety
+
+- **A better question doesn't make an answer correct.** It makes it relevant. You still check the sources.
+- **Only share what you're permitted to share.** Use the minimum patient detail the question needs, and follow your organization's rules. Never paste identifiers you aren't permitted to share. See [De-identification](/learn/deidentification/).
+- **Watch for assumptions.** If Lumen fills a gap you didn't mention, such as weight or kidney function, correct it in your next message.
+
+{{< callout type="safety" title="End every clinical question by checking the sources" >}}
+Open the citations, confirm them against your institution's protocols, and use your judgment before acting.
 {{< /callout >}}
 
-## Iterating beats perfecting
+## FAQ
 
-Here's where the consult analogy breaks in your favor: follow-ups are free. A real consultant you get once; Lumen you can redirect all day. So don't polish the perfect prompt before sending — send the decent one, look at what comes back, and steer: *"shorter,"* *"now as a table,"* *"what about the CKD population,"* *"cite the guideline for that second claim."*
-
-A rough prompt plus two follow-ups reliably beats ten minutes of prompt-crafting. The conversation *is* the method.
-
-## The menu is the prompt library
-
-You may have seen lists of elaborate prompt templates to copy and paste. In Lumen, most of that engineering is already done and hanging on two keystrokes:
-
-- Type **`@`** for a [Specialist](/skills-and-specialists/) — a whole expert configuration. `@Prior Authorization` already knows the tools, the steps, and what a finished appeal looks like; you just bring the case.
-- Type **`/`** for a [Skill](/skills-and-specialists/) — a precise output procedure. `/soap-note` carries the structure and standards, so you never have to describe what a SOAP note is.
-
-Reaching for the menu *is* prompting — you're selecting a professionally built prompt instead of composing one.
-
-## Attach, don't describe
-
-If your question is about a document — a policy, a discharge summary, a paper — don't summarize it into the prompt. [Attach it](/chat/attachments/). Your paraphrase of a 40-page policy is a lossy compression; the original lets Lumen quote the actual line that answers your question. The same goes for lab printouts and guideline PDFs: the document is always a better witness than your description of it.
-
-## Three habits to leave with
-
-1. **Write the consult, not the topic.** Context, specific question, intended output — one or two sentences each.
-2. **Steer with follow-ups.** First answer too generic? Say so. Iterating is faster than perfecting.
-3. **Reach for `@`, `/`, and the paperclip before prose.** Specialists, Skills, and attachments replace paragraphs of description.
-
-{{< callout type="success" >}}
-**See it in Lumen:** Browse the ready-made expertise in [Specialists & Skills](/skills-and-specialists/), then put the three habits to work in [your first chat](/getting-started/first-chat/).
-{{< /callout >}}
-
-## Frequently asked questions
-
-{{< faq question="Do I need to learn 'prompt engineering'?" >}}
-No. Prompt engineering matters when you're building automated systems that get one shot at a prompt. In conversation, clarity plus iteration beats clever phrasing every time — and Lumen's Specialists and Skills package the genuinely engineered prompts behind a menu, so the remaining skill is the one you already have: writing a good consult request.
+{{< faq question="Do I need to learn prompt engineering?" >}}
+No. Clear questions and follow-ups matter more than clever wording. Specialists and Skills package the detailed instructions for you.
+{{< /faq >}}
+{{< faq question="Do I have to tell Lumen my role every time?" >}}
+No. Say "remember that I'm a pediatric ICU nurse practitioner" once, and Lumen saves it to memory for later chats. See [How AI memory works](/learn/ai-memory/).
+{{< /faq >}}
+{{< faq question="Is there a list of good prompts?" >}}
+Explore lists every Specialist and Skill, and each one is in effect a well-built prompt. The [Getting started](/getting-started/) scenarios show example questions for common tasks.
 {{< /faq >}}
 
-{{< faq question="Is it worth telling Lumen my role every time?" >}}
-Say it once and tell Lumen to remember it — *"remember that I'm a pediatric ICU nurse practitioner"* — and it will shape future answers automatically. See [how AI memory works](/learn/ai-memory/) for what persists and what doesn't.
-{{< /faq >}}
+## Next steps
 
-{{< faq question="What if I don't know enough to ask a specific question?" >}}
-Then say exactly that — it's a legitimate prompt. *"I'm seeing my first case of X and don't know what I don't know — what should I be asking?"* turns Lumen into the orienting colleague first, and you can narrow from there. Vague is only a problem when it's unintentional.
-{{< /faq >}}
-
----
-
-Good prompts get even more powerful when Lumen can see your patient's actual chart — [SMART on FHIR, explained](/learn/smart-on-fhir/) covers how that connection works.
+{{< related "/getting-started/first-chat/" "/skills-and-specialists/" "/chat/attachments/" "/learn/ai-memory/" >}}

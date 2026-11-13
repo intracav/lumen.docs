@@ -1,89 +1,88 @@
 ---
-title: "Medication Questions"
-description: "Check drug interactions, calculate IV rates, adjust for renal function, or look up adverse events — just by asking."
+title: "Check medications"
+navTitle: "Medications"
+description: "Drug interactions, renal dosing, IV drip rates, drug identity, adverse event reports and recalls, looked up live from FDA and NLM data."
+lead: "Ask the medication questions that come up every shift. Lumen checks FDA label data, computes the numbers, and shows its working."
 weight: 3
+icon: pill
+keywords: ["drug interaction checker", "renal dose adjustment", "IV drip calculator", "FAERS adverse events", "FDA drug recalls"]
+glance:
+  what: "Built-in tools that check drug interactions, renal dose adjustments, IV infusion rates, drug identity, adverse event reports and recalls during a chat."
+  who: "Nurses, pharmacists, physicians and anyone who handles medications."
+  why: "To get a label-based answer with the source attached, instead of searching several references by hand."
+  needs: "A Lumen account on any plan. The patient values the question depends on, such as weight, age and serum creatinine."
+  result: "An answer with the label passages and calculations it used, ready for you to check."
 ---
 
-These are the questions that come up a dozen times a shift. *"Can I give these two together?"* *"What's the drip rate?"* *"Does this need a dose adjustment for their kidneys?"* Just type the question and Lumen handles the rest.
+Medication questions often need two things at once: what the FDA label says, and some arithmetic. Lumen's medication tools do both. They read FDA prescribing information, normalize drug names through RxNorm (the national drug naming standard), and compute rates and kidney function with fixed formulas rather than estimating them.
 
-## Available Tools
+## Before you start
 
-<div class="tool-grid">
+- All the tools on this page work on every plan.
+- Have the drug names and doses ready. For dosing questions, have the patient's age, sex, weight and serum creatinine.
+- For a full review of a medication list, use the [Medication Review](/skills-and-specialists/specialists/medication-review/) specialist instead.
 
-{{< tool-card name="Drug Name Lookup (RxNorm)" icon="&#128138;" color="var(--palace-green)" desc="Resolves drug names via NLM RxNorm. Works with brand names, generics, abbreviations, and even misspellings. Returns the normalized name, RxCUI, ingredients, and drug class." example="\"Look up the generic name for Jardiance\"" badge="Lookup" >}}
+## The tools
 
-{{< tool-card name="Drug Interactions" icon="&#9888;" color="var(--accent)" desc="Checks drug-drug interactions using the FDA interaction database. Returns severity level, mechanism of interaction, and clinical management recommendations." example="\"Check interactions between warfarin, amiodarone, and metoprolol\"" badge="Safety" >}}
+| Tool (as shown in Explore) | What it does | When finished, the chip reads |
+|---|---|---|
+| **Check Drug Interactions** | Checks two or more drugs against FDA label interaction, contraindication and warning sections, and names the mechanism and severity. | **Interaction check complete** |
+| **Renal Dose Check** | Calculates creatinine clearance (Cockcroft-Gault) and quotes the FDA label's renal dosing adjustment. | **Renal dose check complete** |
+| **IV Drip Calculator** | Converts a weight-based or fixed-rate order into mL/hr. | **IV drip rate calculated** |
+| **Identify a Drug (RxNorm)** | Normalizes a brand or generic name and lists its ingredients and standard ID. | **Medication data retrieved** |
+| **FDA Adverse Events** | Searches FDA Adverse Event Reporting System (FAERS) reports for a drug. | **Adverse events retrieved** |
+| **FDA Drug Recalls** | Searches FDA enforcement records for recalls and market withdrawals. | **Recall data retrieved** |
+| **Allergy Cross-Reactivity** | Lists drugs to avoid and likely safe alternatives for a reported allergy. | **Cross-reactivity checked** |
 
-{{< tool-card name="IV Drip Calculator" icon="&#128167;" color="var(--smoky-blue)" desc="Calculates IV infusion rates from weight-based dosing. Computes mL/hr with titration guidance. Supports common drips like vasopressors, insulin, and heparin." example="\"Calculate norepinephrine drip at 0.1 mcg/kg/min for an 80kg patient\"" badge="Calculator" >}}
+## How to check a medication question
 
-{{< tool-card name="Renal Dose Adjustment" icon="&#129656;" color="var(--smoky-blue-dk)" desc="Computes creatinine clearance (Cockcroft-Gault), determines CKD stage, and looks up FDA-recommended dose adjustments for renal impairment." example="\"Renal dose check for vancomycin in a 70-year-old male, 85kg, SCr 2.1\"" badge="Calculator" >}}
+{{< steps >}}
+{{< step title="Ask in chat" >}}Type the question with the details that matter: "Can a patient on simvastatin 40 mg start amlodipine?"{{< /step >}}
+{{< step title="Give missing values when asked" >}}If a calculation needs a value you didn't give, such as weight or creatinine, Lumen asks for it rather than guessing.{{< /step >}}
+{{< step title="Read the result" >}}Lumen shows the severity, the reason and what the label recommends. Calculations show the inputs they used.{{< /step >}}
+{{< step title="Check the label passage" >}}Open the cited FDA label section and confirm it before you change a dose or give a drug.{{< /step >}}
+{{< /steps >}}
 
-{{< tool-card name="FDA Adverse Events" icon="&#128200;" color="var(--accent)" desc="Searches the FDA FAERS (adverse event reporting) database. Aggregates reaction reports by drug, showing frequencies, outcomes, and severity distributions." example="\"What are the most reported adverse events for methotrexate?\"" badge="Safety" >}}
+You can also open {{< ui-path "Explore" "Built-in tools" >}}, choose **Check medications**, and try the example questions.
 
-{{< tool-card name="FDA Drug Recalls" icon="&#128680;" color="var(--accent)" desc="Checks the FDA enforcement and recall database. Shows recall classifications, affected lots, and current status." example="\"Are there any recent recalls for metformin products?\"" badge="Safety" >}}
+## What you'll see
 
-{{< tool-card name="FDA Drug Labels" icon="&#128220;" color="var(--palace-green)" desc="Searches the FDA structured product label database for official prescribing information — boxed warnings, indications, contraindications, dosing, and adverse reactions, with direct DailyMed links." example="\"What does the FDA label say about semaglutide contraindications?\"" badge="Regulatory" >}}
+{{< chat-demo title="Statin and calcium channel blocker" caption="Illustration with a fictional patient. Real answers cite the FDA label." >}}
+{{< user >}}A Med-Surg patient takes simvastatin 40 mg daily. The team wants to start amlodipine 5 mg. Any problem?{{< /user >}}
+{{< lumen tools="Interaction check complete, FDA drug data retrieved" sources="2" >}}
+Yes. The simvastatin label says the dose **should not exceed 20 mg daily** when taken with amlodipine, because amlodipine raises simvastatin levels and the risk of muscle injury (myopathy) {{< cite 1 >}}.
 
-{{< tool-card name="Allergy Cross-Reactivity" icon="&#128165;" color="var(--accent)" desc="Given a known drug allergy, identifies cross-reactive agents to avoid and safe prescribing alternatives, with notes on the reaction mechanism." example="\"What can I use instead of cephalexin if the patient has a penicillin allergy?\"" badge="Safety" >}}
+Options to discuss with the prescriber: lower simvastatin to 20 mg, or switch to a statin the label doesn't limit this way {{< cite 2 >}}. Check the label passage before changing the order.
+{{< /lumen >}}
+{{< /chat-demo >}}
 
-{{< tool-card name="Antimicrobial Selector" icon="&#129440;" color="var(--palace-green)" desc="Selects empiric and targeted antibiotic therapy from IDSA guidance — first-line, second-line, and allergy-alternative regimens with dosing and duration. Accounts for renal impairment, pregnancy, and care setting." example="\"Best antibiotic for community-acquired pneumonia, PCN allergy, outpatient\"" badge="Treatment" >}}
+## Tips
 
-</div>
+- **List every drug in one message.** Lumen checks each pair. Ask it to name any pair it could not screen.
+- **Say which equation you want** if it matters. Renal Dose Check uses Cockcroft-Gault, which most drug labels are based on. For eGFR (CKD-EPI 2021), use the [calculators](/tools/calculators/).
+- **Use concentrations from your pharmacy.** For drips, give the bag concentration your unit uses. Otherwise Lumen uses a standard concentration and says so.
 
-## Drug Interaction Example
+## Limits and safety
 
-Here's what a drug interaction check looks like in action:
-
-<div class="chat-mockup chat-demo-animated" style="margin: 2rem 0;">
-  <div class="chat-mockup-header">
-    <div class="chat-mockup-avatar">&#10022;</div>
-    <div class="chat-mockup-title">Chat</div>
-  </div>
-  <div class="chat-mockup-body">
-    <div class="chat-msg user">Are there any interactions between simvastatin and clarithromycin?</div>
-    <div class="chat-msg assistant">
-      <div class="msg-avatar"><span>&#10022;</span></div>
-      <div class="msg-content">
-        <div class="mock-tool">
-          <div class="mock-tool-header">
-            <span class="mock-tool-status done"></span>
-            Checked drug interactions
-          </div>
-          <div class="mock-tool-detail">simvastatin &times; clarithromycin</div>
-        </div>
-        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--dark-text);">
-          <strong style="color: var(--accent);">&#9888; Major Interaction Detected</strong><br><br>
-          Clarithromycin is a <strong>potent CYP3A4 inhibitor</strong> that significantly increases simvastatin levels, raising the risk of <strong>rhabdomyolysis</strong>.
-        </p>
-        <div class="mock-artifact chat-extra">
-          <div class="mock-artifact-icon" style="background: var(--accent-glow); color: var(--accent);">&#9888;</div>
-          <div class="mock-artifact-info">
-            <div class="mock-artifact-title">Interaction Report: Simvastatin &times; Clarithromycin</div>
-            <div class="mock-artifact-type">Drug Interaction Report</div>
-          </div>
-          <div class="mock-artifact-chevron">&rsaquo;</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-## Renal Dosing Workflow
-
-The renal dose tool needs specific patient parameters. Lumen will ask for anything you don't provide upfront:
-
-| Parameter | What It Is | Example |
-|-----------|------------|---------|
-| **Drug** | The medication to adjust | Vancomycin |
-| **Age** | Patient age in years | 70 |
-| **Sex** | Biological sex (for CrCl) | Male |
-| **Weight** | Body weight in kg | 85 |
-| **SCr** | Serum creatinine in mg/dL | 2.1 |
-
-{{< tip title="Provide all parameters upfront" >}}
-The more information you include in your initial message, the faster you'll get results. For example: *"Renal dose check for gabapentin: 65yo female, 60kg, SCr 1.8"*
-{{< /tip >}}
-
-{{< callout type="important" >}}
-**For clinical use, always verify** drug interaction and dosing information with your institution's pharmacy resources. Lumen is a decision support tool, not a replacement for clinical judgment.
+{{< callout type="safety" title="Check before you give or change a dose" >}}
+Interaction and dosing results come from FDA label text and fixed formulas, but Lumen can still misread a label or miss a drug. "No label mention" is not the same as "safe". Confirm with the label, your pharmacist and your organization's policies. Never use a drip rate without checking it against the order and your pump library.
 {{< /callout >}}
+
+- Adverse event reports (FAERS) show that something was reported, not that the drug caused it, and not how often it happens.
+- Lumen doesn't see your patient's chart unless you paste the details or your organization has connected its EHR.
+
+## FAQ
+
+{{< faq question="Where does the interaction data come from?" >}}
+From the interaction, contraindication and warning sections of FDA prescribing information, with drug names normalized through RxNorm. Each result cites the label it used.
+{{< /faq >}}
+{{< faq question="Does Lumen use creatinine clearance or eGFR for renal dosing?" >}}
+Renal Dose Check calculates creatinine clearance with Cockcroft-Gault and quotes the label's adjustment. eGFR is available as a separate calculator.
+{{< /faq >}}
+{{< faq question="Can it review a whole medication list?" >}}
+Yes. Paste the list, or use the Medication Review specialist for a structured review that lists every pair it screened and any it could not.
+{{< /faq >}}
+
+## Next steps
+
+{{< related "/skills-and-specialists/specialists/medication-review/" "/getting-started/check-interaction/" "/tools/calculators/" "/tools/protocols-decisions/" >}}

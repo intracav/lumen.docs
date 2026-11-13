@@ -1,0 +1,2 @@
+{{- $m := dict "beta" "tint-blue" "preview" "tint-blue" "new" "tint-green" "coming-soon" "tint-neutral" "gated" "tint-neutral" "experimental" "tint-amber" "admin" "tint-plum" "add-on" "tint-plum" -}}
+{{- index $m (lower .) | default "tint-neutral" -}}

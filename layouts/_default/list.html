@@ -1,27 +1,31 @@
 {{ define "main" }}
-<div class="content-body">
-  {{ partial "breadcrumbs.html" . }}
-
-  <div class="page-header">
-    <h1>{{ .Title }}</h1>
-    {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
-  </div>
-
-  <div data-pagefind-body>
-  {{ .Content }}
-  </div>
-
-  {{ if and .Pages (not .Params.hideAutoGrid) }}
-  <div class="card-grid stagger-children">
-    {{ range $i, $page := .Pages.ByWeight }}
-    <a href="{{ .RelPermalink }}" class="guide-card">
-      <span class="card-number">{{ if .Params.step }}Step {{ .Params.step }}{{ else }}{{ add $i 1 }}{{ end }}</span>
-      <h3>{{ .Title }}</h3>
-      <p>{{ with .Description }}{{ . }}{{ else }}{{ .Params.lead }}{{ end }}</p>
-      <span class="card-arrow">Read guide <span>&rarr;</span></span>
-    </a>
-    {{ end }}
-  </div>
-  {{ end }}
+<div class="doc-grid no-toc">
+  <article class="content-body">
+    {{ partial "page-header.html" . }}
+    {{ if not .Params.hideOrientation }}{{ partial "orientation.html" . }}{{ end }}
+    {{ partial "glance.html" . }}
+    <div class="prose" data-pagefind-body>
+      {{ .Content }}
+      {{ if and .Pages (not .Params.hideAutoGrid) }}
+      <h2 id="in-this-section">In this section</h2>
+      <div class="link-rows">
+        {{- range .Pages.ByWeight }}
+        <a class="link-row" href="{{ .RelPermalink }}">
+          {{ partial "icon.html" (.Params.icon | default "file-text") }}
+          <span class="lr-text">
+            <span class="lr-title">{{ .Params.navTitle | default .Title }}
+              {{- with .Params.status }} <span class="badge status-badge status-{{ lower . }}">{{ partial "status-label.html" . }}</span>{{ end }}
+              {{- with .Params.tier }}{{ if ne (lower .) "free" }} <span class="badge tier-badge tier-{{ lower . }}">{{ title . }}</span>{{ end }}{{ end }}
+            </span>
+            <span class="lr-desc">{{ with .Description }}{{ . }}{{ else }}{{ .Params.lead | plainify }}{{ end }}</span>
+          </span>
+          <span class="lr-go">{{ partial "icon.html" "chevron-right" }}</span>
+        </a>
+        {{- end }}
+      </div>
+      {{ end }}
+    </div>
+    {{ partial "page-footer.html" . }}
+  </article>
 </div>
 {{ end }}

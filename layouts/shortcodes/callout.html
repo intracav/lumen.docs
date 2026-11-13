@@ -1,6 +1,9 @@
-{{ $type := .Get "type" | default "info" }}
-{{ $icons := dict "info" "&#128161;" "success" "&#9989;" "warning" "&#9888;&#65039;" "important" "&#10071;" }}
-<div class="callout callout-{{ $type }}">
-  <span class="callout-icon">{{ index $icons $type | safeHTML }}</span>
-  <div>{{ .Inner | markdownify }}</div>
+{{- $type := .Get "type" | default "info" -}}
+{{- $icons := dict "info" "info" "note" "info" "tip" "lightbulb" "success" "check-circle" "warning" "alert" "important" "alert-circle" "caution" "alert-circle" "safety" "shield" -}}
+<div class="callout callout-{{ $type }}" role="note">
+{{ partial "icon.html" (index $icons $type | default "info") }}
+<div class="callout-body">
+{{ with .Get "title" }}<div class="callout-title">{{ . }}</div>{{ end }}
+{{ .Inner | .Page.RenderString (dict "display" "block") }}
+</div>
 </div>

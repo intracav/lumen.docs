@@ -1,97 +1,80 @@
 ---
-title: "Extended Thinking: Why AI Sometimes Pauses Before Answering"
-description: "AI reasoning models explained: what happens during the pause, when Lumen thinks longer, and why a slower answer is often a safer one."
+title: "Extended thinking: why AI pauses first"
+navTitle: "Extended thinking"
+description: "What happens when an AI reasons before it answers, what the Thought for line in Lumen shows you, and how to use the reasoning to check an answer."
+lead: "A curbside answer and a formal consult are both useful. Extended thinking is the formal consult: the AI works the problem before it writes."
 weight: 6
+icon: brain
 keywords: ["AI reasoning models explained", "extended thinking", "chain of thought", "why does AI pause before answering"]
+glance:
+  what: "Extended thinking is when an AI model reasons through a problem step by step before writing its answer. Lumen shows that reasoning so you can read it."
+  who: "Clinicians and educators who want to understand, and check, how Lumen reached an answer."
+  why: "Reasoning first produces better answers to hard questions, and the visible reasoning helps you spot a wrong turn."
+  needs: "Nothing to read this page. Thinking appears in Lumen chats on every plan."
+  result: "You'll know what the Thought for line means and when to open it."
 ---
 
-There are two ways to answer a clinical question. The curbside consult — a colleague catches you in the hallway, you answer from pattern recognition, and you're right most of the time. And the formal consult — you sit down with the chart, work the problem, and write a note that shows your reasoning. Psychologists call these System 1 and System 2 thinking. Both are legitimate. The skill is knowing which one the case deserves.
+There are two ways to answer a clinical question. The curbside consult: a colleague catches you in the hallway, you answer from pattern recognition, and you're right most of the time. The formal consult: you sit with the chart, work the problem, and write a note that shows your reasoning. **Extended thinking** is the formal consult for AI. Before it writes a word of the answer, the model works through the question in a private scratchpad, then answers from that work.
 
-AI models have the same two gears. **Extended thinking** is the formal consult: instead of producing an answer in one pass, the model works through the problem in a private scratchpad first — laying out what's being asked, what it knows, what could go wrong — and only then writes its response. For a hard case, you *want* your consultant to sit with it. This page explains what's happening during that pause, and why it's worth the wait.
+## What extended thinking is
 
-## What extended thinking actually is
+A language model normally writes its answer in one pass, word by word. With extended thinking, it first writes out its reasoning: what's being asked, what it knows, what it needs to look up, what could go wrong. Only then does it write the answer you read. The reasoning isn't decoration. It *produces* the answer, the way your differential produces your plan.
 
-A language model normally generates its answer directly: your question goes in, the response comes out, word by word. That's the curbside gear — fast, fluent, and usually fine for "what's the max daily dose of acetaminophen in cirrhosis?"
+## How it works
 
-With extended thinking turned on, the model gets room to reason *before* committing to an answer. In that scratchpad it can decompose the question, recall relevant evidence, weigh competing considerations, catch its own early mistakes, and change course — all before you see a single word of the reply. The reasoning isn't decoration on top of the answer; it *produces* the answer, the way your differential produces your plan.
+{{< flow >}}
+{{< flow-node kicker="Your question" title="A real case" icon="message" tint="blue" >}}With the details that matter.{{< /flow-node >}}
+{{< flow-node kicker="Think" title="Break it down" icon="brain" tint="plum" >}}Weigh options and check its own logic.{{< /flow-node >}}
+{{< flow-node kicker="Look up" title="Use tools" icon="search" tint="accent" >}}Fetch the facts it decided it needs.{{< /flow-node >}}
+{{< flow-node kicker="Answer" title="With reasoning attached" icon="check-circle" tint="green" >}}You can open the thinking afterwards.{{< /flow-node >}}
+{{< /flow >}}
 
-<div class="journey-flow">
-  <div class="journey-box">
-    <div class="journey-box-icon">&#10067;</div>
-    <div class="journey-box-label">Your question</div>
-    <div class="journey-box-sub">A genuinely hard case</div>
-  </div>
-  <div class="journey-arrow">&rarr;</div>
-  <div class="journey-box">
-    <div class="journey-box-icon">&#128221;</div>
-    <div class="journey-box-label">Scratchpad</div>
-    <div class="journey-box-sub">Decompose, weigh, self-check</div>
-  </div>
-  <div class="journey-arrow">&rarr;</div>
-  <div class="journey-box">
-    <div class="journey-box-icon">&#128295;</div>
-    <div class="journey-box-label">Look things up</div>
-    <div class="journey-box-sub">Tools, guidelines, evidence</div>
-  </div>
-  <div class="journey-arrow">&rarr;</div>
-  <div class="journey-box">
-    <div class="journey-box-icon">&#9989;</div>
-    <div class="journey-box-label">Answer</div>
-    <div class="journey-box-sub">With reasoning attached</div>
-  </div>
-</div>
+Thinking and tools work together. Reasoning tells the model what it doesn't know. Tools let it find out. On a hard question the two alternate: think, look up the interaction data, read it, think again, then answer. That's what you do with the chart and a reference open side by side.
 
-## When Lumen thinks longer
+## How Lumen does it
 
-Lumen doesn't run the formal consult on every message — that would be like ordering a workup for every hallway question. Simple factual lookups get direct answers. Extended thinking engages when the question earns it:
+Lumen's model reasons before it answers. On a simple question the thinking is brief; on a question with many moving parts it takes longer. While it works you see **Thinking…**. When the answer is done, the reasoning folds into one line above the answer, such as **Thought for 12s** (or **Thought briefly** for a short think). Open that line any time to read the full reasoning.
 
-- **Multiple interacting variables** — anticoagulation in a patient with both stroke risk and a bleeding history
-- **Risk–benefit trade-offs** — where the right answer depends on weighing, not just knowing
-- **Multi-step planning** — building a differential, sequencing a workup, drafting a complex document
-- **Coordinating several tools** — when answering requires deciding *what to look up*, in what order
+{{< chat-demo title="Anticoagulation question" caption="Illustration with a fictional patient. The reasoning trail helps you check the logic; the sources are still what you verify." >}}
+{{< user >}}78-year-old with atrial fibrillation, a GI bleed 4 months ago, CrCl 42. Restart anticoagulation? What should I weigh?{{< /user >}}
+{{< lumen thought="18" tools="Renal dosing, Clinical guidelines, PubMed search" sources="4" evidence="true" >}}
+{{< thinking label="Thought for 18s" >}}Stroke risk is high at this age with AF. Bleed was 4 months ago; source and treatment matter. CrCl 42 affects agent and dose choice. Check current guideline on resuming anticoagulation after GI bleeding and renal dosing for each option.{{< /thinking >}}
+Guidelines generally favor **resuming anticoagulation after a GI bleed once the source is controlled**, because stroke risk often outweighs rebleeding risk {{< cite 1 >}}. With a CrCl of 42, check the label dose criteria for whichever agent you choose {{< cite 2 >}}.
 
-You'll notice the difference as a pause before the response starts, with a live indicator showing that Lumen is thinking.
+Points to weigh: whether the bleeding source was found and treated, current hemoglobin trend, and fall risk {{< cite 3 >}}. Open each source and discuss with GI before deciding.
+{{< /lumen >}}
+{{< /chat-demo >}}
 
-## The "Thought for Ns" block
+## What this means for you
 
-When Lumen thinks, the reasoning isn't hidden. It streams into a collapsible block at the top of the response, and when the answer is done, the block folds down to a single line: **"Thought for 12s."** Click it any time to reopen the scratchpad.
+- **You don't have to read it.** For routine questions, the **Thought for** line is a signal that reasoning happened.
+- **Open it when it matters.** Read the reasoning when the stakes are high, when the answer surprises you, or when you want to see how the problem breaks down. It's like reading a consultant's note instead of only their one-line recommendation.
+- **Use it to find the wrong turn.** If an answer seems off, the reasoning usually shows where: a misread detail, an assumption you'd challenge, or a question it misunderstood. Correct it in your next message.
+- **Give it something to think about.** Clinical context, competing considerations and what you'll do with the answer give the model a real problem to reason through. See [Prompting for clinicians](/learn/prompting-for-clinicians/).
 
-Most of the time you won't need to. But reading it is occasionally illuminating — the way reading a consultant's note teaches you more than reading their one-line recommendation. You can see which possibilities Lumen considered and discarded, which assumption it flagged as uncertain, and where it decided your question was ambiguous. If an answer ever surprises you, the thinking block is the first place to look: either the reasoning holds up and you've learned something, or it doesn't and you've caught the error before it mattered.
+## Limits and safety
 
-{{< callout type="info" >}}
-**The thinking block is a reasoning trail, not a transcript of certainty.** Treat it the way you'd treat a trainee presenting their logic — a chance to verify the steps, not a guarantee the conclusion is right. The clinical judgment stays with you.
+- **Reasoning isn't proof.** The thinking can be fluent and still wrong. Treat it like a trainee presenting their logic: a chance to check the steps, not a guarantee.
+- **Longer isn't always better.** Thinking time reflects how complex the question looks, not how correct the answer is.
+- **It takes time.** A hard question may take tens of seconds before the answer starts.
+- **Facts still need sources.** Reasoning decides what to look up. The citations are what you check.
+
+{{< callout type="safety" title="The judgment stays with you" >}}
+Read the cited sources before acting on an answer, however careful the reasoning looks. Lumen supports clinical judgment; it doesn't replace it.
 {{< /callout >}}
 
-## Thinking and tools, together
+## FAQ
 
-Extended thinking gets most powerful when it's combined with tool use. Reasoning tells Lumen *what it doesn't know*; tools let it go find out. On a hard question you'll often see the two interleave: Lumen thinks, decides it needs the actual interaction data rather than its memory of it, runs a [drug interaction check](/tools/medications/), reads the result, and thinks again before answering.
-
-That loop — reason, look up, reconsider — is exactly what you do with a chart and a reference open side by side. It's also why extended-thinking answers tend to come with better citations: the model has already asked itself "how do I know that?" before you had to.
-
-## The trade-off: slower, deeper
-
-Extended thinking has one honest cost — time. A response that would start instantly might take ten or twenty seconds to begin while Lumen works the problem. For a quick lookup, that's the wrong trade, which is why Lumen answers simple questions directly.
-
-For a genuinely hard question, it's the right one. You wouldn't want a consultant who returns a complex recommendation faster than they could have read the chart. The pause isn't the model being slow; it's the model doing the part of the work that makes the answer trustworthy.
-
-{{< callout type="success" >}}
-**See it in Lumen:** Watch the thinking block stream in real time on [How Lumen Thinks](/chat/thinking/), or trigger it yourself by [building a differential](/getting-started/differential/) — a question hard enough that Lumen sits with it first.
-{{< /callout >}}
-
-## Frequently asked questions
-
-{{< faq question="Does a longer thinking time mean a better answer?" >}}
-Not linearly. Thinking time scales with how hard the model judges the question to be, so a 30-second think usually signals a genuinely complex problem — but a fast answer to a simple question is just as reliable. What matters is that hard questions *get* the pause. If a complex clinical question comes back instantly and thinly, rephrase it with more context so Lumen treats it as the formal consult it is.
+{{< faq question="Does a longer think mean a better answer?" >}}
+Not necessarily. A long think usually means the question had many parts. A quick answer to a simple question can be equally reliable. Judge the answer by its sources.
+{{< /faq >}}
+{{< faq question="Can I turn thinking off or make Lumen think harder?" >}}
+There's no switch. The model decides how much to think. Asking a fuller question, with context and the trade-offs you're weighing, gives it more to reason about.
+{{< /faq >}}
+{{< faq question="Is the thinking saved?" >}}
+Yes. It stays with the answer in the conversation, behind the **Thought for** line, so you can reopen it later.
 {{< /faq >}}
 
-{{< faq question="Should I read the thinking block every time?" >}}
-No — that would defeat the point of having a consultant. Read it when the stakes are high, when the answer surprises you, or when you want to learn how the problem decomposes. For routine questions, the collapsed "Thought for Ns" line is simply your signal that the reasoning happened and is there if you need it.
-{{< /faq >}}
+## Next steps
 
-{{< faq question="Can I make Lumen think harder about a specific question?" >}}
-Effectively, yes — by asking a question worth thinking about. Adding clinical context, competing considerations, and what you plan to do with the answer gives the model a real problem to reason through rather than a fact to retrieve. See [the prompting guide](/learn/prompting-for-clinicians/) for how to frame one.
-{{< /faq >}}
-
----
-
-Next up: the other half of what makes an AI colleague useful — [what it remembers between conversations, and what it deliberately doesn't](/learn/ai-memory/).
+{{< related "/chat/thinking/" "/learn/tool-use/" "/learn/prompting-for-clinicians/" "/getting-started/differential/" >}}

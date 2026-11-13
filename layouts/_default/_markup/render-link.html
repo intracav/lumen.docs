@@ -1,0 +1,4 @@
+{{- $u := urls.Parse .Destination -}}
+{{- $ext := and $u.IsAbs (not (in (slice "docs.intracav.ai") $u.Host)) -}}
+<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $ext }} rel="noopener"{{ end }}>{{ .Text | safeHTML }}</a>
+{{- /* trim */ -}}

@@ -40,19 +40,8 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
 
-      - name: Guard against legacy brand tokens in content
-        run: |
-          if grep -rEn -- 'var\(--(primary|primary-light|cyan|purple|green|orange|bg-dark|bg-darker|bg-card|text-on-dark|text-muted-dark|text-secondary|text-tertiary|radius-sm|radius-md|shadow-card)\)' content/; then
-            echo '::error::Legacy CSS variables found in content/ — use v2 tokens or tint classes.'
-            exit 1
-          fi
-
-      - name: Guard against retired product claims
-        run: |
-          if grep -rniE 'you earn 70%|lumen keeps 30%|export as agent' content/; then
-            echo '::error::Retired product claims found in content/.'
-            exit 1
-          fi
+      - name: Lint content against WRITING.md
+        run: python3 scripts/check_content.py
 
       - name: Build with Hugo
         env:

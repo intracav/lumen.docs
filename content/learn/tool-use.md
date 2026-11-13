@@ -1,81 +1,85 @@
 ---
-title: "How AI Uses Tools: Function Calling for Clinicians"
-description: "AI function calling explained for clinicians: how a model decides to run a real drug-interaction lookup instead of answering from memory — and how you see it."
+title: "How AI uses tools instead of guessing"
+navTitle: "Tool use"
+description: "Tool use explained for clinicians: how an AI decides to run a real drug-interaction or code lookup instead of answering from memory, and how to see it."
+lead: "A good attending knows when to call a consult. Tool use is how an AI does the same: it hands factual questions to real databases and calculators."
 weight: 2
+icon: plug
 keywords: ["AI function calling explained", "how does AI look up drug interactions", "AI tool use in healthcare"]
+glance:
+  what: "Tool use (also called function calling) lets an AI run a real lookup, such as a drug-interaction check or an ICD-10 search, and answer from the result instead of from memory."
+  who: "Clinicians, coders, pharmacists and anyone who wants to know where an AI answer's facts came from."
+  why: "Answers built on a real lookup are current, precise and checkable. Answers from memory are none of those for certain."
+  needs: "Nothing to read this page. Tools run automatically in any Lumen chat; some tools need a paid plan."
+  result: "You'll know how to spot a tool call in a Lumen answer and what it tells you."
 ---
 
-Picture the model as an attending running a busy service. A good attending doesn't answer every question from memory — they know *when to call a consult*. Renal dosing question? Call pharmacy. Is that infiltrate new? Call radiology. The skill isn't knowing everything; it's knowing which specialist to involve, asking a precise question, and integrating the answer.
+Picture a busy attending. A good one doesn't answer every question from memory. Renal dosing? Call pharmacy. Is that infiltrate new? Call radiology. The skill is knowing when to involve a consultant, asking a precise question, and putting the answer to use. **Tool use** gives an AI model the same skill. The model is the attending. The tools are its consult services: a drug-interaction database, a calculator, a literature search, a code lookup.
 
-That is exactly what **tool use** — the feature AI engineers call *function calling* — gives a language model. The model is the attending. The tools are its consult services: a drug-interaction database, a medical calculator, a literature search, a code lookup. The model's job is to recognize when a question deserves a consult instead of a recollection.
+## Why memory isn't good enough for facts
 
-## Why a model shouldn't answer a drug question from memory
+A language model's memory is fluent whether or not it's right. Three problems make memory alone unsafe for factual clinical questions:
 
-A language model's memory is impressive but has the same failure mode as any memory: it's fluent whether or not it's right. Three problems make memory alone unacceptable for factual clinical questions:
+- **It goes stale.** Training stops at a date. Interaction warnings, code sets and coverage rules change after it.
+- **It blurs details.** Memory reconstructs rather than retrieves. It can mix up the severity of an interaction, or two similarly named drugs.
+- **It's bad at arithmetic.** Language models predict words. A risk score needs a calculator, not a paragraph that looks like one.
 
-- **Staleness.** Training data has a cutoff. Interaction warnings, code sets, and coverage rules change after it.
-- **Precision.** Memory reconstructs; it doesn't retrieve. A model recalling "there's an interaction between those two drugs" may blur *which* mechanism, *what* severity, or *which* similarly-named drug.
-- **Arithmetic.** Language models predict text — they're genuinely unreliable at calculation. A risk score deserves a calculator, not an essay that resembles one.
+## How it works
 
-You already hold humans to this standard. A colleague who rattles off dosing thresholds from memory when the reference is one click away isn't being efficient — they're being risky. The same rule should bind the software.
+{{< flow >}}
+{{< flow-node kicker="1 · Recognize" title="This needs a lookup" icon="search" tint="blue" >}}The model reads your question and decides a tool should answer part of it.{{< /flow-node >}}
+{{< flow-node kicker="2 · Request" title="A precise order" icon="clipboard-list" tint="plum" >}}It writes a structured request, such as "interactions: azithromycin, warfarin".{{< /flow-node >}}
+{{< flow-node kicker="3 · Run" title="The real lookup" icon="zap" tint="accent" >}}Lumen's servers run the tool. This step isn't AI, so it can't be made up.{{< /flow-node >}}
+{{< flow-node kicker="4 · Answer" title="From the result" icon="check-circle" tint="green" >}}The model reads what came back and explains it for you.{{< /flow-node >}}
+{{< /flow >}}
 
-## How a tool call actually works
+The model brings judgment: when to look, what to ask, how to explain. The tool brings facts. Neither does the other's job.
 
-The mechanics are simpler than the name "function calling" suggests. Four steps:
+## How Lumen does it
 
-1. **The model recognizes the need.** Reading your question, it decides this is a consult, not a recollection — the same judgment call an attending makes.
-2. **It writes a structured request.** Not prose — a precise, machine-readable order: *check interactions for azithromycin and warfarin*. Think of it as a well-filled consult request rather than a hallway "hey, quick question."
-3. **The system runs the real lookup.** This part isn't AI at all. The request goes to an actual database or calculator, which returns actual data. The model cannot make this step up — the lookup happens outside it.
-4. **The model reads the result and answers.** Now it does what language models are genuinely best at: turning verified data into a clear, contextualized answer for you.
+Lumen has about 90 tools. They include PubMed and ClinicalTrials.gov search, openFDA drug labels and FDA device event and recall data, RxNorm, drug interactions, renal dosing, clinical calculators, ICD-10, CPT, HCPCS and NCCI code lookups, CMS coverage, NPI lookup, document readers and web search. Lumen doesn't hand the model all of them at once. It offers the tools that fit your question, and the model can ask for more if it needs them.
 
-The division of labor is the point. The model contributes judgment (when to look, what to ask, how to explain). The tool contributes facts. Neither is asked to do the other's job.
+When a tool runs, you see it. Above the answer, a short summary line names what happened, such as **Thought for 5s · Used Drug interactions and Drug label**, or **Used 3 tools** when more ran. Open it to see a chip for each tool. If a call failed, the line says so, for example **1 call failed**.
 
-## What this looks like in Lumen
+{{< chat-demo title="Antibiotic and anticoagulant" caption="Illustration with a fictional patient. Real answers cite the database or label the tool used." >}}
+{{< user >}}Can I start azithromycin in a patient on warfarin? INR has been stable at 2.4.{{< /user >}}
+{{< lumen thought="5" tools="Drug interactions, Drug label, PubMed search" sources="2" evidence="true" >}}
+**Moderate interaction: use with monitoring.** Azithromycin can increase warfarin's effect, and raised INR and bleeding have been reported {{< cite 1 >}}. If you co-prescribe, consider checking the INR during the course and shortly after {{< cite 2 >}}.
 
-You don't have to take any of this on faith — Lumen shows you the consult happening. When the model calls a tool, a **tool chip** appears right in the response: which tool ran and what it was asked.
-
-{{< chat-demo title="Chat" >}}
-{{< user >}}Can I start azithromycin in a patient who's on warfarin?{{< /user >}}
-{{< lumen >}}
-<div class="mock-tool">
-  <div class="mock-tool-header"><span class="mock-tool-status done"></span> Checked drug interactions</div>
-  <div class="mock-tool-detail">azithromycin &times; warfarin</div>
-</div>
-
-**Moderate interaction — use with monitoring.** Azithromycin can potentiate warfarin's anticoagulant effect; increased INR and bleeding events have been reported. If co-prescribing is necessary, consider closer INR monitoring during and shortly after the course.
+Open both sources to confirm the details before you decide.
 {{< /lumen >}}
 {{< /chat-demo >}}
 
-That chip is the difference between *"trust me"* and *"here's the consult note."* You can see the model didn't answer from memory — it ran the lookup, and the answer sits directly on top of the returned data. Lumen has a whole catalog of these consult services — literature search, ICD-10 and CPT lookups, clinical calculators, guideline retrieval and more — in the [tools reference](/tools/).
+If a tool fails, Lumen says so rather than inventing a result. You'll see a short banner, such as **Request timed out** or **Service unavailable**, with a **Retry** button. If a tool needs a higher plan, the banner says **Upgrade required**. See [Troubleshooting](/help/troubleshooting/).
 
-## Why tool use makes answers checkable
+## What this means for you
 
-The deepest benefit isn't accuracy — it's **auditability**. An answer from memory is a black box: to verify it, you'd have to redo the entire lookup yourself. An answer built on a visible tool call decomposes into pieces you can check independently:
+- **Look for the chips.** A dosing or interaction answer with no tool chip and no sources came from the model's general knowledge. Treat it like a colleague's recollection.
+- **Check what was asked.** The chip shows what was looked up. If you asked about azithromycin and the lookup ran on erythromycin, you'll see it.
+- **Check that the answer matches the data.** The answer sits on top of its evidence, so a mismatch is visible.
 
-- **Was the right tool called?** A dosing question that never triggered a database lookup should raise your eyebrow — the chip's absence is information too.
-- **Was the question right?** The chip shows what was actually queried. If you asked about azithromycin and the lookup ran on erythromycin, you'll see it.
-- **Does the answer match the data?** The prose sits next to its evidence, so a mismatch is visible rather than hidden.
+## Limits and safety
 
-This is the same reason you chart your reasoning: not because you expect to be wrong, but because checkable work is trustworthy work. [Reading answers](/chat/responses/) walks through every element of a Lumen response — thinking indicators, tool chips, sources — so you know exactly what you're looking at.
+- **A tool is only as good as its data.** Databases can lag behind new approvals or recalls. The source chip tells you which database answered.
+- **The model still chooses.** It can pick the wrong tool or skip one. That's why the chips are shown: you can see what ran.
+- **Tools inform; they don't decide.** An interaction rating or a calculator score is one input to your judgment.
 
-{{< callout type="success" >}}
-**See it in Lumen** — Browse the full consult roster in [Tools](/tools/), and learn to read tool chips, thinking blocks, and sources in [Reading answers](/chat/responses/).
+{{< callout type="safety" title="Check the source before you act" >}}
+Open the cited label, database entry or guideline before you change a patient's care. Lumen supports clinical judgment; it doesn't replace it.
 {{< /callout >}}
 
-## Frequently asked questions
+## FAQ
 
-{{< faq question="What is function calling in AI?" >}}
-Function calling (or tool use) is how an AI model requests real actions instead of answering from memory. The model writes a structured request — like "check interactions for drug A and drug B" — the surrounding system runs it against a real database or calculator, and the model reads the returned data before answering. The model supplies judgment; the tool supplies facts.
+{{< faq question="What is function calling?" >}}
+It's the technical name for tool use. The model writes a structured request, Lumen's servers run it against a real database or calculator, and the model answers from the result.
+{{< /faq >}}
+{{< faq question="How do I know whether Lumen used a database or its memory?" >}}
+Look above the answer. The summary line, such as **Used Drug interactions and Drug label**, opens to show which tools ran. Below the answer, the sources count shows what was cited. No tools and no sources means the answer came from general knowledge.
+{{< /faq >}}
+{{< faq question="Can I choose which tool Lumen uses?" >}}
+You can steer it in plain language ("check this against the FDA label"), and Specialists come with the right tools for their job. You don't need to name tools for everyday questions.
 {{< /faq >}}
 
-{{< faq question="How does AI look up drug interactions instead of guessing?" >}}
-When a model with tool access reads a drug-interaction question, it recognizes that memory isn't reliable enough and issues a lookup request to an actual interaction database. The database returns the current data, and the model builds its answer on that result. In Lumen you can verify this happened: a tool chip in the response shows which lookup ran and what was queried.
-{{< /faq >}}
+## Next steps
 
-{{< faq question="How do I know when the AI used a real database versus its memory?" >}}
-In Lumen, every tool call appears as a visible chip in the response showing the tool's name and inputs. If an answer has no tool chip and no sources, it came from the model's general knowledge — treat it like a colleague's recollection and verify anything consequential.
-{{< /faq >}}
-
----
-
-Tools answer point questions. For evidence-backed answers with citations, the model uses a related technique — retrieval. That's the next read: [RAG: how AI cites real sources](/learn/rag-and-citations/). Or see a live interaction check in [Check a drug interaction](/getting-started/check-interaction/).
+{{< related "/learn/rag-and-citations/" "/tools/" "/chat/responses/" "/getting-started/check-interaction/" >}}

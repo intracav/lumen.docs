@@ -1,0 +1,1 @@
+<div class="lui-stat"><div class="sl">{{ .Get "label" }}</div><div class="sv">{{ .Get "value" }}{{ with .Get "unit" }}<small>{{ . }}</small>{{ end }}</div>{{ with .Get "change" }}<div class="sd {{ $.Get "trend" | default "up" }}">{{ . }}</div>{{ end }}</div>

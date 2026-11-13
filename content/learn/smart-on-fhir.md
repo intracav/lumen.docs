@@ -1,97 +1,86 @@
 ---
-title: "SMART on FHIR, Explained: How AI Connects to Your EHR"
-description: "What is SMART on FHIR? How AI apps get scoped, audited, revocable access to EHR data — and what CDS Hooks advisory cards are. Explained for clinicians."
+title: "SMART on FHIR: how AI connects to the EHR"
+navTitle: "SMART on FHIR"
+description: "What SMART on FHIR and CDS Hooks are, how they give an app scoped, logged, revocable access to EHR data, and what Lumen does with a connection."
+lead: "A visiting consultant gets a badge, not a master key. SMART on FHIR is the badge system for software that reads the health record."
 weight: 9
+icon: hospital
 keywords: ["what is SMART on FHIR", "SMART on FHIR explained", "CDS Hooks", "AI EHR integration"]
+glance:
+  what: "SMART on FHIR is the healthcare standard that lets an app read approved parts of an electronic health record (EHR), with the organization deciding what it can see."
+  who: "Clinicians, CMIOs, informatics and IT security teams evaluating AI that connects to the EHR."
+  why: "To understand how an AI tool can see a patient's medications or labs without broad access to your EHR, and what stays under your control."
+  needs: "Nothing to read this page. Using it in Lumen needs an organization account with an EHR connection set up by your admins and Intracav."
+  result: "The vocabulary and questions you need for an EHR integration conversation."
 ---
 
-When a visiting consultant comes to your hospital, they don't get a master key. They get a badge — issued after credentialing, opening only the doors their role requires, logging every entry, and deactivated the day the arrangement ends. Nobody hands over the building; the hospital grants *scoped, accountable access*.
+When a visiting consultant comes to your hospital, they don't get a master key. They get a badge, issued after credentialing, that opens only the doors their role needs, logs every entry and stops working the day the arrangement ends. **SMART on FHIR** is that badge system for software. It lets an app like Lumen read approved parts of the EHR, with permissions your organization sets, a record of access and a way to switch it off.
 
-That badge system, for software, is **SMART on FHIR** — the industry standard that lets an application like Lumen connect to your EHR with permissions your organization defines, an audit trail your IT department can read, and a revocation switch they control. If you've wondered how an AI assistant can see a patient's med list without "having access to the EHR" in the scary sense, this is the answer.
+## What the words mean
 
-## FHIR: a common language for health records
+- **{{< term "FHIR" >}}** (Fast Healthcare Interoperability Resources, said "fire") is a shared format for health data. Every EHR stores data its own way inside, but FHIR defines common shapes for the things that matter: a Patient, a MedicationRequest, an Observation (such as a lab result), a Condition. It's like standard units: a potassium of 5.8 means the same in any hospital because everyone agreed on mmol/L.
+- **SMART** is the permission system on top. It standardizes how an app asks for access, how the organization grants it and how narrow that grant is. If you've ever used "Sign in with…" to let an app see your calendar but not your email, you've used the same pattern (called OAuth).
+- **Scopes** are the named permissions an app asks for, such as "read this patient's medications". There's no master key to request.
+- **CDS Hooks** is a companion standard. Instead of you asking a question, the EHR can call a connected service at set moments, such as opening a chart or composing an order, and the service can return an advisory card inside the EHR.
 
-Start with the second half of the name. **FHIR** (Fast Healthcare Interoperability Resources, said "fire") is a standard vocabulary for health data. Every EHR stores information its own way internally — but FHIR defines a shared format for the concepts that matter: a Patient, a MedicationRequest, an Observation (that's a lab result), a Condition.
+## How it works
 
-Think of it as the interoperable equivalent of standardized units. A potassium of 5.8 means the same thing in any hospital because everyone agreed on mmol/L; FHIR does the same for the *structure* of the record, so a med list retrieved from one health system's EHR looks the same to software as a med list from another's. All major EHR vendors now speak it — U.S. regulation requires it.
+{{< flow >}}
+{{< flow-node kicker="1 · Request" title="App asks for scopes" icon="clipboard-list" tint="blue" >}}Named permissions, nothing implied.{{< /flow-node >}}
+{{< flow-node kicker="2 · Grant" title="EHR issues access" icon="key" tint="plum" >}}Only for what was approved.{{< /flow-node >}}
+{{< flow-node kicker="3 · Log" title="Access is recorded" icon="history" tint="accent" >}}Who, what and when.{{< /flow-node >}}
+{{< flow-node kicker="4 · Revoke" title="Switch it off" icon="stop" tint="green" >}}The organization controls the connection.{{< /flow-node >}}
+{{< /flow >}}
 
-## SMART: the badge office
+## How Lumen does it
 
-FHIR is the language; **SMART** is the permission system for who gets to speak it. SMART on FHIR standardizes how an app requests access, how your organization grants it, and how narrow that grant is.
+Lumen is built on these standards. With a connection in place:
 
-If you've ever used a "Sign in with…" button — letting a new app see your calendar but not your email — you've used this exact pattern. It's the same widely deployed authorization approach (OAuth), applied to the EHR:
+- **Patient context in chat.** Lumen can read FHIR R4 data such as current medications, recent results and active problems, so an interaction check runs against the actual list instead of one you retyped. See [Patient records](/tools/patient-records/).
+- **Two ways to launch.** A clinician can connect from Lumen and sign in to the EHR (a *standalone launch*), or Lumen can open from inside the EHR with the patient already in context (an *EHR launch*).
+- **Read-only by default.** Connections read data. Writing to the record is switched off unless an organization admin turns it on for that connection. Notes Lumen helps you draft reach the chart the way they always have: through you, reviewed and signed.
+- **Advisory cards with CDS Hooks.** When a chart is opened (*patient-view*) or an order is being written (*medication-prescribe*), Lumen can return advisory cards. The cards are built from retrieved clinical sources with citations. They inform; they don't change the order.
+- **Audit.** Connection activity and every CDS Hooks call are recorded in Lumen's tamper-evident audit log.
+- **Set up with your organization.** Connections belong to an organization account (called a *team* in Lumen). Your admins and IT team set them up with Intracav. See [EHR integration](/organizations/ehr/).
 
-<div class="journey-flow">
-  <div class="journey-box">
-    <div class="journey-box-icon">&#128203;</div>
-    <div class="journey-box-label">App requests access</div>
-    <div class="journey-box-sub">Named scopes, nothing implied</div>
-  </div>
-  <div class="journey-arrow">&rarr;</div>
-  <div class="journey-box">
-    <div class="journey-box-icon">&#127380;</div>
-    <div class="journey-box-label">EHR issues a badge</div>
-    <div class="journey-box-sub">Only the approved doors</div>
-  </div>
-  <div class="journey-arrow">&rarr;</div>
-  <div class="journey-box">
-    <div class="journey-box-icon">&#128220;</div>
-    <div class="journey-box-label">Every entry logged</div>
-    <div class="journey-box-sub">Who, what, when</div>
-  </div>
-  <div class="journey-arrow">&rarr;</div>
-  <div class="journey-box">
-    <div class="journey-box-icon">&#128683;</div>
-    <div class="journey-box-label">Revocable any time</div>
-    <div class="journey-box-sub">One switch, IT-controlled</div>
-  </div>
-</div>
+{{< chat-demo title="Med list from the EHR" caption="Illustration with a fictional patient. Data shown would come from the connected EHR; always confirm against the chart." >}}
+{{< user >}}Any interaction concerns if I start azithromycin for this patient?{{< /user >}}
+{{< lumen thought="6" tools="Patient record, Drug interactions, Drug label" sources="2" evidence="true" >}}
+From the connected record: the active medication list includes **warfarin** and **amiodarone**.
 
-The key word is **scopes**. A SMART app must name exactly what it wants — *read this patient's medications, read their labs* — and receives a badge for those doors only. There is no master key to request.
+Azithromycin with warfarin can raise the INR {{< cite 1 >}}, and azithromycin with amiodarone adds QT-prolongation risk {{< cite 2 >}}. Consider a baseline ECG and INR follow-up, and check both sources before ordering.
+{{< /lumen >}}
+{{< /chat-demo >}}
 
-## What Lumen does once connected
+## What this means for you
 
-With a SMART on FHIR connection in place, Lumen can pull the patient context that makes its answers concrete: current medications, recent lab results, and active diagnoses, [right in the chat](/tools/patient-records/). Instead of you transcribing a med list into your question, Lumen reads it — and its interaction check runs against the *actual* list, not your recollection of it.
+- **Less retyping.** Lumen reads the med list instead of relying on your memory of it.
+- **The same review as always.** Anything Lumen drafts still goes through you before it enters the record.
+- **Questions for IT.** Ask which scopes are requested, whether the connection is read-only, where access is logged and who can switch it off. SMART on FHIR is designed to answer all four.
 
-One boundary worth stating plainly: **Lumen reads; it does not write to the chart.** Nothing Lumen drafts is filed to the record by Lumen. Notes it helps you write reach the chart the same way they always have — through you, reviewed and signed. The consultant badge opens the records room, not the order-entry system.
+## Limits and safety
 
-## CDS Hooks: a tap on the shoulder
+- **Only what's in the EHR, only what's granted.** If a result isn't in the record or isn't in scope, Lumen can't see it.
+- **The record can be wrong or out of date.** Confirm critical values in the chart itself.
+- **Cards are advice.** A CDS Hooks card is one input. You stay free to proceed, change or dismiss.
+- **Not every organization has a connection.** Without one, Lumen works from what you type and attach.
 
-There's a companion standard called **CDS Hooks** that flips the direction of the conversation. Instead of you asking a question, the EHR can notify a connected service at defined moments in your workflow — opening a chart, entering an order — and the service can respond with an **advisory card**: a short, sourced heads-up displayed inside the EHR.
-
-The right analogy is a sharp colleague standing at your elbow during order entry: *"Heads up — that's renally cleared and this morning's creatinine doubled."* A tap on the shoulder, not a hand on the keyboard. Cards are advisory by design — they inform the decision you're already making, and you remain free to proceed, adjust, or dismiss.
-
-## Why your IT department likes this model
-
-If your first thought was *"security will never approve an AI touching the EHR,"* SMART on FHIR is precisely the framework built to earn that approval:
-
-- **Scopes, not trust.** Access is enumerated up front and technically enforced — the app cannot wander beyond what was granted.
-- **Audit, not assumption.** Every data request is logged on both sides, which fits directly into Lumen's broader posture — built with HIPAA safeguards, including encryption and audit logging.
-- **Revocation, not renegotiation.** One switch disables the connection instantly, without a vendor call.
-- **A standard, not a one-off.** IT reviews the same SMART pattern they've already vetted for other connected apps, rather than a bespoke integration.
-
-## Availability
-
-EHR connection is available on Plus and above {{< tier-badge "plus" >}} and is set up with your organization — your admin and IT team configure the connection with your EHR vendor as part of [organization EHR setup](/organizations/ehr/). Org-level self-service setup is on the way {{< status-badge "coming-soon" >}}.
-
-{{< callout type="success" >}}
-**See it in Lumen:** [EHR integration for organizations](/organizations/ehr/) covers what setup involves, and [Patient Records & Notes](/tools/patient-records/) shows what pulling live patient context into a chat looks like.
+{{< callout type="safety" title="Check the chart and the sources" >}}
+Confirm medication lists and results in the EHR before acting, and open the cited sources behind any advice. Lumen supports clinical judgment; it doesn't replace it.
 {{< /callout >}}
 
-## Frequently asked questions
+## FAQ
 
-{{< faq question="Does connecting Lumen give it access to every patient in our EHR?" >}}
-No. SMART on FHIR access is scoped: the badge specifies which categories of data can be read, and access happens in the context of authorized use — with every request logged. It is the opposite of a bulk database connection; think visiting consultant with a badge, not a copy of the archive.
+{{< faq question="Does connecting Lumen give it access to every patient?" >}}
+No. Access is limited to the scopes your organization approves and happens in the context of an authorized user, with activity logged. It isn't a copy of your database.
+{{< /faq >}}
+{{< faq question="Can Lumen write notes or orders into the chart?" >}}
+Not by default. Connections are read-only unless an organization admin turns on writing for that connection. CDS Hooks cards are advisory only.
+{{< /faq >}}
+{{< faq question="Do I need to be technical to use it?" >}}
+No. Once your organization has set up the connection, you use it by chatting. If you don't have one yet, point your administrator to [EHR integration](/organizations/ehr/).
 {{< /faq >}}
 
-{{< faq question="Can Lumen change orders or write notes into the chart?" >}}
-No. Lumen's EHR connection is read-only — it pulls context like medications, labs, and diagnoses to inform its answers. Anything Lumen drafts for you enters the record only through your normal workflow, under your review and signature. CDS Hooks cards are likewise advisory: they surface information; they never act.
-{{< /faq >}}
+## Next steps
 
-{{< faq question="Do I need to be a technical admin to use this?" >}}
-No — but you do need your organization to set it up once. The connection is configured between your org's admins, IT, and the EHR vendor; after that, using it is just chatting. If your practice doesn't have it yet, point your administrator at the [organization EHR guide](/organizations/ehr/).
-{{< /faq >}}
-
----
-
-That's the last stop in the Learn series — head back to [the Learn overview](/learn/) to fill any gaps, or see the concepts converge in a real workday in [Getting Started](/getting-started/).
+{{< related "/organizations/ehr/" "/tools/patient-records/" "/trust/privacy/" "/learn/tool-use/" >}}

@@ -1,0 +1,29 @@
+<div class="page-footer">
+  <div class="page-feedback" data-feedback>
+    <span class="pf-q">Was this page helpful?</span>
+    <div class="pf-btns">
+      <button type="button" data-vote="yes">{{ partial "icon.html" "thumbs-up" }} Yes</button>
+      <button type="button" data-vote="no">{{ partial "icon.html" "thumbs-down" }} No</button>
+    </div>
+    <span class="pf-thanks" role="status">Thanks. <a href="mailto:support@intracav.ai?subject={{ printf "Docs feedback: %s" .Title | urlquery }}">Tell us what would make it better</a>.</span>
+  </div>
+
+  {{/* Hugo orders by weight ascending; NextInSection points toward the front. */}}
+  {{- $prev := .NextInSection }}
+  {{- $next := .PrevInSection }}
+  {{- if or $prev $next }}
+  <nav class="page-nav" aria-label="Previous and next page">
+    {{- with $prev }}
+    <a href="{{ .RelPermalink }}"><div class="nav-label">{{ partial "icon.html" "arrow-left" }} Previous</div><div class="nav-title">{{ .Params.navTitle | default .Title }}</div></a>
+    {{- else }}<span></span>{{ end }}
+    {{- with $next }}
+    <a href="{{ .RelPermalink }}" class="next"><div class="nav-label">Next {{ partial "icon.html" "arrow-right" }}</div><div class="nav-title">{{ .Params.navTitle | default .Title }}</div></a>
+    {{- end }}
+  </nav>
+  {{- end }}
+
+  <div class="page-updated">
+    {{- if not .Lastmod.IsZero }}<span>Last updated {{ .Lastmod.Format "January 2, 2006" }}</span>{{ end }}
+    <a href="mailto:support@intracav.ai?subject={{ printf "Docs issue: %s" .RelPermalink | urlquery }}">Report an issue with this page</a>
+  </div>
+</div>

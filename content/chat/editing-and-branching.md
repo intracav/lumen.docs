@@ -1,58 +1,96 @@
 ---
-title: "Edit, Branch, Fork & Stop"
-description: "Fix a question after you've sent it, regenerate the answer, fork a conversation into a fresh thread, or stop a response mid-stream."
-weight: 7
+title: "Edit a question, regenerate or stop an answer"
+navTitle: "Edit, regenerate, stop"
+description: "Fix a question you've already sent, get a new version of an answer, switch between versions, and stop an answer that's going the wrong way."
+lead: "Sent the wrong dose? Edit the question and Lumen answers again. The earlier version is kept, so you can switch back. You can also regenerate an answer or stop one partway through."
+weight: 9
+icon: git-branch
+glance:
+  what: "The ways to change course in a chat: edit a sent message, regenerate an answer, switch between versions, and stop an answer."
+  who: "Everyone who uses Lumen chat, on any plan."
+  why: "To correct a mistake or try a different angle without starting over, and without losing what was already said."
+  needs: "A Lumen account. About 3 minutes to read."
+  result: "You'll be able to correct a question, compare answers, and stop a reply you don't need."
 ---
 
-Conversations with Lumen aren't set in stone. Typed the wrong dose in your question? Edit the message and the answer regenerates. Want to explore a "what if" without losing the thread you're on? Fork the chat. Answer going in the wrong direction? Stop it mid-sentence. This page covers all the ways to steer a conversation after you've hit send.
+You asked about amiodarone for stable wide-complex tachycardia, then noticed you'd typed the cardiac arrest dose. Don't start a new chat. Edit the question and send it again. Lumen writes a fresh answer, and keeps the original question and answer as an earlier version you can switch back to.
 
-## Editing a sent message
+## Before you start
 
-Hover over (or long-press) any of your own messages and choose **Edit**. Fix the text, send it again, and Lumen generates a fresh answer to the corrected question.
+Have a chat with at least one question and answer. Everything here works on every plan.
 
-Say you asked about amiodarone for stable wide-complex tachycardia but typed the cardiac-arrest dose by mistake. Edit the message, correct the dose, and the answer regenerates against what you actually meant:
+## How to edit a question you've sent
 
-{{< chat-demo title="After editing the question" >}}
-{{< user >}}What's the initial IV dose of amiodarone for *stable* wide-complex tachycardia?{{< /user >}}
-{{< lumen >}}For **stable** wide-complex tachycardia, the initial dose is **amiodarone 150 mg IV over 10 minutes**, followed by a 1 mg/min infusion. The 300 mg rapid push you may be thinking of is reserved for pulseless VT/VF in cardiac arrest.{{< /lumen >}}
+{{< steps >}}
+{{< step title="Find your message" >}}
+Hover over your message on a computer, or tap it on a phone, to show its actions.
+{{< /step >}}
+{{< step title="Click Edit" >}}
+Click **Edit**. Your message's text moves into the message box.
+{{< /step >}}
+{{< step title="Change it and send" >}}
+Correct the text and press {{< kbd "Enter" >}}. Lumen answers the corrected question.
+{{< /step >}}
+{{< step title="Switch between versions" >}}
+The original is kept. Use the **< 1/2 >** arrows (**Previous version**, **Next version**) to switch between the original and the edited conversation.
+{{< /step >}}
+{{< /steps >}}
+
+## How to regenerate an answer
+
+Click **Regenerate** under any answer. Lumen writes a new version of it. Use the **< 1/2 >** arrows to compare versions. The version you're viewing is the one Lumen builds on when you send your next message.
+
+## How to stop an answer
+
+While Lumen is writing, the send button becomes **Stop generating**. Click it. If Lumen asks **Stop generating?**, click **Stop**. Whatever was written stays in the chat, marked **Stopped**, and you can send your next message straight away.
+
+## What you'll see
+
+{{< chat-demo title="After editing the question" caption="Illustration. The original question and answer are kept as version 1." >}}
+{{< user >}}What's the initial IV dose of amiodarone for **stable** wide-complex tachycardia in an adult?{{< /user >}}
+{{< lumen sources="1" >}}
+For stable wide-complex tachycardia, the initial dose is **amiodarone 150 mg IV over 10 minutes**, repeated as needed if the arrhythmia comes back, followed by a maintenance infusion of 1 mg/min for the first 6 hours {{< cite 1 >}}. The 300 mg IV push is the dose for pulseless VT or VF during cardiac arrest {{< cite 1 >}}.
+{{< /lumen >}}
 {{< /chat-demo >}}
 
-### Editing creates a branch — nothing is deleted
+## When a lookup fails
 
-When you edit a message, Lumen doesn't overwrite history. The edited message starts a **new branch** of the conversation from that point, and the original question and its answer are preserved. Think of it like a chart amendment rather than an erasure: the record of what was asked and answered stays intact, and the conversation simply continues down the corrected path.
+Sometimes one of Lumen's lookups fails, for example because a service is busy. The tool chip shows why, such as **Rate limited — try again shortly** or **Timed out after 30s**, with these options:
 
-{{< callout type="info" >}}
-**Why branching matters clinically.** If an earlier answer was based on a wrong detail, you don't want it silently replaced — you want a clean, corrected thread *and* an intact record. Branching gives you both.
+- **Try again** reruns the lookup.
+- **Edit args & retry** lets you change what was looked up, then rerun it.
+- **Copy error** copies the details, which helps if you report a problem.
+
+Lumen often works around a failed lookup with other sources. It should tell you when it did.
+
+## Tips
+
+- **Edit, don't pile on.** If the first question was wrong, editing it keeps the chat clean. A correction sent as a new message leaves the wrong answer in the middle of the thread.
+- **Stop early.** If the first sentence shows Lumen has misunderstood, stop it, edit your question, and send again.
+- **Regenerate for a different angle,** for example when an answer is correct but too long.
+
+## Limits and safety
+
+- Editing changes the conversation from that message onwards. Later messages belong to the version you edited from, and appear only when you switch back to it.
+- An answer you stopped is incomplete. Don't rely on a stopped answer for anything clinical.
+- Regenerating can give a different answer. If two versions disagree on a clinical point, check the sources rather than picking the one you prefer.
+
+{{< callout type="safety" title="Different versions, same check" >}}
+Whichever version you use, open its cited sources before you act on it.
 {{< /callout >}}
 
-## Forking a whole chat
+## FAQ
 
-Sometimes you don't want to change a message — you want to take an entire conversation in a second direction. **Fork** copies the whole chat into a brand-new thread that you own, and the original stays exactly as it was.
+{{< faq question="Does editing delete the original answer?" >}}
+No. The original question and answer are kept as an earlier version. Use the **< 1/2 >** arrows to see them.
+{{< /faq >}}
+{{< faq question="Can I copy a chat to continue it in a different direction?" >}}
+You can't duplicate your own chat. Edit an earlier message to branch from that point instead. If someone shares a chat with you, you can continue it as your own copy. See [Share a chat](/chat/sharing/).
+{{< /faq >}}
+{{< faq question="If I stop an answer, does Lumen keep working in the background?" >}}
+No. Stopping ends that answer.
+{{< /faq >}}
 
-Forking is useful when:
+## Next steps
 
-- A long working conversation has reached a good state and you want to explore an alternative plan without disturbing it
-- Someone shared a chat with you and you want to continue it yourself (see [Share a Chat](/chat/sharing/))
-- You want a clean starting point that already contains all the context you've built up
-
-The fork is a personal copy — it belongs to you alone, even if the original chat was shared within your organization.
-
-## Stopping a response mid-stream
-
-While Lumen is streaming an answer, the send button becomes a **Stop** button (a square icon). Tap it and generation halts immediately — whatever text has already appeared stays in the chat, and you can send your next message right away.
-
-Stop is handy when the first sentence tells you the answer is heading somewhere you didn't intend: stop it, edit your question, and regenerate rather than waiting out a long answer you won't use.
-
-## When a tool call fails
-
-Lumen often calls specialized tools mid-answer — a drug-interaction lookup, a calculator, a literature search. Occasionally one of these fails: a source is temporarily unreachable, or a tool hits its rate limit.
-
-When that happens, the tool block in the response shows the failure and Lumen tells you whether trying again is likely to help. For transient problems (like a rate limit), simply ask again — resending the same question, or editing your last message, triggers a fresh attempt. Lumen will also often work around a failed tool on its own by drawing on other sources it can still reach.
-
----
-
-**Next steps:**
-
-- [Share a Chat](/chat/sharing/) — send a read-only link, and let colleagues fork it
-- [Reading Answers](/chat/responses/) — what every part of a response means
-- [Typing & Sending](/chat/sending-messages/) — get better answers from better prompts
+{{< related "/chat/responses/" "/chat/sharing/" "/chat/sending-messages/" >}}

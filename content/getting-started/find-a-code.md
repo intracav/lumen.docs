@@ -1,71 +1,106 @@
 ---
-title: "Find a Billing Code"
-description: "Describe a diagnosis or procedure in plain English and get the right ICD-10 or CPT code."
-weight: 3
-step: 3
+title: "Find a diagnosis or procedure code"
+navTitle: "Find a code"
+description: "Describe a diagnosis or procedure in plain words and Lumen finds the ICD-10-CM, CPT or HCPCS code, with notes on specificity and code pairs."
+lead: "You know the diagnosis. You need the code. Describe it in your own words and Lumen looks it up, then points out what would make it more specific."
+weight: 5
+icon: hash
+glance:
+  what: "Lumen looks up ICD-10-CM diagnosis codes, CPT procedure codes and HCPCS codes from a plain-language description."
+  who: "Coders, clinical documentation specialists, physicians, advanced practice providers and billing staff, on any plan."
+  why: "To find the right code faster than searching a code book, and to see what detail would make it more specific."
+  needs: "A Lumen account (any plan). About 2 minutes."
+  result: "The best-matching code with its official description, related codes to consider, and any sequencing notes."
 ---
 
-You know the diagnosis. You just need the code. Instead of searching through a code book or billing software, describe it to Lumen and get the answer immediately.
+The note says "acute on chronic systolic heart failure" and you need the code. Instead of paging through a code book, describe the diagnosis to Lumen. It searches the official ICD-10-CM code set, returns billable codes, and tells you what documentation would change the choice.
 
-## What to Type
+## Before you start
 
-Describe the diagnosis or procedure however you normally would:
+- **Plan:** any plan, including Free.
+- **Have ready:** the diagnosis or procedure as it's documented. Add the detail that affects coding, such as acuity, type, laterality, encounter and related conditions.
+- **Leave out identifiers.** You don't need patient details to look up a code.
 
-- *"ICD-10 for acute on chronic systolic heart failure"*
-- *"CPT code for laparoscopic cholecystectomy"*
-- *"What's the code for type 2 diabetes with diabetic nephropathy?"*
+## How to find a code
 
-## What You'll See
+{{< steps >}}
+{{< step title="Open a new chat" >}}
+Go to [lumen.intracav.ai](https://lumen.intracav.ai), sign in, and click **New Chat**.
+{{< /step >}}
+{{< step title="Describe the diagnosis or procedure" >}}
+Type it as it's documented. For example:
 
-<div class="chat-mockup chat-demo-animated" style="margin: 2rem 0;">
-  <div class="chat-mockup-header">
-    <div class="chat-mockup-avatar">&#10022;</div>
-    <div class="chat-mockup-title">Chat</div>
-  </div>
-  <div class="chat-mockup-body">
-    <div class="chat-msg user">ICD-10 for acute on chronic systolic heart failure</div>
-    <div class="chat-msg assistant">
-      <div class="msg-avatar"><span>&#10022;</span></div>
-      <div class="msg-content">
-        <div class="mock-tool">
-          <div class="mock-tool-header">
-            <span class="mock-tool-status done"></span>
-            Looked up ICD-10 codes
-          </div>
-        </div>
-        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--dark-text);">
-          The primary code is <strong style="color: var(--accent-lt);">I50.23</strong> &mdash; Acute on chronic systolic (congestive) heart failure.
-        </p>
-        <div class="mock-artifact chat-extra">
-          <div class="mock-artifact-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#127973;</div>
-          <div class="mock-artifact-info">
-            <div class="mock-artifact-title">ICD-10 Results</div>
-            <div class="mock-artifact-type">3 related codes</div>
-          </div>
-          <div class="mock-artifact-chevron">&rsaquo;</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+- *"ICD-10 code for acute on chronic systolic heart failure."*
+- *"Type 2 diabetes with diabetic chronic kidney disease, stage 3a."*
+- *"CPT code for laparoscopic cholecystectomy."*
+{{< /step >}}
+{{< step title="Send it" >}}
+Press {{< kbd "Enter" >}}. You'll see **Looking up ICD-10 codes** or **Looking up CPT procedure codes**, then **ICD-10 codes retrieved** or **CPT codes retrieved**.
+{{< /step >}}
+{{< step title="Read the code and the notes" >}}
+Lumen gives the best match with its official description, plus related codes and any "code also" or sequencing notes that apply.
+{{< /step >}}
+{{< step title="Confirm against your source" >}}
+Check the code in your encoder or the official code set before you submit it.
+{{< /step >}}
+{{< /steps >}}
 
-## How Lumen Helps with Specificity
+## What you'll see
 
-Billing often requires the *most specific* code. Lumen handles this automatically:
+{{< chat-demo title="Heart failure code" caption="Illustration. Always confirm codes against the official code set and your organization's coding policy." >}}
+{{< user >}}ICD-10 code for acute on chronic systolic heart failure. The patient also has hypertension.{{< /user >}}
+{{< lumen tools="ICD-10 codes retrieved" sources="1" >}}
+The code for the heart failure is **I50.23**, *Acute on chronic systolic (congestive) heart failure* {{< cite 1 >}}.
 
-- **Laterality** — It'll ask or suggest left vs. right when it matters
-- **Severity** — Acute, chronic, acute-on-chronic distinctions
-- **Sequencing** — Initial encounter, subsequent encounter, or sequela
-- **Related codes** — Shows companion codes you might also need (e.g., E11.22 + N18.3 for diabetes with CKD)
+Because the patient also has hypertension, ICD-10-CM presumes a link between the two. Code **I11.0**, *Hypertensive heart disease with heart failure*, first, then I50.23 to show the type of heart failure, unless the provider documents that the heart failure has another cause {{< cite 1 >}}. If the patient also has chronic kidney disease, a combination code from category I13 applies instead.
+{{< /lumen >}}
+{{< /chat-demo >}}
 
-## Also Works For
+## Code sets Lumen can look up
 
-| Code System | Example |
-|-------------|---------|
-| **ICD-10** | Diagnoses, conditions, injuries |
-| **CPT** | Procedures, surgeries, E/M visits |
-| **HCPCS** | DME, supplies, J-codes for drugs |
+| Code set | Used for | Example question |
+|---|---|---|
+| **ICD-10-CM** | Diagnoses and conditions | "Code for community-acquired pneumonia, unspecified organism" |
+| **CPT** | Physician procedures and services | "CPT for ultrasound-guided PICC placement, age 5 or older" |
+| **HCPCS Level II** | Supplies, equipment and drugs | "HCPCS code for a walker" |
 
-{{< tip title="Check Medicare coverage, pricing, and code pairs too" >}}
-After finding a code, keep going: *"Does Medicare cover this?"* checks the CMS coverage database, *"What does Medicare pay for it?"* looks up the Physician Fee Schedule, and *"Can I bill this with 36573?"* runs the NCCI edit check for code-pair conflicts. See all the [coding and billing tools](/tools/coding-labs/).
-{{< /tip >}}
+After you have a code, you can keep going in the same chat:
+
+- **Code pairs:** "Can 36573 be billed with 76937 on the same day?" checks Medicare's NCCI edits, which say which codes can be billed together and which need a modifier.
+- **Coverage:** "Does Medicare cover this?" searches CMS coverage policies.
+- **Payment:** "What does Medicare pay for 47562?" looks up the Physician Fee Schedule.
+
+See [Coding tools](/tools/coding-labs/) for more.
+
+## Tips
+
+- **Give the details coders ask for.** Acute or chronic, type, laterality, initial or later encounter, and any linked condition.
+- **Ask why.** "Why I11.0 first?" gets the guideline reason.
+- **Paste the documentation.** For a complex case, paste the de-identified assessment and ask "What codes does this support?"
+
+## Limits and safety
+
+- ICD-10-CM lookups return **billable codes** from the official code set. Category codes that can't be billed aren't returned.
+- CPT is owned by the AMA and has no free public database, so Lumen's CPT lookup covers **commonly used codes**. If it can't find a code, check your licensed CPT source.
+- Lumen applies published coding guidelines, but it doesn't know your payer's rules or your organization's coding policy.
+- A code must be supported by the provider's documentation. Lumen can suggest a code. It can't make documentation say something it doesn't.
+
+{{< callout type="important" title="You're responsible for the code you submit" >}}
+Confirm every code against the official code set and your organization's coding policy before you submit a claim.
+{{< /callout >}}
+
+## FAQ
+
+{{< faq question="Which version of ICD-10-CM does Lumen use?" >}}
+Lumen searches the current ICD-10-CM code set through the National Library of Medicine's Clinical Tables service, and links to the official code detail.
+{{< /faq >}}
+{{< faq question="Can Lumen code a whole note?" >}}
+Yes. Paste or attach the de-identified note and ask which diagnoses and procedures it supports. Review each suggestion against the documentation.
+{{< /faq >}}
+{{< faq question="Does it check whether two codes can be billed together?" >}}
+Yes. Give Lumen both CPT or HCPCS codes and it checks Medicare's NCCI edits for that pair.
+{{< /faq >}}
+
+## Next steps
+
+{{< related "/tools/coding-labs/" "/getting-started/draft-a-note/" "/chat/sources/" >}}

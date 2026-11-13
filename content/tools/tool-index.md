@@ -1,104 +1,194 @@
 ---
-title: "A–Z Tool Index"
-description: "Every tool in Lumen, A to Z — all 66 in one table, with what each one does, where to read more, and which plan includes it."
-lead: "The complete list. You never call a tool by name — you just ask — but when you want to know exactly what's in the toolbox, this is the inventory."
+title: "Tool index"
+description: "Every built-in tool Lumen can use, grouped by the job it does, with what each does in plain words and whether it needs Pro."
+lead: "You never call a tool by name. Lumen picks them for you. When you want to know exactly what it can reach for, this is the list."
 weight: 10
+icon: list
 keywords: ["Lumen tools list", "clinical AI tools", "medical AI tool index"]
+glance:
+  what: "A plain-language list of the built-in tools Lumen uses during chats and specialist work, grouped by job."
+  who: "Anyone evaluating or using Lumen, including clinicians, hospital IT and compliance, and device makers."
+  why: "To see what Lumen looks up live, and which tools need a paid plan, before you rely on it."
+  needs: "Nothing. Most tools work on every plan; those marked Pro need Pro or above."
+  result: "A clear picture of what Lumen can look up, make and do."
 ---
 
-Lumen carries 66 tools, and it picks among them for you: ask about an interaction and it reaches for the interaction checker, ask for a handout and it reaches for the PDF tool. This page is the full inventory for the curious — every tool, one line each, alphabetically.
+A *tool* is a lookup or action Lumen runs while it answers. Lumen chooses tools on its own and shows each one as a chip in the answer, such as **Searched PubMed**. The names below are the ones you see in **Explore** and in those chips. "Free" means every plan, including Free. "Pro" means Pro or above; on a lower plan Lumen answers without that tool.
 
-Two notes on reading the table:
+## Before you start
 
-- The name in `code font` is the tool's internal name — you'll see it in Lumen's "used a tool" chips during a chat, but you never need to type it.
-- A blank **Plan** column means the tool is included on every plan, Free included. A {{< tier-badge "pro" >}} badge means it's part of the paid plans — see [Plans](/plans/) for the full comparison.
+Nothing to set up for most tools. A few need a connection first (your EHR, or your own Notion, Microsoft Teams, Zoom or Discord account), and these say so below. To browse the clinical tools with examples, open {{< ui-path "Explore" "Built-in tools" >}}.
 
-<div style="overflow-x:auto">
+## How to use a tool
 
-| Tool | What it does | Where to read more | Plan |
-|---|---|---|---|
-| Allergy Cross-Reactivity `allergy_cross_reactivity` | Given a drug allergy, lists cross-reactive agents to avoid and safe alternatives | [Medications](/tools/medications/) | |
-| Antimicrobial Selector `antimicrobial_selector` | Suggests empiric and targeted antibiotic regimens from IDSA guidance | [Medications](/tools/medications/) | |
-| Clinical Checklists `clinical_checklist` | Runs evidence-based checklists and emergency protocols, step by step | [Protocols & decisions](/tools/protocols-decisions/) | |
-| Clinical Guidelines `clinical_guidelines` | Looks up USPSTF, ACC/AHA, IDSA, and PubMed practice guidelines | [Literature & research](/tools/literature-research/) | |
-| Clinical Notes `clinical_notes` | Generates structured documentation — SOAP notes, H&Ps, discharge summaries, and more | [Patient records](/tools/patient-records/) | |
-| Clinical Recommendations `clinical_recommendations` | Produces treatment and follow-up recommendations with evidence grading | [Protocols & decisions](/tools/protocols-decisions/) | |
-| Clinical Trials Search `clinical_trials_search` | Searches ClinicalTrials.gov by condition, intervention, or recruitment status | [Literature & research](/tools/literature-research/) | {{< tier-badge "pro" >}} |
-| CMS Coverage Lookup `cms_coverage_lookup` | Finds Medicare coverage policies (NCDs and LCDs) for services and devices | [Coding & labs](/tools/coding-labs/) | |
-| CPT Lookup `cpt_lookup` | Looks up CPT procedure codes by code, name, or clinical keyword | [Coding & labs](/tools/coding-labs/) | |
-| Create Artifact `create_artifact` | Saves a deliverable — document, table, checklist — to your library for reuse | [Document generation](/tools/document-generation/) | |
-| De-identify PHI `deidentify_text` | Replaces PHI in text with consistent pseudonyms before the AI works on it | [Privacy tools](/tools/privacy/) | {{< tier-badge "pro" >}} |
-| Deep Web Research `web_research` | Searches multiple engines and reads the top pages in a single pass | [Search & sources](/tools/search-sources/) | {{< tier-badge "pro" >}} |
-| Destroy De-ID Session `destroy_session` | Erases a de-identification session and all of its PHI mappings | [Privacy tools](/tools/privacy/) | {{< tier-badge "pro" >}} |
-| Differential Diagnosis `differential_diagnosis` | Builds a ranked differential from a presentation, mapped to ICD-10 and literature | [Protocols & decisions](/tools/protocols-decisions/) | |
-| Document Creator `document_create` | Creates a living, editable document you can refine and export to PDF or DOCX | [Document generation](/tools/document-generation/) | |
-| Document Editor `edit_document` | Makes targeted edits to an existing document without regenerating it | [Document generation](/tools/document-generation/) | |
-| Document Reader `document_read` | Reads one of your uploaded documents in full, start to finish | [Search & sources](/tools/search-sources/) | |
-| Document Search `document_search` | Semantic search across the content of your uploaded documents | [Search & sources](/tools/search-sources/) | |
-| Drug Interactions `drug_interactions` | Checks drug–drug interactions with severity, mechanism, and management | [Medications](/tools/medications/) | |
-| Drug Name Lookup `rxnorm_lookup` | Resolves any drug name via RxNorm — ingredients, class, brands, doses | [Medications](/tools/medications/) | |
-| Excel Spreadsheets `excel_create` | Generates styled Excel workbooks for schedules, trackers, and analyses | [Document generation](/tools/document-generation/) | |
-| FDA Adverse Events `fda_adverse_events` | Searches FAERS adverse-event reports, ranked by frequency and severity | [Medications](/tools/medications/) | |
-| FDA Drug Labels `openfda_drug_search` | Pulls official prescribing information — boxed warnings, indications, dosing | [Medications](/tools/medications/) | |
-| FDA Drug Recalls `fda_drug_recalls` | Checks the FDA enforcement database for recalls and safety alerts | [Medications](/tools/medications/) | |
-| FHIR Patient Data `fhir_r4` | Queries connected EHR data — patients, encounters, observations, and more | [Patient records](/tools/patient-records/) | {{< tier-badge "pro" >}} |
-| HCPCS Lookup `hcpcs_lookup` | Looks up HCPCS Level II codes for DME, supplies, and administered drugs | [Coding & labs](/tools/coding-labs/) | |
-| HTML Editor `edit_html` | Makes targeted edits to an existing HTML page without rebuilding it | [Document generation](/tools/document-generation/) | |
-| ICD-10 Lookup `icd10_lookup` | Finds ICD-10-CM diagnosis codes by description, keyword, or code | [Coding & labs](/tools/coding-labs/) | |
-| Interactive HTML `html_create` | Builds self-contained HTML pages — dashboards, calculators, print documents | [Document generation](/tools/document-generation/) | |
-| Interactive UI Builder `lumen_ui` | Renders rich in-chat components — charts, comparison tables, step-by-step guides | [Artifacts](/chat/artifacts/) | |
-| IV Drip Calculator `iv_drip_calculator` | Calculates infusion rates from weight-based or fixed-rate orders | [Medications](/tools/medications/) | |
-| Lab Reference Ranges `lab_reference_ranges` | Looks up normal ranges, critical values, and interpretation for lab tests | [Coding & labs](/tools/coding-labs/) | |
-| Manim Animations `manim_render_template` | Renders scientific animations for teaching and explainer content | [Document generation](/tools/document-generation/) | {{< tier-badge "pro" >}} |
-| Medical Calculators `medical_calculator` | Runs 28 validated clinical calculators — MELD, CHA₂DS₂-VASc, Wells, and more | [Calculators](/tools/calculators/) | |
-| Medicare Fee Lookup `medicare_fee_lookup` | Looks up Medicare Physician Fee Schedule pricing and RVUs for a code | [Coding & labs](/tools/coding-labs/) | |
-| medRxiv Preprint Search `medrxiv_search_medrxiv_key_words` | Searches medRxiv preprints by keyword | [Literature & research](/tools/literature-research/) | |
-| Memory `memory` | Remembers, updates, or forgets facts about you when you ask it to | [Memory](/chat/memory/) | |
-| NCCI Edit Check `ncci_check` | Checks Medicare NCCI edits — can this code pair be billed together? | [Coding & labs](/tools/coding-labs/) | |
-| NPI Lookup `npi_lookup` | Searches the NPPES registry for providers by name, NPI, or specialty | [Coding & labs](/tools/coding-labs/) | |
-| PDF Creation `pdf_create` | Generates polished, multi-page PDF documents from your content | [Document generation](/tools/document-generation/) | |
-| PowerPoint Presentations `pptx_create` | Generates branded, presentation-ready PPTX slide decks | [Document generation](/tools/document-generation/) | |
-| Presentation Editor `edit_presentation` | Changes, adds, or reorders slides in an existing deck | [Document generation](/tools/document-generation/) | |
-| PubMed Search `pubmed_search` | Searches PubMed for peer-reviewed literature with abstracts and citation links | [Literature & research](/tools/literature-research/) | |
-| Python Sandbox `sandbox_python_exec` | Runs Python code in an isolated sandbox for data work inside workflows | [Workflow building blocks](/workflows/building-blocks/) | |
-| Quiz Builder `quiz` | Builds certification-quality quizzes from any source material | [Document generation](/tools/document-generation/) | |
-| Re-identify PHI `reidentify_text` | Restores the original PHI into pseudonymized text from the session mapping | [Privacy tools](/tools/privacy/) | {{< tier-badge "pro" >}} |
-| Read a Page `http_get` | Fetches a single web page and returns it as clean, readable text | [Search & sources](/tools/search-sources/) | |
-| Renal Dose Adjustment `renal_dose_check` | Calculates creatinine clearance and looks up FDA renal dosing adjustments | [Medications](/tools/medications/) | |
-| Run Workflow `run_workflow` | Runs one of your saved workflows and returns its output, right in chat | [Running workflows](/workflows/running/) | {{< tier-badge "pro" >}} |
-| Scheduling `scheduling` | Checks availability and books appointments against connected EHR schedules | [Patient records](/tools/patient-records/) | {{< tier-badge "pro" >}} |
-| Send Email `send_email` | Sends an email — a report, a summary, a scheduled digest — on your behalf | [Privacy tools](/tools/privacy/) | {{< tier-badge "pro" >}} |
-| Session Mapping `get_session_mapping` | Shows the full de-identification mapping — original, pseudonym, category | [Privacy tools](/tools/privacy/) | {{< tier-badge "pro" >}} |
-| Site Crawling `web_crawl` | Crawls a website and returns readable text for each page | [Search & sources](/tools/search-sources/) | {{< tier-badge "pro" >}} |
-| Site Mapping `web_map` | Enumerates a website's URLs from its sitemap, without scraping | [Search & sources](/tools/search-sources/) | {{< tier-badge "pro" >}} |
-| Spreadsheet Editor `edit_spreadsheet` | Patches cells in an existing spreadsheet without regenerating the workbook | [Document generation](/tools/document-generation/) | |
-| Staff Scheduler `staff_scheduler` | Deterministically solves and verifies staff schedules from a structured spec | [Specialists](/skills-and-specialists/specialists/) | |
-| Structured Web Extraction `web_extract` | Extracts structured data (JSON) from one or more web pages | [Search & sources](/tools/search-sources/) | {{< tier-badge "pro" >}} |
-| Triage Scoring `triage` | Applies 9 triage systems — ESI, MTS, CTAS, START, and more | [Protocols & decisions](/tools/protocols-decisions/) | |
-| Update Artifact `update_artifact` | Revises a saved artifact's content or title, with version history | [Document generation](/tools/document-generation/) | |
-| Vascular Anatomy Graph `anatomy_graph` | Cited vascular anatomy for catheter route and tip-position reasoning | [Protocols & decisions](/tools/protocols-decisions/) | |
-| Video Rendering `remotion_render_composition` | Renders explainer videos from composition templates | [Document generation](/tools/document-generation/) | {{< tier-badge "pro" >}} |
-| Web Search `web_search` | Searches the web and returns titles, links, and snippets with citations | [Search & sources](/tools/search-sources/) | |
-| Word Documents `docx_create` | Generates professionally styled Word (DOCX) documents | [Document generation](/tools/document-generation/) | |
-| YouTube Transcripts `youtube_transcript` | Fetches the spoken transcript of a YouTube video from its captions | [Search & sources](/tools/search-sources/) | |
+{{< steps >}}
+{{< step title="Ask your question" >}}Describe what you need in chat. You don't need to name the tool.{{< /step >}}
+{{< step title="Watch the chips" >}}Each tool Lumen runs appears as a chip in the answer.{{< /step >}}
+{{< step title="Check the sources" >}}Open the cited sources and results before you rely on them.{{< /step >}}
+{{< /steps >}}
 
-</div>
+## Answer a clinical question
 
-## How Lumen manages itself
+| Tool | What it does | Plan |
+|---|---|---|
+| Clinical Checklists | Steps through evidence-based protocols, such as a sepsis bundle. | Free |
+| Triage Assessment | Scores a patient in one of 9 triage systems (ESI, MTS, CTAS and others). | Free |
+| Differential Diagnosis | Builds a ranked differential with literature and a suggested workup. | Free |
+| Antimicrobial Selector | Suggests antibiotics with dosing and allergy-safe alternatives. | Free |
+| Clinical Guidelines | Retrieves USPSTF recommendations and practice guidelines. | Free |
+| Clinical Recommendations | Writes evidence-graded recommendations for treatment or follow-up. | Free |
+| Clinical Calculator | Runs 28 clinical calculators, such as eGFR, CHA₂DS₂-VASc and MELD. | Free |
+| Lab Reference Ranges | Returns reference intervals for common lab tests. | Free |
 
-Two tools in the registry aren't things you'd ever ask for — they're how Lumen runs its own toolbox mid-conversation:
+More: [Protocols and decisions](/tools/protocols-decisions/), [Calculators](/tools/calculators/).
 
-<div style="overflow-x:auto">
+## Check medications
+
+| Tool | What it does | Plan |
+|---|---|---|
+| Check Drug Interactions | Screens drugs against FDA label interaction and warning sections. | Free |
+| Renal Dose Check | Calculates creatinine clearance and quotes the label's renal adjustment. | Free |
+| IV Drip Calculator | Converts an infusion order into mL/hr. | Free |
+| Identify a Drug (RxNorm) | Normalizes a drug name and lists its ingredients. | Free |
+| FDA Drug Label | Reads official FDA prescribing information. | Free |
+| FDA Adverse Events | Searches FAERS reports for a drug. | Free |
+| FDA Drug Recalls | Searches FDA recalls and market withdrawals. | Free |
+| Allergy Cross-Reactivity | Lists drugs to avoid and safe alternatives for an allergy. | Free |
+| FDA device reports | Searches FDA medical device adverse event reports (MAUDE). | Free |
+
+More: [Medications](/tools/medications/).
+
+## Find evidence
+
+| Tool | What it does | Plan |
+|---|---|---|
+| Search PubMed | Finds peer-reviewed articles and reads abstracts. | Free |
+| medRxiv search | Finds preprints (not peer reviewed). | Free |
+| Clinical Trials | Searches ClinicalTrials.gov. | Pro |
+| Web search | Searches the web for titles, links and snippets. | Free |
+| Fetch a page | Reads one web page Lumen or you name. | Free |
+| Deep web research | Reads several pages in depth, maps or crawls a site, or extracts structured data from pages. | Pro |
+| Video and audio transcripts | Gets the spoken words of a video or recording as text. | Free |
+
+More: [Research and evidence](/tools/literature-research/), [Where Lumen looks](/tools/search-sources/).
+
+## Code and bill
+
+| Tool | What it does | Plan |
+|---|---|---|
+| Find Diagnosis Code (ICD-10) | Finds the most specific ICD-10-CM code. | Free |
+| Find Procedure Code (CPT) | Looks up CPT codes. | Free |
+| HCPCS Code Lookup | Finds HCPCS Level II codes. | Free |
+| NCCI edit check | Checks whether two codes can be billed together under Medicare. | Free |
+| Medicare fee lookup | Looks up Medicare Physician Fee Schedule pricing. | Free |
+| CMS Coverage Lookup | Checks Medicare NCDs and LCDs. | Free |
+| Find a Provider (NPI) | Looks up a clinician in the NPI registry. | Free |
+
+More: [Coding and labs](/tools/coding-labs/).
+
+## Write and make files
+
+| Tool | What it does | Plan |
+|---|---|---|
+| Write a Clinical Note | Drafts SOAP notes, H&Ps, discharge summaries and letters. | Free |
+| Generate PDF | Builds a styled PDF. | Free |
+| Word document | Builds a Word (.docx) file. | Free |
+| Create Presentation | Builds a PowerPoint deck. | Free |
+| Create Spreadsheet | Builds an Excel workbook. | Free |
+| Interactive Dashboard | Builds an interactive HTML page with charts or calculators. | Free |
+| Editable document | Creates a living document you and Lumen keep editing. | Free |
+| Edit a file | Changes part of a file Lumen made: a slide, cells or a section. | Free |
+| Interactive answers | Draws checklists, tables, charts and drug cards inside the answer. | Free |
+| Python analysis | Runs Python code in an isolated sandbox for data analysis. | Free |
+| Scientific animation and clinical video | Renders teaching animations and short explainer videos. | Pro |
+
+More: [Documents and files](/tools/document-generation/), [Interactive answers](/chat/interactive-answers/).
+
+## Teach and educate
+
+| Tool | What it does | Plan |
+|---|---|---|
+| Generate a Quiz | Writes multiple-choice questions with explanations. | Free |
+| Anatomy schematic | Draws a vascular anatomy map for catheter placement reasoning (PICC, midline, central lines). | Free |
+| Organ model | Shows a 3D organ to explain anatomy to a patient or learner. Not a clinical reference. | Free |
+| Vascular access simulation | Simulates catheter placement over a standard upper-limb anatomy. | Free |
+| Ultrasound viewer | Opens your own uploaded ultrasound images and clips. | Free |
+
+## Plan, schedule and records
+
+| Tool | What it does | Plan |
+|---|---|---|
+| Patient Record (FHIR) | Reads a patient's EHR record. Needs your organization's EHR connection. | Pro |
+| Check Scheduling | Checks availability over FHIR. Needs an EHR connection. | Pro |
+| Staff schedule | Builds and checks staff schedules from rules you give it. | Free |
+| Roster | Keeps a living staff roster. Offers and decisions that reach staff wait for approval. | Pro |
+| Run a workflow | Runs one of your saved workflows. | Pro |
+| Health data | Reads your own synced health data (for example from Apple Health or Oura) when you've connected it. | Free |
+
+## Protect privacy and send
+
+| Tool | What it does | Plan |
+|---|---|---|
+| De-identify PHI | Replaces identifiers in text with consistent stand-ins. | Pro |
+| Re-identify PHI | Restores the originals from the same session. | Pro |
+| Send email | Sends an email after you approve the exact message. | Pro |
+
+More: [Privacy tools](/tools/privacy/), [Approvals](/skills-and-specialists/approvals/).
+
+## Your own accounts
+
+These work only after you connect your own account. Reading runs without asking. Anything that writes or posts waits for your approval.
+
+| Tool | Reads | Writes (approval first) |
+|---|---|---|
+| Notion | Pages you shared with Lumen. | Create, add to or update a page. |
+| Microsoft Teams | Your calendar and chats. | Schedule, start or cancel a meeting; send a chat or channel message. |
+| Zoom | Your meetings. | Schedule, start, update or cancel a meeting. |
+| Discord | Your servers. | Post a message. |
+
+## Memory and history
+
+| Tool | What it does | Plan |
+|---|---|---|
+| Memory | Recalls and saves what Lumen knows about you and your team. | Free |
+| Chat history | Finds something in your own past chats. | Free |
+
+## Used by specialists
+
+Some tools only appear when a specialist is working. Each keeps a record the server checks, so numbers come from the record rather than the AI's memory.
 
 | Tool | What it does |
 |---|---|
-| Load Skill `load_skill` | Loads the full instructions for a [Skill](/skills-and-specialists/skills/) the moment a conversation needs it |
-| Request Tools `request_tools` | Pulls additional tool domains into a conversation when a needed capability isn't in scope yet — part of how [tool use](/learn/tool-use/) stays fast |
+| Deliverable (**Saved and checked**) | Saves a specialist's finished work as a version and checks each quoted source. See [Verified results](/skills-and-specialists/verified-results/). |
+| Safety record | Keeps a device complaint or adverse event record with its reporting clocks (Safety Intake). |
+| Trial | Keeps a device pilot's setup, coverage and tasks (Clinical Trial Manager). |
+| Product trial record | Keeps a manufacturer's hospital product evaluations (Product Trial Manager). |
+| Specialist dispatch (**Specialists updated**) | Lets one specialist hand parts of a job to others and follow their progress. |
+| Studio | Works on a Lumen Studio video project. Studio is being rolled out and isn't on for everyone. |
 
-</div>
+Lumen also has behind-the-scenes helpers, such as reading the current time, converting time zones, counting business days and loading extra tools or skills when a conversation needs them.
 
-That's the whole inventory — 64 tools you can benefit from directly, plus the 2 Lumen uses to organize itself.
+## Limits and safety
 
-{{< cta heading="You never have to remember any of this" href="/getting-started/" label="Just ask Lumen" variant="subtle" >}}
-Describe what you need in plain English — Lumen picks the right tool from this list every time.
-{{< /cta >}}
+{{< callout type="safety" title="A tool result is a starting point" >}}
+Tools look things up live, but Lumen can still choose the wrong tool, misread a result or miss something. Open the cited sources and use your judgment before acting.
+{{< /callout >}}
+
+- Tool availability depends on your plan and, for some tools, a connection your organization or you set up.
+- Lumen picks the model by plan. The tools are the same on Pro, Plus and Max.
+
+## FAQ
+
+{{< faq question="Do I have to choose which tool to use?" >}}
+No. Ask your question and Lumen picks. You can mention a tool by name if you want a specific one.
+{{< /faq >}}
+{{< faq question="Why does a tool say Pro plan in Explore?" >}}
+That tool needs Pro or above. On your current plan, Lumen answers without it.
+{{< /faq >}}
+{{< faq question="Are Plus and Max tools different from Pro?" >}}
+No. Paid plans have the same tools. Some specialists and team features need Plus or Max. See [Plans](/plans/).
+{{< /faq >}}
+
+## Next steps
+
+{{< related "/skills-and-specialists/explore/" "/tools/medications/" "/tools/literature-research/" "/plans/" >}}

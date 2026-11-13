@@ -1,0 +1,12 @@
+{{- /* {{< artifact type="docx" title="Discharge summary" sub="Word document · 2 pages" >}} */ -}}
+{{- $t := .Get "type" | default "docx" -}}
+{{- $labels := dict "docx" "Document" "pptx" "Presentation" "xlsx" "Spreadsheet" "pdf" "PDF" "html" "Web page" "md" "Note" -}}
+<div class="artifact-ticket at-{{ $t }}">
+<span class="at-icon">{{ upper $t }}</span>
+<span class="at-text">
+<span class="at-eyebrow">{{ index $labels $t | default "File" }}</span>
+<span class="at-title" style="display:block">{{ .Get "title" }}</span>
+{{ with .Get "sub" }}<span class="at-sub">{{ . }}</span>{{ end }}
+</span>
+{{ partial "icon.html" "chevron-right" }}
+</div>

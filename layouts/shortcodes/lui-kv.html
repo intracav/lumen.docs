@@ -1,0 +1,2 @@
+{{- /* KeyValue. {{< lui-kv "Status=Active;Type=Urgent" >}} */ -}}
+<dl class="lui-kv">{{ range split (.Get 0) ";" }}{{ with . }}{{ $p := split . "=" }}<dt>{{ index $p 0 }}</dt><dd>{{ delimit (after 1 $p) "=" | markdownify }}</dd>{{ end }}{{ end }}</dl>

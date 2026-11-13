@@ -1,90 +1,130 @@
 ---
-title: "Lumen FAQ"
-description: "Quick answers to the most common Lumen questions — trust, notes, attachments, Specialists, plans, teams, Knowledge Packs, and PHI."
-lead: "The questions clinicians ask most, answered in plain language."
+title: "Frequently asked questions"
+navTitle: "FAQ"
+description: "Short, complete answers to common questions about Lumen from clinicians, hospitals, device makers and privacy teams, with links to go deeper."
+lead: "Real questions, answered briefly and fully. Each answer links to the page with the details."
 weight: 1
+icon: help
+glance:
+  what: "Answers to the questions people ask most about Lumen, the clinical AI workspace from Intracav."
+  who: "Clinicians and staff, hospital and health-system leaders, medical device makers, and privacy or compliance reviewers."
+  why: "To get a straight answer quickly, and know where to read more."
+  needs: "Nothing. Questions are grouped by audience."
+  result: "An answer, or the right page to open next."
 ---
 
-Every answer here links somewhere deeper — treat this page as triage, not the full workup.
+**Lumen** is a clinical AI workspace made by **Intracav**. You ask questions in plain language and Lumen answers with sources you can open and check. It can also take on multi-step work, use your own documents and policies, and, for device makers, answer questions from instructions for use. The questions below are grouped by who usually asks them.
 
 ## Getting started
 
-{{< faq question="What is Lumen?" >}}
-Lumen is a clinical AI assistant by Intracav: you ask questions in plain language and get cited, evidence-grounded answers, plus tools for coding, drug interactions, literature search, and document drafting. If you can send a text message, you can use it. Start with the [getting started scenarios](/getting-started/).
+{{< faq question="What is Lumen, in one sentence?" >}}
+A workspace where clinicians and organizations get cited answers, hand off multi-step work to AI Specialists, and keep their own knowledge in one place. Read [What is Lumen?](/getting-started/what-is-lumen/).
 {{< /faq >}}
 
-{{< faq question="How do I get started?" >}}
-Sign in and try one of the one-minute scenarios — a first chat, a drug interaction check, or finding a billing code. The Free plan needs no payment details, so there's nothing between you and a first real answer. Pick a scenario in [Getting Started](/getting-started/).
+{{< faq question="Do I need to install anything?" >}}
+No. Lumen runs in your web browser at [lumen.intracav.ai](https://lumen.intracav.ai). Other ways to use it, such as pairing your phone with **Satellite**, are described in [On your devices](/getting-started/on-your-devices/).
 {{< /faq >}}
 
-{{< faq question="Does Lumen work in a web browser?" >}}
-Yes — Lumen runs wherever you have a browser, and Pro and organization plans also include a browser extension {{< status-badge "beta" >}} that brings Lumen alongside the systems you already work in. See [Plans](/plans/) for what's included where.
+{{< faq question="How much does it cost?" >}}
+Lumen has four plans. **Free** and **Pro** are for individuals. **Plus** and **Max** are team plans billed per seat. qPolicy is an add-on to Max. You can start free. The docs don't list prices; see [intracav.ai](https://intracav.ai) for pricing and [Plans](/plans/) for what each includes.
 {{< /faq >}}
 
-## Trust and accuracy
-
-{{< faq question="What makes Lumen's answers trustworthy?" >}}
-Lumen grounds answers in retrievable sources — literature, guidelines, and your own documents — and shows evidence chips so you can read the actual passage behind each claim. You never have to take its word for anything, and you shouldn't. The full reasoning is in [Accuracy, citations & clinical judgment](/trust/responsible-ai/).
+{{< faq question="What happens when I reach my message limit?" >}}
+A **Rate limited** banner shows a countdown. When it reaches zero, press **Retry**. Your message isn't lost. On team plans, members share one allowance. See [Troubleshooting](/help/troubleshooting/).
 {{< /faq >}}
 
-{{< faq question="Can Lumen be wrong?" >}}
-Yes — like every AI system, it can occasionally produce a confident, fluent, incorrect statement (a *hallucination*). Grounding and citations reduce this sharply, but the design assumption is that you verify before you act. If an answer looks off, flag it — see [how Lumen handles being wrong](/trust/responsible-ai/).
+## For clinicians
+
+{{< faq question="Can I trust Lumen's answers?" >}}
+Trust them the way you'd trust a well-referenced colleague: check the sources. Lumen cites the passage behind each claim, removes citations to sources it didn't actually retrieve, and says when it can't find support. It can still be wrong. See [Hallucinations and grounding](/learn/hallucinations-and-grounding/).
 {{< /faq >}}
 
-{{< faq question="Does Lumen replace clinical judgment?" >}}
-No. Lumen is decision support, not a decision maker — it has read the literature, but it has never examined your patient. The clinician owns every decision, the same way you do after reading a review article or calling a consult. See [Accuracy, citations & clinical judgment](/trust/responsible-ai/).
-{{< /faq >}}
-
-## Doing real work
-
-{{< faq question="Can Lumen write clinical notes?" >}}
-Yes — it can draft progress notes, discharge summaries, prior authorization letters, and patient handouts from the details you give it. You review and edit; it does the typing. Try the [draft-a-note scenario](/getting-started/draft-a-note/) to see it end to end.
-{{< /faq >}}
-
-{{< faq question="Can I attach documents to a chat?" >}}
-Yes — upload a PDF, a Word document, or an image and Lumen reads it, answers questions about it, and cites the specific passages it used. Attached documents also join your library so you can come back to them. Details in [Attachments](/chat/attachments/).
+{{< faq question="Does Lumen replace my clinical judgment or my references?" >}}
+No. Lumen supports clinical judgment and works alongside the references you already use. It isn't an electronic health record and it doesn't make decisions. You own every decision.
 {{< /faq >}}
 
 {{< faq question="What are Specialists and Skills?" >}}
-Specialists (typed with `@`) focus Lumen on a clinical domain — a scribe, a research advisor, an insurance expert. Skills (typed with `/`) shape the output into a specific document or workflow. Together they turn a quick chat into a finished piece of work; see [Specialists & Skills](/skills-and-specialists/).
+A **Specialist** is an AI agent built for one kind of job, such as **Medication Review** or **Prior Authorization**. Type `@` to call one. A **Skill** is a ready-made procedure for one kind of output, such as `/soap-note`. Type `/` to use one. Browse both in **Explore**. See [Specialists and Skills](/skills-and-specialists/).
 {{< /faq >}}
 
-{{< faq question="Does Lumen remember things between chats?" >}}
-Yes — Lumen keeps short, useful facts about how you work (your specialty, your preferred formats) so you don't repeat yourself. Memory is per-workspace and fully yours to control: ask it to remember, forget, or list what it knows. See [how memory works](/chat/memory/).
+{{< faq question="Can Lumen draft notes, letters and handouts?" >}}
+Yes. It can draft notes, discharge summaries, prior authorization letters and patient handouts from the details you give it, and save them as Word, PDF and other files. You review and edit before anything is used. Try [Draft a note](/getting-started/draft-a-note/).
 {{< /faq >}}
 
-## Plans and limits
-
-{{< faq question="How much does Lumen cost?" >}}
-There are four plans — Free and Pro for individuals, Plus and Max for organizations — and the Free plan requires no payment details. Docs never list prices; current pricing lives at [intracav.ai](https://intracav.ai/). Compare what each plan includes in [Plans](/plans/).
+{{< faq question="What files can I attach?" >}}
+PDF, Word, PowerPoint, Excel, CSV, text, Markdown, HTML, email and images. Lumen reads them, answers questions about them and cites the passages it used. Scans and pictures are read by text recognition on Lumen's servers. See [Attachments](/chat/attachments/).
 {{< /faq >}}
 
-{{< faq question="What happens if I hit my message limit?" >}}
-Nothing is lost — limits use a rolling window, so capacity returns on its own as older messages age out, rather than resetting at midnight. If you hit the ceiling often, that's the usual sign to move up a plan. Details in [Plans](/plans/).
+{{< faq question="If I close the tab, do I lose the answer?" >}}
+No. Chats and Specialist work run on Lumen's servers and keep going, up to about an hour per task. Reopen the chat on any device to see the result. If Lumen's servers fail mid-answer, the reply is marked interrupted and the partial text is kept; ask again to finish it.
 {{< /faq >}}
 
-## Organizations
-
-{{< faq question="How do I add my team?" >}}
-Organization plans (Plus and Max) come with seats — 5 included, growing automatically as you admit members. Your team then shares Folders, Departments, and the organization's knowledge, with admin controls over who sees what. Start with [For Organizations](/organizations/).
+{{< faq question="Does Lumen remember me between chats?" >}}
+Yes, if memory is on. It keeps a short list of facts about you and how you work, which you can review, edit, clear or turn off in {{< ui-path "Settings" "Memory" >}}. It's built not to save patient details. See [How AI memory works](/learn/ai-memory/).
 {{< /faq >}}
 
-{{< faq question="What are Knowledge Packs?" >}}
-Knowledge Packs are curated, version-pinned collections of clinical content — your protocols, a partner's product documentation, a guideline library — that Lumen treats as first-class citable sources. Max organizations can administer their own. See [Knowledge Packs](/knowledge/knowledge-packs/).
+## For hospitals and health systems
+
+{{< faq question="How do we set up Lumen for our organization?" >}}
+Choose a team plan (Plus or Max). In Lumen an organization is called a **team**. Admins add members, organize them into **Departments**, share **Folders** and turn on **Knowledge Packs** from the **Admin console**. See [Lumen for organizations](/organizations/).
 {{< /faq >}}
 
-## Privacy and PHI
+{{< faq question="Can staff get answers from our own policy manual?" >}}
+Yes, with **qPolicy**, an add-on to Lumen Max. It answers from your own policy manual and cites the specific policy version. It also manages review, approval and staff attestation. Nothing publishes automatically. See [qPolicy](/qpolicy/).
+{{< /faq >}}
 
-{{< faq question="How does Lumen handle PHI?" >}}
-Lumen is built with HIPAA safeguards: sensitive fields are encrypted at rest with AES-256-GCM, every AI interaction is audit-logged in a tamper-evident chain, and workspaces never share data with each other. Before pasting patient text, use the [de-identification tools](/tools/privacy/); the full picture is in [Trust & Security](/trust/).
+{{< faq question="Is there an audit trail?" >}}
+Yes. Team activity is written to a tamper-evident (hash-chained) audit log, which means any later change to a record can be detected. See [Audit and access](/organizations/audit-and-access/).
+{{< /faq >}}
+
+{{< faq question="Does Lumen connect to our EHR?" >}}
+Lumen supports SMART on FHIR, the standard for giving apps scoped, logged access to EHR data, and CDS Hooks for advisory cards. Connections are read-only by default and are set up by your admins and IT team with Intracav. See [SMART on FHIR](/learn/smart-on-fhir/) and [EHR integration](/organizations/ehr/).
+{{< /faq >}}
+
+{{< faq question="Can a Specialist send emails or change records without us knowing?" >}}
+No. Any action that leaves Lumen, such as sending an email, waits on an approval card. It runs only after someone presses **Approve**, and exactly as shown. Typing "I approve" in the chat does nothing. See [Approvals](/skills-and-specialists/approvals/).
+{{< /faq >}}
+
+## For medical device makers
+
+{{< faq question="What is a Smart IFU page?" >}}
+A public web page built from your instructions for use (IFU). Visitors ask questions and get answers that cite the document and page number. Visitors don't need to sign in, and you can print QR sticker sheets that link to it. Self-serve setup needs Lumen Max. See [Smart IFU](/connect/smart-ifu/).
+{{< /faq >}}
+
+{{< faq question="What does the website assistant say when our documents don't cover a question?" >}}
+It says the documentation doesn't cover it instead of guessing. It answers only when a passage in your documents is a close enough match, and its citations show the document and page. See [Website assistant](/connect/website-assistant/).
+{{< /faq >}}
+
+{{< faq question="Which CRMs can receive leads?" >}}
+**Zoho CRM** and **HubSpot**, with field mapping, plus signed webhooks for other systems. See [CRM and webhooks](/connect/crm-and-webhooks/).
+{{< /faq >}}
+
+{{< faq question="What happens when we publish a new IFU revision?" >}}
+Lumen watches your sources and, when a document changes, creates a pending revision with a summary of the differences. It's never applied until an admin approves it. See [IFU revisions](/connect/ifu-revisions/).
+{{< /faq >}}
+
+## Privacy and security
+
+{{< faq question="How does Lumen protect patient information?" >}}
+Lumen is built with security safeguards: encryption, access controls and a tamper-evident audit log. Don't enter protected health information (PHI) unless your organization has a written agreement with Intracav that covers it. Contact Intracav to discuss your organization's requirements. See [Privacy and data](/trust/privacy/).
+{{< /faq >}}
+
+{{< faq question="Does Lumen de-identify what I type?" >}}
+Lumen de-identifies text automatically before model calls in **Lumen Research** and the **website assistant**. Elsewhere, don't rely on automatic de-identification: remove identifiers yourself, or ask Lumen's de-identify tool to do it (paid plans). See [De-identification](/learn/deidentification/).
 {{< /faq >}}
 
 {{< faq question="Who can see my chats?" >}}
-Your chats live in your workspace, and nothing is shared unless you deliberately share it — a share link carries the conversation's content, so read before you send. In organization workspaces, admins have audit-log visibility of AI interactions. See [Your data & PHI](/trust/privacy/).
+Your chats are yours unless you share them. A share link carries the conversation's content, so read it before you send it. In a team, admins manage members and can review the audit log. See [Privacy and data](/trust/privacy/).
 {{< /faq >}}
+
+{{< faq question="Which AI model does Lumen use?" >}}
+Lumen selects the model by plan. There's no model picker, and Lumen doesn't switch between AI vendors per question. Facts in answers come from tools and cited sources, not the model's memory. See [AI models](/learn/choosing-models/).
+{{< /faq >}}
+
+## Still have a question?
+
+Search the [help center](/help/), look up a word in the [glossary](/help/glossary/), or email [support@intracav.ai](mailto:support@intracav.ai).
 
 ## Next steps
 
-- [Getting started scenarios](/getting-started/)
-- [Clinical AI glossary](/help/glossary/)
-- [Compare plans](/plans/)
+{{< related "/getting-started/what-is-lumen/" "/help/troubleshooting/" "/help/glossary/" "/plans/" >}}

@@ -1,9 +1,14 @@
-<div class="chat-mockup chat-demo-animated">
-  <div class="chat-mockup-header">
-    <div class="chat-mockup-avatar">&#10022;</div>
-    <div class="chat-mockup-title">{{ .Get "title" | default "New Chat" }}</div>
-  </div>
-  <div class="chat-mockup-body">
-    {{ .Inner | safeHTML }}
-  </div>
+{{- /*
+A faithful Lumen chat surface. Children: user, lumen (and any Lumen UI shortcodes inside lumen).
+{{< chat-demo title="Warfarin + amiodarone" specialist="Medication Review" caption="…" >}}
+*/ -}}
+<figure class="app-frame" aria-label="Example Lumen conversation">
+<div class="af-bar">
+<span class="af-mark">{{ partial "icon.html" "lumen" }}</span>
+<span class="af-title">{{ .Get "title" | default "New chat" }}</span>
+{{ with .Get "specialist" }}<span class="af-spec">{{ partial "icon.html" "user-round-check" }}Working with {{ . }}</span>{{ end }}
 </div>
+<div class="af-body">{{ .Inner }}</div>
+{{ with .Get "composer" }}<div style="padding:0 22px">{{ partial "composer.html" (dict "text" . ) }}</div>{{ end }}
+<figcaption class="af-caption">{{ partial "icon.html" "info" }}<span>{{ .Get "caption" | default "Illustration of the Lumen chat with a fictional example. Always check the cited sources." }}</span></figcaption>
+</figure>

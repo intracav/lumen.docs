@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {{- $desc := "" -}}
 {{- with .Description }}{{ $desc = . }}{{ else }}{{ with .Params.lead }}{{ $desc = . }}{{ else }}{{ with .Summary }}{{ $desc = . | plainify | truncate 155 }}{{ else }}{{ $desc = site.Params.description }}{{ end }}{{ end }}{{ end -}}
-<title>{{ if .IsHome }}{{ site.Title }} — Clinical AI Assistant by Intracav{{ else }}{{ .Title }} — {{ site.Title }}{{ end }}</title>
+<title>{{ if .IsHome }}{{ site.Title }} — Guides for the Lumen clinical AI workspace{{ else }}{{ .Title }} — {{ site.Title }}{{ end }}</title>
 <meta name="description" content="{{ $desc }}">
 {{- with .Params.keywords }}
 <meta name="keywords" content="{{ delimit . ", " }}">
@@ -11,8 +11,7 @@
 <link rel="alternate" type="text/plain" href="/llms.txt">
 
 <!-- Fonts (self-hosted, declared in main.css) -->
-<link rel="preload" href="/fonts/Nunito-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/CormorantGaramond-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/Inter-var.woff2" as="font" type="font/woff2" crossorigin>
 
 <!-- Favicon -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -25,24 +24,25 @@
 
 <!-- Theme: respect saved preference, fallback to system -->
 <script>
-  (function() {
-    var t = localStorage.getItem('theme');
-    if (t) document.documentElement.setAttribute('data-theme', t);
+  (function () {
+    var d = document.documentElement;
+    d.classList.remove('no-js');
+    try { var t = localStorage.getItem('theme'); if (t) d.setAttribute('data-theme', t); } catch (e) {}
   })();
 </script>
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#EDE4D5">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0D0C0C">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F5F2EC">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1B1A19">
 
 <!-- Open Graph -->
-{{- $ogImage := site.Params.ogImage | default "/img/lumen-logo.png" -}}
-{{- with .Params.image }}{{ $ogImage = . }}{{ end }}
+{{- $ogImage := partial "og-image.html" . | default (site.Params.ogImage | absURL) -}}
+{{- with .Params.image }}{{ $ogImage = . | absURL }}{{ end }}
 <meta property="og:title" content="{{ if .IsHome }}{{ site.Title }} — Clinical AI Assistant by Intracav{{ else }}{{ .Title }}{{ end }}">
 <meta property="og:description" content="{{ $desc }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:site_name" content="{{ site.Title }}">
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
-<meta property="og:image" content="{{ $ogImage | absURL }}">
+<meta property="og:image" content="{{ $ogImage }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 {{- if not .IsHome }}
@@ -55,7 +55,7 @@
 <meta name="twitter:creator" content="@intracav">
 <meta name="twitter:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
 <meta name="twitter:description" content="{{ $desc }}">
-<meta name="twitter:image" content="{{ $ogImage | absURL }}">
+<meta name="twitter:image" content="{{ $ogImage }}">
 
 <!-- RSS -->
 {{- with .OutputFormats.Get "rss" }}

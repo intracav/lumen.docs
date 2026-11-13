@@ -1,249 +1,175 @@
 ---
-title: "Partner Knowledge Packs: Content Integration Guide"
-description: "The integration contract for medical-device and pharma partners publishing IFUs, manuals, and clinical evidence into Lumen as a cited, version-pinned Knowledge Pack."
-weight: 7
-aliases:
-  - /extensions/partner-integration-guide/
+title: "Publish a partner Knowledge Pack"
+navTitle: "Partner Knowledge Packs"
+description: "The contract for device and pharma partners publishing IFUs, manuals and evidence as a Lumen Knowledge Pack: signed catalog, diffs and retractions."
+lead: "Serve a signed catalog of your documents, and Lumen keeps a Knowledge Pack in step with it: new documents are added, changed ones replaced, and withdrawn ones retracted."
+weight: 6
+icon: package
+who: "partner engineering teams"
+aliases: ["/extensions/partner-integration-guide/"]
+glance:
+  what: "The technical contract for delivering a partner's documents into Lumen as a Knowledge Pack, a curated collection of documents Lumen can search and cite, kept current from a signed catalog you host."
+  who: "Engineering teams at device and pharma partners who have agreed with Intracav to publish their documentation in Lumen."
+  why: "So clinicians whose organizations use your pack get answers cited to your current documents, and a recall or withdrawal takes effect quickly."
+  needs: "A partner agreement with Intracav, an HTTPS endpoint you control, and an ed25519 key pair. A few days of engineering, including a staging test with Intracav."
+  result: "Your catalog polled hourly, verified, and kept in sync as a cited Knowledge Pack, with an urgent retraction path."
 ---
 
-> **Audience:** partner engineering teams. This is the contract for delivering content to Lumen and receiving usage analytics in return.
+A **partner Knowledge Pack** puts your instructions for use (IFUs), service manuals, quick references and other approved documents into Lumen, where clinicians in organizations that have your pack can get answers cited to them. You host a signed catalog. Lumen polls it, verifies it, and keeps the pack in step: it adds new documents, replaces changed ones, and retracts ones you remove.
 
-## Overview
+## Before you start
 
-Lumen is a clinical AI assistant used by clinicians at the point of care. A **partner Knowledge Pack** turns your IFUs, service manuals, prescribing information, or clinical evidence into a cited, version-pinned source clinicians can ground their answers in.
+- **A partner agreement with Intracav.** Intracav sets up your pack, its display name and the license terms that organization admins accept.
+- **An ed25519 key pair.** You keep the private key and send Intracav the 32-byte public key, hex or base64 encoded.
+- **A catalog endpoint** over HTTPS, protected by a token you give Intracav.
+- **A staging endpoint** for the end-to-end test before production.
 
-You integrate once. Lumen handles:
+## How to integrate
 
-- Hourly catalog polling with signature verification
-- SHA-256 content-hash diffing (unchanged docs are skipped)
-- Chunking, embedding, and indexing with full provenance metadata
-- Retraction propagation to in-session users
-- Monthly aggregate usage analytics (hashed user IDs, no PHI)
+{{< steps >}}
+{{< step title="Exchange keys" >}}Send Intracav your ed25519 public key and the token for your catalog endpoint. Agree the secret for signing retraction requests.{{< /step >}}
+{{< step title="Build the catalog endpoint" >}}Serve a signed envelope listing your documents, as described below.{{< /step >}}
+{{< step title="Test in staging" >}}Intracav points Lumen at your staging catalog and runs the full round trip: fetch, verify, compare, ingest, a citation in a test chat, and a retraction.{{< /step >}}
+{{< step title="Go live" >}}Intracav switches to your production catalog and activates the pack. Organizations can then be granted access.{{< /step >}}
+{{< /steps >}}
 
-You are responsible for:
+## The catalog
 
-- Serving a signed JSON catalog at an authenticated HTTPS URL
-- Signing urgent retraction webhooks with an HMAC secret
-- Keeping your catalog accurate (content, versioning, effective dates)
+Lumen polls your catalog **hourly**:
 
-## Onboarding flow
-
-1. **Key exchange (30-minute call):**
-   - We generate an HMAC-SHA256 shared secret → you use it to sign urgent retraction webhooks.
-   - You generate an ed25519 keypair → send us the **public** key (hex or base64 encoded, 32 bytes).
-
-2. **You implement the catalog endpoint** (contract below).
-
-3. **Lumen provisions your pack** — publisher name, display name, and the license terms (EULA) hospital admins accept — and points our puller at your catalog URL with the auth token you provide.
-
-4. **Staging test:** we run the full round trip against your staging URL — catalog fetch → signature verify → diff → ingest → citation renders in a test chat → retraction webhook → banner. We provide a reference mock partner API during onboarding so you can see a working example of both the signed catalog and the webhook signing.
-
-5. **Production flip:** we switch to your production catalog and activate the pack. Grants to hospital organizations begin.
-
-## Catalog endpoint contract
-
-Lumen polls your URL **hourly** with:
-
-```
-GET https://api.<you>.com/lumen/catalog
-Authorization: Bearer <token you gave us>
-Accept: application/json
+```text
+GET https://api.partner.example/lumen/catalog
+Authorization: <the header value you gave Intracav>
 User-Agent: lumen-server/1.0 (extension-pull)
 ```
 
-You return a **signed envelope**:
+You return a signed envelope:
 
 ```json
 {
-  "version": "2026.04.15-r1",
-  "issued_at": "2026-04-15T12:00:00Z",
-  "signature": "<hex or base64 ed25519 sig over canonical JSON of `body`>",
+  "version": "2026.11.01-r1",
+  "issued_at": "2026-11-01T12:00:00Z",
+  "signature": "<ed25519 signature over the canonical body, hex or base64>",
   "body": {
     "documents": [
       {
-        "external_id": "ACME-IFU-001",
-        "title": "ACME Film Dressing AC-100 — Instructions for Use",
+        "external_id": "NWV-SL4-IFU",
+        "title": "SL-4 Securement Device, Instructions for Use",
         "document_type": "ifu",
-        "product_code": "AC-100",
+        "product_code": "SL-4",
         "region": "US",
         "language": "en",
-        "effective_date": "2026-02-01",
-        "source_url": "https://partner.example/docs/AC-100.pdf",
-        "content": "<full extracted text of the document>",
-        "content_hash": "9e1a4b6c...sha256 of content..."
+        "effective_date": "2026-10-01",
+        "source_url": "https://partner.example/docs/SL-4-IFU.pdf",
+        "content": "<full extracted text>",
+        "content_hash": "<sha256 hex of content>"
       }
     ]
   }
 }
 ```
 
-### Field reference
+| Field | Required | Notes |
+|---|---|---|
+| `version` | Yes | Your catalog version. Stored with every ingested passage. |
+| `issued_at` | Yes | ISO 8601. Must be within 60 minutes of Lumen's clock. |
+| `signature` | When a key is configured | ed25519 over the canonical body (below). |
+| `external_id` | Yes | Your stable ID for the document. Used for comparison and retraction. |
+| `title` | Yes | Shown in citations. |
+| `document_type` | No | `ifu` (default), `service_manual`, `quick_ref`, `training`, `recall_notice` or `other`. |
+| `product_code` | No | SKU or REF. Lets tools filter by product. |
+| `region` | No | Such as `US` or `EU`. |
+| `language` | No | BCP 47 tag. Default `en`. |
+| `effective_date` | No | `YYYY-MM-DD`. Shown in citations. |
+| `source_url` | No | The canonical file, so readers can open the original. |
+| `content` | Yes | The full extracted text. |
+| `content_hash` | No | SHA-256 of `content`. Lumen computes it if missing. |
 
-| Field | Type | Required | Notes |
-|---|---|---|---|
-| `version` | string | ✓ | Your internal catalog version (semver or date-based). Becomes the `version_tag` on every ingested chunk. |
-| `issued_at` | ISO 8601 | ✓ | Must be within ±60 min of server time (anti-replay). |
-| `signature` | string | ✓ if signing key configured | ed25519 signature over the canonical JSON of `body`, hex or base64. |
-| `body.documents[].external_id` | string | ✓ | Your stable ID for this doc. Natural key for diff + retraction. |
-| `body.documents[].title` | string | ✓ | Human-readable title (shown in citations). |
-| `body.documents[].document_type` | enum | ✓ | `"ifu"`, `"service_manual"`, `"quick_ref"`, `"training"`, `"recall_notice"`, or `"other"`. |
-| `body.documents[].product_code` | string | optional | Stable SKU/reference. Enables product-code-scoped search via tools. |
-| `body.documents[].region` | string | optional | `"US"`, `"EU"`, null for global. |
-| `body.documents[].language` | string | optional | BCP 47 tag, default `"en"`. |
-| `body.documents[].effective_date` | `YYYY-MM-DD` | optional | Regulatory effective date. Shown in every citation. |
-| `body.documents[].source_url` | URL | optional | Canonical PDF URL; clinicians can click through. |
-| `body.documents[].content` | string | ✓ | Full extracted plain text. Lumen chunks at 512 chars with 64-char overlap. |
-| `body.documents[].content_hash` | sha256 hex | optional | If provided, Lumen skips re-ingesting unchanged docs. If omitted we compute it. |
+### How Lumen compares versions
 
-### Diff semantics
+On each poll, Lumen compares each document's content hash with what it holds:
 
-On each poll Lumen compares every doc's `content_hash` against its stored value:
+- A new `external_id` is ingested.
+- A changed hash replaces the old version.
+- An unchanged hash is skipped.
+- A document missing from the catalog is retracted, with the reason `removed_by_publisher`.
 
-- **New `external_id`** → ingest fresh.
-- **Changed `content_hash`** → supersede old version, ingest new.
-- **Unchanged** → skip entirely (no cost).
-- **Disappeared from catalog** → auto-retracted with reason `removed_by_publisher`.
+### Signing the body
 
-### Signing (ed25519)
+Lumen verifies the signature over a canonical form of `body`: compact JSON (no spaces), raw UTF-8 (non-ASCII characters not escaped), and each document's fields **in this order, all present**, with `null` for anything you leave out and the defaults filled in:
 
-The signature covers the **canonical JSON serialization of `body`**: compact (no whitespace), UTF-8. Use the reference implementations below; a formal JCS (RFC 8785) canonicalizer is planned for a future contract revision.
+`external_id`, `title`, `document_type`, `product_code`, `region`, `language`, `effective_date`, `source_url`, `content`, `content_hash`
+
+Fields not in that list are dropped before verification. Don't sort keys.
 
 ```python
-# Reference Python (PyNaCl)
 import json, nacl.signing
-from datetime import datetime, timezone
+
+ORDER = ["external_id", "title", "document_type", "product_code", "region",
+         "language", "effective_date", "source_url", "content", "content_hash"]
+DEFAULTS = {"document_type": "ifu", "language": "en"}
+
+def canonical_body(docs):
+    ordered = [{k: d.get(k, DEFAULTS.get(k)) for k in ORDER} for d in docs]
+    return json.dumps({"documents": ordered}, separators=(",", ":"),
+                      ensure_ascii=False).encode("utf-8")
 
 signing_key = nacl.signing.SigningKey(bytes.fromhex(PRIVATE_KEY_HEX))
-body = {"documents": [...]}
-# Canonical JSON: compact, UTF-8, sorted keys
-canonical = json.dumps(body, separators=(",", ":"), sort_keys=True).encode("utf-8")
-sig = signing_key.sign(canonical).signature.hex()
-
-envelope = {
-    "version": "2026.04.15-r1",
-    "issued_at": datetime.now(timezone.utc).isoformat(),
-    "signature": sig,
-    "body": body,
-}
+signature = signing_key.sign(canonical_body(documents)).signature.hex()
 ```
 
-```javascript
-// Reference Node.js (@noble/ed25519)
-import * as ed from '@noble/ed25519';
+Test your signature against Intracav's staging environment before production. A mismatch rejects the whole catalog.
 
-const body = { documents: [...] };
-const canonical = Buffer.from(JSON.stringify(body));
-const sig = Buffer.from(await ed.sign(canonical, PRIVATE_KEY_BYTES)).toString('hex');
+## Urgent retractions
 
-const envelope = {
-  version: '2026.04.15-r1',
-  issued_at: new Date().toISOString(),
-  signature: sig,
-  body,
-};
-```
+For recalls, regulatory actions and urgent label changes, don't wait for the next poll. Send a signed retraction:
 
-## Retraction webhook (urgent pulls)
-
-Use this for **safety-critical retractions** — recalls, FDA actions, urgent label updates. Fires in under 5 minutes end-to-end.
-
-```
-POST https://api.intracav.ai/api/ext/webhook/<your_slug>/retract
-X-Ext-Signature: sha256=<hex hmac of body>
+```text
+POST https://api.intracav.ai/api/ext/webhook/<your-pack-slug>/retract
+X-Ext-Signature: sha256=<hex HMAC-SHA256 of the raw body>
 Content-Type: application/json
 
 {
-  "external_ids": ["ACME-IFU-001", "ACME-IFU-002"],
-  "reason": "Recalled by FDA 2026-04-10 — sterile barrier defect",
-  "issued_at": "2026-04-10T14:00:00Z"
+  "external_ids": ["NWV-SL4-IFU"],
+  "reason": "Field safety notice 2026-11-10",
+  "issued_at": "2026-11-10T14:00:00Z"
 }
 ```
 
-### HMAC signing
+Lumen checks the HMAC, then rejects requests whose `issued_at` is more than 5 minutes off. It then removes the documents from search, records the full request in the audit log, and notifies signed-in users in organizations that have your pack. Retractions are idempotent, so sending the same ID twice is safe.
 
-```python
-import hmac, hashlib, json, requests
-body = json.dumps({...}).encode("utf-8")
-sig = hmac.new(SHARED_SECRET.encode(), body, hashlib.sha256).hexdigest()
-requests.post(url, data=body, headers={
-    "X-Ext-Signature": f"sha256={sig}",
-    "Content-Type": "application/json",
-})
-```
+## Tools and skills (optional)
 
-What happens when we receive it:
+Your pack's manifest can declare extra tools and skills:
 
-1. HMAC verified (reject on mismatch).
-2. `issued_at` skew checked (reject if more than 5 minutes).
-3. The documents are marked retracted and removed from search.
-4. Every clinician whose organization has your pack sees a banner within minutes on any message that cited the affected documents.
-5. An audit log entry is created with the full payload.
+- **Tools** appear to Lumen as `<pack-slug>.<tool-name>`. Each one searches your pack, optionally filtered by `product_code`, with a `query_field` and `limit` you set.
+- **Skills** are instructions Lumen applies when a question matches their `trigger_patterns`, limited to your pack's content.
 
-Retractions are **idempotent** — posting the same `external_id` twice is safe.
+A pack with neither, only cited documents, is a complete integration.
 
-## Manifest: tools and skills
+## What you'll see
 
-Your pack's `manifest` JSON declares optional AI-facing affordances beyond cited retrieval:
+In a Lumen chat, a clinician in an organization that has your pack sees answers that cite your document by title, with its effective date and a link to the source.
 
-```json
-{
-  "tools": [
-    {
-      "name": "lookup_ifu",
-      "description": "Look up an ACME IFU by device code.",
-      "input_schema": {
-        "type": "object",
-        "properties": {
-          "query":        { "type": "string" },
-          "product_code": { "type": "string" }
-        },
-        "required": ["query"]
-      },
-      "query_field": "query",
-      "limit": 6
-    }
-  ],
-  "skills": [
-    {
-      "slug": "acme-dressing-setup",
-      "name": "Dressing setup",
-      "description": "Step-by-step for applying an ACME film dressing.",
-      "instructions": "<markdown instructions injected into system prompt>",
-      "trigger_patterns": ["how do I apply", "dressing setup", "wound coverage"],
-      "category": "clinical_documentation",
-      "preferred_tools": ["acme.lookup_ifu"]
-    }
-  ]
-}
-```
+## Limits
 
-- **Tools** are exposed to the AI as `{slug}.{tool_name}` (e.g. `acme.lookup_ifu`). They only appear when your pack is active for that user, and each tool performs pack-scoped retrieval (with optional `product_code` filter) over your catalog.
-- **Skills** register as auto-triggering procedures. When a clinician's question matches your `trigger_patterns`, Lumen applies the skill's instructions, scoped to your pack's content.
+- **Polling is hourly.** Use the retraction request for anything urgent.
+- **Text only.** The catalog carries extracted text. Send the full text of each document in `content`.
+- **Usage data is aggregate.** Intracav can share retrieval counts for your pack, such as top documents, top product codes and daily totals. Query text isn't stored, only a hash of it.
+- **Access is granted per organization.** Your pack reaches clinicians only in organizations that have been granted it.
 
-Both are optional — a content-only pack (cited retrieval alone) is a perfectly valid integration.
+## FAQ
 
-## Analytics
+{{< faq question="What happens if our catalog is down?" >}}
+Lumen keeps the pack as it was and tries again on the next hourly poll.
+{{< /faq >}}
+{{< faq question="How fast does a retraction take effect?" >}}
+As soon as Lumen accepts the request, the documents leave search and users in organizations with your pack are notified.
+{{< /faq >}}
+{{< faq question="Can we see what clinicians ask about our products?" >}}
+Intracav can share aggregate retrieval data for your pack. Raw query text isn't stored.
+{{< /faq >}}
 
-Every query that retrieves one of your documents logs an aggregate access record. We never store raw query text — only a SHA-256 hash for deduplication.
+## Next steps
 
-At the end of each month you receive a report covering:
-
-- Total retrievals, unique users, unique organizations
-- Top 25 documents by retrieval count
-- Top 25 product codes by retrieval count
-- Top 25 query patterns (signals of your clinicians' information-seeking behavior)
-- Daily time series
-- Unanswered query patterns — queries that reached your content but found no good match, a direct signal of documentation gaps
-
-Live analytics access is available on request through your partner contact.
-
-## SLAs + contact
-
-| Event | Target |
-|---|---|
-| Catalog poll frequency | hourly |
-| Retraction webhook → banner on clinician screen | <5 min |
-| Mean document ingest latency (new doc) | <60 s |
-| Partner analytics monthly delivery | 5th of each month |
-
-For integration questions email `partners@intracav.ai`.
+{{< related "/knowledge/knowledge-packs/" "/developers/mcp/" "/developers/api/" "/developers/" >}}

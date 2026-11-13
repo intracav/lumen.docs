@@ -1,3 +1,4 @@
-<div class="chat-msg user">
-  <div class="msg-content">{{ .Inner | markdownify }}</div>
-</div>
+<div class="turn-user"><div class="bubble">
+{{- with .Get "attach" }}<div class="attach">{{ partial "icon.html" "paperclip" }}{{ . }}</div>{{ end -}}
+{{ .Inner | .Page.RenderString (dict "display" "block") }}
+</div></div>

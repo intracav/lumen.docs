@@ -1,0 +1,2 @@
+{{- $m := dict "beta" "Beta" "preview" "Preview" "new" "New" "coming-soon" "Coming soon" "gated" "Limited access" "experimental" "Experimental" "admin" "Admins" "add-on" "Add-on" -}}
+{{- index $m (lower .) | default (humanize .) -}}

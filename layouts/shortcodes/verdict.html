@@ -1,0 +1,1 @@
+<div class="verdict{{ if eq (.Get "state") "warn" }} warn{{ end }}">{{ partial "icon.html" (cond (eq (.Get "state") "warn") "alert" "badge-check") }}<span>{{ .Inner | markdownify }}</span></div>

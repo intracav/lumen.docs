@@ -1,2 +1,2 @@
-{{- $status := .Get 0 | lower -}}
-<span class="status-badge status-{{ $status }}">{{ replace $status "-" " " | title }}</span>
+{{- $s := .Get 0 | lower -}}
+<span class="badge status-badge status-{{ $s }}">{{ partial "status-label.html" $s }}</span>

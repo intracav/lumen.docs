@@ -1,106 +1,111 @@
 ---
-title: "What Is an AI Agent? A Clinician's Guide"
-description: "What is an AI agent in healthcare? A plain-language guide to how agents differ from chatbots, what delegating a task looks like, and where the limits are."
+title: "What is a clinical AI agent?"
+navTitle: "What is an AI agent?"
+description: "A plain-language guide to AI agents for clinicians: how they differ from a chatbot, how Lumen's Specialists work, and where the limits are."
+lead: "An AI agent takes a task, not only a question. This page explains what that means, and how Lumen's version, called a Specialist, keeps you in charge."
 weight: 1
+icon: user-round-check
 keywords: ["what is an AI agent in healthcare", "AI agent for clinicians", "clinical AI agent explained"]
+glance:
+  what: "An AI agent is an AI system that works toward a goal in several steps, looking things up with real tools along the way. In Lumen, agents are called Specialists."
+  who: "Clinicians, educators, managers and anyone deciding whether to hand multi-step work to AI."
+  why: "To know what you can safely delegate, what you'll see while the work runs, and what you still have to check."
+  needs: "Nothing to read this page. To use a Specialist you need a Lumen account; some Specialists need a paid plan."
+  result: "A clear picture of how an AI agent works and how much to trust its output."
 ---
 
-Think about the difference between a textbook and a resident. A textbook answers the question you bring to it — nothing more. A resident takes a *task*: "Work up this patient's anemia and tell me what you find." The resident plans an approach, orders the right tests, reads the results, changes course when something unexpected shows up, and comes back with a synthesized answer — showing their work so you can check it.
+Think about the difference between a textbook and a resident. A textbook answers the question you bring to it. A resident takes a task, such as "work up this patient's anemia and tell me what you find." The resident plans, orders the right tests, reads the results, changes course when something unexpected appears, and comes back with findings you can check. An **AI agent** is the resident version of AI software. In Lumen, these agents are called **Specialists**.
 
-That's the difference between a plain AI chatbot and an **AI agent**. A chatbot is the textbook. An agent is the resident. Understanding that one distinction tells you most of what you need to know about where AI in medicine is heading — and what it can already do for you today.
+## What an AI agent is
 
-## A language model on its own is a very good textbook
+Most people first meet AI as a chat assistant: you ask a question and it writes an answer. Underneath is a *large language model*, a program trained on a very large amount of text that is good at understanding questions and writing fluent replies. On its own, a language model has three limits:
 
-The core technology behind tools like Lumen is a **large language model** — a system trained on enormous amounts of text that has become remarkably good at understanding questions and producing fluent, well-organized answers.
+- It answers from what it absorbed during training, like a colleague answering from memory.
+- It gets one pass at your question. It can't notice halfway through that it needs more information and go get it.
+- It can describe how to check a drug interaction, but it can't run the check.
 
-On its own, though, a language model has real limits:
+An agent adds three things to the model:
 
-- It answers **from what it absorbed during training**, like a colleague answering purely from memory. It can't look anything up.
-- It gets **one pass** at your question. Ask, answer, done. It can't notice mid-answer that it needs more information and go get it.
-- It has **no hands**. It can describe how to check a drug interaction; it can't actually run the check.
+1. **Tools.** Real lookups the model can use: literature search, drug databases, calculators, document readers. See {{< term "Tool use" >}}.
+2. **A loop.** The agent works in cycles: decide the next step, take it, read what came back, decide again. See [The agentic loop](/learn/agentic-loops/).
+3. **A goal.** You give it an outcome to reach ("draft a teaching handout on PICC dressing changes, with sources"), not a single question. It keeps working until the goal is met or it needs you.
 
-For quick, well-established knowledge — "what's the mechanism of action of apixaban?" — that's often fine. For anything that requires current data, calculation, or several dependent steps, memory alone isn't good enough. You wouldn't accept it from a colleague, and you shouldn't accept it from software.
+## How it works
 
-## What turns a model into an agent
+{{< flow >}}
+{{< flow-node kicker="You hand off" title="A task with a goal" icon="message" tint="blue" >}}Describe the outcome you want and attach anything it should read.{{< /flow-node >}}
+{{< flow-node kicker="It plans and acts" title="Steps with real tools" icon="list-checks" tint="plum" >}}Each step uses a tool: read a document, search PubMed, check interactions.{{< /flow-node >}}
+{{< flow-node kicker="It checks" title="Work against sources" icon="shield-check" tint="accent" >}}Quotes are checked against the sources it read.{{< /flow-node >}}
+{{< flow-node kicker="You review" title="A finished draft" icon="check-circle" tint="green" >}}You read the result and its sources, then decide.{{< /flow-node >}}
+{{< /flow >}}
 
-An agent is a language model plus three additions — each one mapping to something you already recognize from clinical training:
+Here is what that looks like for a task no single question can answer: "Review this discharge medication list, check each pair for interactions, and draft a short reconciliation note."
 
-1. **Tools.** Real lookups and calculators the model can invoke: literature search, drug-interaction databases, code lookups, document readers. These are its labs and imaging — actual data sources, not recollection.
-2. **A loop.** Instead of one pass, the agent works in cycles: decide the next step, take it, look at what came back, decide again. Exactly how you run a workup — order, review, reassess.
-3. **A goal.** You give it an outcome to reach ("summarize the evidence on early mobilization after PICC placement, with citations"), not a single question. The agent keeps working until the goal is met or it needs your input.
+- **It plans.** Read the list, extract each medication, check interactions, then draft the note.
+- **It acts.** Each step uses a tool, not a guess from memory.
+- **It adapts.** If the interaction check turns up a major flag, it puts that finding first instead of burying it.
+- **It presents.** You get the draft and the trail of steps and sources behind it.
 
-<div class="compare-grid">
-  <div class="compare-card tint-blue" style="border-top-color: var(--smoky-blue);">
-    <h3>&#128214; A chatbot (the textbook)</h3>
-    <div class="compare-subtitle">You look things up in it</div>
-    <ul class="compare-list">
-      <li><span class="compare-check" style="color: var(--smoky-blue);">&#10003;</span> One question, one answer</li>
-      <li><span class="compare-check" style="color: var(--smoky-blue);">&#10003;</span> Answers from training memory</li>
-      <li><span class="compare-check" style="color: var(--smoky-blue);">&#10003;</span> You drive every step</li>
-      <li><span class="compare-check" style="color: var(--smoky-blue);">&#10003;</span> Fast for simple lookups</li>
-    </ul>
-  </div>
-  <div class="compare-card tint-accent" style="border-top-color: var(--accent);">
-    <h3>&#129658; An agent (the resident)</h3>
-    <div class="compare-subtitle">You delegate a task to it</div>
-    <ul class="compare-list">
-      <li><span class="compare-check" style="color: var(--accent);">&#10003;</span> One goal, many steps</li>
-      <li><span class="compare-check" style="color: var(--accent);">&#10003;</span> Looks things up with real tools</li>
-      <li><span class="compare-check" style="color: var(--accent);">&#10003;</span> Plans, acts, reassesses in a loop</li>
-      <li><span class="compare-check" style="color: var(--accent);">&#10003;</span> Shows its work for your review</li>
-    </ul>
-  </div>
-</div>
+## How Lumen does it
 
-## What delegation looks like in practice
+In Lumen, an agent is a **Specialist**: a named expert you call by typing `@` in the message box, or pick from **Explore**, the one list of Specialists, Skills and tools. Examples include **Medication Review**, **Clinical Educator**, **Prior Authorization**, **Clinical Research** and **Patient Education** (which writes handouts *for* patients; it isn't a patient-facing product).
 
-Here's a task no single question can answer: *"Review this discharge summary, check every medication for interactions, and draft a reconciliation note."*
+{{< chat-demo title="Discharge medication check" specialist="Medication Review" caption="Illustration with a fictional patient at Harbor Valley Medical Center. Always open the cited sources." >}}
+{{< user attach="discharge-meds-fictional.pdf" >}}Check this discharge list for interactions and draft a two-paragraph reconciliation note for the receiving nurse.{{< /user >}}
+{{< lumen thought="9" tools="Read document, Drug interactions, Create document" sources="3" evidence="true" >}}
+{{< task-strip >}}
+{{< task state="done" label="Read the discharge list (7 medications)" >}}
+{{< task state="done" label="Checked 21 medication pairs" >}}
+{{< task state="done" label="Drafted the reconciliation note" >}}
+{{< task state="done" label="Checked quotes against sources" >}}
+{{< /task-strip >}}
 
-Hand that to an agent and it behaves the way you'd want a good resident to:
+One pair needs attention: **amiodarone with warfarin** is a major interaction that can raise the INR {{< cite 1 >}}. The draft note flags it first and suggests INR follow-up per your protocol {{< cite 2 >}}.
 
-- **It plans.** First read the document, then extract the med list, then check interactions pair by pair, then draft the note.
-- **It acts.** Each step uses a real tool — a document reader, an interaction database — not a guess from memory.
-- **It adapts.** If the interaction check turns up a serious flag, the agent doesn't bury it in step four; it surfaces the finding and adjusts the note accordingly.
-- **It presents.** You get the finished draft *and* the trail of steps and sources it used, the way a resident presents findings before you sign anything.
+{{< artifact type="docx" title="Reconciliation note (draft)" sub="Word document · 1 page" >}}
+{{< verdict >}}Checked: every quoted source was found in the material Lumen read.{{< /verdict >}}
+{{< /lumen >}}
+{{< /chat-demo >}}
 
-In Lumen, this is just a chat. You describe the whole job in plain English; [agent mode](/skills-and-specialists/agent-mode/) plans the steps and works through them while you watch each one complete. There's no separate console to learn — delegation happens in the same place you ask quick questions.
+What happens behind a Specialist, in plain terms:
 
-## Why this changes what AI is useful for
+- **Each Specialist has written rules.** Its tools, the Skills it can use, how much it may do on its own, a work budget, what counts as "done", and which actions need your approval are set in Lumen's code. The AI can't rewrite them.
+- **You see each step.** A task strip lists the steps as they finish, so you can follow the work and stop it.
+- **Actions that leave Lumen wait for you.** Sending an email or writing to another system shows an approval card with **Approve** and **Decline**. If you approve, it runs exactly as shown. Typing "I approve" in the chat does nothing. See [Approvals](/skills-and-specialists/approvals/).
+- **Results are checked.** When a Specialist produces a finished piece of work, Lumen's server looks for every quoted passage in the sources it loaded itself. Checks that fail send the work back for repair. The result carries a verdict, and that verdict means "checked against sources", never "clinically correct". See [Verified results](/skills-and-specialists/verified-results/).
+- **Work keeps going if you close the tab.** Specialist work runs on Lumen's servers, up to about an hour per task, and is there when you come back on any device.
 
-A textbook-style chatbot saves you a search. Useful, but marginal — you were going to find that answer anyway.
+## What this means for you
 
-An agent saves you a *workflow*. The tasks that consume clinical time are rarely single questions: prior authorizations, literature summaries for committee, medication reconciliation, turning a rambling dictation into a coded note. Each is a chain of lookups, judgments, and drafting. Agents are built for chains. That's why the arrival of agents — not chatbots — is the moment AI starts giving clinicians hours back rather than seconds.
+- **Delegate chains, not only questions.** The jobs that eat time, such as a literature summary for a committee or a handout with sources, are chains of lookups and drafting. That's where a Specialist helps most.
+- **Read the trail.** The steps and sources are there so you can check the work the way you'd check a resident's.
+- **You decide.** A Specialist drafts. Nothing reaches a patient's care, a colleague's inbox or another system without you.
 
-## The honest limits
+## Limits and safety
 
-Agents make mistakes. A multi-step process multiplies opportunities for error as well as usefulness: a wrong turn at step two can shape everything after it. Anyone who tells you agents remove the need for clinical judgment is selling something.
+- **Agents make mistakes.** A wrong turn at step two can shape everything after it. More steps mean more chances for error as well as more work done.
+- **"Checked" isn't "correct".** A verdict means quotes were found in the sources. It doesn't mean the sources were right for your patient.
+- **One task, about an hour.** Very large jobs may need to be split. If Lumen's servers fail mid-task, the task is marked interrupted and the partial work is kept; it isn't resumed automatically.
 
-The right mental model is the one you already use: **attending oversight**. You delegate to a resident *because* the structure around them — presenting findings, showing sources, sign-off before anything counts — makes delegation safe. Good agent design copies that structure deliberately:
-
-- Every step is **visible** while it runs, not summarized after the fact.
-- Claims come with **sources you can open**, so verification is a click, not a literature search.
-- The agent **drafts; you decide**. Nothing goes into a patient's care without your review.
-
-An agent that hides its work doesn't deserve your delegation. One that shows it earns a supervised role — the same way a resident does.
-
-{{< callout type="success" >}}
-**See it in Lumen** — [Agent mode](/skills-and-specialists/agent-mode/) turns any chat into a delegated, multi-step task with every step visible. Then try it on a real case in [Build a differential with AI support](/getting-started/differential/).
+{{< callout type="safety" title="A Specialist supports your judgment. It doesn't replace it." >}}
+Open the cited sources before you act on any result, check them against your organization's policies, and use your professional judgment. Don't enter patient information you're not permitted to share.
 {{< /callout >}}
 
-## Frequently asked questions
+## FAQ
 
 {{< faq question="What's the difference between an AI agent and a chatbot?" >}}
-A chatbot answers one question at a time from its training memory. An agent takes a goal, plans the steps to reach it, uses real tools (databases, calculators, document readers) to gather facts, and adjusts its plan based on what it finds — like delegating a workup to a resident rather than looking something up in a textbook.
+A chatbot answers one question at a time, mostly from training memory. An agent takes a goal, plans steps, uses real tools to gather facts, and adjusts as it goes. In Lumen, agents are called Specialists, and you can watch each step.
+{{< /faq >}}
+{{< faq question="Why does Lumen call them Specialists instead of agents?" >}}
+Because that's how clinicians already think about delegation: you call the right specialist for the job. You type `@` and pick one, such as `@Medication Review`, the way you'd page a consult service.
+{{< /faq >}}
+{{< faq question="Can a Specialist send an email or change a record on its own?" >}}
+No. Any action that leaves Lumen waits on an approval card. It runs only after you press **Approve**, and it runs exactly as shown on the card.
+{{< /faq >}}
+{{< faq question="Do I need technical skills?" >}}
+No. You describe the task in plain language. Lumen handles the planning and tool use, and shows you each step.
 {{< /faq >}}
 
-{{< faq question="Are AI agents safe to use in clinical work?" >}}
-They're safe the way delegation is safe: with supervision built in. A well-designed clinical agent shows every step it takes, cites sources you can open, and drafts rather than decides — final judgment stays with you, like attending oversight of a resident. Agents do make mistakes, so review their output before it touches patient care.
-{{< /faq >}}
+## Next steps
 
-{{< faq question="Do I need technical skills to use an AI agent?" >}}
-No. In Lumen, an agent is just a chat where you describe the whole task in plain English — "check these five meds for interactions and draft a reconciliation note." The planning, tool use, and step-by-step execution happen automatically, and you watch each step as it completes.
-{{< /faq >}}
-
----
-
-Curious how the pieces work? The next read explains the tools an agent calls — [How AI uses tools](/learn/tool-use/) — or you can just start a conversation in [your first chat](/getting-started/first-chat/).
+{{< related "/learn/agentic-loops/" "/learn/tool-use/" "/skills-and-specialists/working-with-a-specialist/" "/skills-and-specialists/approvals/" >}}
