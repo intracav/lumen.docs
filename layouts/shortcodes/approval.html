@@ -1,0 +1,9 @@
+{{- /* {{< approval action="Send email to 4C unit list" >}}To: …{{< /approval >}} */ -}}
+<div class="approval-card" role="group" aria-label="Approval request">
+<div class="ap-head">{{ partial "icon.html" "hand" }}{{ .Get "label" | default "Waiting for your approval" }}</div>
+<div class="ap-body">
+<div class="ap-action">{{ .Get "action" }}</div>
+{{ with .Inner }}<div class="ap-detail">{{ . | markdownify }}</div>{{ end }}
+</div>
+<div class="ap-btns"><span class="pill pill-primary">{{ partial "icon.html" "check" }}Approve</span><span class="pill pill-ghost">Decline</span></div>
+</div>

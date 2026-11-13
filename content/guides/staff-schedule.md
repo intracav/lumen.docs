@@ -1,109 +1,141 @@
 ---
-title: "Build a Staff Schedule with AI"
-description: "Describe your team's rules and PTO — a deterministic solver builds the schedule, verifies every rule, and exports to Excel. No hand-written grids."
+title: "Build a staff schedule that checks every rule"
+navTitle: "Build a staff schedule"
+description: "Describe your unit's rules and time off, and the Staff Scheduler builds a schedule with a solver, checks every rule, and exports it to Excel."
+lead: "Tell Lumen your coverage rules, shift times and time off. A solver builds the schedule, every rule is checked, and you get an Excel file to post."
 weight: 22
-audience: clinician
-time: "~15 minutes"
-keywords: ["AI staff scheduling", "nurse schedule generator", "shift scheduling with constraints", "on-call schedule AI"]
+icon: calendar
+tier: pro
+who: "nurse managers and charge nurses"
+glance:
+  what: "The Staff Scheduler is a Lumen specialist that turns your scheduling rules into a staff schedule. A solver places the shifts, then every rule is checked against the finished schedule."
+  who: "Nurse managers, charge nurses, department heads and clinical program directors who build rosters or rotations."
+  why: "You stop hand-building grids and finding the broken rule two weeks later. When the rules can't all be met, you're told which one is the problem, before anything is posted."
+  needs: "A Lumen Pro plan or above, your rules written down (coverage, shifts, limits, accommodations), and any time-off requests. About 15 minutes."
+  result: "A schedule that has been checked rule by rule, a plain list of any conflicts, and an Excel workbook ready to post."
 ---
 
-## What you'll make
+The manager of the vascular access team at Harbor Valley Medical Center builds a six-week schedule for nine nurses. Two never work weekends, three have time off in the middle of the block, and every weekday needs at least two people. By hand, that takes an evening and still misses something. With the Staff Scheduler, she describes the rules once, gets a schedule that has been checked against every one of them, and decides the one trade-off that the rules can't settle.
 
-A six-week staff schedule that has been **checked against every rule you gave it** — coverage minimums met, PTO respected, weekend accommodations honored — with a verification report that says so, rule by rule, and an Excel export ready to post. And when your rules genuinely can't all be satisfied at once, you get the honest answer: *which* constraint is binding, not a grid that quietly breaks one.
-
-We'll build a real-shaped example: a **six-week schedule for a 9-nurse vascular access team** with PTO in the middle of it, two staff who never work weekends, and a minimum-coverage rule. Every name and date below is fictional.
+Every name and date in this guide is fictional.
 
 ## Before you start
 
-- **Any plan works.** Scheduling runs on every Lumen plan; see [Plans](/plans/) if you're bumping into message limits.
-- **Get the rules out of your head and into words.** Coverage minimums, shift times, consecutive-day limits, weekend rotation, individual accommodations — if a rule matters, it has to be stated. The solver enforces exactly what you give it.
-- **Attach what you already have.** A roster spreadsheet, last cycle's schedule, PTO request emails — the [Staff Scheduler](/skills-and-specialists/specialists/) reads attached sources in full and extracts the facts, with a verbatim quote behind every availability claim.
+- **Plan.** The Staff Scheduler needs **Pro** or above {{< tier-badge "pro" >}}. See [Plans](/plans/).
+- **Write the rules down.** The solver applies exactly the rules you give it, and nothing else. Include:
+  - shift times and how many people each shift needs
+  - limits, such as maximum days in a row or weekends off
+  - standing accommodations, such as "never works weekends"
+  - time off, with dates
+- **Bring what you have.** A roster spreadsheet, last cycle's schedule or time-off emails can be attached. Lumen reads them and pulls out the facts.
 
-## Build the schedule
+## How to build the schedule
 
-<div class="steps-container">
+{{< steps >}}
+{{< step title="Call the Staff Scheduler" >}}
+Sign in at [lumen.intracav.ai](https://lumen.intracav.ai) and start a new chat. Type `@` and choose **Staff Scheduler**. The mention must come at the start of your message.
+{{< /step >}}
 
-{{< step num="1" title="Bring in the Staff Scheduler and state every constraint" >}}
-Type **@** in any chat and pick **[Staff Scheduler](/skills-and-specialists/specialists/)**. Describe the schedule the way you'd brief a new charge nurse — or attach your spreadsheet and emails and let it read them:
+{{< step title="Describe the schedule" >}}
+Describe it the way you'd brief a new charge nurse, or attach your spreadsheet and emails with the paperclip:
 
 ```text
-@Staff Scheduler — build a 6-week schedule for our 9-nurse vascular
-access team, starting Monday March 2. Shifts are 0700–1930.
+@Staff Scheduler Build a 6-week schedule for our 9-nurse vascular access
+team, starting Monday March 2. Shifts are 0700–1930.
 
 Coverage: at least 2 nurses every weekday, at least 1 on weekend days.
-Rules: no one works more than 3 consecutive days; everyone gets at
-least every other weekend off; Priya and Tomas never work weekends
-(standing accommodation). Rotate weekend load evenly across the
-other seven.
+Rules: no more than 3 days in a row; everyone gets at least every other
+weekend off; Priya and Tomas never work weekends. Spread weekend shifts
+evenly across the other seven.
 
-PTO: Dana out March 9–13. Marcus out March 23–27. Alice out April 3.
+Time off: Dana March 9–13. Marcus March 23–27. Alice April 3.
+```
+{{< /step >}}
+
+{{< step title="Check the rules Lumen read back" >}}
+Before solving, Lumen lists the rules and dates it understood. Read this carefully. If a name is mapped wrongly or a rule is missing, correct it now in a reply. The schedule will follow these rules exactly.
+{{< /step >}}
+
+{{< step title="Let the solver build it" >}}
+Lumen hands the rules to a solver, a program that places shifts by the rules, and then checks the finished schedule against every rule. Lumen never writes the shifts itself. This takes longer than a normal reply, and you'll see each step as it happens.
+{{< /step >}}
+
+{{< step title="Read the check, not just the grid" >}}
+The result reports each rule and whether it held. If the rules can't all be met, Lumen tells you so and names the rule that blocks it, with the people and dates affected. It doesn't quietly break a rule to make the grid fit.
+{{< /step >}}
+
+{{< step title="Decide the trade-off and run it again" >}}
+Reply with your decision, for example:
+
+```text
+Add our per-diem, Noor, weekends only, at most 2 shifts a month.
+Solve again and re-check every rule.
 ```
 
-**You should see:** the Staff Scheduler chip appear, then Lumen restating your rules as a formal schedule spec — every constraint listed back to you, every PTO date quoted — *before* any solving starts. Read that spec carefully; it's your chance to catch a rule it heard wrong.
+The whole schedule is solved and checked again, including the rules that were already fine.
 {{< /step >}}
 
-{{< step num="2" title="Let the solver work — and understand what's actually happening" >}}
-This Specialist works differently from every other one: **it interprets, the solver schedules.** Lumen extracts the spec; a deterministic constraint solver produces the assignments; then every rule is verified against the finished grid. Lumen never hand-writes a schedule cell, which means no "it looked fine until Tuesday week 4" surprises — the schedule is checked against every rule, not vibes.
+{{< step title="Export to Excel" >}}
+When every rule holds, ask:
 
-**You should see:** solve and verification steps appearing live. This takes longer than a chat reply, because reading, mapping, solving, and verifying are real steps — that's the [Shift Scheduler skill](/skills-and-specialists/skills/) doing its job.
+```text
+Export the schedule as an Excel workbook.
+```
+
+Lumen creates an .xlsx file you can download and post. Workbooks include the schedule and can include coverage, hours per person and fairness.
 {{< /step >}}
+{{< /steps >}}
 
-{{< step num="3" title="Read the verification report, not just the grid" >}}
-The result comes with a rule-by-rule report: each constraint, and whether it held across all six weeks. If everything can't be satisfied at once, you don't get a broken grid — you get the binding constraint, named.
+## What you'll see
 
-{{< chat-demo title="An infeasible week, reported honestly" >}}
-{{< user >}}
-Did every rule hold?
-{{< /user >}}
-{{< lumen >}}
-**Verified: 6 of 7 rules hold across all 42 days.** One conflict:
+{{< screenshot src="chat-artifact" alt="A Lumen chat with the Staff Scheduler reporting a rule conflict and offering two options" caption="The Staff Scheduler reports a conflict instead of breaking a rule." url="lumen.intracav.ai" >}}
+{{< chat-demo title="Six-week vascular access schedule" specialist="Staff Scheduler" caption="Illustration with fictional staff and dates." >}}
+{{< user >}}Did every rule hold?{{< /user >}}
+{{< lumen thought="3" tools="Staff scheduler" >}}
+**6 of 7 rules hold across all 42 days.** One conflict:
 
-**Week of March 9** — Dana is on PTO, and Priya and Tomas don't work weekends. That leaves 6 nurses to cover both weekend days while keeping "at least every other weekend off" for all of them. The math doesn't close: weekend coverage that week requires either **(a)** one nurse working back-to-back weekends, or **(b)** dropping Saturday March 14 to zero scheduled coverage.
+**Week of March 9.** Dana is on time off, and Priya and Tomas don't work weekends. That leaves six nurses to cover both weekend days while everyone keeps every other weekend off. It can't be done without one of these:
 
-I have **not** silently picked one. Option (a) affects Keisha, who is otherwise even in the rotation. Which trade-off do you want — or is there a per-diem I should add to the roster?
+- **(a)** one nurse works two weekends in a row, or
+- **(b)** Saturday March 14 has nobody scheduled.
+
+I haven't picked one. Which do you want, or is there a per-diem nurse I should add?
+{{< follow-ups "Add a per-diem nurse|Allow one back-to-back weekend|Show the week of March 9" >}}
 {{< /lumen >}}
 {{< /chat-demo >}}
+{{< /screenshot >}}
 
-**You should see:** violations and trade-offs surfaced as decisions for *you*, with the specific staff and dates named — never resolved silently.
-{{< /step >}}
+## Check it worked
 
-{{< step num="4" title="Decide the trade-off and re-solve" >}}
-Answer the question and let it re-run:
+- The rule check says every rule holds, with no conflicts listed.
+- Time off is respected: nobody is scheduled on the dates you gave.
+- The Excel file opens and matches the schedule in the chat.
 
-```text
-Add our per-diem, Noor, available weekends only, max 2 shifts per
-month. Re-solve the week of March 9 with her covering Saturday,
-and re-verify everything.
-```
+## Tips
 
-**You should see:** a fresh solve with the new roster, and a clean verification report — all rules holding, including the ones that were fine before (re-verification is total, not incremental).
-{{< /step >}}
+- **State changes as rules.** Instead of editing a cell after export, ask: "Swap Alice and Keisha on March 20, and re-check every rule." A hand edit isn't checked.
+- **Loosen the rule that's named.** When a conflict is reported, relax that one rule or add people, rather than weakening rules at random.
+- **Confirm names.** "P. Sharma" in a spreadsheet and "Priya" in an email are matched as one person. Check the matching in the read-back before solving.
 
-{{< step num="5" title="Export to a spreadsheet" >}}
-When the report is clean:
+## Limits and safety
 
-```text
-Export the schedule as an Excel workbook — one tab for the grid,
-one tab for the per-nurse shift counts.
-```
+- **The solver applies only the rules you give it.** An unwritten rule, such as a skill mix or a union agreement, isn't checked unless you state it.
+- **A checked schedule isn't an approved schedule.** Review it against your organization's staffing policies before posting.
+- **Lumen doesn't message staff.** The Staff Scheduler doesn't email schedules to people. You post or share the file yourself.
+- **Not a timekeeping system.** It builds and checks schedules. It doesn't track hours worked or pay.
 
-**You should see:** a download card for an .xlsx file ready to post to the unit — see [Spreadsheets (Excel)](/tools/document-generation/) for what else the workbook export can carry, like conditional formatting and summary tabs.
-{{< /step >}}
+## FAQ
 
-</div>
-
-{{< callout type="info" >}}
-**Why the honesty matters.** A hand-built schedule fails quietly — someone notices the uncovered Saturday two weeks in. A solved-and-verified schedule fails *loudly, before publication*: an unsatisfiable rule set is reported as exactly that, with the binding constraint named. "It says so" is the feature.
-{{< /callout >}}
-
-## Troubleshooting
-
-- **"Infeasible" — the solver says the rules can't all be satisfied.** That's information, not an error. The report names the binding constraint; loosen that one specifically (*"allow one back-to-back weekend per cycle"*) or add capacity, rather than weakening rules at random.
-- **Names don't line up across your sources.** "P. Sharma" in the roster and "Priya" in the PTO email get resolved into one person, but confirm the mapping in the spec Lumen reads back in step 1 before solving — a mis-mapped name means a wrong schedule that verifies cleanly.
-- **You want to hand-tweak one cell after export.** Fine — but a manual edit is unverified by definition. Better: state the change as a constraint (*"swap Alice and Keisha on March 20, re-verify"*) and let the solver confirm nothing else broke.
+{{< faq question="What if the rules can't all be met?" >}}
+Lumen tells you which rule blocks the schedule and who it affects, and asks you to decide. It never breaks a rule silently.
+{{< /faq >}}
+{{< faq question="Can it read our existing roster spreadsheet?" >}}
+Yes. Attach it, along with any time-off emails. Lumen reads them and lists the facts it took from them before solving.
+{{< /faq >}}
+{{< faq question="Will the same rules always give the same schedule?" >}}
+Yes. The solver is deterministic: the same rules produce the same schedule, which makes changes easy to compare.
+{{< /faq >}}
 
 ## Next steps
 
-- **Rolling Lumen out to the whole unit?** [Onboard Your Clinical Team to Lumen](/guides/onboard-your-team/) — get everyone building their own schedules and notes.
-- **Why doesn't the AI just write the grid itself?** [Hallucinations and grounding](/learn/hallucinations-and-grounding/) — the reasoning behind "the model interprets, the solver decides."
-- **Meet the rest of the roster:** [The 11 Lumen Specialists](/skills-and-specialists/specialists/) — the Staff Scheduler's colleagues for clinical, research, and admin work.
+{{< related "/skills-and-specialists/specialists/" "/tools/document-generation/" "/guides/onboard-your-team/" "/learn/hallucinations-and-grounding/" >}}

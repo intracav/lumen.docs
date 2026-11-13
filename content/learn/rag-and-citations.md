@@ -1,98 +1,95 @@
 ---
-title: "RAG: How AI Cites Real Sources Instead of Guessing"
-description: "Retrieval augmented generation in healthcare, explained: how AI pulls real documents before answering, why citations beat confident memory, and what RAG can't do."
+title: "RAG: how AI cites real sources"
+navTitle: "RAG and citations"
+description: "Retrieval-augmented generation explained for clinicians: how AI pulls real documents before answering, why citations matter, and what RAG can't do."
+lead: "You'd never present on rounds from memory alone. RAG makes an AI pull the chart first, then answer from what it found, with a citation for each claim."
 weight: 3
+icon: quote
 keywords: ["retrieval augmented generation healthcare", "RAG explained for clinicians", "how AI cites medical sources"]
+glance:
+  what: "Retrieval-augmented generation (RAG) means the AI first finds relevant passages in trusted sources, then writes its answer from them and cites each one."
+  who: "Clinicians, educators, policy owners and anyone who needs to check where an AI answer came from."
+  why: "So you can verify an answer in seconds by opening the passage it came from, and so answers can use your own documents."
+  needs: "Nothing to read this page. Citations appear in every Lumen chat on every plan."
+  result: "You'll know how Lumen finds its sources, how to read a citation and what an empty result means."
 ---
 
-You'd never present a patient on rounds from memory alone. Before you speak, you pull the chart: overnight events, latest labs, the consultant's note. Then you present — and when the attending asks *"what was the creatinine?"*, you point to the value, not to your impression of it. Chart review first, presentation second. That ordering is so basic to clinical culture that violating it is a teachable offense.
-
-**Retrieval-augmented generation** — RAG — imposes the same discipline on an AI model. Before answering, the system *pulls the chart*: it retrieves the actual relevant documents — guidelines, policies, your uploaded files — and requires the model to build its answer from what was retrieved, citing each source. No presenting from memory.
+Before you present a patient on rounds, you pull the chart: overnight events, the latest labs, the consultant's note. When the attending asks "what was the creatinine?", you point to the value, not your impression of it. **Retrieval-augmented generation**, or {{< term "RAG" >}}, puts an AI under the same rule. Before it answers, it retrieves the relevant passages from trusted sources. Then it writes the answer from those passages and cites each one, so you can check it.
 
 ## The problem RAG solves
 
-A language model without retrieval answers every question the same way: by generating the most plausible continuation from its training memory. For settled general knowledge, plausible and true usually coincide. But "usually" is not a clinical standard, and three gaps stay open:
+A language model with no retrieval answers every question from its training memory. That leaves three gaps:
 
-- The model has never seen **your** documents — your protocols, your formulary, your unit's policies.
-- Its training has a **cutoff date**; guidance published after it simply isn't in there.
-- Its memory is **reconstructive** — it can blend two similar guidelines into one confident, wrong synthesis.
+- It has never seen **your** documents: your protocols, your formulary, your unit's policies.
+- Its training stops at a **cutoff date**. Guidance published after that isn't in it.
+- Its memory **reconstructs**. It can blend two similar guidelines into one confident, wrong answer.
 
-RAG closes all three at once, because the answer is drawn from documents fetched *at question time* — including documents only your organization holds.
+RAG closes all three, because the answer is built from documents fetched when you ask, including documents only your organization holds.
 
-## How retrieval works, in one plain paragraph
+## How it works
 
-When you ask a question, the system doesn't search for matching keywords the way an old library catalog would. It searches by **meaning** — a technique called semantic search. Every document in the knowledge base has been read in advance and indexed by what it's *about*, so a question phrased as "blood thinner after a fall risk assessment" finds the anticoagulation guideline even though it never uses those words. Think of a genuinely good librarian: you describe the question badly, and they still walk to the right shelf, because they understood what you meant rather than which words you used. The retrieved passages are then handed to the model with an instruction that amounts to: *answer from these, and cite them.*
+{{< flow >}}
+{{< flow-node kicker="You ask" title="In your own words" icon="message" tint="blue" >}}No keywords needed.{{< /flow-node >}}
+{{< flow-node kicker="Retrieve" title="Find matching passages" icon="search" tint="plum" >}}Search by meaning across trusted sources.{{< /flow-node >}}
+{{< flow-node kicker="Answer" title="Written from the passages" icon="pencil" tint="accent" >}}The model answers from what was found.{{< /flow-node >}}
+{{< flow-node kicker="Cite" title="Sources you can open" icon="quote" tint="green" >}}Each claim links to its passage.{{< /flow-node >}}
+{{< /flow >}}
 
-<div class="journey-flow">
-  <div class="journey-box">
-    <div class="journey-box-icon">&#10067;</div>
-    <div class="journey-box-label">You ask</div>
-    <div class="journey-box-sub">In your own words</div>
-  </div>
-  <div class="journey-arrow">&rarr;</div>
-  <div class="journey-box">
-    <div class="journey-box-icon">&#128218;</div>
-    <div class="journey-box-label">Retrieve</div>
-    <div class="journey-box-sub">Pull the relevant passages</div>
-  </div>
-  <div class="journey-arrow">&rarr;</div>
-  <div class="journey-box">
-    <div class="journey-box-icon">&#128221;</div>
-    <div class="journey-box-label">Answer</div>
-    <div class="journey-box-sub">Built from what was pulled</div>
-  </div>
-  <div class="journey-arrow">&rarr;</div>
-  <div class="journey-box">
-    <div class="journey-box-icon">&#128279;</div>
-    <div class="journey-box-label">Cite</div>
-    <div class="journey-box-sub">Sources you can open</div>
-  </div>
-</div>
+The search works by **meaning**, not exact words. Every document is read in advance and indexed by what it's about. So "blood thinner after a fall-risk assessment" finds the anticoagulation guideline even if the guideline never uses those words. Think of a good librarian who understands what you meant, not which words you used. The passages that match best are handed to the model with one instruction: answer from these, and cite them.
 
-Chart review before rounding — the same four beats, every time.
+## How Lumen does it
 
-## Why a citation chip beats a confident memory
+Depending on your question and your account, Lumen retrieves from:
 
-Two answers can read identically and differ completely in trustworthiness. *"Guidelines recommend replacing the dressing every 7 days"* is one sentence — but as an unsourced statement it's a claim, and with a citation it's a **pointer**. The difference matters for three practical reasons:
+- **Clinical sources:** guidelines, drug labels, PubMed, ClinicalTrials.gov and other clinical databases, through its [tools](/learn/tool-use/).
+- **Your documents:** files you've uploaded or attached to the message.
+- **Your team's knowledge:** *Knowledge Packs*, curated collections of documents your organization (called a *team* in Lumen) has turned on, and, for teams with qPolicy, your own policy manual.
+- **Your memory notes**, if you use them. See [How AI memory works](/learn/ai-memory/).
+- **The web**, when the question needs it.
 
-- **Verification drops from minutes to seconds.** Instead of re-running the literature search yourself, you open the source and read the paragraph. In Lumen, every evidence-backed answer carries a sources chip; each source shows where it came from and how closely it matched your question ([how to read them](/chat/sources/)).
-- **Fluency stops standing in for accuracy.** Language models are always articulate — delivery tells you nothing. A citation moves the question from "does this sound right?" to "does the source say this?", which is a question you're trained to answer.
-- **Disagreement becomes visible.** When sources conflict — and in medicine they do — retrieval surfaces both, instead of silently averaging them into something neither source says.
+{{< chat-demo title="Unit protocol question" caption="Illustration with fictional Harbor Valley Medical Center documents. Real answers cite real, checkable passages." >}}
+{{< user >}}How often do we change transparent dressings on PICC lines?{{< /user >}}
+{{< lumen thought="3" sources="2" evidence="true" >}}
+Harbor Valley's Vascular Access policy says to change transparent semipermeable dressings **every 7 days**, or sooner if the dressing is damp, loose or soiled {{< cite 1 >}}. That matches the national standard the policy references {{< cite 2 >}}.
 
-## Where Lumen's retrieval draws from
+Open the policy to confirm you're reading the current version.
+{{< /lumen >}}
+{{< /chat-demo >}}
 
-RAG is only as good as the shelf behind the librarian. Lumen retrieves from three layers, and the sources chip tells you which one each citation came from:
+Lumen also checks its own citations. If the answer cites a source number that wasn't among the passages Lumen actually retrieved, that citation is removed before you see it. The **Lumen Evidence** pill under an answer shows how well the cited sources support it, and says how many sources it checked against. Open any source to read the original passage.
 
-- **Your documents** — files you've uploaded: papers, protocols, notes. Ask about them and the answer cites *your* pages.
-- **Your organization's [Knowledge Packs](/knowledge/knowledge-packs/) and Policies** — the curated, versioned content your institution has published, so answers reflect what your organization actually says, not a generic average of the internet.
-- **The clinical knowledge base** — a maintained library of clinical reference content, guidelines, and protocols, including [The Clinical Database](https://clinical-database.com), an open clinical corpus built for retrieval.
+The [website assistant](/connect/website-assistant/) that device makers put on their sites uses the same approach with a strict rule: if no passage in the maker's documents matches closely enough, it says the documentation doesn't cover the question instead of answering. Its citations show the document and the page number.
 
-That layering is what makes the same question come back with *your* answer. "What's our dressing-change protocol?" retrieves your policy — a thing no model's training memory could contain.
+## What this means for you
 
-## What "no source found" honesty means
+- **Verification takes seconds.** Open the source and read the paragraph instead of redoing the search.
+- **Fluency stops counting.** A citation turns "does this sound right?" into "does the source say this?", a question you're trained to answer.
+- **Your own documents count.** "What's our dressing-change policy?" can be answered from *your* policy, which no model's training could contain.
+- **"No source found" is honest.** When retrieval comes back empty, a good answer says so. Treat a confident claim with no citation as the thing to question, not the empty-handed reply.
 
-The most underrated behavior in a RAG system is what happens when retrieval comes back empty. A memory-only model always produces *something* — the plausible-sounding answer is its only mode. A retrieval-grounded system can do what a careful clinician does: say the chart doesn't contain it.
+## Limits and safety
 
-When Lumen can't find supporting sources, the honest responses are the right ones — saying so, answering with explicit uncertainty, or pointing you toward what it *did* find. An "I couldn't find this in your documents" is not a failure of the system; it's the system declining to bluff. Treat a citation-free confident claim as the anomaly, not the empty-handed honesty.
+- **RAG is only as good as what it can search.** If your protocol isn't uploaded or the pack isn't turned on, Lumen can't cite it.
+- **A citation can still be misread.** The model can summarize a correct passage incorrectly. Read the passage, not only the summary.
+- **Sources can be out of date or disagree.** Check the version and date of what's cited, and look at both sides when sources conflict.
+- **Search can fail.** If Lumen's search is unavailable, you'll see **Knowledge base unavailable — composing from memory** while it answers. Treat that answer as uncited.
 
-{{< callout type="success" >}}
-**See it in Lumen** — Load your organization's content with [Knowledge Packs](/knowledge/knowledge-packs/), then learn to read citations and match scores in [Where it gets its info](/chat/sources/).
+{{< callout type="safety" title="Read the source before you rely on it" >}}
+A citation is a pointer, not a guarantee. Open it, confirm it says what the answer says, and check it against your organization's policies before acting.
 {{< /callout >}}
 
-## Frequently asked questions
+## FAQ
 
-{{< faq question="What is retrieval-augmented generation (RAG) in healthcare?" >}}
-RAG is a design where the AI retrieves relevant real documents — guidelines, institutional policies, your uploaded files — at the moment you ask, and builds its answer from those passages with citations, instead of answering from training memory. It's the software equivalent of pulling the chart before presenting on rounds.
+{{< faq question="Does RAG stop AI from making things up?" >}}
+No. It makes errors much less likely for questions the sources cover, and it makes the remaining errors easier to catch, because each claim points to a passage you can open. See [Hallucinations and grounding](/learn/hallucinations-and-grounding/).
+{{< /faq >}}
+{{< faq question="Can Lumen cite my hospital's own protocols?" >}}
+Yes, if they're in something Lumen can search: documents you've uploaded or attached, a Knowledge Pack your team has turned on, or your policy manual in qPolicy.
+{{< /faq >}}
+{{< faq question="Why did I get an answer with no sources?" >}}
+Either nothing relevant was found, or the question didn't need a lookup. If you expected a document to be cited, check that it finished indexing, or attach it to your message. See [Troubleshooting](/help/troubleshooting/).
 {{< /faq >}}
 
-{{< faq question="Does RAG stop AI hallucinations completely?" >}}
-No — it dramatically reduces them for questions the knowledge base covers, and it makes the remaining errors catchable, because every claim points at a source you can open. Claims without citations should get the same skepticism you'd give any unsourced statement. For the full picture, see [AI hallucinations and grounding](/learn/hallucinations-and-grounding/).
-{{< /faq >}}
+## Next steps
 
-{{< faq question="Can the AI cite my hospital's own protocols?" >}}
-Yes, if they're in its shelf. Upload documents yourself or have your organization publish them as Knowledge Packs and Policies; retrieval then treats them as first-class sources, and answers cite your institution's actual wording rather than a generic guideline.
-{{< /faq >}}
-
----
-
-Retrieval is the strongest of several defenses against the failure mode every clinician should understand — next: [AI hallucinations in medicine, and how grounding prevents them](/learn/hallucinations-and-grounding/). Or watch a citation appear live in [your first chat](/getting-started/first-chat/).
+{{< related "/chat/sources/" "/learn/hallucinations-and-grounding/" "/knowledge/knowledge-packs/" "/knowledge/documents/" >}}

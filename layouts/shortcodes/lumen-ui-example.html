@@ -1,0 +1,27 @@
+{{- /*
+Preview a Lumen UI component next to the DSL Lumen wrote for it.
+{{< lumen-ui-example title="Calculator result" component="Calculator" category="clinical" >}}
+{{< lui-code >}}Calculator(name="CHA2DS2-VASc", score=4, …){{< /lui-code >}}
+…preview shortcodes…
+{{< /lumen-ui-example >}}
+*/ -}}
+{{- $preview := .Inner -}}
+{{- $code := .Store.Get "code" -}}
+{{- $cat := .Get "category" -}}
+<figure class="lui-example">
+<div class="lui-example-bar">
+<span class="le-title">{{ partial "icon.html" "component" }}{{ .Get "title" }}{{ with .Get "component" }} <code>{{ . }}</code>{{ end }}</span>
+{{- if $code }}
+<span class="seg" role="tablist" aria-label="View">
+<button type="button" role="tab" aria-selected="true" data-view="preview">What you see</button>
+<button type="button" role="tab" aria-selected="false" data-view="code">What Lumen wrote</button>
+</span>
+{{- end }}
+</div>
+<div class="lui-example-preview">{{ $preview }}</div>
+{{ with $code }}<div class="lui-example-code">{{ transform.Highlight . "text" "" }}</div>{{ end }}
+<figcaption class="lui-example-foot">
+{{ partial "icon.html" "info" }}<span>{{ .Get "caption" | default "Rendered with Lumen UI. Example data is fictional." }}</span>
+{{ with $cat }}<a href="{{ site.Params.magicafURL }}/docs/lumen-ui/components/{{ . }}/" rel="noopener" style="margin-left:auto">{{ humanize . }} components on MagicAF {{ partial "icon.html" "arrow-up-right" }}</a>{{ end }}
+</figcaption>
+</figure>

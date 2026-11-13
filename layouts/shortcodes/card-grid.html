@@ -1,3 +1,1 @@
-<div class="card-grid stagger-children">
-{{ .Inner }}
-</div>
+<div class="card-grid{{ with .Get "cols" }} cols-{{ . }}{{ end }}">{{ .Inner }}</div>

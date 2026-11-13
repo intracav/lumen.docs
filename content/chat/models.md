@@ -1,45 +1,81 @@
 ---
-title: "Choosing a Model in Lumen"
-description: "Which AI model powers your chat, what changes between fast and deep models, and how to switch in the model picker."
-weight: 10
+title: "Which AI model Lumen uses"
+navTitle: "Plans and the model"
+description: "Lumen picks its AI model based on your plan, so there's nothing to choose. What changes between plans, and what matters more than the model."
+lead: "You don't choose a model in Lumen. Your plan decides it, and Lumen's tools and sources do most of the factual work. Here's what that means for your answers."
+weight: 11
+icon: sliders
+glance:
+  what: "How Lumen picks the AI model behind your answers, and where you can see which one your plan uses."
+  who: "Anyone comparing plans, and anyone who wants to know what's behind Lumen's answers."
+  why: "To understand what a plan upgrade changes, and why the model matters less than the sources an answer cites."
+  needs: "A Lumen account. About 3 minutes to read."
+  result: "You'll know how the model is chosen, where to see it, and what affects answer quality most."
 ---
 
-Lumen runs on more than one AI model, and the difference between them is the same one you navigate every day: **fast versus deep**. A quick dosing lookup and a genuinely hard differential don't deserve the same amount of machinery — and you shouldn't pay the time cost of the heavy machinery for the easy question.
+Lumen runs on a large language model, the kind of AI that reads your question and writes the answer. You don't pick it. Lumen chooses the model by your plan, so everyone on the same plan gets the same one. Higher plans use a more capable model. On any plan, the facts in a clinical answer come from Lumen's lookups and sources, not from the model's memory.
 
-## Fast vs. deep, in clinical terms
+## Before you start
 
-- **Fast models** respond almost immediately. They shine when the factual work is being done by Lumen's [tools](/learn/tool-use/) anyway — interaction checks, code lookups, guideline retrieval — and the model's job is to run the right lookup and summarize it cleanly.
-- **Deep models** reason harder before answering. They're worth the extra seconds on a complicated differential, a long document you want carefully synthesized, a risk–benefit question with several interacting variables, or writing that has to land with a demanding audience.
+Nothing to set up. To see your plan, go to {{< ui-path "Settings" "Plan & billing" >}}.
 
-Neither is "smarter" in the abstract — they're tuned for different points on the speed–depth curve. If you want the reasoning behind when to pick which, read [Fast vs. Deep: Choosing the Right AI Model](/learn/choosing-models/).
+## How to see which model your plan uses
 
-## Which models come with which plan
+{{< steps >}}
+{{< step title="Open a chat" >}}
+Click **New Chat** in the sidebar, or open any chat.
+{{< /step >}}
+{{< step title="Open Chat settings" >}}
+Click **Chat settings** in the row under the message box.
+{{< /step >}}
+{{< step title="Find AI model" >}}
+The **AI model** section says **Lumen picks the right model for your plan.** The card below names the model and says **Included with your** plan.
+{{< /step >}}
+{{< /steps >}}
 
-Every plan includes a sensible default — you never *have* to pick. Upgrading a plan widens the menu:
+## How it works
 
-| Model | Best for | Available on |
+| | Free and Pro | Plus and Max |
 |---|---|---|
-| **DeepSeek V4 Flash** | Quick lookups, everyday questions, tool-driven answers | {{< tier-badge "free" >}} and above |
-| **DeepSeek V4 Pro** | Heavier everyday reasoning with more headroom | {{< tier-badge "pro" >}} and above |
-| **Claude Sonnet 5** | Strong all-round reasoning and polished clinical writing | {{< tier-badge "plus" >}} {{< tier-badge "max" >}} |
-| **Claude Opus 4.8** | The hardest cases: complex differentials, long-document synthesis | {{< tier-badge "plus" >}} {{< tier-badge "max" >}} |
+| **Model** | A fast model, suited to everyday questions and lookups | A more capable model, for harder reasoning and longer documents |
+| **Who chooses** | Lumen, by plan | Lumen, by plan |
+| **Can you switch?** | No | No |
 
-See [Plans](/plans/) for the full comparison of what each plan includes.
+What else a higher plan adds, such as more specialists and team features, is listed on [Plans](/plans/). For prices, see [intracav.ai](https://intracav.ai).
 
-## How to switch models
+## What matters more than the model
 
-Use the **model picker** in chat — it lists every model your plan includes, with your plan's default marked. Pick one and it applies from your next message onward; you can switch mid-conversation when a thread starts easy and turns hard.
+- **Tools.** For a dose, an interaction, a code or a score, Lumen runs a lookup or a fixed formula. The model reads the result and explains it. See [How AI uses tools](/learn/tool-use/).
+- **Sources.** Answers cite the passages they came from. A stronger model writes better, but the citation is what you check.
+- **Your question.** Context such as age, conditions, medicines and setting improves an answer on any plan.
+- **Specialists and skills.** A specialist or skill gives Lumen a set procedure and checks for a kind of work, whichever model is behind it.
 
-{{< tip title="A practical default" >}}
-Stay on your plan's default model and let Lumen's tools carry the factual load. Reach for a deeper model when you notice yourself writing a genuinely complex prompt — multiple variables, competing risks, a long attachment — the same instinct that tells you a hallway question has become a formal consult.
-{{< /tip >}}
+## Tips
 
-## Models and extended thinking
+- **Hard question on a lower plan?** Give more context, break it into steps, or ask Lumen to show its reasoning.
+- **Long documents.** Ask about specific sections rather than "summarize this 200-page manual."
 
-Deeper models don't just answer differently — they *think* differently. The depth of [extended thinking](/learn/extended-thinking/) available varies by model: a deep model can sit with a hard problem longer in its reasoning scratchpad before committing to an answer, and you'll see that reflected in the "Thought for Ns" block at the top of the response ([How Lumen Thinks](/chat/thinking/)).
+## Limits and safety
+
+- Every model can be wrong, including the most capable one. Check the cited sources whichever plan you're on.
+- Lumen uses one AI provider. It doesn't switch between providers for different questions.
+
+{{< callout type="safety" title="The model doesn't change the rule" >}}
+On every plan, open the sources for any clinical statement before you act on it.
+{{< /callout >}}
+
+## FAQ
+
+{{< faq question="Can I choose a different model?" >}}
+No. Lumen chooses the model by plan. There's no model picker in chat.
+{{< /faq >}}
+{{< faq question="Does upgrading make answers more accurate?" >}}
+A more capable model reasons better on hard questions and handles longer documents. Clinical facts still come from Lumen's tools and sources on every plan, so always check the citations.
+{{< /faq >}}
+{{< faq question="Which company makes the model?" >}}
+Lumen uses a commercial large language model through its own servers. Your organization can ask Intracav for details as part of a security review. See [Privacy and data](/trust/privacy/).
+{{< /faq >}}
 
 ## Next steps
 
-- [Fast vs. Deep: Choosing the Right AI Model](/learn/choosing-models/) — when switching actually helps
-- [Extended Thinking, Explained](/learn/extended-thinking/) — what happens during the pause
-- [Plans](/plans/) — what's included where
+{{< related "/plans/" "/learn/tool-use/" "/chat/thinking/" "/trust/privacy/" >}}

@@ -1,23 +1,10 @@
 {{ define "main" }}
-<div class="page-header" style="text-align:center; padding-top: 4rem;">
-  <h1>Page not found</h1>
-  <p class="page-lead">That page may have moved during a docs reorganization — the links below will get you back on track.</p>
+<div class="notfound">
+  <h1>We couldn't find that page</h1>
+  <p>It may have moved when the docs were reorganized. Try searching, or start from the beginning.</p>
+  <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+    <button class="btn btn-primary" data-search-open>{{ partial "icon.html" "search" }} Search the docs</button>
+    <a class="btn btn-secondary" href="/">Docs home</a>
+  </div>
 </div>
-
-<div class="card-grid" style="max-width: 860px; margin: 2rem auto;">
-  <a class="guide-card" href="/getting-started/">
-    <h3>Getting Started</h3>
-    <p>Your first 10 minutes with Lumen — chat, drug interactions, codes, and notes.</p>
-  </a>
-  <a class="guide-card" href="/organizations/">
-    <h3>For Organizations</h3>
-    <p>Departments, Knowledge Packs, Policies, and Website Bots for clinical teams.</p>
-  </a>
-  <a class="guide-card" href="/developers/">
-    <h3>Developers</h3>
-    <p>The Lumen API, embeds, MCP, and partner content integration.</p>
-  </a>
-</div>
-
-<p style="text-align:center; margin-top: 2rem;"><a href="/">← Back to the Lumen Docs home</a></p>
 {{ end }}

@@ -1,0 +1,8 @@
+{{- /* type: check | radio | number | plain. {{< lui-row type="check" checked=true title="…" body="…" value="72" unit="bpm" >}} */ -}}
+{{- $t := .Get "type" | default "plain" -}}
+{{- $on := eq (printf "%v" (.Get "checked")) "true" -}}
+<div class="lui-row{{ if $on }} checked{{ end }}">
+{{- if eq $t "check" }}<span class="box">{{ if $on }}{{ partial "icon.html" "check" }}{{ end }}</span>{{ else if eq $t "radio" }}<span class="box radio"></span>{{ end }}
+<span class="rt"><span class="rt-title" style="display:block">{{ .Get "title" | markdownify }}</span>{{ with .Get "body" }}<span class="rt-body">{{ . | markdownify }}</span>{{ end }}</span>
+{{- with .Get "value" }}<span class="rv">{{ . }}{{ with $.Get "unit" }}<small>{{ . }}</small>{{ end }}</span>{{ end }}
+</div>

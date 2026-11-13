@@ -1,123 +1,136 @@
 ---
-title: "Run a Medication Review & Reconciliation"
-description: "Turn three conflicting med lists into one reconciled list — duplicates merged, interactions checked, renal doses flagged, every change explained."
+title: "Run a medication review and reconciliation"
+navTitle: "Medication review"
+description: "Reconcile medication lists that disagree: each drug matched to its FDA label, every pair screened, kidney function computed, proposals listed."
+lead: "Paste the lists, label each source and give the kidney inputs. The Medication Review Specialist shows every conflict, label warning and renal rule, with its source."
 weight: 20
-audience: clinician
-time: "~10 minutes"
+icon: pill
+who: "nurses, pharmacists and prescribers"
 keywords: ["AI medication reconciliation", "medication review AI", "drug interaction check AI", "polypharmacy review"]
+glance:
+  what: "A step-by-step way to reconcile several medication lists into one reviewed list with Lumen's Medication Review Specialist."
+  who: "Nurses, pharmacists and prescribers who reconcile medications at admission, transfer or discharge."
+  why: "Lists from different sources rarely agree. Lumen lines them up, screens every drug pair against the FDA labels and computes kidney function, so you spend your time on the decisions."
+  needs: "Any Lumen plan. The medication lists from each source, plus age, sex, weight and serum creatinine. About 10 minutes."
+  result: "A checked medication review: each medicine matched to its label, label warnings quoted, renal rules computed and proposals for the prescriber."
 ---
 
-## What you'll make
-
-One reconciled medication list from several sources that disagree — duplicates and therapeutic overlaps merged, drug–drug interactions checked against the FDA database, renal dose flags computed from the patient's actual kidney function, and a written rationale next to every change. The part that normally means an hour with three printouts and a highlighter, Lumen does in minutes; you spend your time on the judgment calls it surfaces.
-
-We'll walk a classic transitions-of-care case: a **78-year-old man admitted from a skilled nursing facility with a 14-drug list assembled from three sources** — the SNF medication administration record, a six-week-old hospital discharge summary, and the pharmacy fill history. Every clinical detail below is fictional.
+A 78-year-old man arrives from a skilled nursing facility. You have three medication lists: the facility's administration record, a discharge summary from six weeks ago and the pharmacy's fill history. They don't agree. Lumen's **Medication Review Specialist** puts the lists side by side. It matches each medicine to its FDA label and screens every pair for label warnings. Then it computes kidney function from the values you give it and sets out proposals for the prescriber to decide. Every finding shows where it came from.
 
 ## Before you start
 
-- **Any plan works.** Medication review runs on every Lumen plan; see [Plans](/plans/) if you're bumping into message limits.
-- **Gather the source lists.** Paste them as text or attach them as files — photos of a MAR, a discharge PDF, a pharmacy printout all work. Label each source; conflicts between sources are exactly what reconciliation is about.
-- **Have renal function handy.** A recent creatinine (plus age, sex, and weight) lets Lumen compute creatinine clearance and check every drug against FDA renal-dosing guidance instead of guessing.
+- **Plan:** any Lumen plan.
+- **The lists, each labeled with its source.** Paste them as text, or attach files or photos. Conflicts between sources are what you're looking for, so keep the sources separate.
+- **Kidney inputs:** age, sex, weight in kilograms and a recent serum creatinine. Lumen won't guess a missing weight or sex. Without them, it marks the renal check **Cannot assess**.
+- **The indication** for any drug whose dosing depends on it, such as apixaban for atrial fibrillation.
+- **No identifiers.** Leave out names, record numbers, dates of birth and facility names.
+- **Time:** about 10 minutes.
 
-{{< callout type="warning" >}}
-**Before you paste real patient data**, strip direct identifiers — name, MRN, date of birth, facility names. The drug names, doses, and labs are what reconciliation needs; the identifiers are what it doesn't. Lumen also has a [de-identification tool](/tools/privacy/) that can scrub text for you.
-{{< /callout >}}
+A *Specialist* is a Lumen assistant set up for one kind of work. It follows a fixed checklist and saves a result that Lumen checks before you see it.
 
-## Reconcile the list
+## How to run the review
 
-<div class="steps-container">
-
-{{< step num="1" title="Bring in the Medication Review Specialist with all three lists" >}}
-Type **@** in any chat and pick **[Medication Review](/skills-and-specialists/specialists/)**. Then hand it the whole mess, sources labeled:
-
-```text
-@Medication Review — 78-year-old man admitted from a skilled nursing
-facility. Three medication lists that don't agree — reconcile them into
-one list. Weight 72 kg, SCr 1.8. Flag anything that needs renal
-adjustment.
-
-SNF MAR: metoprolol tartrate 25 mg BID, furosemide 40 mg daily,
-lisinopril 10 mg daily, atorvastatin 40 mg nightly, apixaban 5 mg BID,
-omeprazole 20 mg daily, sertraline 50 mg daily, acetaminophen 650 mg PRN
-
-Discharge summary (6 weeks ago): metoprolol succinate 50 mg daily,
-torsemide 20 mg daily, lisinopril 10 mg daily, atorvastatin 40 mg
-nightly, apixaban 5 mg BID, pantoprazole 40 mg daily
-
-Pharmacy fills (last 90 days): metoprolol tartrate, furosemide,
-torsemide, lisinopril, atorvastatin, apixaban, omeprazole, sertraline,
-glipizide 10 mg BID, ibuprofen 400 mg (OTC, per family)
-```
-
-**You should see:** the Medication Review chip appear on your message, then a short plan — normalize names, deduplicate, screen interactions, check renal dosing, draft the reconciled list — before Lumen starts working through it.
+{{< steps >}}
+{{< step title="Choose the Medication Review Specialist" >}}
+Open a new chat. Type `@` in the message box and choose **Medication Review** from the **Specialists** list.
 {{< /step >}}
+{{< step title="Paste the lists and the patient facts" >}}
+Paste each list under its own heading, add the kidney inputs, then press **Send**:
 
-{{< step num="2" title="Watch the checks run — nothing comes from memory" >}}
-Every drug name gets normalized through the [RxNorm lookup](/tools/medications/), so *metoprolol tartrate* and *metoprolol succinate* register as a formulation conflict rather than two unrelated drugs. Interactions run against the FDA database with the [drug interactions tool](/tools/medications/), and the [renal dose adjustment tool](/tools/medications/) computes creatinine clearance and checks each drug against it. Each step appears live in the chat.
+{{< composer text="@Medication Review reconcile these three lists. 78-year-old man, 72 kg, serum creatinine 1.8 mg/dL. Atrial fibrillation, heart failure, type 2 diabetes, depression. FACILITY RECORD: metoprolol tartrate 25 mg twice daily; furosemide 40 mg daily; lisinopril 10 mg daily; atorvastatin 40 mg nightly; apixaban 5 mg twice daily for atrial fibrillation; omeprazole 20 mg daily; sertraline 50 mg daily; acetaminophen 650 mg every 6 hours as needed. DISCHARGE SUMMARY 6 WEEKS AGO: metoprolol succinate 50 mg daily; torsemide 20 mg daily; lisinopril 10 mg daily; atorvastatin 40 mg nightly; apixaban 5 mg twice daily; pantoprazole 40 mg daily. PHARMACY FILLS, LAST 90 DAYS: metoprolol tartrate, furosemide, torsemide, lisinopril, atorvastatin, apixaban, omeprazole, sertraline, glipizide 10 mg twice daily. Family reports he takes ibuprofen 400 mg for knee pain." >}}
+{{< /step >}}
+{{< step title="Watch the checks run" >}}
+You'll see **Looking up medication in RxNorm**, **Querying FDA drug database** and **Checking and saving**. RxNorm is the national list of drug names. Matching to it means metoprolol tartrate and metoprolol succinate show up as two forms of one drug, not two unrelated drugs.
+{{< /step >}}
+{{< step title="Open the review" >}}
+Click the **Medication review** card to open it in the side panel. It lists each medicine with the source lines it came from. Below that you'll find the drug pairs and the renal rules. Proposals for the prescriber come last.
+{{< /step >}}
+{{< step title="Answer the open questions" >}}
+Reply in the same chat with the decisions only you or the care team can make:
 
-{{< chat-demo title="Medication Review at work" >}}
-{{< user >}}
-Reconcile these three lists — 78-year-old, 72 kg, SCr 1.8, flag renal issues.
-{{< /user >}}
-{{< lumen >}}
-**Checks complete.** CrCl ≈ 34 mL/min (Cockcroft-Gault). Key findings:
+{{< composer text="The switch to torsemide at the last discharge was intentional; drop furosemide. Family says he will stop ibuprofen. Keep omeprazole and drop pantoprazole. Endocrinology plans to stop glipizide this admission; record why." >}}
 
-1. **Therapeutic duplication** — furosemide (SNF) *and* torsemide (discharge, still being filled). One loop diuretic should survive reconciliation. ⚠
-2. **Formulation conflict** — metoprolol *tartrate* 25 BID vs. *succinate* 50 daily across sources. Same daily dose, different drug entries. ⚠
-3. **Interaction** — apixaban + ibuprofen (OTC): additive bleeding risk. ⚠
-4. **Renal flags** — glipizide at CrCl 34 carries hypoglycemia risk; apixaban dose criteria worth re-checking at this age and creatinine. ⚠
+Lumen saves a new version and checks it again.
+{{< /step >}}
+{{< step title="Export the list" >}}
+Type `Make a one-page Word document: final list first, then each change and its reason.` and press **Send**. Open the document card and click **Download**.
+{{< /step >}}
+{{< /steps >}}
 
-Drafting the reconciled list with a rationale for each decision — and a short list of questions only the prescriber can answer.
+## What you'll get
+
+{{< screenshot src="agents-deliverable" alt="A medication review in Lumen's side panel, showing medicines, label-mention pairs, kidney function and proposals" caption="A medication review. Each warning quotes the FDA label it came from." url="lumen.intracav.ai" >}}
+{{< chat-demo title="Three lists, one review" specialist="Medication Review" caption="Illustration with a fictional patient." >}}
+{{< user >}}Reconcile these three lists. 78-year-old man, 72 kg, serum creatinine 1.8 mg/dL…{{< /user >}}
+{{< lumen thought="12" tools="Medication data retrieved, FDA drug data retrieved, Saved and checked" sources="11" >}}
+**Kidney function (computed):** creatinine clearance about 34 mL/min by Cockcroft-Gault.
+
+**Conflicts between sources**
+
+1. **Two loop diuretics.** Furosemide (facility record) and torsemide (discharge summary), and both are being filled.
+2. **Two forms of metoprolol.** Tartrate 25 mg twice daily versus succinate 50 mg daily.
+3. **Two proton pump inhibitors.** Omeprazole and pantoprazole.
+
+**Label mentions**
+
+- **Apixaban with ibuprofen** and **apixaban with sertraline**: the apixaban label lists NSAIDs and SSRIs among drugs that raise bleeding risk.
+- **Lisinopril with ibuprofen**: the lisinopril label mentions NSAIDs, including reduced kidney function in older adults.
+
+**Renal rules**
+
+- **Apixaban:** for atrial fibrillation the label reduces the dose only when two of three apply: age 80 or older, weight 60 kg or less, serum creatinine 1.5 mg/dL or higher. One applies, so the label condition for 2.5 mg doesn't apply.
+
+**Proposals for the prescriber:** consider keeping one loop diuretic, one metoprolol form and one proton pump inhibitor. Consider stopping ibuprofen.
+
+{{< verdict >}}Passed its checks. 66 of 66 drug pairs screened. 7 of 7 label quotes were found word for word.{{< /verdict >}}
 {{< /lumen >}}
 {{< /chat-demo >}}
+{{< /screenshot >}}
 
-**You should see:** each lookup complete with a live tool step — and anything Lumen *couldn't* verify flagged explicitly rather than papered over. It doesn't invent interactions or renal thresholds; it looks them up.
-{{< /step >}}
+Each pair is marked **Label mention**, **No label mention** or **Not screened**. A pair is **Not screened** when Lumen couldn't load one of the labels. The review says how many weren't screened, and it never calls a list "safe".
 
-{{< step num="3" title="Review the reconciled list and the rationale" >}}
-The draft arrives structured, not as prose: medications to **continue**, proposed **changes** (each with the reason — duplication resolved, interaction avoided, renal adjustment), and items to **confirm** — the questions only you or the patient can answer, like which diuretic the SNF actually intended and whether anyone is still taking the ibuprofen.
+## Check the result
 
-**You should see:** an indication attached to every drug, a source citation for every conflict ("SNF MAR says X, discharge summary says Y"), and no silent decisions — where the sources disagree, the disagreement is shown, not quietly resolved.
-{{< /step >}}
+{{< lui-block title="Before the list reaches the chart" >}}
+{{< lui-rows >}}
+{{< lui-row type="check" title="Every source line appears" body="Each medicine shows the line it was taken from. Nothing from your lists is missing." >}}
+{{< lui-row type="check" title="Each medicine matched the right label" body="Look for Wrong label or No label found, and correct the name if needed." >}}
+{{< lui-row type="check" title="No pair is left Not screened" body="If some are, check those pairs in your usual drug reference." >}}
+{{< lui-row type="check" title="The kidney inputs are right" body="Age, sex, weight and creatinine match the chart, and the renal rules use them." >}}
+{{< lui-row type="check" title="Each proposal has a prescriber decision" body="Proposals are suggestions. A prescriber accepts or rejects each one." >}}
+{{< lui-row type="check" title="A pharmacist or prescriber has reviewed the final list" >}}
+{{< /lui-rows >}}
+{{< /lui-block >}}
 
-{{< step num="4" title="Answer the open questions" >}}
-Fill in what only you know, in the same chat:
+## Tips
 
-```text
-The torsemide switch was intentional at the last discharge — drop
-furosemide. Family confirms he stopped ibuprofen last month. Keep
-omeprazole, not pantoprazole. Endocrine is deprescribing glipizide
-this admission — remove it and note why.
-```
+- **Label every source.** "Facility record says 40 mg, discharge summary says 20 mg" is a finding. One merged list hides it.
+- **Give the indication** when dosing depends on it. Apixaban's dose rules for atrial fibrillation differ from those for treating a clot.
+- **Tell Lumen your source order** if you have one: `Treat the discharge summary as current unless the pharmacy fills say otherwise.`
+- **Over-the-counter drugs and supplements** are often missing from every list. Ask the patient or family, and add them.
 
-**You should see:** the list update in place — furosemide retired with the rationale recorded, the interaction flag cleared with a note, and the change log growing so the next clinician can see *why* each decision was made, not just what it was.
-{{< /step >}}
+## Limits and safety
 
-{{< step num="5" title="Export the reconciled list" >}}
-When the list is right:
-
-```text
-Export this as a one-page medication reconciliation document — final
-list first, change log with rationale second.
-```
-
-**You should see:** a download card for a formatted document (Word or PDF — your choice). See [Creating Documents](/tools/document-generation/) for the other formats Lumen can produce.
-{{< /step >}}
-
-</div>
-
-{{< callout type="important" >}}
-**Decision support, not a decision.** Lumen verifies against RxNorm and FDA sources, but the final medication list is a prescribing decision — review every change against your institution's pharmacy resources before it reaches the chart.
+{{< callout type="safety" title="A screen, not a prescribing decision" >}}
+The review screens the text of FDA labels. It isn't a full interaction database, and it doesn't check Beers or STOPP criteria. A pair with no label mention can still interact. Every change is a prescribing decision, so check it against your pharmacy resources before it reaches the chart. Don't enter patient identifiers. See [Privacy and data](/trust/privacy/).
 {{< /callout >}}
 
-## Troubleshooting
+- **Proposals start with "Consider".** Lumen never writes orders.
+- **Missing inputs aren't guessed.** Without a weight, sex or creatinine, kidney-based checks show **Cannot assess**.
+- **Combination products** may not match a single label. Check those by hand.
 
-- **A brand name and its generic show up as two different drugs.** They shouldn't — RxNorm normalization catches these. Ask *"show me how you mapped each entry to its RxNorm name"* and you'll see the resolution table; correct any entry that mapped wrong.
-- **Lumen asks which source should win instead of deciding.** That's deliberate. Source conflicts (SNF says 40 mg, discharge says 20 mg) are clinical judgment calls, not lookups. Tell it your source hierarchy — *"treat the discharge summary as authoritative unless the pharmacy fills contradict it"* — and it will apply that rule consistently.
-- **The interaction list is overwhelming.** Fourteen drugs generate many minor pairs. Say *"rank interactions by severity and show only moderate and above, with management recommendations"* — the full list stays available if you want it.
+## FAQ
+
+{{< faq question="Does Lumen decide which list is right?" >}}
+No. It shows where the lists disagree and quotes each source. You or the prescriber decide, and you can tell Lumen the decision so the final list and change log reflect it.
+{{< /faq >}}
+{{< faq question="Is this the same as an interaction checker?" >}}
+Not quite. Lumen screens every pair for mentions in the FDA labels and quotes the label text. That catches many interactions but not all of them. If no label mentions a pair, that doesn't prove the drugs are safe together.
+{{< /faq >}}
+{{< faq question="Which kidney equation does it use?" >}}
+Whichever one the label names. Lumen computes Cockcroft-Gault creatinine clearance or CKD-EPI 2021 eGFR from the values you give, and it doesn't swap one for the other.
+{{< /faq >}}
 
 ## Next steps
 
-- **Med changes feed the discharge paperwork:** [Write a Discharge Summary in 5 Minutes](/guides/discharge-summary/) — the reconciled list drops straight into the med-changes section.
-- **Curious how those lookups actually work?** [How AI uses tools](/learn/tool-use/) explains why Lumen checks databases instead of reciting from memory.
-- **All the medication tools in one place:** [Medication Questions](/tools/medications/) — interactions, renal dosing, RxNorm, FDA labels and recalls.
+{{< related "/skills-and-specialists/specialists/medication-review/" "/guides/discharge-summary/" "/tools/medications/" "/getting-started/check-interaction/" >}}

@@ -1,74 +1,95 @@
 ---
-title: "AI Prior Authorization Assistant"
-description: "How Lumen's AI prior authorization assistant builds submission-ready requests — ICD-10 and CPT codes, CMS coverage criteria, evidence, and the letter."
-lead: "Type @Prior Authorization and hand over the paperwork: it looks up the codes, pulls the coverage policy, gathers the evidence, and drafts the letter — you review and submit."
+title: "Prepare a prior authorization packet"
+navTitle: "Prior Authorization"
+description: "The Prior Authorization specialist maps the payer's criteria to chart evidence, looks up the codes, and drafts a packet or appeal for you to review and send."
+lead: "Give Prior Authorization the requested service, the payer and the chart notes. It finds the coverage criteria, marks each one against quoted chart evidence, confirms the codes, and drafts the packet."
 weight: 1
+icon: file-check
+who: "physicians, billing and utilization staff"
 keywords: ["AI prior authorization", "prior authorization AI assistant", "prior auth automation", "medical necessity letter AI", "denial appeal AI"]
+glance:
+  what: "Prior Authorization is a Lumen specialist that prepares prior-auth requests, denial appeals and peer-to-peer talking points, with the payer's criteria quoted and matched to chart evidence."
+  who: "Physicians, advanced practice providers, and billing, utilization review and front-office staff."
+  why: "To see at a glance which coverage criteria the chart supports and which are missing, before you submit, so fewer requests come back denied."
+  needs: "A Lumen account on any plan. The requested service, the payer and plan, and the relevant chart notes. About 5 minutes, plus your review."
+  result: "A prior-auth packet for your review: criteria marked met, not met or unknown with quoted evidence, confirmed codes, and a draft letter."
 ---
 
-Prior authorization is the least clinical hour of your week. The medicine is usually settled — you know the patient needs the MRI, the biologic, the procedure. What eats the hour is everything around it: the right ICD-10 and CPT codes, the payer's coverage criteria, the evidence citations, and a letter that ties them together in the order a reviewer expects.
+Prior authorization is mostly matching: what the payer requires against what the chart shows. **Prior Authorization** does that matching for you. It loads the coverage criteria, such as a Medicare National Coverage Determination or the payer policy you attach, quotes each criterion, and marks it met, not met or unknown using quoted evidence from your notes. It confirms ICD-10 and CPT codes by lookup, and drafts the letter. Sending it stays with you.
 
-The Prior Authorization Specialist does that assembly for you. You describe the case; it returns a submission-ready package. What used to be an evening of portal archaeology becomes a few minutes of review.
+## Before you start
 
-## What it does, end to end
+- **Plan:** any plan.
+- **Have ready:** the requested service, the payer and plan, and the chart notes that support it (for example, the last two office notes and any imaging or therapy records).
+- **For commercial payers:** attach the payer's policy if you have it. Without the criteria in hand, Prior Authorization won't mark any criterion met or not met.
+- Use fictional or de-identified details unless your organization permits patient information in Lumen.
 
-Think of it as four steps a good billing colleague would take, run in sequence without you asking:
+## How to prepare a packet
 
-1. **Codes.** It looks up the diagnosis in ICD-10 and the requested service in CPT or HCPCS — real lookups against the code databases, not from memory. If a code is ambiguous, it shows you the candidates instead of guessing.
-2. **Coverage.** It checks CMS coverage policies — National and Local Coverage Determinations — for the criteria that actually decide approval, and maps your patient's documented history against them.
-3. **Evidence.** It searches PubMed for the studies and guidelines that support medical necessity, so the rationale cites literature a reviewer can verify.
-4. **The letter.** It assembles everything into a structured request: diagnosis with its code, requested service with its code, a medical-necessity rationale tied to the coverage policy, and the supporting evidence — exportable as a polished PDF.
+{{< steps >}}
+{{< step title="Open Prior Authorization" >}}Click **Explore**, choose **Specialists**, click **Prior Authorization**, then **Open Prior Authorization**. Or type `@Prior Authorization` in any chat.{{< /step >}}
+{{< step title="Pick the task" >}}Under **Start with**, click **Prepare a prior auth**. For a denied claim, click **Write an appeal** instead.{{< /step >}}
+{{< step title="Fill in the form" >}}Enter the **Requested service**, for example "MRI lumbar spine for L5-S1 radiculopathy", and the **Payer and plan**, for example "Medicare fee-for-service". For an appeal, add the **Denial reason** as the payer wrote it.{{< /step >}}
+{{< step title="Attach the chart notes" >}}Click **Continue to attach files**, add the notes and any payer policy, then send.{{< /step >}}
+{{< step title="Review the packet" >}}Open the packet. Look first at any criterion marked unknown or not met, and at codes flagged to confirm. Add what's missing and ask Lumen to update it.{{< /step >}}
+{{< /steps >}}
 
-One rule holds through all four steps: **it never invents codes or coverage language.** Anything it can't verify with a lookup is flagged clearly for you to confirm before submission.
+## What you'll see
 
-## A worked example
+{{< chat-demo title="Lumbar MRI prior auth" specialist="Prior Authorization" caption="Illustration with a fictional patient. Check the criteria against the payer's current policy before you submit." >}}
+{{< user attach="ortho-notes.pdf" >}}Prior auth for MRI lumbar spine without contrast. 52M, L5-S1 radiculopathy, 6 weeks of physical therapy and NSAIDs without improvement. Commercial payer policy attached.{{< /user >}}
+{{< lumen tools="ICD-10 codes retrieved, CPT codes retrieved, Document read, Saved and checked" sources="3" >}}
+{{< task-strip >}}
+{{< task state="done" label="Read the payer policy and quoted its criteria" >}}
+{{< task state="done" label="Matched each criterion to the notes" >}}
+{{< task state="done" label="Confirmed the codes by lookup" >}}
+{{< task state="done" label="Saved the packet and checked its quotes" >}}
+{{< /task-strip >}}
 
-{{< chat-demo title="Chat" >}}
-{{< user >}}@Prior Authorization — prepare a prior auth for a lumbar spine MRI. L5-S1 radiculopathy, six weeks of documented failed conservative care (NSAIDs + PT).{{< /user >}}
-{{< lumen >}}Here's the submission-ready package:
+| Criterion (quoted from the policy) | Status | Chart evidence |
+|---|---|---|
+| Radicular symptoms {{< cite 1 >}} | Met | "pain radiating down the left leg to the lateral foot" {{< cite 2 >}} |
+| At least 6 weeks of conservative therapy {{< cite 1 >}} | Met | "PT twice weekly since 9/2, NSAIDs" {{< cite 2 >}} |
+| Neurological exam documented {{< cite 1 >}} | Unknown | No reflex or strength exam found in the notes |
 
-**Diagnosis:** Lumbar radiculopathy, L5-S1 — **ICD-10 M54.17** (radiculopathy, lumbosacral region)
+**Codes:** CPT 72148 (MRI lumbar spine without contrast) and ICD-10-CM M54.17 (radiculopathy, lumbosacral region), both confirmed by lookup {{< cite 3 >}}.
 
-**Requested service:** MRI lumbar spine without contrast — **CPT 72148**
+**One criterion is unknown.** Add the neurological exam to the notes before you submit.
 
-**Coverage criteria met:** The applicable coverage policy requires ≥6 weeks of conservative therapy before advanced imaging for low back pain with radiculopathy. Your documentation shows 6 weeks of NSAIDs and physical therapy without improvement — criterion satisfied. No red-flag exception needed.
-
-**Medical-necessity rationale:** Drafted, citing the failed conservative course, persistent radicular findings, and guideline support for MRI when symptoms persist beyond 6 weeks.
-
-**Flagged for you to confirm:** the ordering provider's NPI and the payer's specific plan name.
-
-Ready to export as a PDF for the portal — want the appeal-ready version too, in case it's denied?{{< /lumen >}}
+{{< verdict >}}Passed its checks: each criterion is quoted from the policy, and each met criterion quotes the chart.{{< /verdict >}}
+{{< /lumen >}}
 {{< /chat-demo >}}
 
-The example is fictional, but the shape is exactly what you get: codes with their sources, the coverage logic spelled out, and open items flagged rather than filled in.
+## Tips
 
-{{< callout type="warning" >}}
-**Before you paste real chart details** — remove direct identifiers first. The Specialist needs the clinical facts (diagnosis, history, prior treatment), never the name or MRN. Lumen is built with HIPAA safeguards — encryption at rest and audit logging — and Pro plans add [de-identification tools](/tools/privacy/) that pseudonymize text before the AI sees it.
+- Paste the denial letter's exact wording for an appeal. The specialist answers the stated reason point by point.
+- Ask for peer-to-peer prep in the same chat: "Give me three talking points for the peer-to-peer."
+- Ask for the letter as a document, for example "Make the letter a Word document."
+- To look up one code, you don't need the specialist. See [Find a code](/getting-started/find-a-code/).
+
+## Limits and safety
+
+- The packet is a draft for you to review and edit. Prior Authorization never sends it to the payer.
+- A criterion is only marked met or not met when the payer's criteria are loaded. Without them, it stays unknown.
+- Coverage policies change. Confirm you're working from the payer's current policy.
+- Codes are confirmed by lookup, but choosing the right code for the service is your decision.
+
+{{< callout type="safety" title="Only claim what the chart supports" >}}
+Every statement in a prior authorization must be true and documented. Check each quoted piece of evidence against the chart before you sign or submit.
 {{< /callout >}}
 
-## When it saves the most time
+## FAQ
 
-- **Imaging and procedures with conservative-care requirements** — the MRI, the injection, the surgery where approval hinges on documenting what was tried first. The Specialist knows to lead with that timeline.
-- **Specialty drugs with step-therapy criteria** — biologics and other high-cost agents where the request must show which preferred agents failed and why.
-- **Denials.** Paste the denial letter and it drafts a point-by-point appeal, matching each denial reason against your documentation and the coverage policy — the [Insurance Appeal skill](/skills-and-specialists/skills/#insurance-appeal) comes pre-loaded.
-- **Peer-to-peer prep.** Before the call with the payer's medical director, it builds your talking points: the criteria, where your case meets them, and the citations — via the [Peer-to-Peer Prep skill](/skills-and-specialists/skills/#peer-to-peer-prep).
-
-## What's under the hood
-
-Picking `@Prior Authorization` pre-loads three Skills — [Prior Authorization](/skills-and-specialists/skills/#prior-authorization), [Insurance Appeal](/skills-and-specialists/skills/#insurance-appeal), and [Peer-to-Peer Prep](/skills-and-specialists/skills/#peer-to-peer-prep) — and points Lumen at the tools this work needs: [ICD-10, CPT, and HCPCS lookup, CMS coverage policies](/tools/coding-labs/), [PubMed](/tools/literature-research/), the NPI provider directory, and PDF creation for the final package.
-
-You don't manage any of that. It's simply what "hand the job to the prior-auth expert" means.
-
-## The honest limits
-
-Lumen prepares; **you review and submit.** The Specialist doesn't log into payer portals, doesn't submit on your behalf, and doesn't know a specific plan's internal criteria beyond what's in public CMS policy — commercial payers vary, and their portal is still yours to drive. Treat the output the way you'd treat a strong draft from your best billing coordinator: nearly done, but your signature means you checked it.
+{{< faq question="Which payers does it know?" >}}
+It can load Medicare coverage policies (National and Local Coverage Determinations) itself. For commercial payers, attach the payer's policy so it can quote the criteria.
+{{< /faq >}}
+{{< faq question="Can it submit the request for me?" >}}
+No. Submitting is your act, through the payer's portal or your usual process.
+{{< /faq >}}
+{{< faq question="Does it predict whether the payer will approve?" >}}
+No. The packet lists denial-risk reasons it found, such as a criterion with no chart evidence. It isn't a prediction of the payer's decision.
+{{< /faq >}}
 
 ## Next steps
 
-- Walk through a full request in the tutorial: [Prior auth in minutes](/guides/prior-auth-in-minutes/)
-- Fighting a denial right now? [Appeal a denial](/guides/appeal-a-denial/)
-- See the code lookups it relies on: [Coding & labs tools](/tools/coding-labs/)
-
-{{< cta heading="Draft your next prior auth with Lumen" href="/getting-started/" label="Get started free" variant="subtle" >}}
-Type @ in any chat, pick Prior Authorization, and describe the case — the package comes back in minutes.
-{{< /cta >}}
+{{< related "/guides/prior-auth-in-minutes/" "/guides/appeal-a-denial/" "/tools/coding-labs/" "/skills-and-specialists/verified-results/" >}}

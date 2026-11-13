@@ -1,65 +1,105 @@
 ---
-title: "Folders & Departments: Organize Clinical Work"
-description: "How folders and departments organize documents in Lumen — personal vs shared folders, folder sources, scoped chat context, and ownership."
-lead: "Put a protocol in the right folder once, and everyone who needs it — including Lumen — knows where to find it."
-weight: 1
+title: "Organize and share work with folders"
+navTitle: "Folders"
+description: "Use folders to group documents, web sources and chats, share them with your department or team, and have chats in a folder answer from its files first."
+lead: "Put the protocol in the right folder once, and everyone who needs it, including Lumen, knows where to find it."
+weight: 2
+icon: folder
+glance:
+  what: "Folders group documents, web pages, chats and artifacts. In a team, a folder can be shared so colleagues' chats can cite what's in it."
+  who: "Any Lumen user. Sharing needs a team (Lumen's word for an organization)."
+  why: "One agreed place for current material means colleagues get answers from the same policy, not an old copy."
+  needs: "A Lumen account. A team account to share. About 5 minutes."
+  result: "A folder with documents and sources, shared with the right people."
 ---
 
-Think of folders the way you think of a well-run unit's document binder: one agreed place for the current central line protocol, so nobody works from the copy someone printed in 2023. In Lumen, folders do that job — and because Lumen reads them, organizing your documents also organizes what Lumen can cite.
+Every unit has a binder with the current protocols in it. A Lumen folder does the same job, and because Lumen reads it, a chat inside the folder answers from those files first. Share a folder with your department, and their answers can cite it too.
 
-## The hierarchy
+## Before you start
 
-Lumen organizes shared knowledge in three levels:
+- **A Lumen account** for personal folders.
+- **A team account** to share folders. *Team* is Lumen's word for an organization, and a team can have departments.
+- **The documents** you want to put in it. See [Documents](/knowledge/documents/).
 
-- **Organization** — your hospital, practice, or company. The outer boundary: nothing inside is visible to anyone outside it.
-- **Department** — a unit within the organization (Vascular Access, Pharmacy, Quality). Departments group the people and folders that belong together.
-- **Folder** — where documents actually live. Folders can contain subfolders, so "Policies" can hold "Infection Prevention" which holds "Central Lines."
+## How to create and fill a folder
 
-You don't have to use all three levels. A solo clinician can work entirely in personal folders; a large health system can mirror its org chart.
+{{< steps >}}
+{{< step title="Find your folders" >}}In the sidebar, find the **Folders** section of your chat history.{{< /step >}}
+{{< step title="Create a folder" >}}Click **New folder** and name it for what belongs in it, such as "PICC and midline policies".{{< /step >}}
+{{< step title="Add documents" >}}Open the folder's **Documents** tab and click **Add Documents**. You can also use **Move to folder** from My documents.{{< /step >}}
+{{< step title="Add web pages (optional)" >}}Open the **Sources** tab, click **Add URL**, enter the **URL** and an optional **Title (optional)**, then click **Add source**. Lumen fetches the page and indexes it. Use **Re-scrape now** when the page changes.{{< /step >}}
+{{< step title="Chat inside the folder" >}}Click **New Chat** in the folder. Chats inside a folder answer from its files first.{{< /step >}}
+{{< /steps >}}
 
-## Personal folders vs shared folders
+## How to share a folder
 
-**Personal folders** live in your own library. Only you see them — they're the right place for your reading list, drafts, and working notes.
+{{< steps >}}
+{{< step title="Open sharing" >}}In the folder, click **Share** (it reads **Manage access** once the folder is shared).{{< /step >}}
+{{< step title="Add people" >}}Under **Add from team**, choose colleagues and click **Add**.{{< /step >}}
+{{< step title="Set their role" >}}Choose **Editor** (can add and organize) or **Viewer** (can read and search). The folder has one **Owner**.{{< /step >}}
+{{< /steps >}}
 
-**Shared folders** belong to an organization or a department. Everything in one is visible to the folder's members, and that's the point:
+To share with a whole department, open the folder's menu, choose **Move to department…**, and pick **Whole team** or a department. A department-scoped folder is only visible to that department.
 
-> Putting a document in a shared folder means your teammates' Lumen can cite it. When a colleague asks a question that your uploaded policy answers, Lumen finds the passage and cites it — with the document name attached — even though *you* were the one who uploaded it.
+## What you'll see
 
-This is the difference between "I emailed everyone the new protocol" and "the new protocol is where everyone's answers come from."
+{{< screenshot src="folders" alt="A shared folder with tabs for Overview, Documents, Sources, Artifacts, Memories and Packs, and buttons for New Chat, Run Workflow and Manage access" caption="A shared folder. Chats started here answer from its files first." url="lumen.intracav.ai/folders" >}}
+{{< lui-block title="PICC and midline policies" sub="Vascular Access · Overview · Documents · Sources · Artifacts · Memories · Packs" >}}
+{{< lui-rows >}}
+{{< lui-row title="Midline Catheter Policy — Med-Surg.pdf" body="Document" >}}
+{{< lui-row title="PICC dressing change procedure.docx" body="Document" >}}
+{{< lui-row title="SL-4 securement device IFU (manufacturer page)" body="Web source" >}}
+{{< /lui-rows >}}
+{{< lui-actions "New Chat" "Run Workflow" "Manage access" >}}
+{{< /lui-block >}}
+{{< /screenshot >}}
 
-{{< callout type="info" >}}
-**Sharing is by folder, not by file.** Share a folder once and everything in it — including documents added later — is searchable by its members. Remove a document from the folder and it stops appearing in their results.
-{{< /callout >}}
+## The folder tabs
 
-## Folder sources: attach a URL
+| Tab | What's in it |
+|---|---|
+| **Overview** | A summary of the folder. |
+| **Documents** | Uploaded files, available as context for every chat in the folder. |
+| **Sources** | Web pages Lumen fetched and indexed. |
+| **Artifacts** | Documents Lumen made in the folder's chats. |
+| **Memories** | Memories linked to this folder. |
+| **Packs** | Default Knowledge Packs for chats created in this folder. Individual chats can still override them. |
 
-Folders can hold more than uploads. Attach a **source URL** to a folder — a guideline page, a manufacturer's IFU page, a society recommendation — and Lumen fetches the page, extracts the content, and indexes it alongside the folder's documents. You can re-fetch a source when the page changes, so the folder tracks the living document instead of a stale snapshot.
+## Roles
 
-## Chatting inside a folder
+| Role | Can |
+|---|---|
+| **Owner** | Everything, including sharing, **Transfer ownership** and **Delete folder**. |
+| **Editor** | Add, move and organize documents and sources. |
+| **Viewer** | Read and search. Folders shared with the whole team give everyone Viewer by default. |
 
-Open a chat from within a folder and that folder becomes the working context: Lumen searches the folder's documents and sources first when answering. It's the difference between asking a colleague a general question and asking them while you're both standing in front of the unit's protocol binder.
+Deleting a folder doesn't delete what's in it. Its items go back to being unfiled. Non-owners can **Request deletion**.
 
-Use this when you want answers grounded in *one* body of material — a specific policy set, one device's documentation, a single project's files.
+## Tips
 
-## Moving documents
+- **One folder, one purpose.** A name like "2026 journal club" tells everyone what belongs there.
+- **Use web sources for living pages.** A manufacturer's IFU page or a society guideline page can change. Add it as a source and use **Re-scrape now** to refresh it.
+- **Move, don't copy.** Moving a document into a shared folder is how you make it citable for the team.
 
-Documents aren't locked to where they were uploaded. You can move a document from one folder to another — from a personal folder into a shared one when it's ready for the team, or between shared folders when it's filed in the wrong place. Access follows the destination: move a document into a shared folder and members can now find it; move it out and they can't.
+## Limits and safety
 
-Folders themselves can be moved too, subfolders and contents together.
+- **Sharing needs a team.** Personal accounts have personal folders only.
+- **Access follows the folder.** Move a document out of a shared folder and colleagues can no longer find it.
+- **Shared isn't verified.** Anyone with edit access can add documents. Keep the folder current, and remove superseded versions so Lumen doesn't cite them.
+- **Watch what you share.** Don't put patient information in shared folders.
 
-## Ownership and roles
+## FAQ
 
-Every shared folder has an **owner** — usually the person who created it. Members can be granted edit access (add and organize documents) or view access (search and read). Owners can:
-
-- add and remove members, and change their access level
-- **transfer ownership** to a colleague — the folder, its contents, and its membership carry over intact, which matters when someone changes roles or leaves
-
-{{< tip title="One folder, one purpose" >}}
-Folders work best when their name answers "what belongs here?" without explanation — *PICC Policies*, *2026 Journal Club*, *Onboarding — New Hires*. If you're tempted to name a folder "Misc," it probably wants to be two folders.
-{{< /tip >}}
+{{< faq question="If I share a folder, can colleagues' chats cite my documents?" >}}
+Yes. That's the point of sharing. When a colleague's question is answered by a document in a folder they can see, Lumen can cite it.
+{{< /faq >}}
+{{< faq question="What happens to a shared folder if I leave the organization?" >}}
+Transfer it first: open **Manage access** and choose **Transfer ownership?**. You become an Editor and the new owner takes over.
+{{< /faq >}}
+{{< faq question="What does Run Workflow do?" >}}
+It opens [Workflows](/workflows/) from the folder, so you can run a workflow on the folder's material.
+{{< /faq >}}
 
 ## Next steps
 
-- [Documents, sources & exports](/knowledge/documents/) — what happens when you upload, and how to search
-- [Knowledge Packs](/knowledge/knowledge-packs/) — curated, version-pinned content your whole organization can cite
-- [Organizations](/organizations/) — setting up departments and managing members
+{{< related "/knowledge/documents/" "/knowledge/knowledge-packs/" "/organizations/departments-and-seats/" >}}

@@ -1,92 +1,127 @@
 ---
-title: "Run an AI Literature Review with Citations"
-description: "Ask a clinical question, get a cited evidence synthesis from PubMed, trials, and guidelines — then drill down and export. Step-by-step guide."
+title: "Run a literature review with citations"
+navTitle: "Literature review"
+description: "Ask a focused clinical question and get a reproducible evidence review: real PubMed searches, screened studies and effects quoted from the abstracts."
+lead: "Give the Clinical Research Specialist a focused question. Lumen runs the PubMed searches itself, screens what comes back and quotes every effect from the abstract it came from."
 weight: 5
-audience: clinician
-time: "~10 minutes"
+icon: library
+who: "clinicians, educators and committee members"
 keywords: ["AI literature review", "evidence synthesis with citations", "PubMed AI search"]
+glance:
+  what: "A step-by-step way to get a cited, reproducible review of the published evidence on a clinical question with Lumen's Clinical Research Specialist."
+  who: "Clinicians, nurse educators, pharmacists and committee members who need to know what the literature says."
+  why: "A committee decision needs evidence you can check. Lumen records the exact searches it ran, which studies it kept and why, and quotes every number from its source, so anyone can re-run or challenge it."
+  needs: "Any Lumen plan. A focused question with a population, an intervention, a comparison and outcomes. About 10 to 15 minutes."
+  result: "An evidence review with the searches, the screened studies, an evidence table of quoted effects and a written summary, exportable as a Word document."
 ---
 
-## What you'll make
-
-A structured, cited evidence review of a real clinical question — *"Does early mobilization reduce complications after central line placement?"* — that you can defend at committee. Lumen searches PubMed, ClinicalTrials.gov, and guideline sources, reads what it finds, grades the evidence, and writes a synthesis with inline citations you can verify. You'll finish by narrowing the results and exporting the review as a document.
-
-Think of it as sending a very fast research resident to the library: they come back in minutes with the studies, the quality assessment, and a written summary — and every claim has a reference you can check.
-
-{{< callout type="important" >}}
-**What this is — and isn't.** This is a rapid evidence scan: excellent for orientation, committee prep, and deciding whether a question deserves deeper work. It is **not** a substitute for a formal systematic review with a registered protocol, dual screening, and exhaustive search. Treat it the way you'd treat a sharp colleague's overnight summary — verify before you cite.
-{{< /callout >}}
+Your vascular access committee wants to know whether peripheral IV catheters should be replaced on a schedule or only when there's a clinical reason. A textbook answer won't settle it. The committee needs the trials. Lumen's **Clinical Research Specialist** runs the PubMed searches itself and records each search with its date and hit count. It screens the records that come back and builds an evidence table in which every effect is quoted from the study's abstract. The result is a review someone else can re-run and check.
 
 ## Before you start
 
-- **A focused question.** "Tell me about central lines" produces a textbook chapter; a question with a population, an intervention, and an outcome produces a review. If your question is still fuzzy, the [PICO Builder skill](/skills-and-specialists/skills/) will sharpen it — that's literally its job.
-- **A few minutes of patience.** The [Clinical Research Specialist](/skills-and-specialists/specialists/) runs at high autonomy — it may take many search-and-read steps before writing. Watching the tool chips appear is normal.
-- **Web search left on** (the toggle near the message box), so Lumen can reach guideline sources beyond PubMed.
+- **Plan:** any Lumen plan. Pro adds searches of ClinicalTrials.gov and deeper web research.
+- **A focused question.** State the population, the intervention, the comparison and the outcomes you care about. This structure is called *PICO*. "Tell me about IVs" gets you a textbook chapter. A PICO question gets you a review.
+- **Time:** about 10 to 15 minutes. The Specialist searches and reads before it writes.
 
-## The steps
+A *Specialist* is a Lumen assistant set up for one kind of work. It follows a fixed checklist and saves a result that Lumen checks before you see it.
 
-<div class="steps-container">
+## How to run the review
 
-{{< step num="1" title="Call the Clinical Research Specialist with a focused question" >}}
-Type `@` in any chat, pick **Clinical Research**, and ask the question with its parts spelled out:
+{{< steps >}}
+{{< step title="Sharpen the question (optional)" >}}
+If your question is still loose, type `/` in the message box and choose **PICO Builder** from the **Skills** list. Then describe the question in your own words. Lumen turns it into a PICO question you can use in the next step.
 
-```text
-@Clinical Research — In adult inpatients with a central venous catheter,
-does early mobilization (vs. activity restriction) reduce complications
-such as thrombosis, infection, or catheter dislodgement? Synthesize the
-evidence with inline citations and grade its quality.
-```
-
-**You should see:** the Specialist's chip appear on your message, then a series of tool steps — PubMed searches, ClinicalTrials.gov lookups, guideline retrieval — before any prose. That pre-writing search phase is the point: it reads first, writes second.
-
-If your question is fuzzier than this one, run the [PICO Builder skill](/skills-and-specialists/skills/) first: *"Help me frame a PICO question about mobility restrictions after central line placement"* — then feed the structured question to the Specialist.
+{{< composer menu="skills" text="/" items="PICO Builder|Formulate clinical questions in structured PICO format;Literature Review|Systematic literature search and evidence synthesis;Evidence Grader|Grade quality of evidence using GRADE framework" >}}
 {{< /step >}}
-
-{{< step num="2" title="Read the synthesis — citations first" >}}
-When the searching settles, Lumen writes the review: what the evidence shows, how strong it is, and where it's thin.
-
-**You should see:** a structured synthesis with inline citations next to each claim, evidence-quality notes (the [Evidence Grader skill](/skills-and-specialists/skills/) applies the GRADE framework), and an honest gaps section — the studies that *don't* exist yet matter as much as the ones that do. Tap any citation to verify the source; that habit is the whole game.
+{{< step title="Choose the Clinical Research Specialist" >}}
+Start a new chat. Type `@` and choose **Clinical Research** from the **Specialists** list.
 {{< /step >}}
+{{< step title="Ask the question" >}}
+Type the question with its parts spelled out, then press **Send**:
 
-{{< step num="3" title="Drill down with follow-ups" >}}
-The first synthesis is a map, not the destination. Narrow it:
-
-```text
-Limit the synthesis to randomized controlled trials in adults.
-Any relevant preprints or trials still recruiting?
-```
-
-**You should see:** a revised summary scoped to RCTs, with lower-quality evidence set aside rather than silently blended in — plus any registered trials or preprints flagged as such, clearly separated from peer-reviewed results.
-
-Other follow-ups worth trying: *"What do the current vascular access guidelines say?"*, *"Which single study would you rank as most decision-relevant, and why?"*
+{{< composer text="@Clinical Research in adults with peripheral intravenous catheters, does replacing the catheter only when clinically indicated, compared with routine replacement every 72 to 96 hours, change rates of phlebitis, catheter-related bloodstream infection or infiltration? Randomized trials and systematic reviews." >}}
 {{< /step >}}
-
-{{< step num="4" title="Export the review as a document" >}}
-When the synthesis says what you need it to say:
-
-```text
-Export this review as a formatted document for the vascular access
-committee — include the citation list and the evidence grades.
-```
-
-**You should see:** a document card appear in the chat. Open it, then use **Download** to save it as a file you can print or attach to the meeting agenda. The full citation list rides along, so anyone on the committee can check your sources.
+{{< step title="Let the Specialist search and screen" >}}
+You'll see **Searching PubMed** several times, then **Checking and saving**. Lumen runs each search on PubMed itself and records the query, the date and the number of hits. You can close the tab while it works.
 {{< /step >}}
+{{< step title="Open the evidence review" >}}
+Click the **Evidence review** card to open it in the side panel. Read it in this order: the searches, then the included and excluded records, then the evidence table, then the summary.
+{{< /step >}}
+{{< step title="Narrow or widen it" >}}
+Ask follow-ups in the same chat. For example:
 
-</div>
+{{< composer text="Limit the evidence table to randomized trials. List any excluded record that looks relevant and say why it was excluded." >}}
+{{< /step >}}
+{{< step title="Export for the committee" >}}
+Type `Make this review a Word document for the committee, with the search list and the evidence table.` Open the document card and click **Download**.
+{{< /step >}}
+{{< /steps >}}
 
-{{< chat-demo title="Drilling into the evidence" >}}
-{{< user >}}Limit to RCTs in adults — does the effect on catheter-related thrombosis hold up?{{< /user >}}
-{{< lumen >}}Restricting to randomized trials thins the evidence considerably. The signal for reduced thrombosis comes mostly from observational cohorts; the RCT base is small, with wide confidence intervals — **low-certainty evidence** by GRADE. I've kept the observational findings in a separate section so the distinction stays visible. [Sources 3, 7, 11]{{< /lumen >}}
+## What you'll get
+
+{{< screenshot src="agents-deliverable" alt="An evidence review in Lumen's side panel with the PubMed searches, screened records and an evidence table" caption="An evidence review. Every effect in the table is quoted from the abstract it came from." url="lumen.intracav.ai" >}}
+{{< chat-demo title="Peripheral IV replacement" specialist="Clinical Research" caption="Illustration. Search counts and wording are examples." >}}
+{{< user >}}In adults with peripheral IV catheters, does clinically indicated replacement, compared with routine replacement every 72 to 96 hours, change phlebitis or bloodstream infection rates?{{< /user >}}
+{{< lumen thought="16" tools="Searched PubMed, Saved and checked" sources="9" >}}
+**Searches:** 3 PubMed searches, run today. Each query, date and hit count is listed in the review.
+
+**Records:** 9 included, 31 excluded with a reason, 0 unscreened.
+
+**Summary:** The included randomized trials and the systematic review that pooled them found no clear difference in phlebitis or catheter-related bloodstream infection between the two approaches. Each statement names the records it rests on, and the numbers are quoted in the evidence table.
+
+**Study design** comes from PubMed's publication types. None of the included records is flagged as retracted.
+
+**Limits:** abstracts only. Full texts weren't read.
+
+{{< verdict >}}Passed its checks. 14 of 14 quotes were found word for word in the PubMed abstracts.{{< /verdict >}}
+{{< follow-ups "Limit to randomized trials|Show the excluded records|Make this a Word document" >}}
+{{< /lumen >}}
 {{< /chat-demo >}}
+{{< /screenshot >}}
 
-## Troubleshooting
+The review doesn't assign a GRADE certainty rating such as "high-quality evidence". That judgment belongs to a guideline panel, outcome by outcome. If a source prints its own grade, Lumen quotes it and says where it came from.
 
-- **The answer feels generic, like a textbook chapter.** Your question was probably too broad. Add a population, a comparator, and an outcome — or run the PICO Builder skill first and resubmit the structured version.
-- **Very few results came back.** Some questions genuinely have thin literature — that's a finding, not a failure. Ask *"broaden the search — include observational studies and adjacent populations"* and Lumen will widen the net while labeling the weaker evidence as such.
-- **A citation doesn't seem to support the claim.** Say so in the chat — *"citation 4 doesn't support that sentence, re-check it"* — and Lumen will re-read the source and correct or retract the claim. Verifying citations is expected use, not an insult.
+## Check the result
+
+{{< lui-block title="Before you present it" >}}
+{{< lui-rows >}}
+{{< lui-row type="check" title="The searches match your question" body="Read each query. If a key term is missing, ask Lumen to add a search." >}}
+{{< lui-row type="check" title="The exclusions make sense" body="Every excluded record has a reason. Skim the list for anything you'd have kept." >}}
+{{< lui-row type="check" title="The key numbers match the abstracts" body="Open at least the studies the summary leans on most." >}}
+{{< lui-row type="check" title="Each summary statement names its studies" >}}
+{{< lui-row type="check" title="You've noted the limits" body="Abstracts only, and the number of searches is capped. Pull full texts for the studies that decide the question." >}}
+{{< /lui-rows >}}
+{{< /lui-block >}}
+
+## Tips
+
+- **One question per review.** If you have two questions, run two reviews.
+- **Ask for the search strings** so your librarian can extend them.
+- **Recruiting trials.** On Pro and higher, ask `Are there registered trials still recruiting on this question?` Lumen searches ClinicalTrials.gov and keeps those separate from published results.
+- **Thin evidence is a finding.** If very little comes back, say so in your report rather than widening the question until something appears.
+
+## Limits and safety
+
+{{< callout type="safety" title="A rapid review, not a systematic review" >}}
+This is a fast, reproducible scan of PubMed abstracts. It isn't a registered systematic review with dual screening and full-text appraisal. Use it to prepare and orient. Read the key papers in full before you change practice, and check the findings against your organization's policies.
+{{< /callout >}}
+
+- **PubMed only, abstracts only.** Studies not indexed in PubMed, or numbers that appear only in the full text, won't be included.
+- **Lumen reports retractions that PubMed flags.** It can't catch problems PubMed hasn't recorded.
+- **Quoted isn't the same as correct.** A matched quote shows what the abstract says. It doesn't show that the study was well done.
+
+## FAQ
+
+{{< faq question="Can someone else re-run my review?" >}}
+Yes. The review lists each PubMed query with the date it ran and the number of hits, and each included record by its PubMed ID. Anyone can run the same searches.
+{{< /faq >}}
+{{< faq question="Why doesn't Lumen grade the evidence?" >}}
+A GRADE rating is a structured judgment made by a panel for each outcome. Lumen reports study design from PubMed's publication types and quotes any grade a source prints. It doesn't invent one.
+{{< /faq >}}
+{{< faq question="Which plan do I need?" >}}
+Any plan. PubMed searching is included on Free. ClinicalTrials.gov searches and deeper web research need Pro. See [Plans](/plans/).
+{{< /faq >}}
 
 ## Next steps
 
-- [Upload & Analyze a Clinical PDF](/guides/analyze-a-document/) — put a full-text paper or guideline in front of Lumen and question it directly.
-- [RAG: How AI Cites Real Sources Instead of Guessing](/learn/rag-and-citations/) — why these citations are retrieved, not remembered.
-- [Research & Evidence tools](/tools/literature-research/) — the PubMed, trials, and FDA tools the Specialist reaches for.
+{{< related "/guides/deep-web-research/" "/guides/analyze-a-document/" "/tools/literature-research/" "/chat/sources/" >}}

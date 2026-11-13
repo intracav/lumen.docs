@@ -1,106 +1,117 @@
 ---
-title: "Your First Chat"
-description: "Open the app, ask a question, get an answer. Here's what to expect."
-weight: 1
-step: 1
+title: "Ask your first question"
+navTitle: "Your first question"
+description: "Sign in to Lumen, ask a clinical question in plain words, and learn to read the answer: the tool chips, the citations and the sources."
+lead: "If you can send a text message, you can use Lumen. This page takes you from signing in to checking your first cited answer."
+weight: 2
+icon: message
+glance:
+  what: "Your first conversation with Lumen: you ask a question in plain words, and Lumen answers with sources you can open and check."
+  who: "Anyone new to Lumen: clinicians, staff, and people evaluating it for a hospital or a device company."
+  why: "Learning to read one answer, including where it came from, is the skill everything else in Lumen builds on."
+  needs: "A web browser and a free account at lumen.intracav.ai. About 5 minutes."
+  result: "A cited answer, and the habit of opening a source before you rely on it."
 ---
 
-Using Lumen is like texting a very knowledgeable colleague. You ask a question in plain English, and Lumen gives you a clear answer backed by evidence. No menus, no dropdowns, no learning curve.
+Think of a question you'd normally look up or ask a colleague. Type it into Lumen the way you'd say it. Lumen looks the answer up in clinical sources, writes a reply, and numbers each claim so you can open the passage it came from. Learn to read that one answer and you know how most of Lumen works.
 
-## What You'll See When You Open Lumen
+## Before you start
 
-The screen is simple: a text box at the bottom, and an open space above where the conversation will appear.
+- **An account.** Go to [lumen.intracav.ai](https://lumen.intracav.ai) and sign up. The Free plan is enough for this page.
+- **A question.** Pick something you can judge, so you can see how Lumen handles it. A dosing, policy or practice question works well.
+- **No patient identifiers.** Don't type names, dates of birth or record numbers. Lumen doesn't need them to answer.
 
-<div class="chat-mockup" style="margin: 2rem 0;">
-  <div class="chat-mockup-header">
-    <div class="chat-mockup-avatar">&#10022;</div>
-    <div class="chat-mockup-title">New Chat</div>
-  </div>
-  <div class="chat-mockup-body" style="min-height: 120px; display: flex; align-items: center; justify-content: center;">
-    <div class="orb-container">
-      <div class="css-orb" style="width: 80px; height: 80px;"></div>
-    </div>
-  </div>
-  <div class="chat-mockup-input">
-    <div class="input-field">Message Lumen&hellip;</div>
-    <div class="send-btn">&#8593;</div>
-  </div>
-</div>
+## How to ask your first question
 
-That's it. The glowing orb means Lumen is ready and waiting for your question.
-
-## Try It
-
-<div class="steps-container">
-
-{{< step num="1" title="Type a question like you'd ask a colleague" >}}
-Tap the text box and type something you'd normally look up. Don't worry about formatting or medical jargon &mdash; write it however feels natural.
-
-Some good first questions:
-
-- *"What's the first-line treatment for new-onset A-fib with RVR?"*
-- *"Are there interactions between metformin and lisinopril?"*
-- *"Normal potassium range?"*
+{{< steps >}}
+{{< step title="Sign in and finish the welcome" >}}
+The first time you sign in, Lumen shows **Welcome to Lumen** and asks how you'll use it. Choose **Healthcare professional**, **Student**, **Managing my health** or **Medical device or pharma company**. You can change this later. Lumen then shows a sample answer under **Lumen in action**. Click **Start using Lumen**, then **Start chatting**.
 {{< /step >}}
-
-{{< step num="2" title="Hit Send" >}}
-Press **Enter** or tap the blue arrow. Your question appears on the right side in a blue bubble &mdash; just like a text message.
+{{< step title="Start a new chat" >}}
+Click **New Chat** at the top of the sidebar. The message box at the bottom says **Ask Lumen**.
 {{< /step >}}
+{{< step title="Type your question" >}}
+Write it as you'd ask a colleague. You don't need special wording. For example:
 
-{{< step num="3" title="Watch the answer come in" >}}
-Lumen starts working immediately. You might notice:
+*"How often should a peripheral IV be replaced in an adult if the site looks fine?"*
 
-- A brief **"Searching..."** message as it looks through clinical databases
-- A small progress indicator if it's running a tool (like checking drug interactions)
-- The answer **typing out in real time** &mdash; you can start reading right away, no need to wait for it to finish
+Press {{< kbd "Shift" "Enter" >}} if you want a new line.
 {{< /step >}}
-
-{{< step num="4" title="Read and verify" >}}
-The answer appears on the left. It will be in plain, readable text. If Lumen used sources, you'll see a **"Sources"** link you can tap to see exactly where the information came from.
-
-Sometimes you'll also see a **card** below the answer &mdash; this could be a drug interaction report, a lab reference table, or a checklist. Tap it to open the full details.
+{{< step title="Send it" >}}
+Press {{< kbd "Enter" >}}, or click the send arrow. While Lumen works, the send button becomes a stop button (**Stop generating**). You can start reading as soon as the first words appear.
 {{< /step >}}
+{{< step title="Watch what Lumen does" >}}
+Above the answer, Lumen shows its working. **Tool chips**, such as **Searched PubMed** or **Guidelines retrieved**, show which lookups it ran. When it's done, this folds into one line, such as **Thought for 6s · Used 2 tools**. Click the line to open it again.
+{{< /step >}}
+{{< step title="Open a source" >}}
+Numbers in the answer are citations. Below the answer, click the **sources** pill (for example, **3 sources**) to see the list, or **View all** to open the sources panel. Click **View original** to read the passage Lumen used. Check that it says what the answer says.
+{{< /step >}}
+{{< step title="Ask a follow-up" >}}
+Keep going in the same chat: *"What does our policy say?"* or *"Make that a one-page handout for new nurses."* Lumen remembers what you said earlier in the chat.
+{{< /step >}}
+{{< /steps >}}
 
-</div>
+## What you'll see
 
-## That's Really All There Is To It
+{{< screenshot src="chat-cited-answer" alt="A Lumen answer about peripheral IV replacement with numbered citations and a sources pill below" caption="A cited answer. Each number links to a passage in the sources listed below the answer." url="lumen.intracav.ai/chat" >}}
+{{< chat-demo title="Peripheral IV replacement" caption="Illustration of a Lumen answer. Real answers cite real, checkable sources." >}}
+{{< user >}}How often should a peripheral IV be replaced in an adult if the site looks fine?{{< /user >}}
+{{< lumen thought="6" tools="Guidelines retrieved, Searched PubMed" sources="3" >}}
+Current practice is to **replace a peripheral IV when there's a clinical reason**, not on a fixed schedule {{< cite 1 >}}.
 
-There's no training required. If you can describe what you need, Lumen will figure out the rest &mdash; which databases to search, which tools to run, and how to organize the answer.
+- Infusion nursing standards recommend removing a peripheral catheter when it's no longer needed or shows signs of a complication, such as phlebitis, infiltration or occlusion {{< cite 1 >}}.
+- The CDC guideline says adult peripheral catheters don't need to be replaced more often than every 72–96 hours, and treats routine versus clinically indicated replacement as an open question {{< cite 2 >}}.
+- A Cochrane review found no clear difference in phlebitis or bloodstream infection between the two approaches {{< cite 3 >}}.
 
-## Questions Worth Trying
+Assess the site at least once a shift, and follow your organization's policy.
 
-Here are a few things clinicians ask Lumen on a typical day:
+{{< follow-ups "What signs mean the IV should come out?|What does our policy say?|Make a one-page handout for new nurses" >}}
+{{< /lumen >}}
+{{< /chat-demo >}}
+{{< /screenshot >}}
 
-<div class="tool-grid">
-  <div class="tool-card">
-    <div class="tool-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#128138;</div>
-    <div class="tool-info">
-      <div class="tool-name">Quick drug check</div>
-      <div class="tool-example">"Can I give ketorolac if the patient is on apixaban?"</div>
-    </div>
-  </div>
-  <div class="tool-card">
-    <div class="tool-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#127973;</div>
-    <div class="tool-info">
-      <div class="tool-name">Billing code lookup</div>
-      <div class="tool-example">"ICD-10 for acute on chronic systolic heart failure"</div>
-    </div>
-  </div>
-  <div class="tool-card">
-    <div class="tool-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue-dk);">&#128221;</div>
-    <div class="tool-info">
-      <div class="tool-name">Documentation help</div>
-      <div class="tool-example">"Write a discharge summary for a 72yo with CHF exacerbation treated with IV diuresis"</div>
-    </div>
-  </div>
-</div>
+Here's what each part of the answer is for:
 
-{{< callout type="info" >}}
-**Your conversations save automatically.** Come back anytime to pick up where you left off. You'll find past chats in the sidebar on the left.
+| Part | What it tells you |
+|---|---|
+| **Thought for 6s · Used 2 tools** | Lumen reasoned and ran lookups. Click it to see each step. |
+| **Numbered citations** | Which source supports each statement. |
+| **3 sources** pill | The sources Lumen used. Click it to list them, or **View all** to open the panel. |
+| Evidence grade, such as **Strong support** | When it appears, it shows how well the cited passages support the answer. Click it to see each statement Lumen checked. |
+| **Copy**, **Regenerate**, **Helpful** / **Not helpful**, **Share** | Actions for the reply. They appear below it. |
+
+## Tips
+
+- **Give context.** "68-year-old on apixaban, dental extraction tomorrow" gets a better answer than "apixaban dental."
+- **Ask for the format you want.** "As a table," "in three bullets" or "at a 6th-grade reading level."
+- **Your chats are saved.** They're listed in the sidebar, and you can find older ones under **All history** in the **More** menu. Press {{< kbd "⌘" "K" >}} (or {{< kbd "Ctrl" "K" >}}) to open your history and search it.
+- **Close the tab if you need to.** Lumen keeps working on its server. The answer is there when you come back, on any device.
+
+## Limits and safety
+
+- Lumen can be wrong, or cite a source that doesn't say quite what the answer says. That's why every answer shows its sources.
+- If Lumen can't find support for something, it should say so. Treat any uncited clinical statement with extra care.
+- Lumen answers from published sources and anything you give it. It doesn't know your patient or your organization's policies unless you or your team have added them.
+
+{{< callout type="safety" title="Check the source before you act" >}}
+Lumen supports clinical judgment. It doesn't replace it. Open the cited sources, check them against your organization's policies, and use your professional judgment.
 {{< /callout >}}
 
-## Where the answers come from
+## FAQ
 
-When your question needs a fact — a dose, a code, a study — Lumen doesn't answer from memory. It looks the fact up in a real database while you watch, then cites what it found. That's the little tool chip you'll see above answers, and it's the single most important thing to understand about Lumen: [How AI Uses Tools](/learn/tool-use/) explains it in two minutes.
+{{< faq question="Do I need to word my question a special way?" >}}
+No. Write it the way you'd ask a colleague. More detail usually gets a more useful answer.
+{{< /faq >}}
+{{< faq question="Can I stop an answer partway through?" >}}
+Yes. Click the stop button (**Stop generating**) while Lumen is writing. What it has written so far stays in the chat.
+{{< /faq >}}
+{{< faq question="Where do my chats go?" >}}
+They're saved to your account and listed in the sidebar. Open **More** > **All history** to see everything, or press {{< kbd "⌘" "K" >}} to search.
+{{< /faq >}}
+{{< faq question="Is it safe to type patient details?" >}}
+Type only what you're permitted to share, and leave out identifiers. See [Privacy and data](/trust/privacy/).
+{{< /faq >}}
 
-Two small things worth knowing on day one: the **web search toggle** near the message box controls whether Lumen may also search the open web, and if you tell Lumen something about your practice — *"I'm a NICU nurse practitioner"* — it can [remember it](/chat/memory/) so future answers fit your world.
+## Next steps
+
+{{< related "/getting-started/tour/" "/chat/sources/" "/getting-started/check-interaction/" "/chat/sending-messages/" >}}

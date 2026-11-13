@@ -1,0 +1,26 @@
+{{- /*
+The composer. text may contain @Name or /skill tokens, which are highlighted.
+menu="specialists|skills|attach" + items="Name|description;Name|description" draws the picker above it.
+*/ -}}
+{{- $text := .text | default "" -}}
+{{- if .menu }}
+<div class="composer-menu" aria-hidden="true">
+<div class="cm-head">{{ index (dict "specialists" "Specialists" "skills" "Skills" "attach" "Add to this chat") .menu | default .menu }}</div>
+{{- range $i, $it := split (.items | default "") ";" }}{{ if $it }}{{ $p := split $it "|" }}
+<div class="cm-item{{ if not $i }} sel{{ end }}">{{ partial "icon.html" (cond (eq $.menu "specialists") "user-round-check" (cond (eq $.menu "skills") "zap" "paperclip")) }}<span class="cm-name">{{ index $p 0 }}</span>{{ with index $p 1 }}<span class="cm-desc">{{ . }}</span>{{ end }}</div>
+{{- end }}{{ end }}
+</div>
+{{- end }}
+<div class="composer" aria-hidden="true">
+{{- if $text }}
+<div class="cp-text">{{ replaceRE `(^|\s)([@/][A-Za-z][\w-]*(?: [A-Z][\w-]*)*)` `$1<span class="token">$2</span>` (htmlEscape $text) | safeHTML }}</div>
+{{- else }}
+<div class="cp-text placeholder">{{ .placeholder | default "Ask Lumen anything…" }}</div>
+{{- end }}
+<div class="cp-row">
+<span class="cp-btn">{{ partial "icon.html" "plus" }}</span>
+{{- range split (.chips | default "") "," }}{{ with trim . " " }}<span class="cp-chip">{{ . }}</span>{{ end }}{{ end }}
+<span class="cp-btn" style="margin-left:auto">{{ partial "icon.html" "mic" }}</span>
+<span class="cp-send" style="margin-left:0">{{ partial "icon.html" "send" }}</span>
+</div>
+</div>

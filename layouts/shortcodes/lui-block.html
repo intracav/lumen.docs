@@ -1,0 +1,7 @@
+{{- /* LumenBlock: the soft unit. {{< lui-block title="Pre-op checklist" count="3 of 5" sub="…" >}} rows… {{< /lui-block >}} */ -}}
+<div class="lui-block">
+{{- with .Get "title" }}<div class="lui-block-head"><span class="lui-block-title">{{ . }}</span>{{ with $.Get "count" }}<span class="lui-block-count">{{ . }}</span>{{ end }}</div>{{ end }}
+{{- with .Get "sub" }}<div class="lui-block-sub">{{ . }}</div>{{ end }}
+{{- with .Get "progress" }}<div class="lui-progress"><i style="width: {{ . }}%"></i></div>{{ end }}
+{{ .Inner }}
+</div>

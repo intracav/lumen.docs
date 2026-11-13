@@ -1,125 +1,101 @@
 ---
-title: "Protocols & Decision Support"
-description: "Checklists, differential diagnosis, triage scoring, antibiotic selection, and clinical guidelines — the thinking tools that help you think."
+title: "Work through a clinical decision"
+navTitle: "Protocols and decisions"
+description: "Checklists, differential diagnosis, triage scoring in 9 systems, antibiotic selection, allergy cross-reactivity, guidelines and recommendations."
+lead: "When a problem needs to be worked through step by step, Lumen's decision tools give you a structure, with sources, to check against your own judgment."
 weight: 6
+icon: clipboard-list
+keywords: ["clinical checklist", "differential diagnosis AI", "ESI triage", "antibiotic selection", "USPSTF recommendations"]
+glance:
+  what: "Built-in tools for protocols and checklists, differential diagnosis, triage scoring, antibiotic choice, allergy cross-reactivity, guidelines and graded recommendations."
+  who: "Physicians, nurses, advanced practice providers, pharmacists and students."
+  why: "To make sure no step or diagnosis is missed, with the evidence for each suggestion attached."
+  needs: "A Lumen account on any plan and a clear description of the patient or situation."
+  result: "A structured checklist, differential, triage level or regimen with its sources."
 ---
 
-When you need to work through a clinical problem systematically &mdash; building a differential, choosing an antibiotic, following a protocol &mdash; Lumen does the structured work so you can focus on the patient.
+Some questions are better answered with a structure than a paragraph: a sepsis bundle to step through, a ranked differential, a triage level, a first-line antibiotic with allergy-safe alternatives. These tools give Lumen that structure. The result is shown as an interactive card or a clear list, and each recommendation cites where it came from.
 
-## Available Tools
+## Before you start
 
-<div class="tool-grid">
+- All the tools on this page work on every plan.
+- Give the facts that change the answer: age, vital signs, allergies, kidney function, pregnancy, culture results and the care setting.
+- For a full, checked workup, use the Clinical Reasoning specialist. See [Specialists](/skills-and-specialists/specialists/).
 
-{{< tool-card name="Clinical Checklists" icon="&#9745;" color="#3DBF80" desc="22 built-in evidence-based checklists — sepsis bundles, DKA management, central line insertion, surgical safety, and more — plus 8 complex emergency protocols. Interactive: track completion by checking items, or build a custom checklist from your own documents." example="\"Give me a sepsis 3-hour bundle checklist\"" badge="Protocols" >}}
+## The tools
 
-{{< tool-card name="Triage Scoring" icon="&#127973;" color="#ED8936" desc="9 evidence-based triage systems — ESI (US), MTS (UK/Europe), CTAS (Canada), ATS (Australasia), RETTS (Scandinavia), START and SALT (mass casualty), PAT (paediatric), and AMHTS (mental health) — with profiles for emergency, pediatric ED, urgent care, and psychiatric ED." example="\"Triage a 55-year-old with chest pain, diaphoresis, and BP 90/60\"" badge="Emergency" >}}
+| Tool (as shown in Explore) | What it does | When finished, the chip reads |
+|---|---|---|
+| **Clinical Checklists** | Steps through evidence-based protocols, such as a sepsis bundle or DKA management. | **Checklist generated** |
+| **Triage Assessment** | Scores a patient with one of 9 triage systems: ESI, MTS, CTAS, ATS, RETTS, START, SALT, PAT (pediatric) and AMHTS (mental health). | **Triage assessment complete** |
+| **Differential Diagnosis** | Builds a ranked differential with PubMed literature, ICD-10 codes and a suggested workup. | **Differential generated** |
+| **Antimicrobial Selector** | Suggests empiric or culture-directed antibiotics with dosing, duration and allergy-safe alternatives. | **Regimen selected** |
+| **Allergy Cross-Reactivity** | Lists drugs to avoid and likely safe alternatives for a reported drug allergy. | **Cross-reactivity checked** |
+| **Clinical Guidelines** | Retrieves USPSTF recommendations with their grades and recent practice guidelines. | **Guidelines retrieved** |
+| **Clinical Recommendations** | Writes prioritized recommendations for treatment, diagnosis or follow-up, graded by evidence. | **Recommendations ready** |
 
-{{< tool-card name="Differential Diagnosis" icon="&#129504;" color="var(--smoky-blue)" desc="Generates a ranked differential diagnosis based on symptoms, demographics, vitals, and history. Searches PubMed and maps to ICD-10. Includes distinguishing features and recommended workup." example="\"Differential for a 30-year-old with acute onset pleuritic chest pain and dyspnea\"" badge="Diagnosis" >}}
+## How to use a decision tool
 
-{{< tool-card name="Antimicrobial Selector" icon="&#129440;" color="var(--palace-green)" desc="Selects appropriate antibiotic therapy based on IDSA guidelines. Considers infection type, severity, allergies, and pregnancy status. Returns first/second-line regimens with dosing and duration." example="\"Best antibiotic for community-acquired pneumonia, PCN allergy, outpatient\"" badge="Treatment" >}}
+{{< steps >}}
+{{< step title="Describe the situation" >}}For example: "ED patient, 58-year-old man, chest pain and sweating, HR 115, BP 88/60. ESI level?"{{< /step >}}
+{{< step title="Name the system if it matters" >}}Say "use CTAS" or "pediatric" if your setting uses a different triage system.{{< /step >}}
+{{< step title="Work through the result" >}}Checklists are interactive. Tick items as you go.{{< /step >}}
+{{< step title="Check the sources" >}}Open the cited guideline or article for each recommendation before you act.{{< /step >}}
+{{< /steps >}}
 
-{{< tool-card name="Allergy Cross-Reactivity" icon="&#128165;" color="var(--accent)" desc="Identifies cross-reactive drugs and safe alternatives for patients with known drug allergies. Maps allergy patterns and suggests de-sensitization options." example="\"What can I use instead of cephalexin if the patient has a penicillin allergy?\"" badge="Safety" >}}
+To browse with examples, open {{< ui-path "Explore" "Built-in tools" >}} and choose **Answer a clinical question**.
 
-{{< tool-card name="Clinical Guidelines" icon="&#128214;" color="var(--smoky-blue-dk)" desc="Searches USPSTF and PubMed for practice guidelines (2020+). Returns recommendations with letter grades and evidence summaries." example="\"Current guidelines for managing newly diagnosed hypertension\"" badge="Guidelines" >}}
+## What you'll see
 
-{{< tool-card name="Clinical Recommendations" icon="&#128077;" color="var(--smoky-blue)" desc="Generates prioritized, evidence-graded recommendations (Grade A through D). Context-specific with supporting rationale." example="\"Recommendations for secondary stroke prevention in a patient with PFO\"" badge="Evidence" >}}
+{{< screenshot src="lumen-ui-inline" alt="An interactive checklist inside a Lumen answer" caption="Checklists appear inside the answer. You can tick items as you work." url="lumen.intracav.ai" >}}
+{{< lumen-ui-example title="Sepsis checklist" component="Checklist" category="clinical" >}}
+{{< lui-code >}}
+Checklist(title="Hour-1 sepsis bundle", items=[
+  {text:"Measure lactate", checked:true},
+  {text:"Blood cultures before antibiotics", checked:true},
+  {text:"Broad-spectrum antibiotics"},
+  {text:"30 mL/kg crystalloid for hypotension or lactate ≥ 4 mmol/L"},
+  {text:"Vasopressors if hypotensive during or after fluids (target MAP ≥ 65 mmHg)"}])
+{{< /lui-code >}}
+{{< lui-block title="Hour-1 sepsis bundle" count="2 of 5" progress="40" >}}
+{{< lui-rows >}}
+{{< lui-row type="check" checked=true title="Measure lactate" >}}
+{{< lui-row type="check" checked=true title="Blood cultures before antibiotics" >}}
+{{< lui-row type="check" title="Broad-spectrum antibiotics" >}}
+{{< lui-row type="check" title="30 mL/kg crystalloid" body="For hypotension or lactate of 4 mmol/L or more" >}}
+{{< lui-row type="check" title="Vasopressors" body="If hypotensive during or after fluids, to keep MAP at 65 mmHg or more" >}}
+{{< /lui-rows >}}
+{{< /lui-block >}}
+{{< /lumen-ui-example >}}
+{{< /screenshot >}}
 
-{{< tool-card name="NPI Lookup" icon="&#128179;" color="var(--smoky-blue)" desc="Searches the NPI provider registry. Resolves provider name, specialty, taxonomy, and practice location. Useful for referrals and verification." example="\"Look up cardiologists in Austin, TX\"" badge="Directory" >}}
+## Tips
 
-{{< tool-card name="Clinical Notes" icon="&#128221;" color="var(--smoky-blue)" desc="Drafts structured clinical documentation — SOAP notes, H&amp;P, discharge summaries, referral letters, procedure notes, progress notes, nursing notes, and incident reports — ready to review, edit, and export." example="\"Generate a SOAP note for today's visit — 45yo with uncontrolled HTN\"" badge="Documentation" >}}
+- **Tell Lumen about allergies up front.** The antibiotic and cross-reactivity tools use them.
+- **Ask for the can't-miss diagnoses.** "What must I rule out?" makes the differential lead with dangerous causes.
+- **Follow your own protocol.** If your organization's protocol is in your documents or a Knowledge Pack, ask Lumen to use it.
 
-</div>
+## Limits and safety
 
-## Differential Diagnosis in Action
-
-The differential diagnosis tool is one of Lumen's most powerful clinical features:
-
-<div class="chat-mockup chat-demo-animated" style="margin: 2rem 0;">
-  <div class="chat-mockup-header">
-    <div class="chat-mockup-avatar">&#10022;</div>
-    <div class="chat-mockup-title">Chat</div>
-  </div>
-  <div class="chat-mockup-body">
-    <div class="chat-msg user">Differential for a 45-year-old female with fatigue, weight gain, cold intolerance, and constipation</div>
-    <div class="chat-msg assistant">
-      <div class="msg-avatar"><span>&#10022;</span></div>
-      <div class="msg-content">
-        <div class="mock-tool">
-          <div class="mock-tool-header">
-            <span class="mock-tool-status done"></span>
-            Generated differential diagnosis
-          </div>
-          <div class="mock-tool-detail">symptoms: fatigue, weight gain, cold intolerance, constipation</div>
-        </div>
-        <div style="font-size: 0.85rem; color: var(--dark-text); line-height: 1.6;">
-          <p style="margin: 0 0 0.5rem 0;"><strong>Top differential diagnoses:</strong></p>
-          <div style="padding: 0.375rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
-            1. <strong>Hypothyroidism</strong> <span style="color: var(--palace-green); font-size: 0.75rem;">(Most Likely)</span><br>
-            <span style="color: var(--dark-text-muted); font-size: 0.8rem;">Classic presentation. Order TSH, Free T4.</span>
-          </div>
-          <div style="padding: 0.375rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
-            2. <strong>Depression/MDD</strong><br>
-            <span style="color: var(--dark-text-muted); font-size: 0.8rem;">Overlapping symptoms. Screen with PHQ-9.</span>
-          </div>
-          <div style="padding: 0.375rem 0;">
-            3. <strong>Iron deficiency anemia</strong><br>
-            <span style="color: var(--dark-text-muted); font-size: 0.8rem;">CBC, ferritin, iron studies.</span>
-          </div>
-        </div>
-        <div class="mock-artifact chat-extra">
-          <div class="mock-artifact-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#129504;</div>
-          <div class="mock-artifact-info">
-            <div class="mock-artifact-title">Differential Diagnosis</div>
-            <div class="mock-artifact-type">Full ranked list with workup</div>
-          </div>
-          <div class="mock-artifact-chevron">&rsaquo;</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-## Interactive Checklists
-
-Clinical checklists are **interactive** — you can check off items as you complete them. Progress is saved automatically.
-
-<div class="app-frame" style="margin: 2rem 0;">
-  <div class="app-frame-bar">
-    <div class="app-frame-dot red"></div>
-    <div class="app-frame-dot yellow"></div>
-    <div class="app-frame-dot green"></div>
-  </div>
-  <div class="app-frame-content" style="background: var(--dark-bg); padding: 1.25rem;">
-    <div style="font-size: 0.9rem; font-weight: 600; color: var(--dark-text); margin-bottom: 0.75rem;">Sepsis 3-Hour Bundle</div>
-    <div style="font-size: 0.75rem; color: var(--dark-text-muted); margin-bottom: 1rem;">
-      <div style="background: var(--palace-green-glow); height: 4px; border-radius: 2px; margin-bottom: 0.375rem;">
-        <div style="background: #3DBF80; height: 4px; border-radius: 2px; width: 40%;"></div>
-      </div>
-      2 of 5 completed
-    </div>
-    <label style="display: flex; gap: 0.5rem; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.85rem; color: var(--dark-text); cursor: pointer; align-items: flex-start;">
-      <span style="color: #3DBF80; font-size: 1rem;">&#9745;</span>
-      <span style="text-decoration: line-through; color: var(--dark-text-muted);">Measure lactate level</span>
-    </label>
-    <label style="display: flex; gap: 0.5rem; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.85rem; color: var(--dark-text); cursor: pointer; align-items: flex-start;">
-      <span style="color: #3DBF80; font-size: 1rem;">&#9745;</span>
-      <span style="text-decoration: line-through; color: var(--dark-text-muted);">Obtain blood cultures before antibiotics</span>
-    </label>
-    <label style="display: flex; gap: 0.5rem; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.85rem; color: var(--dark-text); cursor: pointer; align-items: flex-start;">
-      <span style="color: var(--dark-text-muted); font-size: 1rem;">&#9744;</span>
-      Administer broad-spectrum antibiotics
-    </label>
-    <label style="display: flex; gap: 0.5rem; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.85rem; color: var(--dark-text); cursor: pointer; align-items: flex-start;">
-      <span style="color: var(--dark-text-muted); font-size: 1rem;">&#9744;</span>
-      Administer 30 mL/kg crystalloid for hypotension or lactate ≥4
-    </label>
-    <label style="display: flex; gap: 0.5rem; padding: 0.5rem 0; font-size: 0.85rem; color: var(--dark-text); cursor: pointer; align-items: flex-start;">
-      <span style="color: var(--dark-text-muted); font-size: 1rem;">&#9744;</span>
-      Reassess volume status and tissue perfusion
-    </label>
-  </div>
-</div>
-
-{{< callout type="success" >}}
-**Checklists save your progress.** If you close and reopen the artifact, your checked items are preserved.
+{{< callout type="safety" title="Decision support, not a decision" >}}
+These tools organize information. They don't examine the patient and can be wrong. A triage level, differential or regimen is a suggestion to check against your assessment, your organization's protocols and local antibiograms. Open the cited sources and use your judgment.
 {{< /callout >}}
+
+- Antibiotic suggestions follow published guidance and don't know your local resistance patterns unless you tell Lumen.
+- Guidelines change. Check the date of each cited guideline.
+
+## FAQ
+
+{{< faq question="Which triage systems does Lumen support?" >}}
+Nine: ESI, MTS, CTAS, ATS, RETTS, START, SALT, PAT for pediatrics, and AMHTS for mental health.
+{{< /faq >}}
+{{< faq question="Where do guideline answers come from?" >}}
+From USPSTF recommendations and practice guidelines found on PubMed, cited in the answer.
+{{< /faq >}}
+{{< faq question="Can I save a checklist?" >}}
+The checklist stays in the chat, where you can come back to it. To make a document from it, ask Lumen to create a PDF.
+{{< /faq >}}
+
+## Next steps
+
+{{< related "/getting-started/differential/" "/tools/medications/" "/tools/calculators/" "/chat/interactive-answers/" >}}

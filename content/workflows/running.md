@@ -1,83 +1,116 @@
 ---
-title: "Running & Results"
-description: "How to test your workflow and see what each step produces."
-weight: 3
+title: "Run a workflow and read its history"
+navTitle: "Runs and history"
+description: "Run a Lumen workflow, read each step's result, replay a past run, and restore an earlier version of the workflow."
+lead: "See exactly what every step did, and go back when something changes for the worse."
+weight: 4
+icon: history
+glance:
+  what: "How to run a workflow, check each step's result, find past runs in Run history, replay one, and restore an earlier version."
+  who: "Anyone who builds, tests or looks after a workflow."
+  why: "Every run is recorded step by step, so you can see where a result came from and fix the step that went wrong."
+  needs: "A saved workflow. About 5 minutes."
+  result: "A tested workflow and a clear record of its runs."
 ---
 
-Once you've connected your nodes, running a workflow is one click. Here's what happens and how to read the results.
+A workflow that runs every week needs a way to answer two questions: what did it do last Monday, and why did this week's email look odd? Lumen records each run step by step. You can open any run, see what each step received and produced, replay it with the same input, and roll the workflow back to an earlier version.
 
-## Running Your Workflow
+## Before you start
 
-<div class="steps-container">
+A saved workflow. See [Build a workflow](/workflows/editor/).
 
-{{< step num="1" title="Click Run" >}}
-Tap the **Run** button in the toolbar at the top of the editor. Your workflow saves automatically before executing.
-{{< /step >}}
+## How to run a workflow
 
-{{< step num="2" title="Watch it execute" >}}
-Each node lights up as it runs — you'll see a progress indicator move through the chain from left to right. A **run log** panel opens at the bottom showing each step's status in real time.
-{{< /step >}}
+{{< steps >}}
+{{< step title="Click Run" >}}In the editor toolbar, click **Run**. Lumen saves the current canvas first, then starts.{{< /step >}}
+{{< step title="Watch the steps" >}}Each step lights up as it runs. A chip shows how many steps are done, then **Finished** with the total.{{< /step >}}
+{{< step title="Check each step's result" >}}Click a step to see **Last run** with what it produced. Check the important ones, such as the search results, before trusting the final output.{{< /step >}}
+{{< step title="Fix and repeat" >}}Change a step's settings, then right-click it and choose **Run from here** to re-run from that point.{{< /step >}}
+{{< /steps >}}
 
-{{< step num="3" title="Review per-node results" >}}
-As each node finishes, its output appears in the results panel. You can see exactly what every step produced — the entities it extracted, the codes it found, the text it generated.
-{{< /step >}}
-
-{{< step num="4" title="Check the final output" >}}
-The last node in your chain delivers the final result. If it's a "Send to Chat" node, the output appears in your chat. If it's a PDF or slides export, the file is ready to download.
-{{< /step >}}
-
-</div>
-
-## The Run Log
-
-The run log shows each node's execution with:
-
-- **Status** — Running, Completed, or Failed
-- **Output preview** — A snippet of what the node produced
-- **Elapsed time** — How long the step took (in milliseconds)
-- **Error details** — If a step fails, you'll see what went wrong
-
-## Seeing Step-by-Step Results
-
-This is one of the most useful parts of workflows. Unlike a chat (which just gives you the final answer), a workflow lets you **inspect every intermediate step**:
-
-- Did the entity extraction catch all the medications? Check its output.
-- Did the ICD-10 lookup return the right codes? Look at the results.
-- Is the generated text what you expected? Review it before it goes to the next node.
-
-This makes it easy to figure out where to improve things — if the final output isn't quite right, you can see exactly which step needs adjustment.
-
-## History
-
-Every time you run a workflow, the results are saved. You can:
-
-- **View past runs** in the History panel on the right side
-- **Compare results** from different runs
-- **Re-run** the same workflow with different inputs
-- **Replay a past run** — run the workflow again with exactly the same input as before. Useful after you fix a node: replay the run that failed and confirm the same input now succeeds.
-
-## Versions
-
-The workflow itself has history too, not just its runs. Each time you save, a **version** is kept — so if an edit breaks something, you can look back through earlier versions and **restore** the one that worked. Combined with replay, this makes experimenting safe: change boldly, and if the results get worse, roll back and replay.
-
-{{< tip title="Iterate quickly" >}}
-Run your workflow, check the results, adjust a node's settings, and run again. Each run takes seconds, so you can experiment freely.
-{{< /tip >}}
-
-## What If a Step Fails?
-
-If a node fails, the run log shows the error. Common causes:
-
-- **Missing input** — A node didn't receive data from the previous step (check your connections)
-- **Invalid configuration** — A setting is missing or incorrect (click the node to fix it)
-- **Tool error** — The underlying tool couldn't process the data (try a different query or input)
-
-The workflow stops at the failed step. Fix the issue and run again — you don't need to rebuild anything.
-
-{{< callout type="info" >}}
-**Workflows auto-save.** Your nodes, connections, and configurations are preserved even if you close the editor. Pick up where you left off anytime.
+{{< callout type="important" title="Keep the editor open for runs you start there" >}}
+A run you start with **Run** in the editor is interactive. Keep the editor open until it finishes. If you leave, you stop seeing its progress, and you shouldn't count on it finishing. For work that must complete without you, use a [trigger](/workflows/triggers/): triggered runs are unattended and run on Lumen's servers.
 {{< /callout >}}
 
-## Beyond the Run button
+## How to find and replay a past run
 
-Once a workflow runs reliably, you don't have to be the one running it. Add a **trigger** — a schedule, a webhook, an incoming email, or a CRM event — and it runs itself, with every automatic run landing in the same history you use today. See [Workflow Triggers](/workflows/triggers/).
+{{< steps >}}
+{{< step title="Open the history" >}}In the editor toolbar, click **Run history**. Every run is listed, whether you started it or a trigger did.{{< /step >}}
+{{< step title="Open a run" >}}Click a run to see its steps, each with its status and output. Use **Back to run history** to return.{{< /step >}}
+{{< step title="Replay it" >}}Click **Replay this execution with the same input**. This is useful after you fix a step: replay the run that failed and confirm it now works.{{< /step >}}
+{{< /steps >}}
+
+## What you'll see
+
+{{< screenshot src="workflows-runs" alt="Run history for the Device Recall Watch workflow, with a list of weekly runs and one run opened to show each step's status" caption="Run history. Each run lists its steps and their status." url="lumen.intracav.ai/workflow" >}}
+{{< lui-block title="Run history" sub="Device Recall Watch" >}}
+{{< task-strip >}}
+{{< task state="done" label="Weekly sweep" meta="Mon 8:00" >}}
+{{< task state="done" label="Check FDA recalls" meta="2 found" >}}
+{{< task state="done" label="Check adverse events" meta="0 new" >}}
+{{< task state="done" label="Write the digest" >}}
+{{< task state="done" label="Email the digest" meta="Sent" >}}
+{{< /task-strip >}}
+{{< lui-actions "Replay this execution with the same input" "Open in editor" >}}
+{{< /lui-block >}}
+{{< /screenshot >}}
+
+### Step statuses
+
+| Status | Meaning |
+|---|---|
+| **Running** | The step is working now. |
+| **Done** | The step finished. |
+| **Reused earlier result** | The step's result was pinned, so Lumen reused it instead of running it again. |
+| **Failed (handled)** | The step failed, and the workflow carried on as you set it up to. |
+| **Failed** | The step failed and stopped the run. |
+| **Skipped** | A condition sent the run down a different path. |
+| **Not run** | The run stopped before reaching this step. |
+
+## How to restore an earlier version
+
+Every time you save, Lumen keeps a version.
+
+{{< steps >}}
+{{< step title="Open settings" >}}Click **Workflow settings**, then the **Versions** tab.{{< /step >}}
+{{< step title="Restore" >}}Find the version that worked and click **Restore**. Confirm **Restore version N?**. Lumen shows **Restored version N**.{{< /step >}}
+{{< /steps >}}
+
+## Run settings
+
+In **Workflow settings**:
+
+- **General:** **Timeout (minutes)** (default 15), **Max concurrent runs**, and **Save executions** (**All runs (default)**, **Errors only** or **None (fire-and-forget)**).
+- **Error handling:** a **Retry policy** for the whole run (**Max retries** and **Backoff**), and an **Error workflow** to run if this one fails, such as one that emails you.
+
+Steps that use Lumen's AI, such as **Generate Text** and **Agent**, retry on their own up to 3 times when a temporary error happens.
+
+## Tips
+
+- **Pin slow steps while testing.** Pin a search step's result so you can adjust the steps after it without re-running the search every time.
+- **Keep all runs at first.** Leave **Save executions** on **All runs (default)** until the workflow has run cleanly for a few weeks.
+- **Add an error workflow** for anything important, so a failure reaches someone instead of sitting in the history.
+
+## Limits and safety
+
+- **Editor runs need the editor open.** Use a trigger for unattended work.
+- **Runs have a time limit.** The default is 15 minutes per run.
+- **Concurrent runs are limited by plan.** Free and Pro can run 3 at once; Plus and Max can run 10.
+- **A finished run isn't a checked result.** "Done" means the step ran, not that its output is right. Read clinical output against its sources.
+- **No approvals in workflows.** Email, Slack and CRM steps act immediately when the run reaches them.
+
+## FAQ
+
+{{< faq question="Is there a record of runs that triggers started?" >}}
+Yes. **Run history** lists every run, whether you clicked **Run** or a schedule, email, webhook or CRM trigger started it.
+{{< /faq >}}
+{{< faq question="Does Lumen save my workflow when I run it?" >}}
+Yes. **Run** saves the canvas first. Otherwise, save with **Save** or {{< kbd "⌘" "S" >}}; there's no automatic save.
+{{< /faq >}}
+{{< faq question="How do I undo a change that broke the workflow?" >}}
+Open {{< ui-path "Workflow settings" "Versions" >}} and **Restore** the last version that worked. Then replay a recent run to check it.
+{{< /faq >}}
+
+## Next steps
+
+{{< related "/workflows/triggers/" "/workflows/editor/" "/workflows/publish/" >}}

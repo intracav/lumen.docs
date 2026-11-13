@@ -1,0 +1,4 @@
+{{- /* state: done | run | wait | todo */ -}}
+{{- $s := .Get "state" | default "done" -}}
+{{- $icons := dict "done" "check-circle" "run" "loader" "wait" "hand" "todo" "circle" -}}
+<div class="task-row {{ $s }}">{{ partial "icon.html" (index $icons $s) }}<span>{{ .Get "label" | markdownify }}</span>{{ with .Get "meta" }}<span class="tr-meta">{{ . }}</span>{{ end }}</div>

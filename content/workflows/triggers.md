@@ -1,73 +1,123 @@
 ---
-title: "Workflow Triggers: Cron, Webhook, Email & CRM"
-description: "Run workflows automatically — on a schedule, from a webhook, when an email arrives, or when a CRM record changes. Test-fire before going live."
+title: "Run a workflow automatically with triggers"
+navTitle: "Triggers"
+description: "Make a Lumen workflow run on its own: on a schedule in your time zone, when an email arrives, when another system calls a webhook, or when a CRM record changes."
 lead: "A trigger turns a workflow you run into a workflow you never have to remember to run."
-weight: 5
+weight: 3
+icon: clock
+glance:
+  what: "Triggers start a workflow without anyone clicking Run: a schedule, an incoming email, a webhook call, a CRM change, or a manual start."
+  who: "Anyone with a workflow that should run regularly or in response to something."
+  why: "Triggered runs are unattended. They run on Lumen's servers whether or not anyone is signed in, and every run is recorded."
+  needs: "A saved workflow. A connected email account for email triggers. Pro or above for the CRM trigger. About 10 minutes."
+  result: "A live workflow that runs on its own."
 ---
 
-Everything so far assumed you press **Run**. Triggers remove that step: the workflow fires itself — every Monday at 7am, the moment an email lands in the referral inbox, the instant an external system calls your webhook. You build the logic once; the trigger supplies the "when."
+A workflow you have to remember to run is a chore. A **trigger** is the step at the start of a workflow that decides when it runs: every Monday at 8:00, when an email lands in the referral folder, or when another system sends a request. Triggered runs are **unattended**: they run on Lumen's servers whether or not you're signed in, and each run is saved in the workflow's history.
 
-## How triggers fit into a workflow
+## Before you start
 
-A trigger is a node, just like the ones you already know — it sits at the *start* of the workflow, where an input node would go. Whatever the trigger receives (the email, the webhook payload, the CRM record) flows into the rest of the chain as the workflow's input.
+- **A saved workflow** that works when you click **Run**. See [Build a workflow](/workflows/editor/).
+- **For email triggers:** a connected Gmail, Microsoft 365 (Outlook) or IMAP mailbox.
+- **For the CRM trigger:** Pro or above and a connected CRM.
 
-One workflow can have more than one trigger, and you can switch them all on or off at once — **activate** when it's ready to run unattended, **deactivate** when you want to take it offline without deleting anything.
+## The trigger types
 
-## Schedule (cron)
+| Trigger | Runs when | Good for |
+|---|---|---|
+| **Schedule trigger** | At the times you set, in the time zone you choose | Weekly recall sweeps, monthly coverage checks, daily digests |
+| **Email trigger** | A new email arrives in the folder or label you choose | Referral triage, complaint intake, answering reps' questions |
+| **Webhook trigger** | Another system sends a request to the workflow's address | Starting a workflow from your own systems |
+| **CRM trigger** | A contact is created or updated in HubSpot, Zoho CRM or Salesforce | Logging and routing new inquiries |
+| **Manual trigger** | You click **Run** | Workflows you run on demand, such as **Reimbursement Brief** |
 
-A scheduled trigger runs the workflow at times you define — the classic "standing order."
+## How to add a schedule
 
-**Example: the Monday-morning literature digest.** A workflow that searches PubMed for new central-line infection papers, summarizes the top hits, and sends the digest to your inbox — scheduled for Mondays at 7:00 in your timezone. You read it with your coffee; nobody ran anything.
+{{< steps >}}
+{{< step title="Add the trigger" >}}In the editor, open the **Steps** palette, then **Triggers**, and add **Schedule trigger** at the start of the workflow. Connect it to the first step.{{< /step >}}
+{{< step title="Choose when" >}}In the inspector, pick a **Schedule preset**, such as "Every Monday at 8:00", or use the **Visual schedule** builder. Advanced users can type a **Cron expression**.{{< /step >}}
+{{< step title="Set the time zone" >}}Choose your **Timezone**. The default is UTC, so set it to where your team works.{{< /step >}}
+{{< step title="Check the next runs" >}}Click **Save**. The **Next 5 fires** preview shows the next five run times, so you can confirm it won't run at 3 a.m.{{< /step >}}
+{{< step title="Test it" >}}Click **Run with mock input** under **Test fire trigger** to run it once now, as if the schedule had fired. Check the result.{{< /step >}}
+{{< step title="Turn it on" >}}Click **Activate**. It becomes a green **Live** pill, and Lumen confirms **Workflow is live — triggers will fire automatically.**{{< /step >}}
+{{< /steps >}}
 
-Schedules use cron expressions, and you don't need to learn them blind: the editor shows a **preview of the next run times** for whatever expression you've entered, in your timezone, so "did I just schedule this for 3am?" gets answered before it happens.
+## How to set up the other triggers
 
-Other natural fits: a Friday summary of the week's workflow runs, a monthly refresh of a standing report, a nightly check of a guideline page for changes.
+{{< tabs >}}
+{{< tab name="Email" >}}
+1. Add **Email trigger** and choose the connected mailbox.
+2. Under **Inbox / label**, choose a dedicated folder, such as "Referrals", not your whole inbox. Add sender or subject filters if needed.
+3. Choose **Delivery**: **Real-time** (Gmail and Microsoft 365; Lumen falls back to checking regularly if real-time can't be set up) or **Every 60s**. IMAP mailboxes are checked every 60 seconds.
+4. Decide whether to **Mark each email as read once handled** and whether to pass **Attachments** on.
+5. Test fire, then **Activate**.
 
-## Webhook
+The email's sender, subject, body and attachments become the workflow's input.
+{{< /tab >}}
+{{< tab name="Webhook" >}}
+1. Add **Webhook trigger** and click **Save**.
+2. Open **Workflow settings**, then **Manage triggers**. Copy the **Webhook URL** with **Copy URL**, and note the **Secret header**.
+3. Give both to the system that will call the workflow. By default it must send the secret in the `X-Webhook-Secret` header.
+4. Send one test request, check the run, then **Activate**.
 
-A webhook trigger gives your workflow its own **secret URL**. When any external system sends a request to that URL, the workflow runs with the request's payload as input.
+Treat the secret like a password. Anyone with the address and the secret can start the workflow.
+{{< /tab >}}
+{{< tab name="CRM" >}}
+1. Add **CRM trigger** (Pro or above) and choose your connected HubSpot, Zoho CRM or Salesforce account.
+2. Under **Fire on**, choose **created** or **updated** records.
+3. Set the **Poll interval (seconds)**. The default is 120.
+4. Test fire, then **Activate**.
+{{< /tab >}}
+{{< tab name="Manual" >}}
+Add **Manual trigger** if the workflow should only run when someone clicks **Run**. You can enter **Mock input JSON** to test it with sample data.
+{{< /tab >}}
+{{< /tabs >}}
 
-- The URL is generated per workflow and contains a secret — **the URL itself is the credential**, so treat it like a password: share it only with the system that should be calling it.
-- The payload becomes the workflow's input, so downstream nodes can pull fields out of it.
+## What you'll see
 
-**Example:** your scheduling system posts to the webhook whenever a new procedure is booked; the workflow looks up the relevant prep protocol and emails the checklist to the assigned nurse.
+{{< lui-block title="Schedule trigger" sub="Weekly sweep · Device Recall Watch" >}}
+{{< lui-kv "Schedule preset=Every Monday at 8:00;Timezone=America/Chicago" >}}
+{{< lui-rows >}}
+{{< lui-row title="Next 5 fires" body="Mon Nov 16, 8:00 · Mon Nov 23, 8:00 · Mon Nov 30, 8:00 · Mon Dec 7, 8:00 · Mon Dec 14, 8:00" >}}
+{{< /lui-rows >}}
+{{< lui-actions "Run with mock input" "Activate" >}}
+{{< /lui-block >}}
 
-While you're setting one up, the editor can **listen for a test event** — send one real request from the external system and watch it arrive, so you know the plumbing works before you rely on it.
+In the **Workflows** list, each workflow shows a chip for its trigger (**Cron**, **Email**, **Webhook** or **Manual**) and when it last fired. The **Automated** view lists only workflows with triggers.
 
-## Incoming email
+## How to pause a workflow
 
-An email trigger watches a mailbox and runs the workflow for each new message — the message's sender, subject, body, and attachments become the input.
+Hover the green **Live** pill and click **Pause**. Lumen confirms **Workflow paused — triggers will not fire.** Nothing is deleted. Click **Activate** to turn it back on.
 
-- **Gmail / Google Workspace** and **Microsoft 365 / Outlook** connect with your account and can deliver messages as they arrive.
-- Any standard **IMAP** mailbox works too.
-- You choose **which mailbox folder to watch**, so the trigger sees only the mail you route to it — not your whole inbox.
+## Tips
 
-**Example: referral inbox triage.** Point the trigger at your team's referral folder. Each incoming referral is read, key details are extracted, urgency is classified, and a structured summary is posted for the intake coordinator — before a human has opened the email.
+- **Start with a schedule.** There's nothing external to connect, and a wrong result arrives as an email you can ignore.
+- **Test fire before you go live.** The first unattended run shouldn't be the first run.
+- **Use a dedicated email folder.** Route only the emails the workflow should handle into it with a mail rule.
 
-{{< callout type="warning" >}}
-**Email can carry PHI.** A trigger that reads a clinical inbox will see whatever arrives in it. Watch a dedicated folder rather than a general inbox, and see [privacy and de-identification tools](/tools/privacy/) for handling identifiers inside the workflow.
-{{< /callout >}}
+## Limits and safety
 
-## CRM events
+- **Unattended means nobody checks first.** Triggered runs execute every step, including **Send Email** and CRM updates, without waiting for approval. Test thoroughly, and send to yourself before you send to a team.
+- **Schedules can lag slightly.** Lumen checks schedules about every 30 seconds, so a run can start a little after the exact minute.
+- **Each run has a time limit.** The default is 15 minutes, adjustable in **Workflow settings**. A run that goes over stops and is marked failed.
+- **Email can carry patient information.** An email trigger sees everything in the folder it watches. Use a dedicated folder and the **De-identify PHI** step where it fits.
+- **Connected accounts are yours.** Email and CRM triggers use the account connected to the workflow.
 
-A CRM trigger fires when a record changes in your connected CRM — **HubSpot, Zoho, or Salesforce** — such as a contact being **created** or **updated**. Each record change is processed once, so a busy CRM doesn't cause duplicate runs.
+## FAQ
 
-**Example:** a new contact tagged as a clinical-education lead appears in your CRM; the workflow drafts a personalized welcome email with the right product literature attached and queues it for your review.
-
-{{< callout type="info" >}}
-**Connected accounts are personal.** Email and CRM triggers run through *your* connected account. If you [share the workflow](/workflows/publish/), colleagues connect their own accounts — a shared workflow never reads your inbox on someone else's behalf.
-{{< /callout >}}
-
-## Test before you trust
-
-Every trigger supports a **test-fire**: run the workflow right now, exactly as if the trigger had fired, and inspect the results in the [run log](/workflows/running/). Test-fire until the output looks right, then activate — the first unattended run shouldn't be the first run.
-
-{{< tip title="Start with a schedule" >}}
-A scheduled trigger is the gentlest introduction: no external system to wire up, and the worst failure mode is a report that arrives looking wrong. Get one digest workflow running on a Monday-morning cron, then graduate to webhooks and inboxes.
-{{< /tip >}}
+{{< faq question="Do I need to keep Lumen open for a scheduled workflow to run?" >}}
+No. Scheduled, email, webhook and CRM runs are unattended. They run on Lumen's servers whether or not you're signed in, and the results are in **Run history** when you come back.
+{{< /faq >}}
+{{< faq question="Which time zone does a schedule use?" >}}
+The one you choose in **Timezone**. The default is UTC, so set it to your team's time zone. **Next 5 fires** shows the run times so you can check.
+{{< /faq >}}
+{{< faq question="Why is the Activate button greyed out?" >}}
+The workflow has no trigger yet. Add a **Webhook**, **Schedule**, **Email** or **Manual** trigger step, then save.
+{{< /faq >}}
+{{< faq question="Can I stop a workflow without deleting it?" >}}
+Yes. Hover the **Live** pill and click **Pause**.
+{{< /faq >}}
 
 ## Next steps
 
-- [Running & results](/workflows/running/) — reading run history, replaying past runs
-- [Sharing workflows & blueprints](/workflows/publish/) — let your team use what you automated
-- [Building blocks](/workflows/building-blocks/) — the nodes your trigger will feed
+{{< related "/workflows/running/" "/workflows/editor/" "/workflows/publish/" >}}

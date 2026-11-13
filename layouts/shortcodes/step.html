@@ -1,7 +1,5 @@
 <div class="step">
-  <div class="step-indicator">{{ .Get "num" }}</div>
-  <div class="step-content">
-    {{ with .Get "title" }}<h4>{{ . }}</h4>{{ end }}
-    <div>{{ .Inner | markdownify }}</div>
-  </div>
+<div class="step-label"{{ with .Get "num" }} data-num="{{ . }}"{{ end }}></div>
+{{ with .Get "title" }}<div class="step-title">{{ . | markdownify }}</div>{{ end }}
+<div class="step-body">{{ .Inner | .Page.RenderString (dict "display" "block") }}</div>
 </div>

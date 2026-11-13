@@ -1,86 +1,129 @@
 ---
-title: "Dictate a Note Hands-Free"
-description: "Dictate a post-procedure note into Lumen between cases: speak naturally, get a live transcript, structure it with a Skill, then review and sign."
+title: "Dictate a procedure note by voice"
+navTitle: "Dictate a note"
+description: "Speak a procedure note to Lumen in a voice conversation. Lumen transcribes it, structures it as a procedure note in the chat, and you review and sign."
+lead: "Start a voice conversation, describe the procedure as you would to a colleague, and Lumen writes a structured note in the chat for you to correct and sign."
 weight: 25
-audience: clinician
-time: "~5 minutes"
-keywords: ["medical dictation AI", "dictate clinical note", "voice to procedure note AI"]
+icon: mic
+who: "proceduralists, nurses and advanced practice clinicians"
+keywords: ["medical dictation AI", "dictate clinical note", "voice to procedure note AI", "PICC procedure note"]
+glance:
+  what: "A step-by-step way to speak a procedure note to Lumen and get a structured draft back in the chat."
+  who: "Clinicians who document bedside procedures, such as PICC placement, and would rather talk than type between cases."
+  why: "The note competes with the next case. Speaking takes a minute. Lumen organizes what you said into a standard note and leaves gaps visible instead of filling them."
+  needs: "Any Lumen plan. A device with a microphone and a reasonably quiet spot. About 5 minutes."
+  result: "A structured procedure note in the chat, built only from what you said, ready for you to correct, copy into your record and sign."
 ---
 
-It's 11:40, the next case is on the table at 12:00, and the note for the line you just placed is competing with lunch. Typing loses. In this guide you'll dictate the note the way you'd tell it to a colleague in the hallway, let Lumen turn the transcript into a structured procedure note, and walk to the next case with the note done — pending only your review.
-
-## What you'll make
-
-A structured post-procedure note, produced from sixty seconds of natural speech: dictate → transcript lands in the composer → the `/procedure-note` Skill gives it clinical structure → you review, correct, and sign through your normal workflow.
+You've just placed a PICC, and the next case starts in 20 minutes. Typing the note will make you late. In Lumen you can hold a **voice conversation**. You speak, Lumen turns your words into a message, and it replies in the chat and aloud. Describe the procedure the way you'd tell a colleague in the hallway, and Lumen writes a structured procedure note in the chat. It uses only what you said and leaves anything you didn't mention as a visible gap. Then you correct it, copy it into your record and sign it.
 
 ## Before you start
 
-- **A microphone Lumen can use.** The first time you dictate, your browser or device will ask permission — grant it once and you're set.
-- **Thirty seconds somewhere reasonably quiet.** Dictation works in a workroom; it works better when the suction isn't running.
+- **Plan:** any Lumen plan.
+- **A microphone.** The first time, your browser or device asks for permission to use it. Allow it.
+- **A reasonably quiet spot.** Background noise causes most transcription errors.
+- **No identifiers in what you say.** Say "the patient", not a name. Leave out the record number and date of birth. Spoken words become text in the chat, the same as typed words.
+- **Time:** about 5 minutes.
 
-{{< callout type="warning" >}}
-**Spoken PHI is still PHI.** Everything you dictate becomes text in the chat — exactly as if you'd typed it. The same rules apply: say "the patient," not the name; skip the MRN and date of birth. "Right basilic PICC in a 58-year-old on TPN" carries everything the note needs. See [privacy and de-identification](/tools/privacy/).
+## How to dictate the note
+
+{{< steps >}}
+{{< step title="Open a new chat" >}}
+Go to [lumen.intracav.ai](https://lumen.intracav.ai) and start a new chat.
+{{< /step >}}
+{{< step title="Start a voice conversation" >}}
+Click the microphone button next to the message box (**Start voice conversation**). The message box becomes the voice panel. Wait for **Speak when you're ready**.
+{{< /step >}}
+{{< step title="Say it in one go" >}}
+Start with the words "procedure note", then describe the procedure at a normal pace. Short pauses are fine. Lumen waits while you're mid-thought. For example:
+
+{{< composer text="Procedure note. Ultrasound-guided right basilic vein PICC, 5 French double lumen, for long-term IV antibiotics. Consent obtained. Chlorhexidine prep, maximal sterile barrier precautions. Single needle pass, modified Seldinger technique, no resistance. Tip at the cavoatrial junction by ECG tip confirmation. External length 1 centimeter, arm circumference 28 centimeters. Both lumens flush and draw. Chlorhexidine dressing applied. No immediate complications, estimated blood loss minimal." >}}
+{{< /step >}}
+{{< step title="Let Lumen write the note" >}}
+When you stop, Lumen transcribes what you said. Your words appear in the chat as your message. Lumen then writes the procedure note in the chat and reads its reply aloud. To stop the reading, start talking or click **End**.
+{{< /step >}}
+{{< step title="If your dictation was split" >}}
+If a long pause sent part of your dictation early, keep going. Then say `Combine everything I just said into one procedure note.`
+{{< /step >}}
+{{< step title="End the voice conversation and correct the note" >}}
+Click **End** to finish. Read the note carefully. Type any corrections in the message box, for example `Change the external length to 2 centimeters and add the ordering clinician's name.` Lumen updates the note.
+{{< /step >}}
+{{< step title="Move it into the record and sign" >}}
+Copy the note into your EHR through your usual documentation workflow, and sign it there.
+{{< /step >}}
+{{< /steps >}}
+
+## What you'll get
+
+{{< chat-demo title="PICC procedure note" caption="Illustration with a fictional procedure." >}}
+{{< user >}}Procedure note. Ultrasound-guided right basilic vein PICC, 5 French double lumen, for long-term IV antibiotics. Consent obtained. Chlorhexidine prep, maximal sterile barrier precautions. Single needle pass, modified Seldinger technique…{{< /user >}}
+{{< lumen thought="5" >}}
+**Procedure:** Ultrasound-guided PICC placement, right basilic vein
+
+**Indication:** Long-term IV antibiotics
+
+**Consent:** Obtained
+
+**Technique:** Chlorhexidine skin prep. Maximal sterile barrier precautions. Ultrasound-guided access with a single needle pass, modified Seldinger technique.
+
+**Device:** 5 French double-lumen PICC. External length 1 cm. Arm circumference 28 cm.
+
+**Tip confirmation:** Cavoatrial junction by ECG tip confirmation.
+
+**Function:** Both lumens flush and draw.
+
+**Dressing:** Chlorhexidine dressing applied.
+
+**Complications:** None immediate. Estimated blood loss minimal.
+
+**Not stated:** time-out, operator, ultrasound image saved, catheter lot number.
+{{< follow-ups "Add the time-out|Make it shorter|Format for pasting into the EHR" >}}
+{{< /lumen >}}
+{{< /chat-demo >}}
+
+## Check the result
+
+{{< lui-block title="Before you sign" >}}
+{{< lui-rows >}}
+{{< lui-row type="check" title="Side, vein and device are right" body="Right versus left, basilic versus brachial, French size and number of lumens." >}}
+{{< lui-row type="check" title="Every measurement matches what you did" body="External length, arm circumference and tip position. Numbers are where transcription goes wrong most often." >}}
+{{< lui-row type="check" title="Every Not stated item is filled in or deliberately left out" >}}
+{{< lui-row type="check" title="Nothing was added that you didn't say" >}}
+{{< lui-row type="check" title="Any suggested codes have been confirmed by you or your coder" >}}
+{{< lui-row type="check" title="You've signed it in your record system" >}}
+{{< /lui-rows >}}
+{{< /lui-block >}}
+
+## Tips
+
+- **Say numbers with their units:** "5 French", "28 centimeters".
+- **Spell unusual terms once.** If a device name keeps coming out wrong, spell it, then type the correction.
+- **Mute while someone else talks.** Click **Mute** in the voice panel, then **Unmute** when you're ready.
+- **See what Lumen hears.** Click **Show captions** to see the live transcript while you speak.
+- **Prefer to type?** Type `/` and choose **Procedure Note** from the **Skills** list, then type or paste the details.
+
+## Limits and safety
+
+{{< callout type="safety" title="You author the note" >}}
+Lumen drafts the note from what it heard. Transcription can mishear sound-alike words and numbers, and Lumen won't know anything you didn't say. Read every line before you sign, and follow your organization's documentation policy. Don't say patient identifiers or anything you're not permitted to share. See [Privacy and data](/trust/privacy/).
 {{< /callout >}}
 
-## The steps
+- **Lumen doesn't write to your EHR.** You copy the note into your record and sign it there.
+- **Voice is a conversation, not a dictation pad.** What you say is sent as a message when you stop speaking. You correct the note afterward, in the chat.
+- **Noisy rooms reduce accuracy.** Move away from equipment if you can.
 
-<div class="steps-container">
+## FAQ
 
-{{< step num="1" title="Start dictation in the composer" >}}
-Open a chat and tap the **microphone** in the message composer.
-
-**You should see:** a recording indicator confirming Lumen is listening. From here on, you talk instead of type.
-{{< /step >}}
-
-{{< step num="2" title="Speak naturally — pauses are punctuation" >}}
-Don't perform; just tell it what happened:
-
-```text
-Post-procedure note. Ultrasound-guided right basilic PICC,
-five French dual lumen. Sterile technique, chlorhexidine prep,
-full barrier. Single wall puncture, wire advanced without
-resistance. Tip at the cavoatrial junction on confirmation.
-No immediate complications. Line flushed and dressed,
-patient tolerated the procedure well.
-```
-
-Lumen listens for the natural boundaries in your speech — when you pause between thoughts, it closes out that utterance and transcribes it. So speak at a normal clinical pace and let sentences end; brief silences between sections are what segment the transcript cleanly.
-
-**You should see:** your words appearing as text while you speak, utterance by utterance.
-{{< /step >}}
-
-{{< step num="3" title="Stop, and let the transcript land" >}}
-Tap the microphone again to stop.
-
-**You should see:** the full transcript sitting in the composer as ordinary, editable text. Fix anything the microphone mangled — a device name, a measurement — the same way you'd edit anything you typed. Nothing has been sent yet.
-{{< /step >}}
-
-{{< step num="4" title="Structure it with the /procedure-note Skill" >}}
-With the transcript in the composer, invoke the [Skill](/skills-and-specialists/skills/) by typing `/` and choosing **procedure-note** — then send.
-
-**You should see:** your hallway-style narration reorganized into a proper procedure note — indication, technique, findings, complications, disposition — with your dictated facts in the right sections and nothing invented to fill gaps. If you didn't dictate an indication, the note won't conjure one; it will leave the gap where you can see it.
-{{< /step >}}
-
-{{< step num="5" title="Review and sign — the part that stays yours" >}}
-Read the note the way you'd read a resident's draft: check the laterality, the sizes, the tip position, the complications line. Then move it into the record through your normal documentation workflow and sign it there.
-
-**You should see:** a finished note that took a minute of speaking and a minute of review. Lumen drafted; you authored. Nothing enters the chart except through you.
-{{< /step >}}
-
-</div>
-
-{{< tip title="Getting a cleaner transcript" >}}
-Three habits cover most of it: keep a normal pace (rushing blurs word boundaries), state numbers with their units ("five French," "four centimeters"), and spell out anything unusual once — an uncommon device name, an unusual eponym. If a term keeps coming out wrong, spelling it verbally beats correcting it every time.
-{{< /tip >}}
-
-## Troubleshooting
-
-- **Nothing transcribes.** Almost always microphone permission — check that your browser or device has granted Lumen the mic, then try again.
-- **Words are dropped or garbled.** Background noise is the usual culprit. Get closer to the microphone, or move a room away from the equipment; a small position change often fixes it entirely.
-- **Sentences split in odd places.** Long mid-sentence pauses read as boundaries — the silence between utterances is the delimiter. Keep a thought moving until it's done, then pause.
+{{< faq question="Will Lumen read the note aloud?" >}}
+In a voice conversation, Lumen reads its replies aloud, and the full note also appears as text in the chat. To stop the reading, start talking or click **End**. The text stays in the chat either way.
+{{< /faq >}}
+{{< faq question="Can I dictate other kinds of notes?" >}}
+Yes. Say the kind of note first, such as "progress note" or "SOAP note", and Lumen uses the matching structure.
+{{< /faq >}}
+{{< faq question="Why didn't anything happen when I clicked the microphone?" >}}
+Your browser or device probably blocked the microphone. Allow microphone access for lumen.intracav.ai in your browser's site settings, then try again.
+{{< /faq >}}
 
 ## Next steps
 
-- [Dictation](/chat/dictation/) — the full reference for dictating anywhere in Lumen.
-- [Draft a Discharge Summary](/guides/discharge-summary/) — the same draft-then-review pattern on a bigger document.
-- [Skills](/skills-and-specialists/skills/) — the `/` commands that turn raw text into structured output.
+{{< related "/chat/dictation/" "/skills-and-specialists/skills/" "/guides/discharge-summary/" "/trust/privacy/" >}}

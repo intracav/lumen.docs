@@ -1,14 +1,42 @@
 <footer class="site-footer">
-  <nav class="footer-mesh" aria-label="Intracav sites">
-    <a href="https://intracav.ai">Intracav &mdash; clinical AI infrastructure</a>
-    <span aria-hidden="true">&middot;</span>
-    <a href="https://lumen.intracav.ai">Lumen</a>
-    <span aria-hidden="true">&middot;</span>
-    <a href="https://clinical-database.com">The Clinical Database &mdash; open clinical reference</a>
-    <span aria-hidden="true">&middot;</span>
-    <a href="https://magicaf.intracav.ai">MagicAF &mdash; open-source Rust AI framework</a>
-    <span aria-hidden="true">&middot;</span>
-    <a href="https://qpolicy.ai">qPolicy</a>
-  </nav>
-  <p>&copy; {{ now.Year }} Intracav &middot; Lumen AI User Guide</p>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo"><span class="logo-mark">{{ partial "icon.html" "lumen" }}</span><span class="logo-text">Lumen<span>Docs</span></span></a>
+        <p>Plain-language guides to Lumen, the clinical AI workspace from Intracav.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Use Lumen</h4>
+        <a href="/getting-started/">Get started</a>
+        <a href="/chat/">Chat</a>
+        <a href="/skills-and-specialists/">Specialists &amp; skills</a>
+        <a href="/guides/">Step-by-step guides</a>
+      </div>
+      <div class="footer-col">
+        <h4>Organizations</h4>
+        <a href="/organizations/">Admin console</a>
+        <a href="/qpolicy/">qPolicy</a>
+        <a href="/connect/">Lumen Connect</a>
+        <a href="/trust/">Trust &amp; security</a>
+      </div>
+      <div class="footer-col">
+        <h4>Developers</h4>
+        <a href="/developers/">API &amp; embed</a>
+        <a href="/developers/lumen-ui/">Lumen UI</a>
+        <a href="{{ site.Params.magicafURL }}/docs/lumen-ui/" rel="noopener">MagicAF docs</a>
+        <a href="/developers/status/">Status</a>
+      </div>
+      <div class="footer-col">
+        <h4>Intracav</h4>
+        <a href="https://intracav.ai" rel="noopener">intracav.ai</a>
+        <a href="{{ site.Params.appURL }}" rel="noopener">Open Lumen</a>
+        <a href="https://qpolicy.ai" rel="noopener">qpolicy.ai</a>
+        <a href="https://clinical-database.com" rel="noopener">The Clinical Database</a>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span class="safety">Lumen supports clinical work; it does not replace clinical judgment. Always verify recommendations against the cited source and your organization's policies.</span>
+      <span>&copy; {{ now.Year }} Intracav</span>
+    </div>
+  </div>
 </footer>

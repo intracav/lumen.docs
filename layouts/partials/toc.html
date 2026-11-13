@@ -1,0 +1,9 @@
+{{- if ge (len .Fragments.Headings) 1 }}{{ end -}}
+<aside class="toc" aria-label="On this page">
+  <div class="toc-title">{{ partial "icon.html" "list" }} On this page</div>
+  {{ .TableOfContents }}
+  <div class="toc-actions">
+    <a href="#main">{{ partial "icon.html" "arrow-up" }} Back to top</a>
+    <a href="{{ site.Params.appURL }}" rel="noopener">{{ partial "icon.html" "arrow-up-right" }} Open Lumen</a>
+  </div>
+</aside>

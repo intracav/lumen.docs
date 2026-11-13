@@ -1,0 +1,5 @@
+<div class="flow-node tint-{{ .Get "tint" | default "accent" }}">
+{{ with .Get "kicker" }}<div class="fn-kicker">{{ with $.Get "icon" }}{{ partial "icon.html" . }}{{ end }}{{ . }}</div>{{ end }}
+<div class="fn-title">{{ .Get "title" }}</div>
+{{ with .Inner }}<div class="fn-desc">{{ . | markdownify }}</div>{{ end }}
+</div>

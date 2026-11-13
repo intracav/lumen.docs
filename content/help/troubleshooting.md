@@ -1,81 +1,179 @@
 ---
-title: "Troubleshooting Common Issues"
-description: "Fix-first answers to the most common Lumen issues — message limits, uncited uploads, generic answers, shared folder visibility, memory, and more."
-lead: "The fix first, the explanation second. Find your symptom and go."
+title: "Troubleshooting"
+description: "Fixes for common Lumen problems: rate limits, queued messages, interrupted replies, missing citations, uploads, shared folders, approvals and sign-in."
+lead: "Find what you're seeing, then follow the fix. Each entry gives the symptom, the likely cause and what to do."
 weight: 3
+icon: settings
+glance:
+  what: "A symptom-by-symptom guide to the messages and states you may see in Lumen, with the cause and the fix for each."
+  who: "Anyone using Lumen: clinicians, team admins and device-maker staff."
+  why: "To get unstuck quickly without losing work, and to know when to contact support."
+  needs: "Nothing. If a fix doesn't work, email support@intracav.ai."
+  result: "The problem fixed, or a clear description to send to support."
 ---
 
-Nine issues cover most of what lands in support. Each answer starts with what to do, then explains why it works.
+Most problems in Lumen show a short message that says what happened. Find that message or symptom below. Each entry tells you what it means and what to do. If nothing here matches, check the [status page](/developers/status/) and then email [support@intracav.ai](mailto:support@intracav.ai).
 
-## Messages and limits
+## Sending messages and limits
 
-### I hit my message limit
+### A "Rate limited" banner with a countdown
 
-**Wait a little — capacity comes back on its own.** Limits use a **rolling window**, not a midnight reset: as your older messages age out of the window, room returns gradually, like a drip rate rather than a bolus. Nothing is lost in the meantime — your chats and documents stay exactly where they are.
+- **What you see:** **Rate limited**, a short explanation, and **You can retry in 0:47** (or similar). The **Retry** button is greyed out.
+- **Cause:** You've reached your plan's message allowance for the current usage window. On team plans (Plus and Max), members share one allowance for the team. Your message wasn't sent and nothing was lost.
+- **Fix:** Wait for the countdown to reach zero, then press **Retry**. Lumen never retries for you. If this happens often, compare allowances in [Plans](/plans/).
 
-If you're hitting the ceiling regularly, that's the usual sign you've outgrown your plan — compare windows and allowances in [Plans](/plans/).
+### "Rate limited" on one tool
 
-## Documents and citations
+- **What you see:** A banner inside an answer: **Rate limited** with "Too many requests in a short window. Wait a moment and retry."
+- **Cause:** One tool was called many times in a minute. This limit applies per tool, not to your whole account.
+- **Fix:** Wait a moment and press **Retry**, or ask your question again.
+
+### "You're offline — 2 messages will send when you reconnect"
+
+- **What you see:** A banner above the message box, or **2 messages queued**.
+- **Cause:** Your device lost its connection, so Lumen saved your messages on this device in an *outbox*.
+- **Fix:** Reconnect. Queued messages send on their own. To send them sooner, press **Retry now**. To review or remove them, press **Manage**.
+
+### "Queued message — review"
+
+- **What you see:** A dialog saying "The conversation continued without this message after it was queued", or "The message you replied to has been removed."
+- **Cause:** While your message waited in the outbox, the chat moved on, for example on another device.
+- **Fix:** Choose **Send as continuation** to add it at the end of the conversation, or **Discard**.
+
+### "This message didn't reach Lumen"
+
+- **What you see:** Under your message: "This message didn't reach Lumen, so there is no reply yet. It's saved on this device until it's sent."
+- **Cause:** The message couldn't be delivered.
+- **Fix:** Check your connection and press **Send now**. The message stays on this device until it's sent.
+
+### "Message too long"
+
+- **Cause:** The message, plus any attached text, is over the size limit.
+- **Fix:** Shorten the message, attach fewer or smaller documents, or split the request into parts.
+
+## Answers that stop or fail
+
+### "This reply was interrupted before it finished"
+
+- **What you see:** Part of an answer, then: "This reply was interrupted before it finished — what is shown is incomplete, and nothing more is being written."
+- **Cause:** The reply stopped before it was complete, for example because of a server problem. Lumen doesn't checkpoint replies: after a server failure the turn is marked interrupted and the partial text is kept, but it isn't resumed.
+- **Fix:** Press **Retry**, or ask again. Don't rely on the partial text; it may be missing important parts.
+
+{{< callout type="info" title="Closing the tab is fine" >}}
+Closing the tab or your laptop doesn't interrupt a reply. Chats and Specialist work run on Lumen's servers and keep going, up to about an hour per task. Open the chat again on any device to see the result. Only a failure on Lumen's side interrupts a reply.
+{{< /callout >}}
+
+### "Lumen saved this message but never started a reply"
+
+- **Cause:** Lumen received your message but the reply didn't start.
+- **Fix:** Press **Retry** or send the message again.
+
+### "Request timed out", "Network error" or "Service unavailable" on a tool
+
+- **What you see:** A banner inside the answer naming the problem, sometimes with the tool, such as "PubMed search timed out".
+- **Cause:** A database or service Lumen uses was slow or returned an error. Lumen tells you rather than inventing a result.
+- **Fix:** Press **Retry**. For **Service unavailable**, you can also press **Try alternative**. For a timeout, try a simpler question or split it up.
+
+### "Upgrade required"
+
+- **Cause:** The answer needed a tool that isn't included in your plan.
+- **Fix:** Press **View plans** to compare, or ask your question in a way that doesn't need that tool.
+
+### "Something went wrong"
+
+- **Cause:** An unexpected error on Lumen's side.
+- **Fix:** Try again. If it keeps happening, press **Contact support** or email [support@intracav.ai](mailto:support@intracav.ai) with the time and what you asked (no patient details).
+
+### "This answer paused to work in the app, and the pause expired"
+
+- **Cause:** **Pilot**, the feature that works in the Lumen app for you, paused to act on screen and the pause ran out before it could continue. Pilot runs in your open app, not in the background.
+- **Fix:** Ask again to pick up where it left off, and keep the app open while Pilot works.
+
+## Sources and citations
+
+### The answer has no sources
+
+- **Cause:** Nothing relevant was found, or the question didn't need a lookup. When nothing supports an answer, Lumen should say so rather than guess.
+- **Fix:** If you expected a document to be cited, check it has finished indexing (below), or attach it to your message so Lumen reads it directly. Treat any confident claim with no citation with caution. See [RAG and citations](/learn/rag-and-citations/).
+
+### "Knowledge base unavailable — composing from memory"
+
+- **Cause:** Lumen's search was briefly unavailable, so the answer is being written without retrieved sources.
+- **Fix:** Treat that answer as uncited. Ask again in a minute to get a cited answer.
 
 ### My uploaded document isn't being cited
 
-**First, give it a minute — then attach it directly.** Two common causes:
+- **Cause:** It may still be indexing, indexing may have failed, or another document matched your question better.
+- **Fix:** Open your documents. If it shows **Indexing…**, wait. If indexing failed, open the document's menu and choose **Retry indexing**. To make one document the subject of a question, attach it to the message.
 
-1. **It's still processing.** Uploads are extracted and indexed before they're citable — usually under a minute, longer for big scanned PDFs. Check the document's status in your library.
-2. **Your question didn't retrieve it.** Library retrieval is by meaning, and sometimes another document answers first. To make a specific file *the* subject of a turn, attach it to your message — an attached document is read directly, not merely eligible for retrieval.
+### A preview says it may be a scan without readable text
 
-How the two modes differ is covered in [Documents, sources & exports](/knowledge/documents/).
+- **Cause:** The file has no text layer, or Lumen couldn't read its pages. Scans and pictures are read by text recognition (OCR) on Lumen's servers, and poor scans may not read well.
+- **Fix:** Download the original to open it. If you need it searchable, upload a clearer copy or a version with selectable text.
 
-### A document in a shared folder isn't visible to a teammate
+## Teams, folders and sharing
 
-**Check that the document is actually *in* the shared folder, and that your teammate is a member of it.** Sharing is by folder, not by file: everything in a shared folder is searchable by the folder's members, and a document that sits in your personal folder is visible to no one but you — no matter how many times it's been discussed. Access follows location, so *moving* the document into the shared folder is the fix, and moving it out revokes it.
+### A teammate can't see a document in a shared folder
 
-Also worth a glance: the teammate's access level. Folder members can hold edit or view access, and either is enough to search and read — but they must be on the folder's member list (directly or through its department). Details in [Folders & Departments](/knowledge/folders/).
+- **Cause:** Access follows the folder. A document in your personal folder is visible only to you, however often it's discussed.
+- **Fix:** Use **Move to folder** to move the document into the shared folder. Then open the folder and check its sharing line, such as "Shared with everyone in the team", "Shared with the department" or "Shared with specific people", and the **Members** list.
 
-### The answer came back with no sources
+### "Team Members Only" on a shared chat
 
-**That's usually the system being honest, not broken.** When retrieval finds nothing authoritative for your question, Lumen's correct behaviors are to say so, hedge explicitly, or show you what it *did* find — rather than dressing up a guess with confidence. Treat an uncited confident claim as the anomaly, not the empty-handed honesty.
-
-If you expected a source to match, check that the document is uploaded and finished processing, or attach it directly. Why citation-free answers deserve skepticism is explained in [RAG & citations](/learn/rag-and-citations/).
-
-## Answer quality
-
-### Answers seem generic
-
-**Give Lumen something specific to stand on.** Three escalating fixes:
-
-1. **Attach the context** — the policy, the note, the paper. An answer grounded in your document beats an answer from general knowledge every time.
-2. **Bring in a Specialist** — type `@` to focus Lumen on a domain (a scribe, a research advisor, an insurance expert) instead of asking the generalist.
-3. **Sharpen the ask** — "summarize this" invites mush; "list what changed from last year's version, with section numbers" gets you a work product.
-
-The full craft is in [Prompting for clinicians](/learn/prompting-for-clinicians/).
-
-### A tool call failed mid-answer
-
-**Just ask again.** Transient tool failures — a slow upstream database, a network blip — are retried automatically behind the scenes, and when a tool still can't deliver, Lumen says so and works with what it has rather than fabricating the result. A fresh ask (or a slight rephrase, which may route to a different tool) resolves most of the rest. How tool calls work end to end: [Tool use](/learn/tool-use/).
+- **What you see:** "This shared chat is limited to members of the owner's team."
+- **Cause:** The person who shared the chat limited it to their team, Lumen's name for an organization account.
+- **Fix:** If you're in that team, sign in with your team account. Otherwise, ask the owner to share it another way.
 
 ### Memory remembered something wrong
 
-**Say "forget that…" and it's gone.** Memory is fully under your control, in chat and in settings:
+- **Fix:** Say "forget that…" in a chat, or open {{< ui-path "Settings" "Memory" >}} and delete or edit the fact. See [How AI memory works](/learn/ai-memory/).
 
-- **"Forget that I…"** removes a specific memory immediately
-- **"What do you remember about me?"** lists everything stored
-- **Settings** shows the same list, where you can edit or delete individual entries, clear everything, or switch memory off entirely — off means Lumen neither saves new facts nor uses stored ones
+## Approvals and Specialists
 
-Every memory change also announces itself with a chip in the chat, so a wrong save is visible the moment it happens. More in [Memory](/chat/memory/).
+### An approval card says "Expired — nothing happened"
 
-## Everything else
+- **Cause:** An action waiting for your approval, such as sending an email, wasn't approved in time.
+- **Fix:** Nothing was sent. Ask the Specialist to prepare the action again, then press **Approve**.
 
-### I want dark mode (or want it gone)
+### An approval card says "Interrupted — check whether it happened before retrying"
 
-**Settings → Preferences → Appearance.** Choose **System** (follow your device), **Light**, or **Dark**. If Lumen seems to switch themes "by itself," it's set to System and your device schedules the change.
+- **Cause:** The action started, but Lumen couldn't confirm whether it finished.
+- **Fix:** Check the destination first, such as your sent mail, before asking for it again, so it doesn't happen twice.
 
-### Where do I report a bad answer or send feedback?
+### I typed "I approve" and nothing happened
 
-**Flag it in the app.** Every response can be reported as bad, and that feedback ties to the exact answer you flagged — which is what makes it actionable. A flagged answer does more for accuracy than a hundred silent successes; if something looks off, take the two seconds. Why this matters: [Accuracy, citations & clinical judgment](/trust/responsible-ai/).
+- **Cause:** Approval only happens on the approval card. Typed approval does nothing, by design.
+- **Fix:** Press **Approve** on the card. It runs exactly as shown. See [Approvals](/skills-and-specialists/approvals/).
+
+## Workflows, Pilot and Satellite
+
+### My workflow stopped when I closed the editor
+
+- **Cause:** A run started from the editor canvas stops if you close it. Scheduled and triggered runs are different: they run unattended.
+- **Fix:** Keep the editor open for test runs, or set a schedule or trigger. See [Workflows](/workflows/).
+
+### My phone won't pair with Satellite
+
+- **Cause:** Pairing codes for **Satellite**, which pairs your phone with Lumen on your desktop, expire after 5 minutes, and each person can have up to 5 sessions.
+- **Fix:** Start again from **Connect phone** on the desktop and scan the new code. End old sessions if you've reached the limit. See [Satellite](/pilot/satellite/).
+
+## Signing in and appearance
+
+### "Session expired"
+
+- **Fix:** Press **Sign in** and sign back in. Your chats are saved on Lumen's servers.
+
+### Lumen switches between light and dark on its own
+
+- **Cause:** The theme is set to **System**, so it follows your device.
+- **Fix:** Open {{< ui-path "Settings" "Appearance" "Theme" >}} and choose **Light** or **Dark**.
 
 ## Still stuck?
 
-- [FAQ](/help/faq/) — the questions that aren't symptoms
-- [Glossary](/help/glossary/) — the terms behind the error you're reading
-- [Getting started](/getting-started/) — one-minute scenarios that show the happy path
+- Check the [status page](/developers/status/) for known issues.
+- Search the [FAQ](/help/faq/) and [glossary](/help/glossary/).
+- Email [support@intracav.ai](mailto:support@intracav.ai). Include what you were doing, the exact message you saw and the time. Don't include patient information.
+
+## Next steps
+
+{{< related "/help/" "/help/faq/" "/developers/status/" "/learn/rag-and-citations/" >}}

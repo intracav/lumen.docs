@@ -1,82 +1,137 @@
 ---
-title: "Embed a Website Bot"
-description: "Put a Lumen Website Bot on your own site with one iframe — a ~12 KB widget with cited answers, origin allowlisting, and lead capture."
-lead: "One iframe. A lightweight widget that answers from your Knowledge Packs, cites its sources, and hands you the leads."
+title: "Embed the website assistant"
+navTitle: "Embed"
+description: "Install a Lumen website assistant: the loader script, the fixed-frame option, allowed origins, sessions, rate limits, citations and page messages."
+lead: "One script tag adds a chat button to your site that opens your website assistant. This page covers what it loads, how it is locked to your domains, and how to control it from your page."
 weight: 2
-keywords: ["website bot", "embed widget", "iframe chat", "lead capture"]
+icon: globe
+who: "developers and web teams"
+keywords: ["website assistant embed", "loader.js", "chat widget", "frame-ancestors"]
+glance:
+  what: "The technical details of embedding a Lumen website assistant: the loader script, the iframe option, domain allowlisting, anonymous sessions, limits and the page-to-widget messages."
+  who: "Web developers and IT teams installing a website assistant on a device maker's site."
+  why: "To install the assistant correctly, pass a security review, and know how it behaves under load."
+  needs: "A website assistant set up by your team's admin, its publishable key, and access to your site's HTML. About 15 minutes."
+  result: "The assistant running on your allowed domains, with its limits and behavior understood."
 ---
 
-## What it is
+A website assistant runs in a small, self-contained chat page served by Lumen, about 12 KB compressed, with its styles and script inline. You add it to your site with a script tag that draws a chat button, or as a fixed frame. It only displays on the domains your admin allowed. For the non-technical setup, see [Add a website assistant to your site](/connect/website-assistant/).
 
-The embed is a **server-rendered chat widget** — a single self-contained HTML page (inline CSS and JS, roughly 12 KB gzipped), not a multi-megabyte SPA bundle. It loads fast enough to feel native to your page, adapts to `prefers-color-scheme`, and answers only from your Knowledge Packs, with citations the visitor can open.
+## Before you start
 
-Everything the widget calls lives on the same origin it's served from, so there's no CORS setup and nothing to allowlist in your CSP beyond the Lumen host.
+- **The assistant's slug and publishable key.** Your team's admin finds both in {{< ui-path "Admin console" "Website assistants" >}}, under the assistant's **Install & CRM** tab. A publishable key starts with `pk_`. It can only start visitor sessions, so it's safe in a web page.
+- **Your domains in the allowlist.** Under **Install & CRM**, the **Allowed domains** tile must list every origin the assistant will appear on.
 
-## Get your snippet
+## How to install it
 
-Your Website Bot settings in the publisher portal show the exact embed code for your bot. The pattern is one iframe pointing at your bot's slug with your **publishable key** (`pk_…` — safe to expose in a browser; it can only start visitor sessions, never read your data):
+{{< steps >}}
+{{< step title="Copy the snippet" >}}On **Install & CRM**, under **Install on your website**, choose **Chat button (recommended)** and click **Copy snippet**.{{< /step >}}
+{{< step title="Add it to your pages" >}}Paste it before the closing `body` tag on each page where the assistant should appear, or in your site template.{{< /step >}}
+{{< step title="Check it" >}}Load a page on an allowed domain. A round chat button appears in the bottom-right corner. Click it and ask a question.{{< /step >}}
+{{< /steps >}}
 
 ```html
-<iframe
-  src="https://lumen.intracav.ai/embed/your-bot-slug?key=pk_your_publishable_key"
-  title="Chat with us"
-  style="width: 100%; max-width: 420px; height: 640px; border: 0;">
-</iframe>
+<script src="https://api.intracav.ai/embed/loader.js"
+  data-assistant="northwind-vascular"
+  data-key="pk_…"
+  async></script>
 ```
 
-Two optional URL parameters, both verified behavior of the widget page:
+The loader draws a button in the assistant's brand color. When clicked, it opens a 380 × 600 pixel chat frame. It tells Lumen which page and site the visitor is on, so a per-page welcome message and starter questions from the assistant's **Site map** apply. If the assistant is paused on that page, the button doesn't appear.
 
-- `&theme=dark` (or `light`) — force a color mode instead of following the visitor's system preference.
-- `&q=…` (also `?question=` / `?ask=`) — auto-ask a question once on load, for deep links like "Ask about sizing".
+### Fixed frame (advanced)
 
-## Origin allowlisting
+To place the assistant in a fixed spot instead, choose **Advanced: fixed frame** and click **Copy frame**. The frame points at:
 
-The widget only renders inside domains you've allowlisted. The embed page is served with a `Content-Security-Policy: frame-ancestors` header built from your bot's active origins, so browsers refuse to frame it anywhere else — and with **no** origins configured, framing is blocked entirely until you add one.
+```text
+https://api.intracav.ai/embed/<assistant-slug>?key=pk_…
+```
 
-Entries support one leading-subdomain wildcard: `https://*.example.com` matches `https://www.example.com` and `https://app.example.com`, but the apex `https://example.com` needs its own entry. The scheme must match exactly.
+Optional query parameters:
 
-The widget's API calls are origin-checked too: session creation requires a browser `Origin` header that matches your allowlist, so a copied `pk_` key is dead on arrival from an unapproved site.
+- `theme=dark` forces dark mode. Without it, the assistant follows the visitor's system setting.
+- `q=…` (or `question=` or `ask=`) asks one question automatically when the frame loads.
 
-## How sessions work
+## What you'll see
 
-Visitors are anonymous — no login, no account:
+{{< screenshot src="assistant-install" alt="The Install & CRM tab with the chat button snippet and Copy snippet button" caption="Install & CRM. The recommended install is the chat button script." url="lumen.intracav.ai" >}}
+{{< lui-block title="Install on your website" >}}
+{{< lui-rows >}}
+{{< lui-row type="radio" title="Chat button (recommended)" body="A button in the corner of every page that opens the assistant." >}}
+{{< lui-row type="radio" title="Advanced: fixed frame" body="The assistant in a fixed place on one page." >}}
+{{< /lui-rows >}}
+{{< lui-actions "Copy snippet" "Copy frame" >}}
+{{< /lui-block >}}
+{{< /screenshot >}}
 
-1. The widget fetches `GET /api/embed/manifest/:slug` (public) for your branding and pack catalog, so it paints correctly before any auth round-trip.
-2. It mints a session with `POST /api/embed/sessions`, sending the publishable key in an `X-Embed-Publishable-Key` header. The response is `{ session_id, visitor_token, expires_at }`.
-3. Every subsequent call carries `X-Embed-Session-Id` and `X-Embed-Visitor-Token` headers. Chat streams over SSE from `POST /api/embed/chat/completion`.
+## How it's locked to your domains
 
-Sessions are rate-shaped server-side: a per-session lifetime message cap, a minimum 1-second spacing between messages (invisible to humans, fatal to runaway loops), and per-publisher daily quotas on sessions, messages, and leads. A denied request returns `429` — the widget handles this itself; you don't need to.
+The chat page is served with a `Content-Security-Policy: frame-ancestors` header built from the assistant's allowed origins, so browsers refuse to show it inside any other site. With no origins configured, it can't be framed at all.
+
+Origin rules:
+
+- Exact origins, such as `https://www.northwindvascular.example`, or one leading wildcard, such as `https://*.northwindvascular.example`.
+- A wildcard matches subdomains, not the bare domain. Add `https://northwindvascular.example` separately.
+- The scheme must match exactly.
+
+## Sessions and limits
+
+Visitors are anonymous and never sign in.
+
+1. The chat page reads the assistant's public manifest (`GET /api/embed/manifest/:slug`) for its name, branding and welcome.
+2. It starts a session with `POST /api/embed/sessions`, sending the publishable key. A session lasts 24 hours.
+3. Messages stream back from `POST /api/embed/chat/completion` as server-sent events.
+
+| Limit | Value | What happens |
+|---|---|---|
+| Message spacing | 1 per second per session | `429`, retry after 1 second |
+| Messages per session | 200 | The session ends (`401 session_invalid`) and a new one starts |
+| Daily quotas | Set by your admin for messages, sessions and leads | `429` until the next day |
+
+The chat page handles these responses itself.
 
 ## Cited sources
 
-Answers cite the documents they came from, and citations are openable: each source link resolves through a public read-only endpoint (`/api/embed/source/:publisher_slug/:external_id`) that serves the original file, with a `#page=N` anchor when the citation pins a specific PDF page. Documents you've marked as background-only inform answers without ever appearing as sources, and disabled documents never leave the org.
+Each citation shows the document title and page. Clicking it opens the original file through a public, read-only link (`/api/embed/source/:slug/:document`), at the cited page for PDFs. Only documents marked as citable and turned on for the assistant are served. Background-only documents are never shown.
 
-## Leads
+## Controlling the frame from your page
 
-When a visitor submits the contact form, the widget posts to `POST /api/embed/leads`. The lead lands in your publisher portal attached to its full conversation context, flows into your configured CRM integration, and a returning visitor folds into their existing lead record instead of creating a duplicate. Lead capture is a server-side switch in your bot settings — turning it off refuses capture at the endpoint, not just in the UI.
-
-## Styling and branding
-
-The widget pulls your logo, name, and theme from your bot settings via the manifest — change them there and every embedded copy updates on the next page load (the widget is served uncacheable for exactly this reason). There is no CSS to maintain on your side.
-
-## Driving the widget from your page
-
-For guided demos and tours, the parent page can drive the widget with `postMessage` — the iframe is already origin-locked, so only your allowlisted pages can do this:
+Your page can send messages to the chat frame:
 
 ```javascript
 const frame = document.querySelector("iframe").contentWindow;
 
-// Ask a question programmatically (max 2,000 characters)
-frame.postMessage({ type: "lumen:ask", text: "What sizes are available?" }, "*");
+// Ask a question (up to 2,000 characters)
+frame.postMessage({ type: "lumen:ask", text: "What sizes are available?" }, "https://api.intracav.ai");
 
-// Clear the transcript
-frame.postMessage({ type: "lumen:reset" }, "*");
+// Clear the conversation
+frame.postMessage({ type: "lumen:reset" }, "https://api.intracav.ai");
 ```
 
-Messages sent before the session is ready are queued and flushed once it is.
+When the assistant is ready, it posts `{ type: "lumen:ready", slug }` to your page. Messages sent before then are queued.
+
+## Leads
+
+When a visitor submits the contact form, the lead is saved with its conversation and sent to your CRM or webhooks if configured. A returning visitor updates their existing lead instead of creating a duplicate. If your admin turns lead capture off, the server refuses new leads. See [CRM and webhooks](/connect/crm-and-webhooks/).
+
+## Limits
+
+- **`theme=light` doesn't override a dark system setting.** Only `theme=dark` forces a mode.
+- **Branding comes from Lumen.** Name, colors and welcome are set in the assistant's settings. There's no CSS to change on your side.
+- **The chat page isn't cached,** so settings changes appear on the next page load.
+
+## FAQ
+
+{{< faq question="Does the embed need any CORS or CSP changes on our site?" >}}
+If your site sets a Content Security Policy, allow `https://api.intracav.ai` for scripts and frames. The chat page calls only its own host.
+{{< /faq >}}
+{{< faq question="Can we style the chat to match our site?" >}}
+Set the name, brand color and appearance in the assistant's settings in Lumen. Changes apply everywhere the assistant is embedded.
+{{< /faq >}}
+{{< faq question="What happens if Lumen is unavailable?" >}}
+The chat shows an error and your page keeps working. Check [status.intracav.ai](https://status.intracav.ai) or the [status API](/developers/status/).
+{{< /faq >}}
 
 ## Next steps
 
-- [Lumen API v1](/developers/api/) — the same grounded answering, headless, for your own backend
-- [The Lumen MCP Server](/developers/mcp/) — your Knowledge Packs in Claude Desktop and IDE agents
-- [Partner Knowledge Packs](/developers/partner-knowledge-packs/) — the content contract behind the bot
+{{< related "/connect/website-assistant/" "/developers/api/" "/developers/salesiq-webhook/" "/connect/crm-and-webhooks/" >}}

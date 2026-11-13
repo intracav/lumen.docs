@@ -1,162 +1,105 @@
 ---
-title: "Reports & Files"
-description: "Lumen can create documents, reports, and interactive tools right in the chat. Here's how they work."
-weight: 4
+title: "Create documents, slides and spreadsheets"
+navTitle: "Reports and files"
+description: "Lumen can make Word documents, PDFs, slide decks, spreadsheets and web pages in a chat. Open them beside the chat, edit them, and download them."
+lead: "Ask for a handout, a slide deck or a spreadsheet and Lumen makes the file. It opens beside the chat, where you can change it and download it."
+weight: 5
+icon: files
+glance:
+  what: "Lumen creates files, such as Word documents, PDFs, presentations, spreadsheets and web pages, that open in a panel beside the chat."
+  who: "Clinicians, educators, managers and anyone who turns answers into documents, on any plan."
+  why: "To go from a question to a finished handout, policy draft, teaching deck or tracking sheet without copying text between programs."
+  needs: "A Lumen account (any plan). About 4 minutes to read."
+  result: "A file you've reviewed, edited if needed, and downloaded."
 ---
 
-Sometimes a text answer isn't enough. When you ask about drug interactions, Lumen doesn't just tell you &mdash; it creates a **detailed report** you can tap to open. Ask for a presentation, and it builds one you can download. These attached files and reports are called **artifacts**, and they show up as tappable cards in the chat.
+Sometimes you need more than an answer. You need the patient handout, the in-service slides or the audit spreadsheet. Ask Lumen for it and it makes the file in the chat. The file appears as a card. Open it to read it in a panel beside the conversation, ask for changes to one section, and download it when it's right. Lumen calls these files *artifacts*.
 
-## What Are Artifacts?
+## Before you start
 
-An artifact is a structured, interactive piece of content that Lumen creates during a conversation. They appear as clickable cards within the chat.
+- **Plan:** any plan.
+- **Have ready:** what the file is for, who will read it, and any content it must include. Attach source material, such as a policy or your notes, if the file should be based on it.
 
-<div class="chat-mockup" style="margin: 2rem 0;">
-  <div class="chat-mockup-header">
-    <div class="chat-mockup-avatar">&#10022;</div>
-    <div class="chat-mockup-title">Chat</div>
-  </div>
-  <div class="chat-mockup-body">
-    <div class="chat-msg assistant">
-      <div class="msg-avatar"><span>&#10022;</span></div>
-      <div class="msg-content">
-        <p style="margin: 0; font-size: 0.875rem; color: var(--dark-text);">Here's the drug interaction report you requested:</p>
-        <div class="mock-artifact" style="margin-top: 0.75rem;">
-          <div class="mock-artifact-icon" style="background: var(--accent-glow); color: var(--accent);">&#9888;</div>
-          <div class="mock-artifact-info">
-            <div class="mock-artifact-title">Warfarin × Amiodarone Interactions</div>
-            <div class="mock-artifact-type">Drug Interaction Report</div>
-          </div>
-          <div class="mock-artifact-chevron">&rsaquo;</div>
-        </div>
-        <div class="mock-artifact" style="margin-top: 0.5rem;">
-          <div class="mock-artifact-icon" style="background: var(--accent-glow); color: var(--accent);">&#128196;</div>
-          <div class="mock-artifact-info">
-            <div class="mock-artifact-title">Patient Safety Summary</div>
-            <div class="mock-artifact-type">PDF Document</div>
-          </div>
-          <div class="mock-artifact-chevron">&rsaquo;</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+## How to create a file
 
-## Viewing Artifacts
+{{< steps >}}
+{{< step title="Ask for the file" >}}
+Say what you want, who it's for, and the format. For example:
 
-When you click an artifact card, it opens in a **side panel** on the right side of the screen (or a bottom sheet on mobile). The side panel shows the full content while keeping the chat visible.
+*"Make a one-page Word handout for patients going home with a PICC line: daily care, when to call, and what to avoid. 6th-grade reading level."*
+{{< /step >}}
+{{< step title="Open it" >}}
+When Lumen finishes, a card appears in the reply, labelled with the file type, such as **Word Doc**, **PDF**, **Presentation** or **Spreadsheet**. Click **Open**. The file opens in the panel beside the chat. On a phone, it opens full screen.
+{{< /step >}}
+{{< step title="Review it" >}}
+Read the whole file. Check facts, doses and phone numbers against your sources and your organization's policy.
+{{< /step >}}
+{{< step title="Ask for changes" >}}
+Ask in the chat, for example *"Add a section on showering."* In a document, you can also ask Lumen to change a single section or block, and in a slide deck a single slide.
+{{< /step >}}
+{{< step title="Download it" >}}
+Click **Download** in the panel, or the format button, such as **Download PDF** or **Download DOCX**. You can also **Copy** the content, or click **Open full screen** for a larger view.
+{{< /step >}}
+{{< /steps >}}
 
-<div class="app-frame" style="margin: 2rem 0;">
-  <div class="app-frame-bar">
-    <div class="app-frame-dot red"></div>
-    <div class="app-frame-dot yellow"></div>
-    <div class="app-frame-dot green"></div>
-  </div>
-  <div class="app-frame-content" style="display: flex; gap: 0; padding: 0;">
-    <div style="flex: 1; padding: 1rem; border-right: 1px solid rgba(255,255,255,0.08); background: var(--dark-bg);">
-      <div style="font-size: 0.75rem; color: var(--dark-text-muted); text-align: center;">Chat area</div>
-    </div>
-    <div style="width: 260px; padding: 1rem; background: var(--dark-canvas);">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-        <div style="font-size: 0.8rem; font-weight: 600; color: var(--dark-text);">&#9888; Drug Interactions</div>
-        <div style="font-size: 0.75rem; color: var(--dark-text-muted); cursor: pointer;">&#10005;</div>
-      </div>
-      <div style="font-size: 0.75rem; color: var(--dark-text-muted); line-height: 1.6;">
-        <div style="padding: 0.5rem; background: var(--accent-glow); border-radius: 6px; margin-bottom: 0.5rem; border-left: 3px solid var(--accent);">
-          <strong style="color: var(--accent);">Moderate Risk</strong><br>
-          Amiodarone inhibits CYP2C9, increasing warfarin levels. Monitor INR closely.
-        </div>
-        <div style="padding: 0.5rem; background: rgba(255,255,255,0.05); border-radius: 6px;">
-          <strong style="color: var(--dark-text);">Recommendation</strong><br>
-          Reduce warfarin dose by 30&ndash;50% when initiating amiodarone.
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+## What you'll see
 
-## Types of Artifacts
+{{< screenshot src="chat-artifact" alt="A Word document card in a Lumen reply, with the document open in the panel beside the chat" caption="A file card in the chat. Click Open to view the file in the panel." url="lumen.intracav.ai/chat" >}}
+{{< chat-demo title="PICC line handout" caption="Illustration. Review every file before you give it to anyone." >}}
+{{< user >}}Make a one-page Word handout for patients going home with a PICC line: daily care, when to call, and what to avoid. 6th-grade reading level.{{< /user >}}
+{{< lumen thought="5" tools="Word document ready" sources="2" >}}
+Here's the handout. It's written at about a 6th-grade reading level. Add your unit's phone number before you print it.
 
-Lumen can generate over **30 types** of artifacts. Here are the most common:
+{{< artifact type="docx" title="Going home with a PICC line" sub="Word Doc · 1 page" >}}
+{{< /lumen >}}
+{{< /chat-demo >}}
+{{< /screenshot >}}
 
-### Clinical Tools
+## Files Lumen can make
 
-<div class="tool-grid" style="margin: 1rem 0;">
-  <div class="tool-card">
-    <div class="tool-icon" style="background: var(--accent-glow); color: var(--accent);">&#9888;</div>
-    <div class="tool-info">
-      <div class="tool-name">Drug Interaction Reports</div>
-      <div class="tool-desc">Severity ratings, mechanisms, and management recommendations for drug combinations.</div>
-    </div>
-  </div>
-  <div class="tool-card">
-    <div class="tool-icon" style="background: rgba(61,191,128,0.1); color: #3DBF80;">&#9745;</div>
-    <div class="tool-info">
-      <div class="tool-name">Clinical Checklists</div>
-      <div class="tool-desc">Interactive checklists for sepsis bundles, surgical safety, DKA management, and more. Track your progress by checking items.</div>
-    </div>
-  </div>
-  <div class="tool-card">
-    <div class="tool-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#128202;</div>
-    <div class="tool-info">
-      <div class="tool-name">Lab Reference Ranges</div>
-      <div class="tool-desc">Normal intervals with units, color-coded thresholds, and clinical significance notes.</div>
-    </div>
-  </div>
-</div>
+| You'll see | Format | Good for |
+|---|---|---|
+| **Word Doc** | .docx | Handouts, letters, policy drafts, notes |
+| **PDF** | .pdf | Documents to print or send as they are |
+| **Presentation** | .pptx | In-services, grand rounds, teaching |
+| **Spreadsheet** | .xlsx | Audits, trackers, schedules, data tables |
+| **Interactive** | Web page | Interactive pages and visual explainers |
 
-### Documents
+For checklists, calculators, tables and charts inside the reply itself, see [Interactive answers](/chat/interactive-answers/).
 
-<div class="tool-grid" style="margin: 1rem 0;">
-  <div class="tool-card">
-    <div class="tool-icon" style="background: var(--accent-glow); color: var(--accent);">&#128196;</div>
-    <div class="tool-info">
-      <div class="tool-name">PDF Documents</div>
-      <div class="tool-desc">Formatted reports, patient summaries, and reference documents. Downloadable directly.</div>
-    </div>
-  </div>
-  <div class="tool-card">
-    <div class="tool-icon" style="background: rgba(214,158,46,0.1); color: #D69E2E;">&#128202;</div>
-    <div class="tool-info">
-      <div class="tool-name">Presentations (PPTX)</div>
-      <div class="tool-desc">Slide decks for grand rounds, patient education, and team presentations.</div>
-    </div>
-  </div>
-  <div class="tool-card">
-    <div class="tool-icon" style="background: rgba(33,115,70,0.1); color: #217346;">&#128203;</div>
-    <div class="tool-info">
-      <div class="tool-name">Spreadsheets (Excel)</div>
-      <div class="tool-desc">Data tables, tracking sheets, and structured clinical data exports.</div>
-    </div>
-  </div>
-</div>
+## Keep track of changes
 
-### Clinical Decision Support
+Each time Lumen changes a file, it keeps the earlier version. Click **Versions** in the panel to see them. An older version opens as **Viewing v2 — read-only**. Click **Restore** to make it current, or **Back to current** to return.
 
-<div class="tool-grid" style="margin: 1rem 0;">
-  <div class="tool-card">
-    <div class="tool-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#129504;</div>
-    <div class="tool-info">
-      <div class="tool-name">Differential Diagnosis</div>
-      <div class="tool-desc">Ranked list of possible diagnoses with distinguishing features and recommended workup.</div>
-    </div>
-  </div>
-  <div class="tool-card">
-    <div class="tool-icon" style="background: rgba(237,137,54,0.1); color: #ED8936;">&#127973;</div>
-    <div class="tool-info">
-      <div class="tool-name">Triage Assessments</div>
-      <div class="tool-desc">ESI, MTS, and CTAS triage scoring with acuity levels and rationale.</div>
-    </div>
-  </div>
-</div>
+## Tips
 
-## Artifact Actions
+- **Say the audience and reading level.** "For patients, 6th-grade level" and "for ICU nurses" produce very different files.
+- **Base it on your material.** Attach your policy or template and say "Use this as the source."
+- **Use a skill for a set format.** Type `/` and choose a skill, such as **Discharge Summary** or a branded document, for a consistent structure.
+- **Share the chat to share the file.** The panel has no share button. Share the conversation instead. See [Share a chat](/chat/sharing/).
 
-At the bottom of every artifact panel, you'll find action buttons:
+## Limits and safety
 
-- **Copy** — Copy the content to your clipboard
-- **Download** — Export as a file: PDF, DOCX, PPTX, or XLSX, depending on the artifact type
-- **Share** — Create a link so a colleague can view the artifact
+- A file is a draft until you've reviewed it. Lumen can get facts, doses or contact details wrong.
+- Patient handouts should be reviewed by a clinician and approved under your organization's process before use.
+- Formatting can shift when a file opens in another program. Check the downloaded file before you print or send it.
 
-{{< callout type="success" >}}
-**Interactive artifacts update in real time.** Checklists save your progress, and calculators update as you change inputs.
+{{< callout type="safety" title="Review before you share" >}}
+Check every clinical fact in a file against its sources and your organization's policy before it goes to a patient or colleague.
 {{< /callout >}}
+
+## FAQ
+
+{{< faq question="Can I edit the file in Word or PowerPoint?" >}}
+Yes. Download it and open it in the program you use. Changes you make there don't sync back to Lumen.
+{{< /faq >}}
+{{< faq question="Where do my files go?" >}}
+They stay in the chat where Lumen made them. Open the chat from the sidebar to find them again.
+{{< /faq >}}
+{{< faq question="Can I go back to an earlier version?" >}}
+Yes. Click **Versions** in the panel, open the version you want, and click **Restore**.
+{{< /faq >}}
+
+## Next steps
+
+{{< related "/chat/interactive-answers/" "/tools/document-generation/" "/getting-started/draft-a-note/" "/chat/sharing/" >}}

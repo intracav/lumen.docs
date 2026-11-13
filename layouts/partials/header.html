@@ -1,29 +1,32 @@
 <header class="site-header">
   <div class="header-inner">
-    <a href="/" class="logo">
-      <span class="logo-wordmark"><span class="intra">Intra</span><span class="cav">cav</span></span>
-      <span class="logo-sub">Lumen Docs</span>
+    <button class="icon-btn mobile-menu-btn" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">
+      {{ partial "icon.html" "menu" }}
+    </button>
+
+    <a href="/" class="logo" aria-label="Lumen Docs home">
+      <span class="logo-mark">{{ partial "icon.html" "lumen" }}</span>
+      <span class="logo-text">Lumen<span>Docs</span></span>
     </a>
 
-    <nav class="header-nav">
-      {{ range .Site.Menus.main }}
-        <a href="{{ .URL }}">{{ .Name }}</a>
-      {{ end }}
+    <nav class="header-nav" aria-label="Primary">
+      {{- $section := "" }}{{ with .FirstSection }}{{ $section = .RelPermalink }}{{ end }}
+      {{- range .Site.Menus.main }}
+      <a href="{{ .URL }}"{{ if eq .URL $section }} class="active" aria-current="true"{{ end }}>{{ .Name }}</a>
+      {{- end }}
     </nav>
 
-    <a class="header-search" href="/search/" aria-label="Search the docs">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      <span class="header-search-label">Search</span>
-    </a>
-
-    <button class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">
-      <span class="theme-icon">&#9789;</span>
+    <button class="search-trigger" type="button" data-search-open aria-label="Search the docs">
+      {{ partial "icon.html" "search" }}
+      <span class="label">Search docs</span>
+      <kbd data-kbd-mod>⌘K</kbd>
     </button>
 
-    <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M3 12h18M3 6h18M3 18h18"/>
-      </svg>
+    <button class="icon-btn theme-toggle" type="button" aria-label="Switch between light and dark theme">
+      {{ partial "icon.html" (dict "name" "moon" "class" "moon") }}
+      {{ partial "icon.html" (dict "name" "sun" "class" "sun") }}
     </button>
+
+    <a class="btn btn-primary btn-sm header-cta" href="{{ site.Params.appURL }}" rel="noopener">Open Lumen {{ partial "icon.html" "arrow-up-right" }}</a>
   </div>
 </header>

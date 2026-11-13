@@ -1,84 +1,76 @@
 ---
-title: "Finding Information"
-description: "Choose where Lumen looks for answers — clinical databases, your own documents, or the web."
+title: "Choose where Lumen looks"
+navTitle: "Where Lumen looks"
+description: "Turn Lumen's sources on or off for a chat: the clinical knowledge base, your documents, a folder's library, Knowledge Packs and the web."
+lead: "Lumen searches before it answers. You decide which places it may search, from the Sources button in the composer and the web search setting."
 weight: 1
+icon: search
+glance:
+  what: "The controls that decide where Lumen looks for information before it answers: its clinical knowledge base, your own documents, Knowledge Packs and the web."
+  who: "Anyone who uses Lumen chat."
+  why: "So answers draw on the material you trust for this question, and nothing else."
+  needs: "A Lumen account on any plan. About 2 minutes."
+  result: "A chat that searches exactly the sources you chose, with each one cited."
 ---
 
-When you ask Lumen a question, it searches for the best available evidence before answering. You can choose **where** it looks using three simple buttons at the bottom of the chat.
+Before Lumen writes an answer, it searches for material to base it on. By default it searches its clinical knowledge base, may fetch web pages when a question needs them, and uses any documents you attach. You can narrow or widen that for each chat. Whatever it uses is listed under the answer, so you can open it and check.
 
-## The Three Knowledge Sources
+## Before you start
 
-<div class="tool-grid">
+- You need a Lumen account on any plan.
+- To search your own files, upload them first. See [Documents](/knowledge/documents/).
+- To search a *Knowledge Pack* (a curated collection of documents Lumen can search), it must be turned on for you. See [Knowledge Packs](/knowledge/knowledge-packs/).
 
-{{< tool-card name="Clinical Database" icon="&#9889;" color="#3B82F6" desc="Lumen's built-in clinical knowledge base. Contains peer-reviewed guidelines, drug databases, lab reference ranges, and clinical protocols. This is your primary source of truth." example="\"What are the current USPSTF screening recommendations for lung cancer?\"" badge="On by Default" >}}
+## How to choose your sources
 
-{{< tool-card name="My Documents" icon="&#128193;" color="#6633CC" desc="Your personally uploaded files — PDFs, notes, research papers, and reference materials. Toggle this on when you want Lumen to search your own library." example="\"Based on the uploaded protocol, what are the inclusion criteria for this trial?\"" >}}
+{{< steps >}}
+{{< step title="Open the Sources menu" >}}In the composer at the bottom of the chat, click **Sources**.{{< /step >}}
+{{< step title="Turn sources on or off" >}}Use the switch beside each source:
 
-{{< tool-card name="Web Search" icon="&#127760;" color="#299966" desc="Live internet search for the most current information. Useful for breaking research, conference proceedings, or topics not yet in the clinical database." example="\"What were the key findings from the latest ASCO 2026 presentations on NSCLC?\"" >}}
+- **Clinical knowledge base**: Intracav-curated literature and policies.
+- **My Documents**: files you have uploaded.
+- **Folder library**: documents shared in the folder this chat belongs to.
+- Any **Included packs** or **Partner packs** you have access to.
 
-</div>
+To add more packs, click **Browse Knowledge Packs**.{{< /step >}}
+{{< step title="Decide whether Lumen may use the web" >}}Open **Chat settings** in the composer, then find **Web search**. **Allow web search** is on by default. Turn it off to block all web requests during your chats.{{< /step >}}
+{{< step title="Ask your question" >}}Send your message as usual. Lumen searches only the sources you left on.{{< /step >}}
+{{< step title="Check what it used" >}}Open the sources listed under the answer. Each numbered citation links to the passage it came from. Web sources include the page address.{{< /step >}}
+{{< /steps >}}
 
-## How Search Works
+## What you'll see
 
-When you send a message with search enabled, here's what happens:
+{{< chat-demo title="Policy question" caption="Illustration with fictional Harbor Valley Medical Center documents. Real answers cite real, checkable sources." >}}
+{{< user >}}According to our central line policy, how often do we change a transparent CHG dressing?{{< /user >}}
+{{< lumen tools="Documents searched" sources="2" >}}
+Your policy says transparent dressings are changed **every 7 days**, or sooner if damp, loose or soiled {{< cite 1 >}}. Gauze dressings are changed every 2 days {{< cite 1 >}}. This matches the CDC recommendation for central venous catheters {{< cite 2 >}}.
+{{< /lumen >}}
+{{< /chat-demo >}}
 
-<div class="steps-container">
+## Good to know
 
-{{< step num="1" title="Your question is analyzed" >}}
-Lumen identifies the key clinical concepts in your question and formulates search queries.
-{{< /step >}}
+- **Lumen uses the web on its own when it helps.** Leave web search on for recent news, conference reports or topics not in the knowledge base. Turn it off if your organization asks you to keep chats from making outside requests.
+- **Deeper web research is separate.** Reading many pages in depth, crawling a site or extracting structured data from pages needs **Pro** or above. Basic web search is free. See [Research and evidence](/tools/literature-research/).
+- **Attachments are always read.** A file you attach to a message is used for that message, whatever your Sources settings are.
 
-{{< step num="2" title="Sources are searched" >}}
-A **"Searching knowledge base..."** indicator appears while Lumen queries the enabled sources. This typically takes 1–3 seconds.
-{{< /step >}}
+## Limits and safety
 
-{{< step num="3" title="Results are ranked" >}}
-Each result gets a **similarity score** showing how relevant it is to your question. Only high-quality matches are used.
-{{< /step >}}
+- Lumen can only cite what it found. If none of your chosen sources covers a question, it should say so. Treat any statement without a citation with extra care.
+- Turning off the clinical knowledge base doesn't stop Lumen from using its general training. Check every clinical claim against the cited source.
+- Don't upload documents you're not permitted to share. See [Privacy and data](/trust/privacy/).
 
-{{< step num="4" title="Evidence is synthesized" >}}
-Lumen reads the top results and synthesizes them into a coherent answer, citing each source.
-{{< /step >}}
+## FAQ
 
-</div>
+{{< faq question="Does turning off web search make answers less accurate?" >}}
+Not for questions your other sources cover. It mostly affects very recent information. If Lumen can't find support in the sources you allowed, it should tell you.
+{{< /faq >}}
+{{< faq question="Can I make Lumen use only my own documents?" >}}
+Yes. Turn off **Clinical knowledge base** and any packs in **Sources**, turn off **Allow web search**, and leave **My Documents** or **Folder library** on.
+{{< /faq >}}
+{{< faq question="Where do I see which sources were used?" >}}
+Below each answer. Numbered citations in the text match the listed sources. See [Where answers come from](/chat/sources/).
+{{< /faq >}}
 
-## Combining Sources
+## Next steps
 
-You can enable **all three sources simultaneously**. Lumen will search across all of them and merge the results, giving you the broadest coverage possible.
-
-This is especially powerful when you want to:
-- Compare your internal protocols against published guidelines
-- Supplement database knowledge with the latest web-based research
-- Find information that spans multiple domains
-
-{{< callout type="info" >}}
-**The sources chip** at the bottom of each response shows exactly which documents were used. Click it to verify the evidence chain.
-{{< /callout >}}
-
-## The Tools Behind the Toggles
-
-You never call these by name, but it helps to know what Lumen can actually do when it goes looking:
-
-<div class="tool-grid">
-
-{{< tool-card name="Web Search" icon="&#128269;" color="var(--smoky-blue)" desc="Searches the web and returns titles, URLs, and snippets — the default way Lumen finds current information and sources to read." example="\"What were the key findings from this year's ADA Standards of Care update?\"" badge="Web" >}}
-
-{{< tool-card name="Read a Page" icon="&#128279;" color="var(--palace-green)" desc="Fetches a single URL you've shared (or one found by search) and extracts it as clean, readable text." example="\"Read this page and summarize the dosing table: [link]\"" badge="Web" >}}
-
-{{< tool-card name="Deep Web Research" icon="&#129517;" color="var(--accent)" desc="Searches multiple engines and automatically reads the top results in one pass — up to 9 full pages with per-source attribution. For questions that deserve more than snippets." example="\"Research the current evidence landscape for GLP-1s in heart failure with preserved EF\"" badge="Pro" >}}
-
-{{< tool-card name="Site Mapping & Crawling" icon="&#128506;" color="var(--smoky-blue-dk)" desc="Maps the URLs of a site you point at, crawls its pages into readable text, or extracts structured data from them — useful for working through a society's guideline library or a departmental site." example="\"Crawl our department protocol site and list every airway-related page\"" badge="Pro" >}}
-
-{{< tool-card name="YouTube Transcripts" icon="&#127909;" color="var(--accent)" desc="Pulls the spoken transcript of a YouTube video you link, so Lumen can summarize or quote a lecture or conference talk." example="\"Summarize the key points from this grand rounds recording: [link]\"" badge="Media" >}}
-
-{{< tool-card name="Document Search & Read" icon="&#128193;" color="var(--palace-green)" desc="Semantically searches your uploaded documents for relevant passages, or reads a specific document end-to-end when the task depends on seeing every row or paragraph." example="\"Based on the uploaded protocol, what are the exclusion criteria?\"" badge="Your Library" >}}
-
-</div>
-
-Tools marked **Pro** are available on paid plans — see [Plans](/plans/).
-
-## Attach Documents
-
-Beyond the knowledge toggles, you can also **attach specific documents** to a message using the paperclip icon. Attached documents are always included regardless of toggle state.
-
-See [Uploading Documents](/chat/attachments/) for details.
+{{< related "/chat/sources/" "/knowledge/documents/" "/knowledge/knowledge-packs/" "/tools/literature-research/" >}}

@@ -1,32 +1,29 @@
 {{- $current := . -}}
 {{- $currentSection := .FirstSection -}}
-{{- $groups := slice
-  (dict "label" "Use Lumen" "audience" "clinician")
-  (dict "label" "For Organizations" "audience" "org")
-  (dict "label" "Partners & Developers" "audience" "partner")
-  (dict "label" "More" "audience" "all")
--}}
-<aside class="sidebar">
+<aside class="sidebar" id="sidebar">
   <nav aria-label="Documentation">
-    <div class="sidebar-section sidebar-switcher">
-      {{- range $groups }}
-      {{- $aud := .audience }}
-      {{- $sections := where site.Sections "Params.audience" $aud }}
-      {{- if $sections }}
+    {{- range site.Params.sidebarGroups }}
+    {{- $key := .key }}
+    {{- $sections := where site.Sections "Params.group" $key }}
+    {{- if $sections }}
+    <div class="sidebar-group">
       <div class="sidebar-heading">{{ .label }}</div>
       {{- range $sections.ByWeight }}
-      <a class="sidebar-link sidebar-section-link{{ if eq . $currentSection }} current-section{{ end }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
-      {{- end }}
+      {{- $isCurrent := eq . $currentSection }}
+      <a class="sidebar-link{{ if $isCurrent }} current-section{{ end }}{{ if eq . $current }} active{{ end }}" href="{{ .RelPermalink }}"{{ if eq . $current }} aria-current="page"{{ end }}>
+        {{ partial "icon.html" (.Params.icon | default "book") }}
+        <span>{{ .Params.navTitle | default .Title }}</span>
+        {{- with .Params.status }}<span class="sidebar-badge {{ partial "status-tint.html" . }}">{{ partial "status-label.html" . }}</span>{{ end }}
+        {{- if and .Pages (not $isCurrent) }}{{ partial "icon.html" (dict "name" "chevron-right" "class" "chev") }}{{ end }}
+      </a>
+      {{- if and $isCurrent .Pages }}
+      <div class="sidebar-tree">
+        {{ partial "sidebar-tree.html" (dict "section" . "current" $current) }}
+      </div>
       {{- end }}
       {{- end }}
     </div>
-
-    {{- if and $currentSection (ne $currentSection $current.Site.Home) }}
-    <div class="sidebar-section sidebar-pages">
-      <div class="sidebar-heading">{{ $currentSection.Title }}</div>
-      <a class="sidebar-link{{ if eq $currentSection $current }} active{{ end }}" href="{{ $currentSection.RelPermalink }}"{{ if eq $currentSection $current }} aria-current="page"{{ end }}>Overview</a>
-      {{ partial "sidebar-tree.html" (dict "section" $currentSection "current" $current) }}
-    </div>
+    {{- end }}
     {{- end }}
   </nav>
 </aside>

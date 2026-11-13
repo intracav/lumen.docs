@@ -1,0 +1,10 @@
+{{- /* {{< magicaf path="/docs/lumen-ui/components/clinical/" title="…" >}}optional description{{< /magicaf >}} */ -}}
+{{- $path := .Get "path" | default "/docs/lumen-ui/" -}}
+<a class="ext-example" href="{{ site.Params.magicafURL }}{{ $path }}" rel="noopener">
+<span class="ext-mark">MagicAF</span>
+<span class="ext-text">
+<span class="ext-title">{{ .Get "title" | default "See live component examples on MagicAF" }}</span>
+<span class="ext-desc">{{ with .Inner }}{{ . | markdownify }}{{ else }}The open-source technical reference for Lumen UI, the component system behind Lumen's interactive answers.{{ end }}</span>
+</span>
+{{ partial "icon.html" "external" }}
+</a>

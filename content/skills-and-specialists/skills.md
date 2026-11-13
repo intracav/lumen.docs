@@ -1,245 +1,132 @@
 ---
-title: "The Skills Directory: 49 Built-In Skills (/ menu)"
-description: "All 49 built-in Lumen skills — AI SOAP note generator, prior authorization letters, discharge summaries, patient handouts, literature reviews, and more."
-lead: "A Skill is a precise procedure for a specific output. Type / to pick one, or just ask — Lumen recognizes the request and applies the right Skill automatically."
-weight: 2
+title: "Use and create skills"
+navTitle: "Skills"
+description: "A skill is a set of instructions Lumen follows for one kind of output, such as a SOAP note or a patient handout. Use one with /, or make your own."
+lead: "Type / and pick a format, such as a SOAP Note, a Prior Authorization or a Patient Handout. Lumen follows that skill's structure for your next message. You can also write skills of your own."
+weight: 5
+icon: zap
 keywords: ["AI SOAP note generator", "AI prior authorization letter", "AI discharge summary", "AI patient handout", "medical AI documentation"]
+glance:
+  what: "A skill is a saved set of instructions that tells Lumen how to produce one kind of output, such as a SOAP note, a referral letter or a journal-club appraisal."
+  who: "Clinicians, nurses, educators, coders and administrators who produce the same kinds of documents again and again."
+  why: "To get the format you need the first time, with the sections and standards you expect, instead of describing them in every message."
+  needs: "A Lumen account on any plan. About 1 minute to use a skill; about 10 minutes to write your own."
+  result: "An answer shaped the way that skill describes, or a custom skill you can reuse with /."
 ---
 
-## How Skills work
+You write the same kinds of things every week: progress notes, handoffs, appeal letters, study guides. A **skill** tells Lumen exactly how one of those should look, so you don't have to explain it each time. Pick one with `/` and Lumen applies it to your next message. Lumen also applies a matching skill on its own when your request clearly calls for it, for example "write a SOAP note for this visit".
 
-A Skill teaches Lumen the exact standard for one kind of output: the structure a SOAP note follows, the argument a prior-auth reviewer needs to see, the reading level a patient handout must hit. Type **`/`** in any chat to browse and pick one — or don't: Skills auto-trigger when your message matches their phrasing, so *"write a discharge summary"* activates the Discharge Summary skill without any menu.
+## Before you start
 
-Skills compose with [Specialists](/skills-and-specialists/specialists/): `@Prior Authorization` sets the expert approach, `/insurance-appeal` pins the output format. And the directory isn't closed — the **Skill Creator** (last entry below) turns your own workflow into a custom Skill Lumen follows every time.
+- Any plan can use the built-in skills and create custom ones.
+- A few skills rely on tools that need Pro or above, such as the animation and video skills. On a lower plan, Lumen answers without those tools.
+- Team skills, shared by your organization, appear only when you're in that team's workspace.
 
-All 49 built-in Skills, grouped the way Lumen groups them:
+## How to use a skill
 
-{{< callout type="warning" >}}
-Sample prompts below use fictional clinical detail. With real cases, strip direct identifiers before pasting — de-identification starts with you.
+{{< steps >}}
+{{< step title="Open the skills list" >}}In the message box, type `/` or click **Skills**. You'll see **Suggested skills**.{{< /step >}}
+{{< step title="Find the one you want" >}}Keep typing to filter, for example `/discharge`. Click a skill to select it.{{< /step >}}
+{{< step title="Write your request" >}}A chip above the message box shows the skill is set for your next message. Add your details, for example "72M, CHF exacerbation, diuresed 4 L, discharge on furosemide 40 mg daily."{{< /step >}}
+{{< step title="Send" >}}Lumen answers in the skill's format. The skill applies to that message only. To clear it before sending, click the **×** on the chip.{{< /step >}}
+{{< /steps >}}
+
+{{< composer menu="skills" items="Discharge Summary|Comprehensive hospital discharge documentation with medication reconciliation;Progress Note|Daily inpatient progress notes following APSO or DAP format;Clinical Handoff|Structured patient handoff using I-PASS or SBAR format" text="/discharge" >}}
+
+## How to create your own skill
+
+{{< steps >}}
+{{< step title="Open your skills" >}}Click **Explore** in the sidebar, then **Manage your skills**. The **Skills** page lists **All**, **System** and **My Skills**.{{< /step >}}
+{{< step title="Start a new skill" >}}Click **New Skill**. The **Create Skill** page opens.{{< /step >}}
+{{< step title="Describe it" >}}Under **Identity**, fill in **Name**, **Icon**, **Description** and **Category**.{{< /step >}}
+{{< step title="Write the instructions" >}}Under **Behavior**, write the **Instructions**: the steps and format Lumen should follow. Be specific, for example "Use SBAR. Put allergies and code status first. Keep it under 200 words."{{< /step >}}
+{{< step title="Decide when it runs" >}}Turn on **Auto-trigger** if Lumen should apply it when a message matches. Under **Triggers & examples**, add **Trigger Patterns** and **Example Prompts**, one per line.{{< /step >}}
+{{< step title="Save" >}}Click **Create**. Your skill appears in the `/` list and in Explore, marked **Yours**.{{< /step >}}
+{{< /steps >}}
+
+{{< callout type="tip" title="Let Lumen draft it" >}}
+The built-in **Skill Creator** skill turns a description of your workflow into a new skill. Type `/` and choose **Skill Creator**, then describe the task you repeat.
 {{< /callout >}}
 
-## Clinical documentation
+## What you'll see
 
-### SOAP Note
-Structures a clinical encounter into Subjective, Objective, Assessment, and Plan — with ICD-10 codes attached to each working diagnosis and "not documented" flagged rather than invented.
-*"Write a SOAP note for this urgent-care visit: 34-year-old with 3 days of right ear pain, exam and vitals below."*
+{{< screenshot src="composer-skills" alt="The skills menu open above the message box, filtered by the word discharge" caption="Type / to pick a skill. It applies to your next message." url="lumen.intracav.ai/chat" >}}
+{{< chat-demo title="Discharge summary" caption="Illustration with a fictional patient. Check every medication change against the chart." >}}
+{{< user >}}Discharge summary: 72M admitted 3 days for CHF exacerbation, diuresed 4 L, now euvolemic. Discharge on furosemide 40 mg daily, follow-up with cardiology in 1 week.{{< /user >}}
+{{< lumen tools="Medication data retrieved" >}}
+**Discharge summary**
 
-### History & Physical
-Comprehensive admission H&P in standard medical format, with the full PMH/FH/SH depth a SOAP note skips.
-*"Write an H&P for this admission — history and exam findings attached."*
+**Reason for admission:** acute decompensated heart failure.
 
-### Discharge Summary
-Complete hospital discharge documentation with medication reconciliation, pending results, and follow-up plans built in.
-*"Draft a discharge summary for this 5-day CHF admission."*
+**Hospital course:** diuresed with IV furosemide, net negative 4 L. Euvolemic on day 3.
 
-### Progress Note
-Daily inpatient progress notes in APSO or DAP format — tight enough for rounds, complete enough for the chart.
-*"Write today's progress note: afebrile overnight, weaned to 2L, diuresis on track."*
+**Discharge medications:** furosemide 40 mg by mouth daily (changed from IV).
 
-### Procedure Note
-Operative and bedside procedure documentation, with CPT and ICD-10 lookups for accurate coding.
-*"Document this ultrasound-guided paracentesis — 4.2L removed, no complications."*
+**Follow-up:** cardiology in 1 week. Daily weights; call for a gain of more than 2 to 3 lb in a day or 5 lb in a week.
 
-### Consultation Note
-Specialist consultation documentation with a clear question, focused assessment, and actionable recommendations.
-*"Write a cardiology consult note answering the pre-op risk question for this patient."*
+**Pending results:** none stated. Confirm before signing.
+{{< follow-ups "Add a medication reconciliation table|Write the patient instructions in plain language|Make it an SBAR handoff" >}}
+{{< /lumen >}}
+{{< /chat-demo >}}
+{{< /screenshot >}}
 
-## Clinical decision support
+## Built-in skills
 
-### Vascular Access Planning
-Vessel selection, catheter route planning, and tip-position assessment over a cited anatomy graph — every number sourced, every gap named.
-*"Plan a right basilic PICC to the cavoatrial junction and show me the path."*
+These ship with Lumen. They're grouped here by the category shown in the app. Skills that belong to a specialist, marked "(agent)" in the list, are used by that specialist and aren't meant to be picked on their own.
 
-### Medication Reconciliation
-Systematic med review: actives vs. discontinued, interactions, renal dosing, and safety flags.
-*"Reconcile these two medication lists and flag every conflict."*
+{{< tabs >}}
+{{< tab name="Documentation" >}}
+**SOAP Note**, **History & Physical**, **Discharge Summary**, **Progress Note**, **Procedure Note**, **Consultation Note**, and **Branded Clinical Document** (a styled PDF or Word report).
+{{< /tab >}}
+{{< tab name="Decision support" >}}
+**Differential Diagnosis Builder**, **Lab Result Interpreter**, **ABG Analysis**, **ECG Interpreter**, **Imaging Review**, **Dose Calculator**, **IV Drip Titration**, **ED Triage**, **Medication Reconciliation**, **Drug Safety Review**, **Drug Label Research**, **Antimicrobial Stewardship**, **Vascular Access Planning**, **Patient Record Review** (needs an EHR connection), and **Interactive Dashboard**.
+{{< /tab >}}
+{{< tab name="Administrative" >}}
+**Prior Authorization**, **Insurance Appeal**, **Peer-to-Peer Prep**, **Referral Letter**, **CDI Query**, **Shift Scheduler**, and **Clinical Spreadsheet**.
+{{< /tab >}}
+{{< tab name="Education" >}}
+**Patient Handout**, **Study Guide**, **Case Presentation**, **Journal Club**, **Clinical Quiz Builder**, **Branded Clinical Presentation**, **Scientific Animation** and **Clinical Video Explainer**.
+{{< /tab >}}
+{{< tab name="Research" >}}
+**Literature Review**, **PICO Builder**, **Evidence Grader** and **Clinical Trial Matcher**.
+{{< /tab >}}
+{{< tab name="Communication and quality" >}}
+**Patient Letter**, **Clinical Handoff** (I-PASS or SBAR), **Root Cause Analysis**, **Quality Measure Report**, and **Skill Creator**.
+{{< /tab >}}
+{{< /tabs >}}
 
-### Lab Result Interpreter
-Systematic lab analysis with clinical correlation — what's abnormal, what pattern it forms, what to check next.
-*"Interpret this CMP and CBC for a patient on chemotherapy."*
+## Good to know
 
-### ABG Analysis
-Stepwise arterial blood gas interpretation: primary disorder, compensation, gaps, and the clinical story they tell.
-*"Interpret this ABG: pH 7.28, pCO₂ 30, HCO₃ 14, on room air."*
+- **Skills stack with everything else.** A skill shapes the answer; Lumen still looks things up with its tools and cites its sources.
+- **Specialists load their own skills.** When you work with a specialist, it already uses the skills it needs. See [Work with a specialist](/skills-and-specialists/working-with-a-specialist/).
+- **System skills can't be edited.** To change one, create your own skill with the instructions you prefer.
+- **Clinical Video Explainer and Scientific Animation** make Intracav-branded media and use rendering tools that need Pro or above.
 
-### ECG Interpreter
-Systematic electrocardiogram reading — rate, rhythm, axis, intervals, morphology, and the findings that matter.
-*"Read this ECG: what explains the new wide-complex rhythm?"*
+## Limits and safety
 
-### Imaging Review
-Systematic interpretation of radiology images and reports, with the clinical significance spelled out.
-*"Review this chest CT report and tell me what needs follow-up."*
+- A skill controls format and approach. It doesn't make an answer correct. Check the content and the cited sources.
+- Notes and letters are drafts for you to review, edit and sign in your own system.
+- Write custom skills for your own work. Don't put patient information in a skill's instructions; skills are reused across chats.
 
-### Dose Calculator
-Weight-based, renal-adjusted, and age-appropriate medication dosing with the arithmetic shown.
-*"Calculate vancomycin dosing for a 92 kg patient with CrCl 38."*
+{{< callout type="safety" title="Review every draft" >}}
+Documentation skills write from what you give them. If a detail is missing, the draft may leave a gap or a placeholder. Confirm medications, doses, allergies and pending results against the chart before you sign.
+{{< /callout >}}
 
-### Differential Diagnosis Builder
-Ranked differential with likelihood, can't-miss diagnoses flagged, and the workup that discriminates between candidates.
-*"Build a differential for new-onset confusion in an 80-year-old post-op patient."*
+## FAQ
 
-### Antimicrobial Stewardship
-Evidence-based antibiotic selection with allergy cross-reactivity, renal dosing, and interaction checks built in.
-*"Empiric coverage for sepsis of unknown source in a patient with a documented penicillin allergy?"*
+{{< faq question="Do I have to pick a skill for Lumen to use one?" >}}
+No. Built-in skills turn on automatically when your message clearly matches, for example "write a SOAP note". Picking one with `/` makes sure it's used.
+{{< /faq >}}
+{{< faq question="Can I use more than one skill at once?" >}}
+Yes. Skills can be combined for a message. Specialists are different: one specialist works on a chat at a time.
+{{< /faq >}}
+{{< faq question="Can my whole team use a skill I made?" >}}
+Skills you create are yours. Skills your organization shares appear marked **Your team** in its workspace.
+{{< /faq >}}
+{{< faq question="What's the difference between a skill and a specialist?" >}}
+A skill shapes one answer. A specialist takes on a whole job with many steps, and Lumen checks its result before saving it. See [Specialists](/skills-and-specialists/specialists/).
+{{< /faq >}}
 
-### Drug Safety Review
-FDA safety surveillance for a drug: adverse-event signals, recalls, and boxed warnings in one structured review.
-*"Run a safety review on apixaban — any recalls or new warnings?"*
+## Next steps
 
-### Patient Record Review
-Structured review of connected FHIR patient records — conditions, medications, labs, and encounters, summarized.
-*"Pull up this patient's record and summarize the last six months."*
-
-### IV Drip Titration
-Continuous-infusion math: weight-based and concentration-based rates for pressors, sedation, and anticoagulation drips.
-*"Set up a norepinephrine drip for a 70 kg patient — starting dose and titration steps."*
-
-### ED Triage
-Emergency triage with ESI scoring and disposition reasoning from vitals and presentation.
-*"Triage this patient: 62-year-old, chest pressure, HR 118, BP 88/60."*
-
-### Drug Label Research
-Full FDA label lookup — indications, dosing, contraindications, and pharmacology, straight from the prescribing information.
-*"What are the approved indications and renal dosing for duloxetine?"*
-
-## Administrative
-
-### Prior Authorization
-A complete PA request package: ICD-10 and CPT/HCPCS codes, a medical-necessity argument, cited evidence, and CMS policy references.
-*"Prepare a prior auth for a cardiac MRI — suspected infiltrative disease, echo inconclusive."*
-
-### Insurance Appeal
-Denial appeal letters with evidence, applicable statutes, and an escalation strategy — built to be answered, not filed.
-*"Write an appeal for this denied biologic — moderate-to-severe Crohn's, failed two conventional agents."*
-
-### Peer-to-Peer Prep
-Talking points and evidence for the peer-to-peer call: the criteria, the counterarguments, the citations at your fingertips.
-*"Prep me for tomorrow's P2P on the denied spine MRI."*
-
-### Referral Letter
-Professional specialist referrals with the clinical context the consultant actually needs.
-*"Draft a referral to endocrinology for this patient with refractory hypercalcemia."*
-
-### CDI Query
-Compliant clinical-documentation-improvement queries that ask the question without leading the answer.
-*"Write a CDI query for possible acute-on-chronic respiratory failure in this chart."*
-
-### Shift Scheduler
-Constraint-solved staff scheduling: reads your rules and availability sources in full, extracts a spec, solves deterministically, and verifies every rule before delivering the spreadsheet.
-*"Here are the rules doc and availability emails — build the June call schedule."*
-
-## Education
-
-### Patient Handout
-Plain-language patient education at a 6th–8th-grade reading level, with actionable instructions and a "when to call" section.
-*"Create a handout for a patient starting insulin — how to inject, store, and spot low blood sugar."*
-
-### Study Guide
-Clinical education material for students and residents — organized for retention, aimed at boards.
-*"Make me a study guide on acid-base disorders for Step 2."*
-
-### Case Presentation
-Structured case formatting for grand rounds, morning report, and conference — the arc, not just the facts.
-*"Format this case for morning report: delayed diagnosis of adrenal insufficiency."*
-
-### Journal Club
-Critical appraisal of a paper: design, bias, statistics, and whether the conclusion actually follows.
-*"Prepare a journal club appraisal of this RCT on early mobilization in the ICU."*
-
-### Clinical Quiz Builder
-Interactive clinical quizzes with explanations and evidence citations behind every answer.
-*"Build a 10-question quiz on DKA management for my interns."*
-
-### Scientific Animation
-Mathematical and scientific animations for medical education — pharmacokinetic curves, physiologic relationships, rendered as video.
-*"Animate the Starling curve and what happens in decompensated heart failure."*
-
-### Clinical Video Explainer
-Branded clinical explainer videos for patients and teams, generated from your outline.
-*"Make a short explainer video on what atrial fibrillation is and why anticoagulation matters."*
-
-## Research
-
-### Literature Review
-Systematic search and evidence synthesis: multiple query strategies, quality assessment, GRADE-graded conclusions, citations throughout.
-*"What does the evidence say about time-restricted eating for NAFLD? Full lit review."*
-
-### PICO Builder
-Turns a fuzzy clinical question into a structured Population–Intervention–Comparison–Outcome question worth searching.
-*"Help me frame a PICO question about music therapy for post-op pain."*
-
-### Evidence Grader
-Grades evidence quality using the GRADE framework — and tells you why it lands where it does.
-*"Grade the evidence behind this guideline recommendation."*
-
-### Clinical Trial Matcher
-Searches ClinicalTrials.gov against a patient's condition and eligibility profile, returning scored matches with contacts.
-*"Find recruiting trials for refractory focal epilepsy in adults."*
-
-## Communication
-
-### Patient Letter
-Professional patient correspondence — results letters, follow-up instructions — clear, kind, and complete.
-*"Write a letter explaining these normal biopsy results and the surveillance plan."*
-
-### Clinical Handoff
-Structured handoffs in I-PASS or SBAR format that survive the shift change.
-*"Turn these three patient summaries into I-PASS handoffs for night float."*
-
-## Quality & safety
-
-### Root Cause Analysis
-Systematic incident analysis using healthcare RCA methodology — contributing factors, not scapegoats.
-*"Walk me through an RCA for this mislabeled specimen event."*
-
-### Quality Measure Report
-Clinical quality metrics reporting and improvement planning — HEDIS, MIPS, and local QI measures.
-*"Draft a quality report on our 30-day readmission performance with an improvement plan."*
-
-## Deliverables
-
-### Branded Clinical Document
-Turns any result in the chat into a branded PDF or Word document, ready to print or send.
-*"Export this medication review as a PDF."*
-
-### Branded Clinical Presentation
-Polished, branded PowerPoint decks for grand rounds, conferences, and teaching sessions.
-*"Build grand rounds slides from this case and the attached literature."*
-
-### Interactive Dashboard
-Branded interactive calculators, charts, and scoring tools as live HTML — a CHA₂DS₂-VASc calculator, a metrics dashboard.
-*"Build me a CHA₂DS₂-VASc calculator I can use at the bedside."*
-
-### Clinical Spreadsheet
-Branded Excel workbooks for schedules, quality reports, tracking sheets, and data analysis.
-*"Build a tracking workbook for our CLABSI audit data."*
-
-## Publisher
-
-### Calculator Builder
-Co-authors a cited cost or value calculator for a medical device — every coefficient bound to a citation — and publishes it as a tamper-proof, shareable tool.
-*"Build a savings calculator for our securement device vs. standard dressings, every input cited."*
-
-## Meta
-
-### Skill Creator
-The Skill that makes Skills: describe your workflow or paste your template, and Lumen turns it into a custom Skill it follows every time after.
-*"Teach Lumen how our practice writes operative notes — here's our template."*
-
-## Training
-
-### Oracle Health Training
-A guided, hands-on trainer for Oracle Health (Cerner Millennium) and SMART on FHIR — it explains concepts, walks clinical workflows, and demos live reads against your connected EHR tenant.
-*"Walk me through finding a patient's recent labs in Cerner."*
-
-### Epic Training
-The same guided trainer for Epic — concepts, workflows, and live demonstration reads against a connected Epic tenant or Epic's sandbox patients.
-*"Train me on reviewing active medications in Epic."*
-
-## Make your own
-
-If a Skill you need isn't here, that's what the Skill Creator is for — your protocols, your templates, your standard, saved once and applied every time. And for work that needs several Skills chained together with tools in between, hand it to a [Specialist](/skills-and-specialists/specialists/) or run it in [agent mode](/skills-and-specialists/agent-mode/).
-
-{{< cta heading="Try a Skill on your next note" href="/getting-started/" label="Get started with Lumen" variant="subtle" >}}
-Type / in any chat — or just ask for the document you need.
-{{< /cta >}}
+{{< related "/skills-and-specialists/explore/" "/skills-and-specialists/specialists/" "/getting-started/draft-a-note/" "/chat/artifacts/" >}}

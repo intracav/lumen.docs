@@ -1,49 +1,71 @@
 ---
-title: "Clinical News & PubMed Feed"
-description: "A specialty-tuned feed of clinical news, the latest PubMed articles, and Cochrane reviews — with one-click import so Lumen can cite what you're reading."
-lead: "New literature finds you — and anything worth keeping is one tap from citable."
-weight: 5
+title: "Keep up with clinical news and research"
+navTitle: "News and research feed"
+description: "Signals is Lumen's feed of clinical news and new publications in your specialty, with one click to discuss any item in a chat."
+lead: "New research in your field, sorted for you, one click from a conversation about it."
+weight: 6
+icon: rss
 keywords: ["clinical news feed", "PubMed feed", "Cochrane reviews", "medical literature alerts"]
+glance:
+  what: "Signals is a feed of clinical news and recent research for your specialty, with PubMed publications and Cochrane systematic reviews."
+  who: "Clinicians, educators and researchers who want to keep up with their field."
+  why: "To skim what's new in minutes, and dig into the items that matter by discussing them with Lumen."
+  needs: "A Lumen account. Set your specialty in your profile so the feed matches your field. About 10 minutes a week."
+  result: "A short list of what's new and worth reading in your field."
 ---
 
-Keeping up with the literature is a second job nobody scheduled. Lumen's feed does the skimming for you: a running stream of clinical news and fresh research, tuned to your specialty, sitting one tap from the chat. And because it's built into Lumen rather than bolted beside it, the paper you just skimmed can become a *citable source* in your next conversation — that's the part a news aggregator can't do.
+Keeping up with the literature is a second job nobody scheduled. **Signals** does the first pass for you: clinical news, recent publications in your specialty and new Cochrane reviews, in one place. When something looks relevant, open a chat about it and ask what it means for your practice.
 
-## What's in the feed
+## Before you start
 
-- **Clinical news** — articles from a curated set of clinical news sources, matched to your field. Each card carries a summary and, where it matters, a short *why it matters* note, so you can triage without opening anything.
-- **Latest research** — recent PubMed articles scoped to your specialty (your subspecialty when you've set one, your specialty or field otherwise).
-- **Cochrane reviews** — recent Cochrane systematic reviews, also scoped to your specialty. When a Cochrane review lands in your field, it's usually worth the click.
+- **A Lumen account.**
+- **Your specialty in your profile.** The research tab uses it to choose what to show.
 
-Your specialty comes from your profile — the same setting that shapes your answers elsewhere in Lumen. Update it and the feed follows.
+## How to use the feed
 
-## Preview before you commit
+{{< steps >}}
+{{< step title="Open the feed" >}}Click **News** in the sidebar. The page is called **Signals**.{{< /step >}}
+{{< step title="Skim the news" >}}The **News** tab shows clinical news stories with short summaries.{{< /step >}}
+{{< step title="Check new research" >}}Open the **Research** tab for **Recent publications** in your specialty (from PubMed), **Cochrane systematic reviews**, and **From journals**.{{< /step >}}
+{{< step title="Open the source" >}}Click **Source** to read the original article.{{< /step >}}
+{{< step title="Discuss it with Lumen" >}}Click **Chat about this** (or **Chat about this paper**) to start a chat about the item, for example: "What would change for our midline practice if we followed this?"{{< /step >}}
+{{< /steps >}}
 
-Tap any item to preview it — title, source, summary, key points — without leaving Lumen. Most items earn nothing more than the skim. That's the feed working as intended: fast no's, so the two papers that matter get your attention.
+## What you'll see
 
-## One-click import: from feed to citable source
+{{< lui-block title="Signals" sub="News · Research" >}}
+{{< lui-rows >}}
+{{< lui-row title="Recent publications in vascular access" body="Midline vs PICC for intermediate-duration IV therapy: a randomized trial" value="PubMed" >}}
+{{< lui-row title="Cochrane systematic reviews" body="Dressings and securement for central venous catheters" value="Cochrane" >}}
+{{< /lui-rows >}}
+{{< lui-actions "Chat about this paper" "Source" >}}
+{{< /lui-block >}}
 
-This is the payoff. When a paper *is* relevant, import it. Lumen pulls the article — for PubMed papers, the abstract, plus the full text when an open-access version is available — and files it in your [document library](/knowledge/documents/) as a grounded document. From that moment, it behaves like anything else you've uploaded: attach it to a message, ask questions about it, and get answers that cite it.
+Item titles above are illustrations, not real articles.
 
-Closed-access papers import with their abstract — that's everything the publisher exposes — which is still enough for Lumen to summarize the findings, compare conclusions, and point you at the original.
+If your team uses qPolicy, some items also offer **See the policy impact in your team**, which connects a news item to your policies.
 
-## A Monday-morning workflow
+## Tips
 
-{{< callout type="success" >}}
-**Ten minutes, start to finish.** Skim, keep two, and put them to work — the reading pile becomes a conversation.
-{{< /callout >}}
+- **Make it a weekly habit.** Ten minutes on Monday morning is usually enough to catch what matters.
+- **Ask about strength of evidence.** In the chat, ask Lumen what kind of study it is and how strong the evidence is.
+- **Keep what matters.** To make an article citable in future chats, save its PDF to [My documents](/knowledge/documents/).
 
-1. Open the feed with your coffee. Skim the weekend's news and the latest-research list for your specialty.
-2. Two papers are actually relevant — a new RCT and a Cochrane update touching your unit's practice. Import both.
-3. Start a chat: *"Compare these two papers against our current midline dwell-time practice — what would change if we adopted their findings, and what's the strength of the evidence?"*
+## Limits and safety
 
-Lumen answers grounded in the two imported papers — cited passage by passage — alongside your own uploaded protocols, so the comparison is against *your* practice, not a generic one.
+- **A feed isn't a systematic search.** It shows recent items, not everything published. For a full search, see [Literature research](/tools/literature-research/).
+- **Summaries can miss nuance.** Read the source before changing practice.
+- **New doesn't mean adopted.** A new study doesn't change your organization's policy. Follow your current policy until it's updated.
 
-{{< tip title="Import beats memory" >}}
-You could paste an abstract into chat, but an imported paper stays in your library — next month's journal club, the eventual policy revision, and the colleague who asks "where did that number come from?" all benefit from the same import you did today.
-{{< /tip >}}
+## FAQ
+
+{{< faq question="Why isn't the research tab showing my field?" >}}
+It uses the specialty in your profile. Update your specialty and the feed follows.
+{{< /faq >}}
+{{< faq question="Can Lumen cite an article from the feed in my chats?" >}}
+When you click **Chat about this**, Lumen works from the item. To have it cite the full article in later chats, download the PDF and upload it to [My documents](/knowledge/documents/).
+{{< /faq >}}
 
 ## Next steps
 
-- [Documents, sources & exports](/knowledge/documents/) — where imported papers live and how citations work
-- [Run a literature review](/guides/literature-review/) — go from two papers to a systematic evidence synthesis
-- [Knowledge Packs](/knowledge/knowledge-packs/) — curated content your whole organization can cite
+{{< related "/tools/literature-research/" "/guides/literature-review/" "/knowledge/documents/" >}}

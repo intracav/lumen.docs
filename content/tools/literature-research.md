@@ -1,79 +1,91 @@
 ---
-title: "Research & Evidence"
-description: "Ask Lumen to search PubMed, check FDA drug labels, or find clinical trials — without leaving the conversation."
+title: "Search the literature and trials"
+navTitle: "Research and evidence"
+description: "Lumen searches PubMed, medRxiv, FDA drug labels, ClinicalTrials.gov and the web during a chat, and cites what it finds."
+lead: "Ask for the evidence in plain words. Lumen runs the searches, reads the results and links every claim to the paper, label or trial record it came from."
 weight: 2
+icon: book-open
+keywords: ["PubMed search AI", "ClinicalTrials.gov search", "FDA drug label lookup", "medical literature search"]
+glance:
+  what: "Built-in tools that search PubMed, medRxiv preprints, FDA drug labels, ClinicalTrials.gov and the web while Lumen writes an answer."
+  who: "Clinicians, pharmacists, educators and researchers who need the evidence behind a decision."
+  why: "To get a cited summary in seconds instead of searching several databases by hand."
+  needs: "Any plan for PubMed, medRxiv, drug labels and basic web search. Pro or above for ClinicalTrials.gov and deep web research."
+  result: "An answer with numbered citations you can open, plus the searches Lumen ran."
 ---
 
-Need to look something up in PubMed mid-round? Want to check what the FDA label actually says? Just ask. Lumen searches the major medical databases and brings the results right into your conversation.
+When a question turns on the evidence, such as a trial result, what a label says or whether studies are recruiting, Lumen looks it up rather than answering from memory. It decides which databases to search, runs the searches live, and cites the specific article, label section or trial record behind each statement.
 
-## Available Tools
+## Before you start
 
-<div class="tool-grid">
+- **Plan:** PubMed, medRxiv, the FDA drug label and basic web search work on every plan. **Clinical Trials** (ClinicalTrials.gov) and deep web research ({{< tier-badge "pro" >}}) need Pro or above.
+- **Have ready:** the question, and any limits that matter, such as population, years or study type.
+- **For a full review:** a structured, reproducible literature review is the job of the Clinical Research specialist. See [Clinical Research](/skills-and-specialists/specialists/clinical-research/).
 
-{{< tool-card name="PubMed Search" icon="&#128218;" color="var(--smoky-blue)" desc="Searches the PubMed/MEDLINE database via NLM E-utilities. Finds relevant articles, fetches abstracts, and ranks results by relevance to your question." example="\"Find recent systematic reviews on SGLT2 inhibitors and heart failure outcomes\"" badge="Research" >}}
+## The tools
 
-{{< tool-card name="FDA Drug Labels" icon="&#128138;" color="var(--palace-green)" desc="Queries the openFDA drug labeling API. Returns official FDA-approved label information including indications, dosing, warnings, and contraindications." example="\"What does the FDA label say about semaglutide contraindications?\"" badge="Regulatory" >}}
+| Tool (as shown in Explore) | What it does | Plan |
+|---|---|---|
+| **Search PubMed** | Finds peer-reviewed articles in PubMed and reads their abstracts. | Free |
+| **FDA Drug Label** | Pulls the official FDA prescribing information: indications, dosing, contraindications, warnings. | Free |
+| medRxiv search | Finds preprints on medRxiv. Preprints are not peer reviewed. | Free |
+| **Clinical Guidelines** | Retrieves USPSTF recommendations and recent practice guidelines found on PubMed. | Free |
+| **Clinical Trials** | Searches ClinicalTrials.gov by condition, drug, phase or location. | Pro |
+| Web search | Searches the web and returns titles, links and snippets. | Free |
+| Deep web research | Searches and reads several pages in depth, or crawls and extracts from a site. | Pro |
 
-{{< tool-card name="Clinical Trials Search" icon="&#129514;" color="var(--smoky-blue-dk)" desc="Searches ClinicalTrials.gov for active and completed studies. Returns NCT ID, phase, sponsor, eligibility criteria, locations, and outcomes — filter by condition, recruitment status, and trial phase." example="\"Find active Phase 3 trials for NASH/MASH treatment\"" badge="Pro" >}}
+## How to search the evidence
 
-{{< tool-card name="Clinical Guidelines" icon="&#128214;" color="var(--palace-green)" desc="Looks up current USPSTF preventive care recommendations, ACC/AHA and IDSA guidelines, and PubMed practice guidelines for clinical conditions." example="\"Current guidelines for managing newly diagnosed hypertension\"" badge="Guidelines" >}}
+{{< steps >}}
+{{< step title="Ask the question in chat" >}}Describe what you need. For example: "What did the SGLT2 inhibitor trials in heart failure with preserved ejection fraction show?"{{< /step >}}
+{{< step title="Narrow it if needed" >}}Add limits in the same message: "RCTs only, since 2020" or "recruiting trials in Ohio".{{< /step >}}
+{{< step title="Watch the tool chips" >}}While Lumen works, chips such as **Searching PubMed** appear. When finished they read **Searched PubMed**, **Searched ClinicalTrials.gov** or **FDA drug data retrieved**.{{< /step >}}
+{{< step title="Open the sources" >}}Click a numbered citation to read the passage it came from. Check the population, dose and outcome match your patient before you rely on it.{{< /step >}}
+{{< /steps >}}
 
-{{< tool-card name="medRxiv Preprint Search" icon="&#128240;" color="var(--accent)" desc="Searches the medRxiv preprint server by keyword — useful for the newest research that hasn't finished peer review yet. Treat preprint findings as preliminary." example="\"Any recent medRxiv preprints on long COVID biomarkers?\"" badge="Research" >}}
+To browse these tools with example questions, open {{< ui-path "Explore" "Built-in tools" >}} and pick **Search PubMed** or **Clinical Trials**.
 
-</div>
+## What you'll see
 
-Tools marked **Pro** are available on paid plans — see [Plans](/plans/).
+{{< screenshot src="chat-thinking-tools" alt="A Lumen answer with PubMed tool chips and numbered citations" caption="Tool chips show each search Lumen ran. Citations link to the articles." url="lumen.intracav.ai" >}}
+{{< chat-demo title="SGLT2 inhibitors in HFpEF" caption="Illustration. Real answers cite real, checkable sources." >}}
+{{< user >}}What did the big SGLT2 inhibitor trials in HFpEF show?{{< /user >}}
+{{< lumen thought="3" tools="Searched PubMed" sources="2" evidence="true" >}}
+Two large randomized trials found a lower risk of the combined outcome of cardiovascular death or worsening heart failure. In **EMPEROR-Preserved**, empagliflozin reduced it compared with placebo (hazard ratio 0.79) {{< cite 1 >}}. In **DELIVER**, dapagliflozin did the same in patients with mildly reduced or preserved ejection fraction (hazard ratio 0.82) {{< cite 2 >}}. In both trials the benefit was driven mainly by fewer heart-failure events.
 
-## How PubMed Search Works
+Open each trial to check its inclusion criteria against your patient.
+{{< /lumen >}}
+{{< /chat-demo >}}
+{{< /screenshot >}}
 
-When Lumen searches PubMed, you'll see a tool call block showing the progress:
+## Tips
 
-<div class="chat-mockup" style="margin: 2rem 0;">
-  <div class="chat-mockup-header">
-    <div class="chat-mockup-avatar">&#10022;</div>
-    <div class="chat-mockup-title">Chat</div>
-  </div>
-  <div class="chat-mockup-body">
-    <div class="chat-msg user">Find recent evidence on ketamine for treatment-resistant depression</div>
-    <div class="chat-msg assistant">
-      <div class="msg-avatar"><span>&#10022;</span></div>
-      <div class="msg-content">
-        <div class="mock-tool">
-          <div class="mock-tool-header">
-            <span class="mock-tool-status done"></span>
-            Searched PubMed
-          </div>
-          <div class="mock-tool-detail">
-            query: "ketamine treatment-resistant depression" &middot; Queried E-utilities &middot; Fetched abstracts &middot; Ranked by relevance
-          </div>
-        </div>
-        <p style="margin:0; font-size: 0.875rem; line-height: 1.6; color: var(--dark-text);">
-          I found <strong>12 relevant articles</strong> on ketamine for TRD. Here are the key findings...
-        </p>
-        <div class="mock-artifact chat-extra">
-          <div class="mock-artifact-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#128218;</div>
-          <div class="mock-artifact-info">
-            <div class="mock-artifact-title">PubMed Results: Ketamine &amp; TRD</div>
-            <div class="mock-artifact-type">12 articles</div>
-          </div>
-          <div class="mock-artifact-chevron">&rsaquo;</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+- **Say what kind of evidence you want.** "Meta-analyses only" or "guidelines, not primary studies" changes which searches Lumen runs.
+- **Ask for the label directly** when the question is regulatory: "What does the FDA label say about apixaban in severe renal impairment?"
+- **Use a specialist for a full review.** The Clinical Research specialist records its searches so another person can rerun them.
 
-## Tips for Better Literature Searches
+## Limits and safety
 
-{{< tip title="Be specific with your queries" >}}
-Instead of *"diabetes treatment"*, try *"GLP-1 receptor agonists cardiovascular outcomes type 2 diabetes RCT"*. Specific queries return more targeted results.
-{{< /tip >}}
-
-- **Include study types** — "systematic review", "RCT", "meta-analysis"
-- **Add time frames** — "published after 2023"
-- **Specify populations** — "pediatric", "elderly", "pregnant patients"
-- **Name specific drugs** — Use generic names for best results
-
-{{< callout type="info" >}}
-**PubMed results are interactive.** Click the artifact card to see the full list of articles with PMIDs, abstracts, and links to the original papers.
+{{< callout type="safety" title="Read the source before you act" >}}
+Lumen summarizes what it found, and summaries can miss detail or be wrong. Open the cited article, label or trial record, check it fits your patient, and use your own judgment. Preprints from medRxiv are not peer reviewed.
 {{< /callout >}}
+
+- Lumen reads abstracts and the text it can reach. It may not see a full article behind a paywall.
+- Trial records change. Confirm eligibility and recruiting status with the trial site.
+- If no search returns support for a statement, Lumen should say so instead of filling the gap.
+
+## FAQ
+
+{{< faq question="Does Lumen make up references?" >}}
+References come from the searches Lumen runs, and each citation links to the record it found. Still, open the link and confirm the article says what the answer claims.
+{{< /faq >}}
+{{< faq question="Why can't I search ClinicalTrials.gov?" >}}
+The **Clinical Trials** tool needs Pro or above. On Free, Lumen answers without it. In **Explore**, the tool shows **Pro plan** when your plan doesn't include it.
+{{< /faq >}}
+{{< faq question="Can Lumen search a journal my library subscribes to?" >}}
+No. It searches public databases and the web. You can upload a full-text article you are permitted to share, and Lumen will read it.
+{{< /faq >}}
+
+## Next steps
+
+{{< related "/skills-and-specialists/specialists/clinical-research/" "/chat/sources/" "/tools/search-sources/" "/guides/literature-review/" >}}

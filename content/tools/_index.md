@@ -1,18 +1,21 @@
 ---
-title: "What Lumen Can Do"
-description: "Lumen's library of 60+ tools: drug interactions, medical coding, PubMed search, clinical calculators, triage systems, document generation, and more."
-lead: "You don't need to memorize anything. Just ask your question and Lumen picks the right tool from a library of more than 60. Here's a look at what's available behind the scenes."
-weight: 6
+title: "Clinical tools"
+description: "The built-in tools Lumen uses on its own to look things up live: drug labels, interactions, codes, calculators, PubMed, trials and documents."
+lead: "You never call a tool by name. Ask your question, and Lumen picks the lookups it needs, runs them, and shows each one in the answer."
+weight: 12
 cascade:
   audience: clinician
+group: use
+icon: pill
+navTitle: "Clinical tools"
 ---
 
-Think of Lumen's tools like the specialists on your team &mdash; a pharmacist for drug questions, a coder for billing, a librarian for literature. There are more than 60 of them, but you don't need to call any by name. Just describe what you need and Lumen routes it to the right place.
+A *tool* is a lookup or action Lumen can run in the middle of an answer, such as searching PubMed, reading an FDA drug label or running a clinical calculator. Lumen decides which tools a question needs. Each one appears as a small chip in the answer (for example **Searched PubMed** or **Interaction check complete**), so you can see what was looked up rather than recalled.
 
-Most tools are available on every plan. A handful of premium capabilities &mdash; deep web research, clinical trial matching, EHR integration, de-identification &mdash; are marked with a {{< tier-badge "pro" >}} badge on the pages below; see [Plans](/plans/) for details.
+Most tools work on every plan, including Free. A few cost more to run and need **Pro** or above: deep web research, ClinicalTrials.gov search, sending email, running a saved workflow, EHR (FHIR) and scheduling lookups, de-identification, staff rosters and video rendering. Pages below show a {{< tier-badge "pro" >}} badge where that applies. See [Plans](/plans/) for the comparison.
 
-The guides below are organized by the kind of question you're trying to answer.
-
-{{< callout type="info" >}}
-**You can also browse tools inside the app.** Tap the **sparkle icon** (&#10024;) in the bottom-left of the chat to see the full list with examples you can try with one tap.
+{{< callout type="info" title="Browse the tools in the app" >}}
+Open {{< ui-path "Explore" >}} from the sidebar and choose **Built-in tools**. Each tool has a short description, example questions you can try, and a label showing whether it's **Included** on your plan or needs the **Pro plan**.
 {{< /callout >}}
+
+The guides below are grouped by the kind of question you're trying to answer. The [tool index](/tools/tool-index/) lists every tool on one page.

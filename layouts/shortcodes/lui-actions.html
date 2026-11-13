@@ -1,0 +1,2 @@
+{{- /* {{< lui-actions "Save to chart" "Edit" >}} — first is the primary (inverted pill) */ -}}
+<div class="lui-actions">{{ range $i, $l := .Params }}<span class="pill {{ if not $i }}pill-primary{{ else }}pill-ghost{{ end }}">{{ $l }}</span>{{ end }}</div>

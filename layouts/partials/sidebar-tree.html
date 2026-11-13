@@ -1,11 +1,13 @@
 {{- $current := .current -}}
 {{- range .section.Pages.ByWeight }}
-{{- if .IsSection }}
-<div class="sidebar-subsection">
-  <a class="sidebar-link sidebar-sublink{{ if eq . $current }} active{{ end }}" href="{{ .RelPermalink }}"{{ if eq . $current }} aria-current="page"{{ end }}>{{ .Title }}</a>
+{{- $active := eq . $current }}
+<a class="sidebar-link{{ if $active }} active{{ end }}" href="{{ .RelPermalink }}"{{ if $active }} aria-current="page"{{ end }}>
+  <span>{{ .Params.navTitle | default .Title }}</span>
+  {{- with .Params.status }}{{ if ne . ($.section.Params.status | default "") }}<span class="sidebar-badge {{ partial "status-tint.html" . }}">{{ partial "status-label.html" . }}</span>{{ end }}{{ end }}
+</a>
+{{- if and .IsSection (or $active (.IsAncestor $current)) }}
+<div class="sidebar-tree">
   {{ partial "sidebar-tree.html" (dict "section" . "current" $current) }}
 </div>
-{{- else }}
-<a class="sidebar-link{{ if eq . $current }} active{{ end }}" href="{{ .RelPermalink }}"{{ if eq . $current }} aria-current="page"{{ end }}>{{ .Title }}</a>
 {{- end }}
 {{- end }}

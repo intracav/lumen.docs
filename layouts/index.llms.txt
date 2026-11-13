@@ -1,0 +1,38 @@
+# Lumen Documentation
+
+> Plain-language documentation for Lumen, the clinical AI workspace by Intracav. Lumen answers clinical questions with sources you can open and check, works from your own documents and policies, and hands multi-step work to Specialists whose outside actions wait for approval. For organizations it adds departments, an audit log, qPolicy (policies and compliance) and Lumen Connect (Smart IFU pages and website assistants for device makers). App: {{ site.Params.appURL }}. Company: https://intracav.ai.
+
+## How to use this file
+
+This is the generated index of docs.intracav.ai for AI assistants. Every URL is canonical and citable. Each page opens with an "At a glance" summary (what, who, why, what you need). Lumen's interactive-answer component system, Lumen UI, is documented technically at {{ site.Params.magicafURL }}/docs/lumen-ui/.
+{{- range site.Params.sidebarGroups }}
+{{- $key := .key }}
+{{- range (where site.Sections "Params.group" $key).ByWeight }}
+
+## {{ .Params.navTitle | default .Title }}
+
+- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}
+{{- range .RegularPagesRecursive.ByWeight }}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Description }}{{ with .Params.status }} ({{ partial "status-label.html" . }}){{ end }}
+{{- end }}
+{{- end }}
+{{- end }}
+
+## Sister sites
+
+- [Intracav](https://intracav.ai): the company behind Lumen. AI index: https://intracav.ai/llms.txt
+- [Lumen, the app]({{ site.Params.appURL }}): the clinical AI workspace these docs describe. Free plan available.
+- [MagicAF]({{ site.Params.magicafURL }}): Intracav's open-source Rust AI framework, including the Lumen UI component reference.
+- [The Clinical Database](https://clinical-database.com): open, citation-friendly clinical reference. AI index: https://clinical-database.com/llms.txt
+- [qPolicy](https://qpolicy.ai): policy management and compliance, available in Lumen as a Max add-on.
+
+## Feeds
+
+- Sitemap: {{ "sitemap.xml" | absURL }}
+- Search: {{ "search/" | absURL }}
+
+## Citation guidelines
+
+- Cite the canonical URL of the specific page.
+- Credit "Lumen Documentation, Intracav".
+- Content is free to read, quote and cite without registration. For partnership inquiries, contact hello@intracav.ai.

@@ -1,0 +1,5 @@
+{{- /* Calculator result. {{< lui-score score="4" severity="Moderate risk" tint="amber" >}}interpretation{{< /lui-score >}} */ -}}
+<div class="lui-score tint-{{ .Get "tint" | default "amber" }}">
+<span class="big">{{ .Get "score" }}</span>
+<span><span class="sev">{{ .Get "severity" }}</span>{{ with .Inner }}<div class="interp" style="margin-top:6px">{{ . | markdownify }}</div>{{ end }}</span>
+</div>

@@ -1,687 +1,98 @@
 {{ define "main" }}
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-badge">
-    <span>&#10024;</span> User Guide
-  </div>
-  <h1>Get answers fast.<br><span class="gradient-text">Stay at the bedside.</span></h1>
-  <p class="hero-subtitle">Lumen is like having a clinical pharmacist, a coder, and a research librarian in your pocket &mdash; available any time you need them.</p>
-  <div class="hero-actions">
-    <a href="/getting-started/" class="btn btn-primary">Show Me How <span>&rarr;</span></a>
-    <a href="/tools/" class="btn btn-secondary">What Can It Do?</a>
-  </div>
+<div class="home">
 
-  {{ with site.Data.site.stats }}
-  <div class="hero-stats">
-    <div class="hero-stat"><span class="hero-stat-num">{{ .tools }}</span><span class="hero-stat-label">clinical tools</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">{{ .skills }}</span><span class="hero-stat-label">built-in skills</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">{{ .specialists }}</span><span class="hero-stat-label">specialists</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">{{ .calculators }}</span><span class="hero-stat-label">medical calculators</span></div>
-  </div>
-  {{ end }}
-</section>
+  <section class="home-hero">
+    {{ with site.Data.site.announcement }}
+    <a class="eyebrow-pill" href="{{ .href }}"><span class="badge tint-green">New</span><span><b>{{ .title }}</b> {{ .text }}</span>{{ partial "icon.html" "chevron-right" }}</a>
+    {{ end }}
+    <h1>Lumen, explained<br><em>step by step.</em></h1>
+    <p class="sub">Plain-language guides to Lumen, the clinical AI workspace from Intracav. Lumen answers with cited sources, works from your documents and policies, and can take on multi-step work for you. You stay in charge.</p>
+    <button class="hero-search" type="button" data-search-open aria-label="Search the docs">
+      {{ partial "icon.html" "search" }}<span class="ph">What do you want to do?</span><kbd data-kbd-mod>⌘K</kbd>
+    </button>
+    <div class="hero-quick">
+      <span>Popular:</span>
+      {{ range site.Data.site.popular }}<a href="{{ .href }}">{{ .title }}</a>{{ end }}
+    </div>
+  </section>
 
-<!-- Audience doors -->
-<section class="section reveal audience-doors">
-  <div class="category-grid stagger-children">
-    {{ range site.Data.site.audiences }}
-    <a href="{{ .href }}" class="category-card audience-door tint-{{ .tint }}">
-      <div class="category-icon" style="background: var(--tint-soft); color: var(--tint);">{{ .icon | safeHTML }}</div>
+  <section class="home-showcase reveal" aria-label="What Lumen looks like">
+    {{ .Content }}
+  </section>
+
+  <section class="home-section home-block">
+    <div class="home-block-head">
       <div>
+        <h2 class="home-h2">Start where you are</h2>
+        <p class="home-h2-sub">Every page is written so you can send it to someone who has never used Lumen, and they'll know what it is, why it matters and exactly what to do.</p>
+      </div>
+    </div>
+    <div class="audience-grid" style="grid-template-columns: repeat(2, 1fr)">
+      {{ range site.Data.site.audiences }}
+      <div class="audience-card tint-{{ .tint }}">
+        <span class="ac-icon">{{ partial "icon.html" .icon }}</span>
         <h3>{{ .title }}</h3>
         <p>{{ .text }}</p>
-        <span class="card-arrow">{{ .cta }} <span>&rarr;</span></span>
+        <ul>
+          {{ range .links }}<li><a href="{{ .href }}">{{ partial "icon.html" "arrow-right" }}{{ .title }}</a></li>{{ end }}
+        </ul>
+        <a class="ac-foot" href="{{ .href }}">{{ .cta }} {{ partial "icon.html" "arrow-right" }}</a>
       </div>
-    </a>
-    {{ end }}
-  </div>
-</section>
-
-<!-- ============ ARTIFACT MARQUEE ============ -->
-<section class="marquee-section">
-  <div class="marquee-track">
-
-    <!-- 1: Drug Interaction Report -->
-    <a href="/tools/medications/" class="marquee-card">
-      <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: var(--accent-glow); color: var(--accent);">&#9888;</div>
-        <div class="marquee-card-meta">
-          <div class="marquee-card-title">Warfarin &times; Amiodarone</div>
-          <div class="marquee-card-type">Drug Interaction Report</div>
-        </div>
-      </div>
-      <div class="marquee-card-body">
-        <div class="mini-severity major">&#9679; Major Interaction</div>
-        <div class="mini-row">
-          <span class="mini-label">Mechanism:</span>
-          <span class="mini-value">CYP2C9 inhibition</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-label">Risk:</span>
-          <span class="mini-value">Increased bleeding (INR &uarr;)</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-label">Action:</span>
-          <span class="mini-value">Reduce warfarin 30&ndash;50%</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-label">Monitor:</span>
-          <span class="mini-value">INR within 3&ndash;5 days</span>
-        </div>
-      </div>
-      <div class="marquee-card-footer">
-        <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: var(--accent-glow); color: var(--accent-dk);">Medications</span>
-      </div>
-    </a>
-
-    <!-- 2: Sepsis Checklist -->
-    <a href="/tools/protocols-decisions/" class="marquee-card">
-      <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: var(--palace-green-glow); color: var(--palace-green);">&#9745;</div>
-        <div class="marquee-card-meta">
-          <div class="marquee-card-title">Sepsis 3-Hour Bundle</div>
-          <div class="marquee-card-type">Interactive Checklist</div>
-        </div>
-      </div>
-      <div class="marquee-card-body">
-        <div class="mini-bar"><div class="mini-bar-fill" style="width: 40%; background: var(--palace-green);"></div></div>
-        <div class="mini-row">
-          <span class="mini-check done">&#10003;</span>
-          <span style="text-decoration: line-through; color: var(--text-3);">Measure lactate level</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-check done">&#10003;</span>
-          <span style="text-decoration: line-through; color: var(--text-3);">Obtain blood cultures</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-check"></span>
-          <span>Administer broad-spectrum abx</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-check"></span>
-          <span>30 mL/kg crystalloid if hypotensive</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-check"></span>
-          <span>Reassess volume &amp; perfusion</span>
-        </div>
-      </div>
-      <div class="marquee-card-footer">
-        <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: var(--palace-green-glow); color: var(--palace-green-dk);">Protocols</span>
-      </div>
-    </a>
-
-    <!-- 3: Differential Diagnosis -->
-    <a href="/tools/protocols-decisions/" class="marquee-card">
-      <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: var(--palace-green-glow); color: var(--palace-green-dk);">&#129504;</div>
-        <div class="marquee-card-meta">
-          <div class="marquee-card-title">Differential Diagnosis</div>
-          <div class="marquee-card-type">Ranked with workup</div>
-        </div>
-      </div>
-      <div class="marquee-card-body">
-        <div style="font-size: 0.68rem; color: var(--text-3); margin-bottom: 0.375rem;">Fatigue, weight gain, cold intolerance</div>
-        <div class="mini-row">
-          <span class="mini-ddx-rank">1</span>
-          <span><span class="mini-label">Hypothyroidism</span></span>
-          <span class="mini-score" style="color: var(--palace-green);">Most likely</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-ddx-rank">2</span>
-          <span><span class="mini-label">Depression / MDD</span></span>
-          <span class="mini-score" style="color: var(--accent);">Consider</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-ddx-rank">3</span>
-          <span><span class="mini-label">Iron deficiency anemia</span></span>
-          <span class="mini-score" style="color: var(--accent);">Consider</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-ddx-rank">4</span>
-          <span><span class="mini-label">Obstructive sleep apnea</span></span>
-          <span class="mini-score" style="color: var(--text-3);">Less likely</span>
-        </div>
-      </div>
-      <div class="marquee-card-footer">
-        <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: var(--palace-green-glow); color: var(--palace-green-dk);">Decision Support</span>
-      </div>
-    </a>
-
-    <!-- 4: ICD-10 Codes -->
-    <a href="/tools/coding-labs/" class="marquee-card">
-      <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: var(--accent-glow); color: var(--accent-dk);">&#127973;</div>
-        <div class="marquee-card-meta">
-          <div class="marquee-card-title">ICD-10 Code Results</div>
-          <div class="marquee-card-type">Diagnostic Codes</div>
-        </div>
-      </div>
-      <div class="marquee-card-body">
-        <div style="font-size: 0.68rem; color: var(--text-3); margin-bottom: 0.375rem;">&ldquo;acute systolic heart failure&rdquo;</div>
-        <div class="mini-row">
-          <span class="mini-code">I50.21</span>
-          <span class="mini-value">Acute systolic (congestive) heart failure</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-code">I50.23</span>
-          <span class="mini-value">Acute on chronic systolic HF</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-code">I50.41</span>
-          <span class="mini-value">Acute combined systolic &amp; diastolic HF</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-code">I50.9</span>
-          <span class="mini-value">Heart failure, unspecified</span>
-        </div>
-      </div>
-      <div class="marquee-card-footer">
-        <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: var(--accent-glow); color: var(--accent-dk);">Coding</span>
-      </div>
-    </a>
-
-    <!-- 5: Lab Reference Ranges -->
-    <a href="/tools/coding-labs/" class="marquee-card">
-      <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: var(--palace-green-glow); color: var(--palace-green);">&#129514;</div>
-        <div class="marquee-card-meta">
-          <div class="marquee-card-title">Lab Reference: TSH</div>
-          <div class="marquee-card-type">Reference Ranges</div>
-        </div>
-      </div>
-      <div class="marquee-card-body">
-        <div class="mini-row">
-          <span class="mini-label">Normal range</span>
-          <span class="mini-value" style="margin-left: auto;">0.4 &ndash; 4.0 mIU/L</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-label">Low (&lt; 0.4)</span>
-          <span class="mini-value" style="margin-left: auto; color: var(--accent);">Hyperthyroidism</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-label">High (&gt; 4.0)</span>
-          <span class="mini-value" style="margin-left: auto; color: var(--smoky-blue);">Hypothyroidism</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-label">Pregnancy T1</span>
-          <span class="mini-value" style="margin-left: auto;">0.1 &ndash; 2.5 mIU/L</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-label">LOINC</span>
-          <span class="mini-code" style="margin-left: auto;">3016-3</span>
-        </div>
-      </div>
-      <div class="marquee-card-footer">
-        <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: var(--palace-green-glow); color: var(--palace-green-dk);">Labs</span>
-      </div>
-    </a>
-
-    <!-- 6: CHA₂DS₂-VASc Calculator -->
-    <a href="/tools/coding-labs/" class="marquee-card">
-      <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: var(--accent-glow); color: var(--accent);">&#129518;</div>
-        <div class="marquee-card-meta">
-          <div class="marquee-card-title">CHA&#8322;DS&#8322;-VASc Score</div>
-          <div class="marquee-card-type">Medical Calculator</div>
-        </div>
-      </div>
-      <div class="marquee-card-body">
-        <div style="text-align: center; margin-bottom: 0.5rem;">
-          <span style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 500; color: var(--smoky-blue);">5</span>
-          <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-3); display: block; letter-spacing: 0.08em;">HIGH STROKE RISK</span>
-        </div>
-        <div class="mini-row"><span class="mini-label">Age &ge;75</span><span class="mini-score" style="color: var(--text);">+2</span></div>
-        <div class="mini-row"><span class="mini-label">Female sex</span><span class="mini-score" style="color: var(--text);">+1</span></div>
-        <div class="mini-row"><span class="mini-label">Hypertension</span><span class="mini-score" style="color: var(--text);">+1</span></div>
-        <div class="mini-row"><span class="mini-label">Diabetes</span><span class="mini-score" style="color: var(--text);">+1</span></div>
-      </div>
-      <div class="marquee-card-footer">
-        <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: var(--accent-glow); color: var(--accent-dk);">Calculator</span>
-      </div>
-    </a>
-
-    <!-- 7: PubMed Search -->
-    <a href="/tools/literature-research/" class="marquee-card">
-      <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: var(--palace-green-glow); color: var(--palace-green);">&#128218;</div>
-        <div class="marquee-card-meta">
-          <div class="marquee-card-title">PubMed: GLP-1 &amp; CV Outcomes</div>
-          <div class="marquee-card-type">Literature Search &middot; 8 results</div>
-        </div>
-      </div>
-      <div class="marquee-card-body">
-        <div class="mini-row" style="flex-direction: column; align-items: flex-start; gap: 0.125rem;">
-          <span class="mini-label">Marso SP et al. (2016)</span>
-          <span class="mini-value" style="font-size: 0.68rem;">Liraglutide and Cardiovascular Outcomes in Type 2 Diabetes. NEJM.</span>
-        </div>
-        <div class="mini-row" style="flex-direction: column; align-items: flex-start; gap: 0.125rem;">
-          <span class="mini-label">Husain M et al. (2019)</span>
-          <span class="mini-value" style="font-size: 0.68rem;">Oral Semaglutide and Cardiovascular Outcomes in T2D. NEJM.</span>
-        </div>
-        <div class="mini-row" style="flex-direction: column; align-items: flex-start; gap: 0.125rem;">
-          <span class="mini-label">Sattar N et al. (2021)</span>
-          <span class="mini-value" style="font-size: 0.68rem;">GLP-1 RAs and cardiovascular outcomes: a meta-analysis. Lancet D&E.</span>
-        </div>
-      </div>
-      <div class="marquee-card-footer">
-        <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: var(--palace-green-glow); color: var(--palace-green-dk);">Research</span>
-      </div>
-    </a>
-
-    <!-- 8: Clinical Note -->
-    <a href="/tools/patient-records/" class="marquee-card">
-      <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: var(--accent-glow); color: var(--accent);">&#128221;</div>
-        <div class="marquee-card-meta">
-          <div class="marquee-card-title">Discharge Summary</div>
-          <div class="marquee-card-type">Clinical Note</div>
-        </div>
-      </div>
-      <div class="marquee-card-body">
-        <div class="mini-row" style="flex-direction: column; align-items: flex-start; gap: 0.125rem;">
-          <span class="mini-label">Chief Complaint</span>
-          <span class="mini-value">Dyspnea, bilateral LE edema</span>
-        </div>
-        <div class="mini-row" style="flex-direction: column; align-items: flex-start; gap: 0.125rem;">
-          <span class="mini-label">Hospital Course</span>
-          <span class="mini-value">IV furosemide 40mg BID &times; 3d, net negative 4.2L</span>
-        </div>
-        <div class="mini-row" style="flex-direction: column; align-items: flex-start; gap: 0.125rem;">
-          <span class="mini-label">Discharge Meds</span>
-          <span class="mini-value">Furosemide 40mg PO daily, metoprolol 25mg BID</span>
-        </div>
-      </div>
-      <div class="marquee-card-footer">
-        <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: var(--accent-glow); color: var(--accent-dk);">Notes</span>
-      </div>
-    </a>
-
-    <!-- 9: Renal Dosing -->
-    <a href="/tools/medications/" class="marquee-card">
-      <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#129656;</div>
-        <div class="marquee-card-meta">
-          <div class="marquee-card-title">Renal Dose: Vancomycin</div>
-          <div class="marquee-card-type">Dose Adjustment</div>
-        </div>
-      </div>
-      <div class="marquee-card-body">
-        <div class="mini-row">
-          <span class="mini-label">CrCl (C-G)</span>
-          <span class="mini-value" style="margin-left: auto; font-weight: 600; color: var(--accent);">32 mL/min</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-label">CKD Stage</span>
-          <span class="mini-value" style="margin-left: auto;">Stage 3b</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-label">Standard dose</span>
-          <span class="mini-value" style="margin-left: auto;">1g q12h</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-label">Adjusted dose</span>
-          <span class="mini-value" style="margin-left: auto; font-weight: 600; color: var(--accent);">1g q24&ndash;48h</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-label">Monitor</span>
-          <span class="mini-value" style="margin-left: auto;">Trough before 4th dose</span>
-        </div>
-      </div>
-      <div class="marquee-card-footer">
-        <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: var(--smoky-blue-glow); color: var(--smoky-blue-dk);">Medications</span>
-      </div>
-    </a>
-
-    <!-- 10: IV Drip Calculator -->
-    <a href="/tools/medications/" class="marquee-card">
-      <div class="marquee-card-header">
-        <div class="marquee-card-icon" style="background: var(--palace-green-glow); color: var(--palace-green);">&#128167;</div>
-        <div class="marquee-card-meta">
-          <div class="marquee-card-title">Norepinephrine Drip</div>
-          <div class="marquee-card-type">IV Rate Calculator</div>
-        </div>
-      </div>
-      <div class="marquee-card-body">
-        <div style="text-align: center; margin-bottom: 0.5rem;">
-          <span style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 500; color: var(--accent);">6</span>
-          <span style="font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; color: var(--text-2);"> mL/hr</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-label">Dose ordered</span>
-          <span class="mini-value" style="margin-left: auto;">0.1 mcg/kg/min</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-label">Patient weight</span>
-          <span class="mini-value" style="margin-left: auto;">80 kg</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-label">Concentration</span>
-          <span class="mini-value" style="margin-left: auto;">8 mg / 250 mL</span>
-        </div>
-        <div class="mini-row">
-          <span class="mini-label">Titration</span>
-          <span class="mini-value" style="margin-left: auto;">0.02&ndash;0.3 mcg/kg/min</span>
-        </div>
-      </div>
-      <div class="marquee-card-footer">
-        <span class="marquee-card-cta">Learn how <span>&rarr;</span></span>
-        <span class="marquee-card-badge" style="background: var(--palace-green-glow); color: var(--palace-green-dk);">Calculator</span>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<!-- ============ MAIN CONTENT ============ -->
-<div class="home-sections">
-
-  <!-- Value Props -->
-  <section class="section reveal">
-    <span class="section-label">Why Clinicians Love It</span>
-    <h2 class="section-title">You ask. Lumen does the legwork.</h2>
-    <p class="section-desc">No menus to learn. No databases to search manually. Just type a question the way you'd ask a colleague.</p>
-
-    <div class="category-grid stagger-children" style="margin-top: 1.5rem;">
-      <div class="category-card" style="cursor: default;">
-        <div class="category-icon" style="background: var(--palace-green-glow); color: var(--palace-green);">&#9889;</div>
-        <div>
-          <h3>Seconds, not minutes</h3>
-          <p>Drug interactions, lab normals, ICD-10 codes &mdash; answers that used to take an UpToDate deep-dive now come back in seconds, with sources.</p>
-        </div>
-      </div>
-      <div class="category-card" style="cursor: default;">
-        <div class="category-icon" style="background: var(--accent-glow); color: var(--accent);">&#128218;</div>
-        <div>
-          <h3>Evidence you can trust</h3>
-          <p>Every answer shows where the information came from. Tap &ldquo;Sources&rdquo; to see the guidelines, studies, or databases Lumen used.</p>
-        </div>
-      </div>
-      <div class="category-card" style="cursor: default;">
-        <div class="category-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#128221;</div>
-        <div>
-          <h3>Less charting, more caring</h3>
-          <p>Ask Lumen to draft a SOAP note, prior auth letter, or discharge summary. Review it, tweak it, done.</p>
-        </div>
-      </div>
+      {{ end }}
     </div>
   </section>
 
-  <!-- Interactive Demo -->
-  <section class="section reveal">
-    <span class="section-label">See It In Action</span>
-    <h2 class="section-title">It&rsquo;s as simple as texting</h2>
-    <p class="section-desc">A physician mid-round wants to check a drug interaction before adjusting meds.</p>
-
-    <div class="chat-mockup chat-demo-animated" style="margin-top: 1.5rem;">
-      <div class="chat-mockup-header">
-        <div class="chat-mockup-avatar">&#10022;</div>
-        <div class="chat-mockup-title">New Chat</div>
-      </div>
-      <div class="chat-mockup-body">
-        <div class="chat-msg user">Can I add amiodarone to a patient already on warfarin?</div>
-        <div class="chat-msg assistant">
-          <div class="msg-avatar"><span>&#10022;</span></div>
-          <div class="msg-content">
-            <div class="mock-tool">
-              <div class="mock-tool-header">
-                <span class="mock-tool-status done"></span>
-                Checked drug interactions
-              </div>
-              <div class="mock-tool-detail">warfarin &times; amiodarone &middot; FDA database</div>
-            </div>
-            <p style="margin:0; font-size: 0.85rem; line-height: 1.65;">
-              <strong style="color: var(--accent);">&#9888; Major interaction.</strong> Amiodarone inhibits CYP2C9 and significantly raises warfarin levels. If adding amiodarone, <strong>reduce the warfarin dose by 30&ndash;50%</strong> and monitor INR closely within the first week.
-            </p>
-            <div class="mock-artifact chat-extra">
-              <div class="mock-artifact-icon" style="background: rgba(187,92,77,0.15); color: var(--accent);">&#9888;</div>
-              <div class="mock-artifact-info">
-                <div class="mock-artifact-title">Full Interaction Report</div>
-                <div class="mock-artifact-type">Tap to view details</div>
-              </div>
-              <div class="mock-artifact-chevron">&rsaquo;</div>
-            </div>
-            <div class="mock-sources chat-extra">&#128218; Sources (3)</div>
-          </div>
-        </div>
-      </div>
-      <div class="chat-mockup-input">
-        <div class="input-field">Message Lumen&hellip;</div>
-        <div class="send-btn">&#8593;</div>
+  <section class="home-section home-block">
+    <div class="home-block-head">
+      <div>
+        <h2 class="home-h2">Everything in Lumen</h2>
+        <p class="home-h2-sub">One workspace. Pick an area to see what it does and how to use it.</p>
       </div>
     </div>
-    <p style="text-align: center; font-size: 0.82rem; color: var(--text-3); margin-top: 0.75rem;">That entire exchange takes about 5 seconds.</p>
-  </section>
-
-  <!-- Real scenarios -->
-  <section class="section reveal">
-    <span class="section-label">Real Scenarios</span>
-    <h2 class="section-title">Things you can ask right now</h2>
-    <p class="section-desc">These are actual questions clinicians use Lumen for every day. Just type them in.</p>
-
-    <div class="category-grid stagger-children" style="margin-top: 1.5rem;">
-      <a href="/tools/medications/" class="category-card">
-        <div class="category-icon" style="background: var(--palace-green-glow); color: var(--palace-green);">&#128138;</div>
-        <div>
-          <h3>&ldquo;Is this med safe with their other drugs?&rdquo;</h3>
-          <p>Check drug interactions, get dosing for renal patients, or calculate IV drip rates.</p>
-        </div>
-      </a>
-      <a href="/tools/coding-labs/" class="category-card">
-        <div class="category-icon" style="background: var(--accent-glow); color: var(--accent);">&#127973;</div>
-        <div>
-          <h3>&ldquo;What&rsquo;s the ICD-10 code for this?&rdquo;</h3>
-          <p>Describe the diagnosis in plain English. Lumen finds the right code.</p>
-        </div>
-      </a>
-      <a href="/tools/protocols-decisions/" class="category-card">
-        <div class="category-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#129504;</div>
-        <div>
-          <h3>&ldquo;What am I missing in the differential?&rdquo;</h3>
-          <p>Describe symptoms and history. Lumen ranks the possibilities with evidence.</p>
-        </div>
-      </a>
-      <a href="/tools/literature-research/" class="category-card">
-        <div class="category-icon" style="background: var(--palace-green-glow); color: var(--palace-green-dk);">&#128218;</div>
-        <div>
-          <h3>&ldquo;What does the latest evidence say?&rdquo;</h3>
-          <p>Lumen searches PubMed, pulls studies, and summarizes findings.</p>
-        </div>
-      </a>
-      <a href="/tools/document-generation/" class="category-card">
-        <div class="category-icon" style="background: var(--accent-glow); color: var(--accent-dk);">&#128196;</div>
-        <div>
-          <h3>&ldquo;Draft my note / prior auth / slides&rdquo;</h3>
-          <p>Get a ready-to-edit draft in seconds.</p>
-        </div>
-      </a>
-      <a href="/tools/protocols-decisions/" class="category-card">
-        <div class="category-icon" style="background: var(--palace-green-glow); color: var(--palace-green);">&#9745;</div>
-        <div>
-          <h3>&ldquo;Give me the sepsis bundle checklist&rdquo;</h3>
-          <p>Interactive checklists you can check off as you go.</p>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- Specialists & Skills teaser -->
-  <section class="section reveal">
-    <span class="section-label">Go Deeper</span>
-    <h2 class="section-title">Two keystrokes unlock the expert modes.</h2>
-    <p class="section-desc">Type <strong>@</strong> to bring in a Specialist &mdash; a curated expert for a clinical domain that plans and runs the whole job. Type <strong>/</strong> for a Skill &mdash; a precise procedure for the exact document you need.</p>
-
-    <div class="category-grid stagger-children" style="margin-top: 1.5rem;">
-      <a href="/guides/prior-auth-in-minutes/" class="category-card">
-        <div class="category-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#128737;</div>
-        <div>
-          <h3>@Prior Authorization</h3>
-          <p>Codes verified, coverage checked, evidence gathered &mdash; a complete prior auth letter from one prompt.</p>
-        </div>
-      </a>
-      <a href="/skills-and-specialists/specialists/" class="category-card">
-        <div class="category-icon" style="background: var(--palace-green-glow); color: var(--palace-green-dk);">&#128300;</div>
-        <div>
-          <h3>@Clinical Research</h3>
-          <p>A cited literature review across PubMed, trials, and guidelines &mdash; ready for committee.</p>
-        </div>
-      </a>
-      <a href="/skills-and-specialists/skills/" class="category-card">
-        <div class="category-icon" style="background: var(--accent-glow); color: var(--accent);">&#128221;</div>
-        <div>
-          <h3>/discharge-summary &amp; 48 more</h3>
-          <p>SOAP notes, appeals, handoffs, patient handouts &mdash; every format, done to a professional standard.</p>
-        </div>
-      </a>
-    </div>
-
-    <div style="text-align: center; margin-top: 1.5rem;">
-      <a href="/skills-and-specialists/" class="btn btn-secondary">Meet all {{ site.Data.site.stats.specialists }} Specialists &amp; {{ site.Data.site.stats.skills }} Skills <span>&rarr;</span></a>
-    </div>
-  </section>
-
-  <!-- Learn teaser -->
-  <section class="section reveal">
-    <span class="section-label">New to AI? Start Here</span>
-    <h2 class="section-title">Understand the machine you&rsquo;re working with.</h2>
-    <p class="section-desc">Agents, tool use, citations &mdash; the ideas under Lumen, explained in clinical terms. No computer science required.</p>
-
-    <div class="category-grid stagger-children" style="margin-top: 1.5rem;">
-      {{ range site.Data.site.learn_teasers }}
-      <a href="{{ .href }}" class="category-card">
-        <div class="category-icon" style="background: var(--smoky-blue-glow); color: var(--smoky-blue);">&#128218;</div>
-        <div>
-          <h3>{{ .title }}</h3>
-          <p>{{ .text }}</p>
-        </div>
+    <div class="product-grid">
+      {{ range site.Data.site.areas }}
+      <a class="product-tile tint-{{ .tint | default "accent" }}" href="{{ .href }}">
+        <span class="pt-head">{{ partial "icon.html" .icon }}{{ .title }}{{ with .status }} <span class="badge status-badge status-{{ . }}" style="margin-left:auto">{{ partial "status-label.html" . }}</span>{{ end }}</span>
+        <p>{{ .text }}</p>
       </a>
       {{ end }}
     </div>
+  </section>
 
-    <div style="text-align: center; margin-top: 1.5rem;">
-      <a href="/learn/" class="btn btn-secondary">Browse the Learn curriculum <span>&rarr;</span></a>
+  <section class="home-section home-block">
+    <div class="home-block-head">
+      <div>
+        <h2 class="home-h2">Common tasks</h2>
+        <p class="home-h2-sub">Short, complete walkthroughs. Each takes a few minutes.</p>
+      </div>
+      <a href="/guides/">All guides {{ partial "icon.html" "arrow-right" }}</a>
+    </div>
+    <div class="task-list">
+      {{ range site.Data.site.tasks }}
+      <a href="{{ .href }}">{{ partial "icon.html" .icon }}<span><span style="display:block">{{ .title }}</span><span class="tl-sub">{{ .sub }}</span></span><span class="tl-go">{{ partial "icon.html" "arrow-right" }}</span></a>
+      {{ end }}
     </div>
   </section>
 
-  <!-- Workflows teaser -->
-  <section class="section reveal">
-    <span class="section-label">Build Your Own</span>
-    <h2 class="section-title">Need something custom? Build a Workflow.</h2>
-    <p class="section-desc">Connect tools visually to create your own automation — no coding needed. Run it on a schedule, share it with your team, or save it as a reusable blueprint.</p>
-
-    <div class="node-graph" style="margin-top: 1.5rem;">
-      <div class="node-graph-label">Example Workflow</div>
-      <div class="node-chain">
-        <div class="wf-node">
-          <div class="wf-node-header">
-            <div class="wf-node-icon" style="background: rgba(187,92,77,0.15); color: var(--accent);">&#128196;</div>
-            <span class="wf-node-name">Upload Report</span>
-          </div>
-          <div class="wf-node-body">Consult PDF</div>
-        </div>
-        <div class="wf-connector"></div>
-        <div class="wf-node">
-          <div class="wf-node-header">
-            <div class="wf-node-icon" style="background: rgba(82,122,86,0.15); color: var(--palace-green);">&#128196;</div>
-            <span class="wf-node-name">Extract Entities</span>
-          </div>
-          <div class="wf-node-body">Meds &amp; diagnoses</div>
-        </div>
-        <div class="wf-connector"></div>
-        <div class="wf-node">
-          <div class="wf-node-header">
-            <div class="wf-node-icon" style="background: rgba(187,92,77,0.15); color: var(--accent-dk);">&#127973;</div>
-            <span class="wf-node-name">ICD-10 Codes</span>
-          </div>
-          <div class="wf-node-body">Find billing codes</div>
-        </div>
-        <div class="wf-connector"></div>
-        <div class="wf-node">
-          <div class="wf-node-header">
-            <div class="wf-node-icon" style="background: rgba(82,122,86,0.15); color: var(--palace-green-dk);">&#9989;</div>
-            <span class="wf-node-name">CMS Coverage</span>
-          </div>
-          <div class="wf-node-body">Check Medicare</div>
-        </div>
-        <div class="wf-connector"></div>
-        <div class="wf-node">
-          <div class="wf-node-header">
-            <div class="wf-node-icon" style="background: rgba(61,110,144,0.15); color: var(--smoky-blue);">&#128221;</div>
-            <span class="wf-node-name">Draft Auth</span>
-          </div>
-          <div class="wf-node-body">Prior auth letter</div>
-        </div>
-      </div>
-    </div>
-
-    <div style="text-align: center; margin-top: 1.25rem;">
-      <a href="/workflows/" class="btn btn-secondary">Learn about Workflows <span>&rarr;</span></a>
+  <section class="home-section home-block">
+    <div class="trust-strip">
+      {{ range site.Data.site.trust }}
+      <div class="ts-item">{{ partial "icon.html" .icon }}<h4>{{ .title }}</h4><p>{{ .text }}</p></div>
+      {{ end }}
     </div>
   </section>
 
-  <!-- How it works -->
-  <section class="section reveal">
-    <span class="section-label">How It Works</span>
-    <h2 class="section-title">Three steps. That&rsquo;s it.</h2>
-
-    <div class="steps-container">
-      <div class="step">
-        <div class="step-indicator">1</div>
-        <div class="step-content">
-          <h4>Type your question</h4>
-          <p>Use plain English. Ask the same way you&rsquo;d text a colleague: <em>&ldquo;Can I give metoprolol if the patient&rsquo;s on verapamil?&rdquo;</em></p>
-        </div>
+  <section class="home-cta">
+    <div class="home-cta-inner">
+      <div>
+        <h2>Try your first question in under a minute</h2>
+        <p>Sign in free, ask a real clinical question, and check every source Lumen used.</p>
       </div>
-      <div class="step">
-        <div class="step-indicator">2</div>
-        <div class="step-content">
-          <h4>Lumen finds the answer</h4>
-          <p>Behind the scenes, Lumen searches clinical databases, checks guidelines, and runs the right tools automatically.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-indicator">3</div>
-        <div class="step-content">
-          <h4>You get a clear, sourced answer</h4>
-          <p>Read the response, check the sources if you want, and tap any reports or checklists. That&rsquo;s it &mdash; back to your patient.</p>
-        </div>
+      <div class="cta-actions">
+        <a class="btn btn-secondary" href="/getting-started/">Read the 5-minute tour</a>
+        <a class="btn btn-primary" href="{{ site.Params.appURL }}" rel="noopener">Open Lumen {{ partial "icon.html" "arrow-up-right" }}</a>
       </div>
     </div>
   </section>
-
-  <!-- CTA -->
-  <section class="section reveal" style="text-align: center; padding-bottom: 2rem;">
-    <h2 class="section-title">Ready to try it?</h2>
-    <p class="section-desc" style="margin: 0.5rem auto 1.5rem;">Open the app and type your first question. Or explore the guides below.</p>
-    <div class="hero-actions" style="animation: none;">
-      <a href="/getting-started/first-chat/" class="btn btn-primary">Your First Chat <span>&rarr;</span></a>
-      <a href="/chat/" class="btn btn-secondary">How the Chat Works</a>
-    </div>
-  </section>
-
 </div>
-
-<footer class="site-footer" style="margin-left: 0;">
-  <nav class="footer-mesh" aria-label="Intracav sites">
-    <a href="https://intracav.ai">Intracav &mdash; clinical AI infrastructure</a>
-    <span aria-hidden="true">&middot;</span>
-    <a href="https://lumen.intracav.ai">Lumen</a>
-    <span aria-hidden="true">&middot;</span>
-    <a href="https://clinical-database.com">The Clinical Database &mdash; open clinical reference</a>
-    <span aria-hidden="true">&middot;</span>
-    <a href="https://magicaf.intracav.ai">MagicAF &mdash; open-source Rust AI framework</a>
-    <span aria-hidden="true">&middot;</span>
-    <a href="https://qpolicy.ai">qPolicy</a>
-  </nav>
-  <p>&copy; {{ now.Year }} Intracav &middot; Lumen Docs &middot; <a href="/trust/">Trust &amp; Security</a> &middot; <a href="/plans/">Plans</a></p>
-</footer>
 {{ end }}

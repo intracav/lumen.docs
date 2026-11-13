@@ -1,2 +1,2 @@
 {{- $tier := .Get 0 | lower -}}
-<a class="tier-badge tier-{{ $tier }}" href="/plans/" title="Included in the {{ $tier | title }} plan — see all plans">{{ $tier | title }}</a>
+<a class="badge tier-badge tier-{{ $tier }}" href="/plans/" title="Available on the {{ title $tier }} plan — compare plans"><span class="dot"></span>{{ title $tier }}</a>

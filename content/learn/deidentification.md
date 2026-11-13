@@ -1,88 +1,97 @@
 ---
-title: "De-Identification: How AI Strips PHI Safely"
-description: "AI PHI de-identification explained: what the 18 HIPAA identifiers are, pseudonyms vs. redaction, and how you stay in control of re-identification."
+title: "De-identification: removing patient identifiers"
+navTitle: "De-identification"
+description: "What de-identification is, why consistent pseudonyms beat black bars, and exactly where Lumen de-identifies text automatically and where it doesn't."
+lead: "At M&M you present the case, never the patient. De-identification does the same for text: the clinical story stays, the identity comes out."
 weight: 10
+icon: lock
 keywords: ["AI PHI de-identification", "HIPAA safe harbor de-identification", "remove PHI from clinical notes", "pseudonymization vs redaction"]
+glance:
+  what: "De-identification removes the details that point to a specific person, such as names, record numbers and dates, while keeping the clinical content."
+  who: "Clinicians, researchers, educators and privacy or compliance leads."
+  why: "So a case can be taught from, studied or asked about without carrying the patient's identity with it."
+  needs: "Nothing to read this page. Automatic de-identification applies in Lumen Research and the website assistant. The de-identify tool in chat needs a paid plan."
+  result: "A clear view of what de-identification does, where Lumen applies it and what you still check."
 ---
 
-Think about presenting a case at M&amp;M. You walk the room through everything that matters — the presentation, the labs, the decision points, the miss. What you never bring is the patient: no name, no MRN, no date of birth. The case teaches; the identifiers don't travel. Nobody in the room needs to know *who* it was to learn *what happened*.
+When you present a case at M&M, you walk the room through everything that matters: the presentation, the labs, the decisions, the miss. You never bring the patient's name, MRN or date of birth. The case teaches; the identifiers don't travel. **De-identification** is that discipline applied to text. It removes the details that point to a specific person and keeps the clinical story.
 
-**De-identification** is that same discipline applied to text. It removes the details that point to a specific person while preserving the clinical story — so a note, a case summary, or a question about a real patient can be shared, taught from, or asked about without carrying the patient along with it.
+## What de-identification means
 
-## What de-identification actually means
+A clinical note is two documents braided together. One is the medicine: the presentation, the creatinine trend, the antibiotic choice. The other is the identity: the name in the header, the MRN, the dates, the phone number, the small-town detail that turns "a patient" into *the* patient. De-identification separates them. Under HIPAA, health information that has been properly de-identified is no longer protected health information (PHI), which is why the standard for doing it properly is strict.
 
-A clinical note is two documents braided together. One is the medicine: the presentation, the trend in the creatinine, the antibiotic choice, the outcome. The other is the identity: the name in the header, the MRN, the dates, the phone number in the discharge instructions, the small-town detail that narrows "a patient" to *the* patient.
+HIPAA's *Safe Harbor* method lists 18 kinds of identifiers that must be removed. They fall into a few families:
 
-De-identification separates the braid. The medicine stays; the identity comes out. Under HIPAA, health information that has been properly de-identified is no longer protected health information at all — which is exactly why the standard for doing it properly is strict.
+- **Who:** names, record numbers, account and insurance numbers, device serial numbers, photos of the face, biometrics.
+- **Where:** addresses and any place smaller than a state, with narrow exceptions.
+- **When:** dates tied to the person, such as birth, admission and discharge, and any age over 89.
+- **How to reach them:** phone and fax numbers, email, web and IP addresses.
+- **Anything else unique:** any other number, characteristic or code that could identify the person.
 
-## The 18 identifiers, in plain terms
+The last one is the one people miss. "The only pediatric heart-transplant recipient in the county" has no name or date, and identifies the patient perfectly. De-identification is a judgment about whether someone could be re-identified, not a spell-check for names.
 
-HIPAA's **Safe Harbor** method names eighteen categories of identifiers that must be removed for text to count as de-identified. You don't need to memorize the list; it clusters into a few families you already recognize:
+## How it works: pseudonyms, not black bars
 
-- **Who they are** — names, and anything that works like a name: medical record numbers, account numbers, insurance IDs, device serial numbers, biometric identifiers, full-face photos.
-- **Where they are** — addresses and geographic detail smaller than a state (with narrow exceptions for partial ZIP codes).
-- **When things happened** — dates tied to the person: birth dates, admission and discharge dates, and any age over 89.
-- **How to reach them** — phone and fax numbers, email addresses, URLs, IP addresses, social media handles.
-- **Everything else that singles them out** — the catch-all category: any other unique number, characteristic, or code that could identify the individual.
+{{< flow >}}
+{{< flow-node kicker="Detect" title="Find identifiers" icon="search" tint="blue" >}}Names, numbers, dates, contacts.{{< /flow-node >}}
+{{< flow-node kicker="Replace" title="Consistent pseudonyms" icon="refresh" tint="plum" >}}"Maria Delgado" becomes [Patient A] everywhere.{{< /flow-node >}}
+{{< flow-node kicker="Keep a key" title="Private mapping" icon="key" tint="accent" >}}Held for that session only.{{< /flow-node >}}
+{{< flow-node kicker="You review" title="Check the result" icon="eye" tint="green" >}}Especially rare, telling details.{{< /flow-node >}}
+{{< /flow >}}
 
-The last category is the one clinicians underestimate. "The only pediatric heart-transplant recipient in the county" contains no name, no date, and no MRN — and identifies the patient perfectly. De-identification is a judgment about *re-identifiability*, not a spell-check for names.
+**Redaction** blacks things out. It's safe but destructive: if every date is a black bar, you can't see that the fever started two days after the line went in. **Pseudonymization** replaces instead: "Maria Delgado" becomes [Patient A] and "02/03/2026" becomes [Date-1], the same way every time. The story keeps its cast and its timeline; you can't tell who [Patient A] is.
 
-## Pseudonyms, not black bars
+## How Lumen does it
 
-There are two ways to remove an identifier, and the difference matters more than it looks.
+Lumen de-identifies in two different ways. Be clear about which applies where.
 
-**Redaction** blacks it out: "John Smith" becomes ██████. Safe, but destructive — a heavily redacted note reads like a crossword puzzle, and the clinical timeline dissolves. If every date is a black bar, you can no longer see that the fever started *two days after* the line was placed. The identifiers were hiding structure, and redaction takes the structure with them.
+**Automatic, before text goes to the AI model, in two places only:**
 
-**Pseudonymization** replaces instead of erasing: "John Smith" becomes [Patient A], "01/20/2026" becomes [Date-2] — and, critically, the substitution is **consistent**. Every mention of John Smith becomes [Patient A], everywhere in the text. The story keeps its cast and its clock. You can still follow who did what, and in what order; you just can't tell who [Patient A] is.
+- **Lumen Research**, the statistics workspace, where your data stays on your device and what goes to the model about your analysis is de-identified first. See [Research](/research/).
+- **The website assistant**, the assistant device makers embed on their own websites, where visitors' messages are de-identified before they reach the model. See [Website assistant](/connect/website-assistant/).
 
-Lumen uses consistent pseudonyms. Ask it to de-identify a note and the result is still a readable clinical narrative — the same case, told about nobody in particular.
+Outside those two places, including everyday chat and Specialists, don't rely on automatic de-identification. Treat what you type as going to the model as written, and follow your organization's rules on patient information.
 
-{{< chat-demo title="De-identify a note" >}}
-{{< user >}}De-identify this before I send it to the journal club: "Maria Delgado, MRN 4471902, 71F admitted 02/03/2026 with fever 5 days after PICC placement. Blood cultures grew S. epidermidis. Line removed 02/05; defervesced within 48h."{{< /user >}}
-{{< lumen >}}Here's the de-identified version:
+**On request, in chat (paid plans):** you can ask Lumen to de-identify a piece of text with its de-identify tool. It replaces identifiers with consistent pseudonyms and keeps a private mapping for that session. In the same session you can ask to see the mapping, restore the original values, or destroy the mapping when you're done. Mappings also expire on their own. See [Privacy tools](/tools/privacy/).
 
-"[Patient A], MRN [ID-1], 71F admitted [Date-1] with fever 5 days after PICC placement. Blood cultures grew S. epidermidis. Line removed [Date-2]; defervesced within 48h."
+{{< chat-demo title="De-identify before sharing" caption="Illustration with a fictional patient. Review the output yourself before sharing it." >}}
+{{< user >}}De-identify this for journal club: "Maria Delgado, MRN 4471902, 71F admitted 02/03/2026 with fever 5 days after PICC placement. Blood cultures grew S. epidermidis. Line removed 02/05; afebrile within 48h."{{< /user >}}
+{{< lumen tools="De-identify text" >}}
+"[Patient A], MRN [ID-1], 71F admitted [Date-1] with fever 5 days after PICC placement. Blood cultures grew S. epidermidis. Line removed [Date-2]; afebrile within 48h."
 
-The clinical timeline is intact — the interval between admission and line removal still reads correctly. I've kept a session mapping, so I can restore the original values later if you ask, or destroy the mapping when you're done.{{< /lumen >}}
+The timeline still reads correctly. I've kept a private mapping for this session; ask me to show it, restore the original, or destroy it. Review the text for any rare detail that could still identify the patient before you share it.
+{{< /lumen >}}
 {{< /chat-demo >}}
 
-## Re-identification stays under your control
+## What this means for you
 
-Pseudonyms would be a liability if the mapping between [Patient A] and the real patient floated around uncontrolled. So Lumen treats the mapping like a locked key ring for one conversation:
+- **Use it for sharing and teaching.** Case write-ups, journal club, M&M slides and board-style questions built from real cases.
+- **Remove identifiers yourself before pasting them into chat** unless your organization permits otherwise. Don't rely on chat to de-identify for you.
+- **Do the final review.** The tool sweeps the obvious identifiers; you judge the rare, telling detail.
 
-- **The mapping lives in a session.** When Lumen de-identifies text, it records each original value, its pseudonym, and its category — privately, for that session only.
-- **You can reverse it — in the same session.** Ask Lumen to re-identify the text and the original values come back. This is what makes the workflow practical: strip identifiers to work on the shareable version, restore them when the text goes back into a chart-adjacent context that legitimately needs them.
-- **You can inspect it.** Ask to see the session mapping and you get the full ledger — every substitution Lumen made, so your review is a check against a list, not a hunt.
-- **You can destroy it.** Mappings expire automatically, and you can destroy the session on demand the moment you're finished. After that, [Patient A] maps to no one.
+## Limits and safety
 
-The direction of control is the point: the AI removes identifiers eagerly and restores them only when you ask, only where the mapping still exists.
+- **Automated detection misses things.** It's good at names, numbers and dates. Unusual details, free-text descriptions and context can still identify someone.
+- **Pictures can't be de-identified as text.** Scans and photos may show names or faces.
+- **De-identified doesn't mean anonymous forever.** Combined with other data, a case can sometimes be re-identified. Share the minimum needed.
+- **Your organization's rules come first.** Many organizations set stricter requirements for AI tools than Safe Harbor.
 
-## When to reach for it
-
-- **Sharing** — sending a note to a colleague, a research team, or a committee that needs the case, not the patient.
-- **Teaching** — case write-ups, journal club, M&amp;M slides, board-review questions built from real presentations.
-- **Asking about a real case** — when you want Lumen's help thinking through an actual patient, de-identify first. The clinical reasoning is unchanged; the question simply stops carrying PHI it never needed.
-
-One honest caveat, because it is the same caveat that applies to every automated safeguard: **review the output**. Automated de-identification is very good at the identifiers that look like identifiers — names, dates, numbers. The eighteenth category, the "only one in the county" detail, is a judgment call, and the judgment is yours. The tool does the sweep; you do the sign-off. That division of labor is exactly how you'd run it with a human assistant, too.
-
-{{< callout type="success" >}}
-**See it in Lumen:** the de-identify, re-identify, and session-mapping tools live in [Privacy &amp; Safety](/tools/privacy/) — or watch it earn its keep in a real workflow: [building grand rounds slides from a case](/guides/grand-rounds-slides/).
+{{< callout type="important" title="Where automatic de-identification applies" >}}
+Lumen's automatic de-identification before model calls is a safeguard **only in Lumen Research and the website assistant**. In other parts of Lumen, use the de-identify tool or remove identifiers yourself, and don't enter patient information you're not permitted to share.
 {{< /callout >}}
 
-## Frequently asked questions
+## FAQ
 
-{{< faq question="Does de-identified text still count as PHI?" >}}
-Properly de-identified health information is no longer PHI under HIPAA — that's the entire legal purpose of the exercise. The operative word is *properly*: all eighteen Safe Harbor identifier categories removed, including the catch-all "anything else that could identify the individual." Treat Lumen's de-identification as a strong first pass that you verify, and check your institution's own policies — many set additional requirements for AI-assisted handling of patient data.
+{{< faq question="Is de-identified text still PHI?" >}}
+Properly de-identified information isn't PHI under HIPAA. "Properly" means all 18 Safe Harbor categories are removed, including the catch-all for anything else that could identify the person. Treat Lumen's output as a strong first pass that you check.
+{{< /faq >}}
+{{< faq question="Does Lumen de-identify everything I type?" >}}
+Don't count on it. Automatic de-identification is a documented safeguard only in Lumen Research and the website assistant. In chat, you can ask for it with the de-identify tool on paid plans, or remove identifiers yourself.
+{{< /faq >}}
+{{< faq question="Can someone reverse the pseudonyms?" >}}
+Not from the text alone. The mapping is held privately in your session, expires on its own and can be destroyed on request. The bigger risks are rare details that identify someone and sharing the original text by mistake.
 {{< /faq >}}
 
-{{< faq question="Why pseudonyms instead of just deleting the identifiers?" >}}
-Because the identifiers carry structure the clinical story needs. Consistent pseudonyms preserve who's who and what happened when — [Patient A] stays [Patient A] in every paragraph, and [Date-1] and [Date-2] keep their order — so the de-identified note remains a coherent narrative instead of a redaction puzzle. It's also what makes controlled re-identification possible in the same session.
-{{< /faq >}}
+## Next steps
 
-{{< faq question="Can someone else re-identify text that Lumen de-identified?" >}}
-Not without the session mapping, and the mapping isn't part of the text — it's held privately in your session, expires automatically, and can be destroyed on demand. Someone holding only the de-identified note holds pseudonyms with nothing to resolve them against. The practical risks to watch are the ones upstream of the tool: rare-detail re-identifiability, and sharing the *original* text by mistake. Review before you share.
-{{< /faq >}}
-
----
-
-Next up: the identifiers are out of the text — now make sure the *facts* in the answer are real. [Hallucinations, and how grounding catches them](/learn/hallucinations-and-grounding/).
+{{< related "/tools/privacy/" "/trust/privacy/" "/research/" "/connect/website-assistant/" >}}

@@ -1,89 +1,98 @@
 ---
-title: "How AI Memory Works (and What Lumen Remembers)"
-description: "Does AI remember your conversations? Context windows vs persistent memory, what Lumen saves and never saves, and the controls that keep you in charge."
+title: "How AI memory works, and what Lumen keeps"
+navTitle: "AI memory"
+description: "Does AI remember your conversations? The difference between a chat's working memory and saved memory, what Lumen keeps, and the controls you have."
+lead: "A good colleague remembers how you like to work, not your patients' charts. That's the line Lumen's memory is built to hold."
 weight: 7
+icon: history
 keywords: ["does AI remember my conversations", "AI memory explained", "context window", "AI persistent memory"]
+glance:
+  what: "AI memory is what an assistant carries from one conversation to the next. In Lumen, that's a short list of facts about you, optional team facts, and notes you choose to add."
+  who: "Anyone using Lumen, and privacy or compliance leads who want to know what's stored."
+  why: "So answers fit your role and preferences without repeating yourself, while you stay in control of what's kept."
+  needs: "A Lumen account. Memory is managed in Settings › Memory."
+  result: "You'll know what Lumen remembers, what it's built not to keep, and how to change or clear it."
 ---
 
-Think of the colleague who's worked alongside you for years. She knows you round at 6 a.m., that you want handoffs in bullet points, that you're the vascular access person on the unit. What she *doesn't* carry around is your patients' charts — those live in the record, pulled up fresh each time. That split — knowing *you* without hoarding *the case* — is exactly how memory should work in a clinical AI, and it's how Lumen is built.
-
-"Does the AI remember my conversations?" is really two questions, because there are two very different kinds of remembering. Untangling them tells you precisely what Lumen keeps, what it deliberately lets go, and where the off switch is.
+Think of the colleague who's worked beside you for years. She knows you round at 6 a.m., that you want handoffs in bullet points, that you're the vascular access lead on the unit. She doesn't carry your patients' charts around in her head; those live in the record. Knowing *you* without hoarding *the case* is how memory should work in a clinical AI, and it's how Lumen's memory is designed.
 
 ## Two kinds of remembering
 
-The first kind is the **context window** — the working memory of the *current* conversation. Everything in the active chat (your messages, Lumen's answers, attached documents) sits in the context window, which is why you can say "now rewrite that for the patient" and Lumen knows what *that* means. Like your own working memory during a case discussion, it's complete but temporary: it belongs to this conversation.
+"Does AI remember my conversations?" is really two questions.
 
-The second kind is **persistent memory** — a small set of durable facts that carry across conversations. This is the colleague-who-knows-you layer: your role, your setting, your preferences. It's deliberately sparse, the way a good colleague retains the useful constants about you and not a transcript of every hallway exchange.
+- **Working memory, inside one chat.** Everything in the current conversation (your messages, Lumen's answers, attached files) is in view while you talk. This is called the *context window*. It's why "now rewrite that for a patient" works. It belongs to that one conversation.
+- **Saved memory, across chats.** A short list of lasting facts that carries into new conversations: your role, your setting, how you like answers. It's deliberately small.
 
-<div class="compare-grid">
-  <div class="compare-card tint-blue" style="border-top-color: var(--smoky-blue);">
-    <h3>&#128173; Context window</h3>
-    <div class="compare-subtitle">Working memory — this conversation</div>
-    <ul class="compare-list">
-      <li><span class="compare-check" style="color: var(--smoky-blue);">&#10003;</span> Holds everything in the current chat</li>
-      <li><span class="compare-check" style="color: var(--smoky-blue);">&#10003;</span> Includes attached documents</li>
-      <li><span class="compare-check" style="color: var(--smoky-blue);">&#10003;</span> Why follow-up questions work</li>
-      <li><span class="compare-check" style="color: var(--smoky-blue);">&#10003;</span> Scoped to one conversation</li>
-    </ul>
-  </div>
-  <div class="compare-card tint-accent" style="border-top-color: var(--accent);">
-    <h3>&#128218; Persistent memory</h3>
-    <div class="compare-subtitle">Durable — across conversations</div>
-    <ul class="compare-list">
-      <li><span class="compare-check" style="color: var(--accent);">&#10003;</span> A short list of facts about you</li>
-      <li><span class="compare-check" style="color: var(--accent);">&#10003;</span> Your role, setting, preferences</li>
-      <li><span class="compare-check" style="color: var(--accent);">&#10003;</span> Deliberately conservative</li>
-      <li><span class="compare-check" style="color: var(--accent);">&#10003;</span> Fully visible and editable by you</li>
-    </ul>
-  </div>
-</div>
+Your chat history is a third thing. Old conversations stay in your chat list for you to reopen, but they don't leak into new ones.
 
-## What Lumen saves
+## How it works
 
-Lumen's persistent memory captures **high-confidence facts you assert about yourself and your practice**. Tell it *"I'm a vascular access nurse in a pediatric hospital"* or *"always give me doses per kilogram"* and that's worth keeping — it makes every future answer land closer to your reality without you re-explaining yourself.
+{{< flow >}}
+{{< flow-node kicker="You chat" title="Mention a lasting fact" icon="message" tint="blue" >}}"I'm a vascular access nurse; give doses per kg."{{< /flow-node >}}
+{{< flow-node kicker="Lumen saves" title="A short fact about you" icon="brain" tint="plum" >}}You see a **Memory updated** chip.{{< /flow-node >}}
+{{< flow-node kicker="Later chats" title="Recall what's relevant" icon="search" tint="accent" >}}Only the facts that fit the question.{{< /flow-node >}}
+{{< flow-node kicker="You control" title="Review, edit or clear" icon="sliders" tint="green" >}}In Settings › Memory.{{< /flow-node >}}
+{{< /flow >}}
 
-The bar is deliberately high. Lumen isn't transcribing your conversations into a dossier; a curation step reviews each exchange and keeps only clear, durable, first-person facts — the kind you'd want a new colleague to know by week two. Say **"remember that…"** and the fact is saved immediately; otherwise, passing details simply don't make the cut. When something is saved, you'll see a memory-updated indicator in the chat, so nothing is written behind your back.
+## How Lumen does it
 
-## What Lumen deliberately does not save
+Lumen's memory lives in {{< ui-path "Settings" "Memory" >}} and has three parts:
 
-Just as important is the negative space:
+- **About you.** Facts about you and how you work, "recalled in every chat in this workspace". Lumen adds facts as you chat and when you say "remember that…". You can also use **Add memory**, edit any fact, or delete it. When Lumen isn't sure it learned something correctly, it asks under **Did Lumen get these right?**, where you keep it or mark it **Not right**.
+- **Team memory.** In an organization account (called a *team* in Lumen), admins can add facts that every member's chats know, such as "our formulary uses enoxaparin for VTE prophylaxis". Members can **Suggest to team**; an admin reviews the suggestion first.
+- **Notes.** Longer material you choose to drop in, such as your own reference notes. Lumen can find these and cite them as sources. See [Second brain](/knowledge/second-brain/).
 
-- **Not your patients.** Clinical details from your questions — the 68-year-old with the GI bleed, the lab values you pasted — stay in that conversation's context window. They are not promoted into persistent memory.
-- **Not speculation.** Lumen doesn't save its own inferences about you, only things you actually stated.
-- **Not the transcript.** Your chat history is yours to revisit in the chat list, but history is not memory — old conversations don't silently leak into new ones.
+When Lumen saves or changes a fact during a chat, a **Memory updated** chip appears in the conversation, so nothing is saved behind your back.
 
-The colleague analogy holds: she remembers that you prefer bullet points; she doesn't recite last Tuesday's census from memory. The chart stays in the chart.
+Memory is kept **per workspace**. Your personal workspace and each team workspace have separate lists, the way you'd keep your context straight at two hospitals where you hold privileges.
 
-## Separate clinics, separate memories
+{{< chat-demo title="Setting a preference" caption="Illustration. Saved facts are about you, never about patients." >}}
+{{< user >}}Remember that I'm a pediatric ICU nurse practitioner and I want doses in mg/kg.{{< /user >}}
+{{< lumen memory="true" >}}
+Saved. I'll give pediatric ICU context and weight-based doses in mg/kg from now on. You can change or remove this in Settings › Memory.
+{{< /lumen >}}
+{{< /chat-demo >}}
 
-If you belong to an organization in Lumen, memory is **partitioned by workspace**. What Lumen learns about you in your Personal workspace stays there; each organization workspace keeps its own separate list — like holding privileges at two hospitals and keeping your context straight at each. And memories are always *yours alone*: they are never shared with colleagues or pooled across your organization.
+## What Lumen is built not to keep
 
-## You hold the controls
+- **Patients.** Lumen is instructed not to save information about a patient or a clinical case. Details you paste into a question stay in that conversation.
+- **Guesses.** It saves things you stated, not its own inferences about you, and it asks when it's unsure.
+- **Your transcript.** History isn't memory. A new chat starts fresh apart from your saved facts.
 
-Memory in Lumen is inspectable and reversible, not a black box:
+Every write to memory is recorded in Lumen's tamper-evident audit log.
 
-- **Ask in plain language.** *"Remember that I work nights"* saves a fact. *"Forget what I told you about my schedule"* removes it. *"What do you remember about me?"* lists everything.
-- **Review the list.** Your saved memories appear in Settings as a plain, readable list — no hidden entries — where you can delete any item.
-- **Turn it off.** Prefer every conversation to start cold? Disable memory entirely and Lumen keeps nothing between chats.
+## What this means for you
 
-{{< callout type="success" >}}
-**See it in Lumen:** The [Memory](/chat/memory/) page shows saving, listing, and forgetting in action — and [Privacy](/trust/privacy/) covers how memory fits Lumen's broader safeguards, including encryption and audit logging.
+- **Say it once.** Tell Lumen your role and preferences, and later answers fit you better.
+- **Check the list now and then.** Open {{< ui-path "Settings" "Memory" >}} to see exactly what's kept. There are no hidden entries.
+- **Turn it off if you prefer.** With memory off, "chats recall nothing and Lumen learns nothing new". What was already saved stays in the list until you delete it.
+- **Clear a workspace.** **Clear all** permanently deletes every fact in the current workspace. Other workspaces, your team's facts and your notes are not affected.
+
+## Limits and safety
+
+- **Filtering patient details is not perfect.** Lumen is built to skip patient information, but it's an AI judgment. Review your list, and don't paste identified patient information you're not permitted to share.
+- **Team memory is shared.** Anything in team memory shapes every member's answers. Treat it like a shared protocol and keep it accurate.
+- **Memory can be wrong or stale.** If you change roles or units, update or delete the old fact.
+
+{{< callout type="safety" title="Memory shapes answers, so keep it accurate" >}}
+A wrong saved fact, such as an outdated unit or role, can steer later answers. Review {{< ui-path "Settings" "Memory" >}} after changes in your work, and always check the sources in an answer before acting.
 {{< /callout >}}
 
-## Frequently asked questions
+## FAQ
 
 {{< faq question="Does Lumen remember what I asked yesterday?" >}}
-Not automatically. Yesterday's conversation lives in your chat history — reopen it and its full context is right there — but a *new* chat starts fresh, carrying over only your short list of persistent memories (your role, preferences, and other facts you've asserted). If something from yesterday should follow you everywhere, tell Lumen to remember it explicitly.
+Yesterday's conversation is in your chat history; reopen it and its context is all there. A new chat starts fresh, carrying only your saved facts.
+{{< /faq >}}
+{{< faq question="Will patient details I paste end up in memory?" >}}
+Lumen is instructed not to save information about patients or clinical cases, and asks when it's unsure about a fact. Check {{< ui-path "Settings" "Memory" >}} if you want to confirm.
+{{< /faq >}}
+{{< faq question="How do I make Lumen forget something?" >}}
+Say "forget that…" in a chat, or open {{< ui-path "Settings" "Memory" >}} and delete the fact. Deleting can't be undone.
+{{< /faq >}}
+{{< faq question="Who can see team memory?" >}}
+Team memory is meant to be shared: every member's chats in that team use it. Team admins manage it. Your personal facts under **About you** are separate.
 {{< /faq >}}
 
-{{< faq question="Will patient details I paste into a chat end up in Lumen's memory?" >}}
-No. Persistent memory only captures high-confidence facts about *you and your practice* — clinical details about patients stay in that conversation and are not promoted into memory. As good hygiene, de-identify text before pasting it anywhere; Lumen's [de-identification tool](/tools/privacy/) can strip names and record numbers for you.
-{{< /faq >}}
+## Next steps
 
-{{< faq question="Can my organization's admins see my memories?" >}}
-No. Memories are private to your account. Workspace partitioning means an organization workspace keeps its own memory list separate from your Personal one — but in every workspace, the list belongs to you alone and is never shared with or visible to anyone else.
-{{< /faq >}}
-
----
-
-Now that you know what Lumen remembers, make what you *say* to it count — [the prompting guide for clinicians](/learn/prompting-for-clinicians/) is next.
+{{< related "/chat/memory/" "/knowledge/second-brain/" "/trust/privacy/" "/learn/prompting-for-clinicians/" >}}
