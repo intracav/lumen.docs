@@ -27,7 +27,7 @@ A **partner Knowledge Pack** puts your instructions for use (IFUs), service manu
 ## How to integrate
 
 {{< steps >}}
-{{< step title="Exchange keys" >}}Send Intracav your ed25519 public key and the token for your catalog endpoint. Agree the secret for signing retraction requests.{{< /step >}}
+{{< step title="Exchange keys" >}}Send Intracav your ed25519 public key and the token for your catalog endpoint. Intracav issues you a **retraction secret**, a private key used only to sign urgent retraction requests. Store it securely and never publish it. Ask Intracav to rotate it at any time; the old secret stops working when the new one is issued.{{< /step >}}
 {{< step title="Build the catalog endpoint" >}}Serve a signed envelope listing your documents, as described below.{{< /step >}}
 {{< step title="Test in staging" >}}Intracav points Lumen at your staging catalog and runs the full round trip: fetch, verify, compare, ingest, a citation in a test chat, and a retraction.{{< /step >}}
 {{< step title="Go live" >}}Intracav switches to your production catalog and activates the pack. Organizations can then be granted access.{{< /step >}}
@@ -136,7 +136,7 @@ Content-Type: application/json
 }
 ```
 
-Lumen checks the HMAC, then rejects requests whose `issued_at` is more than 5 minutes off. It then removes the documents from search, records the full request in the audit log, and notifies signed-in users in organizations that have your pack. Retractions are idempotent, so sending the same ID twice is safe.
+Lumen checks the HMAC against the retraction secret Intracav issued you, then rejects requests whose `issued_at` is more than 5 minutes off. It then removes the documents from search, records the full request in the audit log, and notifies signed-in users in organizations that have your pack. Retractions are idempotent, so sending the same ID twice is safe.
 
 ## Tools and skills (optional)
 
